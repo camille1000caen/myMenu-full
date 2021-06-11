@@ -3,6 +3,7 @@ package sopra.myMenubackEnd.model;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -19,6 +20,7 @@ import org.springframework.data.annotation.Version;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import com.fasterxml.jackson.annotation.JsonView;
+
 @Entity
 @Table(name = "utilisateur")
 public class Utilisateur {
@@ -26,9 +28,22 @@ public class Utilisateur {
 	@GeneratedValue
 	@JsonView(Views.ViewCommon.class)
 	private Long id;
+	
 	@Version
-	@JsonView(Views.ViewCommon.class)
+	@JsonView(Views.ViewCommon.class)	
 	private int version;
+	@Column(name = "Username")
+	@JsonView(Views.ViewCommon.class)
+	private String username;
+	@Column(name = "Password")
+	@JsonView(Views.ViewCommon.class)
+	private String password;
+	@Column(name = "Enable")
+	@JsonView(Views.ViewCommon.class)
+	private boolean enable;
+	@OneToMany(mappedBy = "user")
+	private Set<UtilisateurRole> roles;
+	
 	@Column(name = "Nom")
 	@JsonView(Views.ViewCommon.class)
 	private String nom;
@@ -98,6 +113,39 @@ public class Utilisateur {
 		this.id = id;
 	}
 
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public boolean isEnable() {
+		return enable;
+	}
+
+	public void setEnable(boolean enable) {
+		this.enable = enable;
+	}
+
+	
+	public Set<UtilisateurRole> getRoles() {
+		return roles;
+	}
+
+	public void setRoles(Set<UtilisateurRole> roles) {
+		this.roles = roles;
+	}
+
 	public String getNom() {
 		return nom;
 	}
@@ -128,9 +176,7 @@ public class Utilisateur {
 
 	public void setTaille(Float taille) {
 		this.taille = taille;
-	}
-
-	
+	}	
 
 	public List<PreferenceAlimentaire> getPreferencesAlimentaires() {
 		return preferencesAlimentaires;
@@ -138,9 +184,7 @@ public class Utilisateur {
 
 	public void setPreferencesAlimentaires(List<PreferenceAlimentaire> preferencesAlimentaires) {
 		this.preferencesAlimentaires = preferencesAlimentaires;
-	}
-
-	
+	}	
 
 	public Date getDateNaissance() {
 		return dateNaissance;
@@ -221,11 +265,14 @@ public class Utilisateur {
 	public void setTelephone(String telephone) {
 		this.telephone = telephone;
 	}
-	
-	
-	
-	
-	
-	
 
+	public List<String> getStringRoles() {
+		List<String> stringRoles = new ArrayList<>();
+
+		for (UtilisateurRole role : roles) {
+			stringRoles.add("ROLE_" + role.getRole().name());
+		}
+
+		return stringRoles;
+	}
 }

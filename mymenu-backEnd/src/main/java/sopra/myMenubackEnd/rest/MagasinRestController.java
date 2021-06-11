@@ -7,6 +7,7 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -93,6 +94,7 @@ public class MagasinRestController {
 	}
 
 	@PostMapping("")
+	@PreAuthorize("hasRole('ADMIN')")
 	@JsonView(Views.ViewMagasin.class)
 	public Magasin create(@Valid @RequestBody Magasin magasin, BindingResult result) {
 		if (result.hasErrors()) {
@@ -105,6 +107,7 @@ public class MagasinRestController {
 	}
 
 	@PutMapping("/{id}")
+	@PreAuthorize("hasRole('ADMIN')")
 	@JsonView(Views.ViewMagasin.class)
 	public Magasin update(@RequestBody Magasin magasin, @PathVariable Long id) {
 		if (!magasinRepo.existsById(id)) {
@@ -117,6 +120,7 @@ public class MagasinRestController {
 	}
 
 	@DeleteMapping("/{id}")
+	@PreAuthorize("hasRole('ADMIN')")
 	public void delete(@PathVariable Long id) {
 		magasinRepo.deleteById(id);
 	}
