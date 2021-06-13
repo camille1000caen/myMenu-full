@@ -12,10 +12,9 @@ import sopra.myMenubackEnd.model.TypeAlimentation;
 
 
 
-
 public interface IRecetteRepository extends JpaRepository<Recette, Long>{
 	
-	@Query("select r from Recette r where r.nom= :nom")
+	@Query("select r from Recette r where r.nom= :nom") 
 	List<Recette> findByName(@Param("nom") String nom);
 	
 	@Query("select r from Recette r ORDER BY r.totalCalories ASC")
@@ -29,6 +28,7 @@ public interface IRecetteRepository extends JpaRepository<Recette, Long>{
 
 	@Query("select r from Recette r where r.typeAlimentation= :typeAlimentation")
 	List<Recette> findByTypeAlimentation(@Param("typeAlimentation")TypeAlimentation typeAlimentation);
+	
 	
 
 }

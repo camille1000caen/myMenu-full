@@ -5,6 +5,7 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,6 +19,7 @@ import org.springframework.web.server.ResponseStatusException;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
+import sopra.myMenubackEnd.model.Adresse;
 import sopra.myMenubackEnd.model.Ingredient;
 import sopra.myMenubackEnd.model.Recette;
 import sopra.myMenubackEnd.model.Views;
@@ -41,6 +43,20 @@ public class RecetteRestController {
 		return recettes;
 	}
 	
+	@GetMapping("/by-rising-note")
+	@JsonView(Views.ViewAdresse.class)
+	public List<Recette> findByRisingNote() {
+
+		return recetteRepo.findByRisingNote();
+	}
+	
+	@GetMapping("/by-rising-calories")
+	@JsonView(Views.ViewAdresse.class)
+	public List<Recette> findByRisingCalories() {
+
+		return recetteRepo.findByRisingCalories();
+	}
+	
 	@GetMapping("/{id}")
 	@JsonView(Views.ViewRecette.class)
 	
@@ -53,9 +69,11 @@ public class RecetteRestController {
 		}else {
 			throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Unable to find resource");
 		}
+		
 		}
 	@PostMapping("")
 	@JsonView(Views.ViewRecette.class)
+	@PreAuthorize("hasRole('ADMIN')")
 	public Recette create(@RequestBody Recette recette) {
 		recette = recetteRepo.save(recette);
 
@@ -63,6 +81,7 @@ public class RecetteRestController {
 	}
 
 	@PutMapping("/{id}")
+	@PreAuthorize("hasRole('ADMIN')")
 	@JsonView(Views.ViewRecette.class)
 	public Recette update(@RequestBody Recette recette, @PathVariable Long id) {
 		if (!recetteRepo.existsById(id)) {
@@ -75,6 +94,7 @@ public class RecetteRestController {
 	}
 
 	@DeleteMapping("/{id}")
+	@PreAuthorize("hasRole('ADMIN')")
 	public void delete(@PathVariable Long id) {
 		recetteRepo.deleteById(id);
 	}
