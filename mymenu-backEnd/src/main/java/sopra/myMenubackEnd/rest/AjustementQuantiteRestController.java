@@ -7,6 +7,7 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -55,6 +56,7 @@ public class AjustementQuantiteRestController {
 
 	@PostMapping("")
 	@JsonView(Views.ViewAjustementQuantite.class)
+	@PreAuthorize("hasRole('ADMIN')")
 	public AjustementQuantite create(@RequestBody AjustementQuantite ajustement) {
 		ajustement = ajustementRepo.save(ajustement);
 
@@ -63,6 +65,7 @@ public class AjustementQuantiteRestController {
 
 	@PutMapping("/{id}")
 	@JsonView(Views.ViewAjustementQuantite.class)
+	@PreAuthorize("hasRole('ADMIN')")
 	public AjustementQuantite update(@RequestBody AjustementQuantite ajustement, @PathVariable Long id) {
 		if (!ajustementRepo.existsById(id)) {
 			throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Unable to find resource");
@@ -74,6 +77,7 @@ public class AjustementQuantiteRestController {
 	}
 
 	@DeleteMapping("/{id}")
+	@PreAuthorize("hasRole('ADMIN')")
 	public void delete(@PathVariable Long id) {
 		ajustementRepo.deleteById(id);
 	}
