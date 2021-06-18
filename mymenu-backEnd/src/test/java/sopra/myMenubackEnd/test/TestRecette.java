@@ -1,29 +1,32 @@
 package sopra.myMenubackEnd.test;
 
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import java.util.List;
 
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import sopra.myMenu.model.Ingredient;
-import sopra.myMenu.model.ProduitSaison;
-import sopra.myMenu.model.Recette;
-import sopra.myMenu.model.TypeAlimentation;
-import sopra.myMenu.model.TypeProduit;
-import sopra.myMenu.repository.IIngredientRepository;
-import sopra.myMenu.repository.IRecetteRepository;
 
+import sopra.myMenubackEnd.model.Recette;
+import sopra.myMenubackEnd.model.TypeAlimentation;
 
+import sopra.myMenubackEnd.repository.IRecetteRepository;
+
+@SpringBootTest
 public class TestRecette {
+	@Autowired
+	IRecetteRepository recRepo;
 	@Test	
 	public void RecetteCreate() {
 		
 		
-		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(
-				"classpath:application-context.xml");
-			IRecetteRepository recRepo = context.getBean(IRecetteRepository.class);
+//		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(
+//				"classpath:application-context.xml");
+//			IRecetteRepository recRepo = context.getBean(IRecetteRepository.class);
 	
 		
 		
@@ -34,25 +37,25 @@ public class TestRecette {
 		
 		Recette recFind = recRepo.findById(rec1.getId()).get();
 		try {
-		Assert.assertEquals("couscous", recFind.getNom());
-		Assert.assertEquals( "mettre les legumes et le poulet", recFind.getEtapes());
-		Assert.assertEquals( 5, recFind.getNombrePers());
-		Assert.assertEquals(800, recFind.getTotalCalories());
-		Assert.assertEquals(TypeAlimentation.HALAL, recFind.getTypeRecette());
+		assertEquals("couscous", recFind.getNom());
+		assertEquals( "mettre les legumes et le poulet", recFind.getEtapes());
+		assertEquals( 5, recFind.getNombrePers());
+		assertEquals(800, recFind.getTotalCalories());
+		assertEquals(TypeAlimentation.HALAL, recFind.getTypeRecette());
 		
 		}finally {
 						
 		recRepo.delete(rec1);
 		
-		context.close();
+		//context.close();
 	}}
 	
 	@Test	
 	public void RecetteUpdate() {
 		
-		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(
-				"classpath:application-context.xml");
-			IRecetteRepository recRepo = context.getBean(IRecetteRepository.class);
+//		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(
+//				"classpath:application-context.xml");
+//			IRecetteRepository recRepo = context.getBean(IRecetteRepository.class);
 		
 		Recette rec1 = new Recette("couscous", "mettre les legumes et le poulet", 5, 800,5F, TypeAlimentation.HALAL);
 		
@@ -69,23 +72,23 @@ public class TestRecette {
 		rec1 = recRepo.save(rec1);
 		Recette recFind = recRepo.findById(rec1.getId()).get();
 		try {
-		Assert.assertEquals("tartiflette", recFind.getNom());
-		Assert.assertEquals( "patate et reblochon", recFind.getEtapes());
-		Assert.assertEquals( 8, recFind.getNombrePers());
-		Assert.assertEquals(500, recFind.getTotalCalories());
-		Assert.assertEquals(TypeAlimentation.NONE, recFind.getTypeRecette());
+		assertEquals("tartiflette", recFind.getNom());
+		assertEquals( "patate et reblochon", recFind.getEtapes());
+		assertEquals( 8, recFind.getNombrePers());
+		assertEquals(500, recFind.getTotalCalories());
+		assertEquals(TypeAlimentation.NONE, recFind.getTypeRecette());
 		}finally {
 				
 		recRepo.delete(rec1);
-		context.close();
+		//context.close();
 	}}
 	
 	@Test
 	public void RecetteFindAll() {
 		
-		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(
-				"classpath:application-context.xml");
-			IRecetteRepository recRepo = context.getBean(IRecetteRepository.class);
+//		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(
+//				"classpath:application-context.xml");
+//			IRecetteRepository recRepo = context.getBean(IRecetteRepository.class);
 		
 		Recette rec1 = new Recette("couscous", "mettre les legumes et le poulet", 5, 800,5F, TypeAlimentation.HALAL);
 						
@@ -100,22 +103,22 @@ public class TestRecette {
 		
 		List<Recette> recettes = recRepo.findAll();
 		try {
-		Assert.assertEquals(3, recettes.size());
+		assertEquals(3, recettes.size());
 		}finally {
 		recRepo.delete(rec1);
 		recRepo.delete(rec2);
 		recRepo.delete(rec3);
 			
-		context.close();
+		//context.close();
 	}
 	}
 
 	@Test
 	public void RecetteDelete() {
 		
-		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(
-				"classpath:application-context.xml");
-			IRecetteRepository recRepo = context.getBean(IRecetteRepository.class);
+//		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(
+//				"classpath:application-context.xml");
+//			IRecetteRepository recRepo = context.getBean(IRecetteRepository.class);
 		
 		Recette rec1 = new Recette("couscous", "mettre les legumes et le poulet", 5, 800,5F, TypeAlimentation.HALAL);
 						
@@ -130,7 +133,7 @@ public class TestRecette {
 		
 		List<Recette> recettes = recRepo.findAll();
 		
-		Assert.assertEquals(3, recettes.size());
+		assertEquals(3, recettes.size());
 	
 		recRepo.delete(rec1);
 		recRepo.delete(rec2);
@@ -138,15 +141,15 @@ public class TestRecette {
 		
 		recettes = recRepo.findAll();
 		
-		Assert.assertEquals(0, recettes.size());
-		context.close();
+		assertEquals(0, recettes.size());
+		//context.close();
 	}
 	@Test
 	public void findByRisingCalories() {
 	
-	ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(
-			"classpath:application-context.xml");
-		IRecetteRepository recRepo = context.getBean(IRecetteRepository.class);
+//	ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(
+//			"classpath:application-context.xml");
+//		IRecetteRepository recRepo = context.getBean(IRecetteRepository.class);
 	
 	Recette rec1 = new Recette("couscous", "mettre les legumes et le poulet", 5, 200,5F, TypeAlimentation.HALAL);
 					
@@ -160,9 +163,9 @@ public class TestRecette {
 	
 	List<Recette> recettesParCalories = recRepo.findByRisingCalories();
 	try {
-		Assert.assertEquals(rec1.getId(), recettesParCalories.get(1).getId());
-		Assert.assertEquals(rec2.getId(), recettesParCalories.get(2).getId());
-		Assert.assertEquals(rec3.getId(), recettesParCalories.get(0).getId());
+		assertEquals(rec1.getId(), recettesParCalories.get(1).getId());
+		assertEquals(rec2.getId(), recettesParCalories.get(2).getId());
+		assertEquals(rec3.getId(), recettesParCalories.get(0).getId());
 	}finally{
 		recRepo.delete(rec1);
 		recRepo.delete(rec2);
@@ -172,8 +175,8 @@ public class TestRecette {
 }
 	@Test
 public void findByName() {
-	ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("classpath:application-context.xml");
-	IRecetteRepository recRepo = context.getBean(IRecetteRepository.class);
+//	ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("classpath:application-context.xml");
+//	IRecetteRepository recRepo = context.getBean(IRecetteRepository.class);
 
 	Recette rec1 = new Recette("couscous", "mettre les legumes et le poulet", 5, 200,5F, TypeAlimentation.HALAL);
 	
@@ -188,7 +191,7 @@ rec3 = recRepo.save(rec3);
 
 	List<Recette> recettesParNom = recRepo.findByName("couscous");
 	try {
-		Assert.assertEquals(rec1.getId(), recettesParNom.get(0).getId());
+		assertEquals(rec1.getId(), recettesParNom.get(0).getId());
 	} finally {
 		recRepo.delete(rec1);
 		recRepo.delete(rec2);
@@ -197,8 +200,8 @@ rec3 = recRepo.save(rec3);
 	}
 	@Test
 	public void findByRisingNote() {
-		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("classpath:application-context.xml");
-		IRecetteRepository recRepo = context.getBean(IRecetteRepository.class);
+//		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("classpath:application-context.xml");
+//		IRecetteRepository recRepo = context.getBean(IRecetteRepository.class);
 
 		Recette rec1 = new Recette("couscous", "mettre les legumes et le poulet", 5, 200,3F, TypeAlimentation.HALAL);
 		
@@ -213,9 +216,9 @@ rec3 = recRepo.save(rec3);
 
 	List<Recette> recettesParNote = recRepo.findByRisingNote();
 	try {
-		Assert.assertEquals(rec1.getId(), recettesParNote.get(1).getId());
-		Assert.assertEquals(rec2.getId(), recettesParNote.get(2).getId());
-		Assert.assertEquals(rec3.getId(), recettesParNote.get(0).getId());
+		assertEquals(rec1.getId(), recettesParNote.get(1).getId());
+		assertEquals(rec2.getId(), recettesParNote.get(2).getId());
+		assertEquals(rec3.getId(), recettesParNote.get(0).getId());
 	}finally{
 		recRepo.delete(rec1);
 		recRepo.delete(rec2);
@@ -225,8 +228,8 @@ rec3 = recRepo.save(rec3);
 }
 	@Test
 	public void findByTypeAlimentation() {
-		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("classpath:application-context.xml");
-		IRecetteRepository recRepo = context.getBean(IRecetteRepository.class);
+//		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("classpath:application-context.xml");
+//		IRecetteRepository recRepo = context.getBean(IRecetteRepository.class);
 
 		Recette rec1 = new Recette("couscous", "mettre les legumes et le poulet", 5, 200,3F, TypeAlimentation.HALAL);
 		
@@ -241,7 +244,7 @@ rec3 = recRepo.save(rec3);
 
 	List<Recette> recettesPartypalim = recRepo.findByTypeAlimentation(TypeAlimentation.HALAL);
 	try {
-		Assert.assertEquals(rec1.getId(), recettesPartypalim.get(0).getId());
+		assertEquals(rec1.getId(), recettesPartypalim.get(0).getId());
 		
 	}finally{
 		recRepo.delete(rec1);
