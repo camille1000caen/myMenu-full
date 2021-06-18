@@ -7,6 +7,7 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -80,6 +81,7 @@ public class IngredientRestController {
 		return ingredientRepo.findIngredientByName(name);
 	}
 	@PostMapping("")
+	@PreAuthorize("hasRole('ADMIN')")
 	@JsonView(Views.ViewIngredient.class)
 	public Ingredient create(@RequestBody Ingredient ingredient) {
 		ingredient = ingredientRepo.save(ingredient);
@@ -88,6 +90,7 @@ public class IngredientRestController {
 	}
 
 	@PutMapping("/{id}")
+	@PreAuthorize("hasRole('ADMIN')")
 	@JsonView(Views.ViewIngredient.class)
 	public Ingredient update(@RequestBody Ingredient ingredient, @PathVariable Long id) {
 		if (!ingredientRepo.existsById(id)) {
@@ -100,6 +103,7 @@ public class IngredientRestController {
 	}
 
 	@DeleteMapping("/{id}")
+	@PreAuthorize("hasRole('ADMIN')")
 	public void delete(@PathVariable Long id) {
 		ingredientRepo.deleteById(id);
 	}
