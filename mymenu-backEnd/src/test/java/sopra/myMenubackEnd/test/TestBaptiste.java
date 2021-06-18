@@ -1,37 +1,45 @@
 package sopra.myMenubackEnd.test;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.List;
 import javax.persistence.PersistenceException;
 
-import org.junit.Assert;
-import org.junit.Test;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
+import sopra.myMenubackEnd.model.Adresse;
+import sopra.myMenubackEnd.model.Coordonnees;
+import sopra.myMenubackEnd.model.Genre;
+import sopra.myMenubackEnd.model.PhysicalActivity;
+import sopra.myMenubackEnd.model.PreferenceAlimentaire;
+import sopra.myMenubackEnd.model.TypeAlimentation;
+import sopra.myMenubackEnd.model.Utilisateur;
+import sopra.myMenubackEnd.repository.IAdresseRepository;
+import sopra.myMenubackEnd.repository.IPreferenceAlimentaireRepository;
+import sopra.myMenubackEnd.repository.IUtilisateurRepository;
 
-import sopra.myMenu.model.Adresse;
-import sopra.myMenu.model.Coordonnees;
-import sopra.myMenu.model.Genre;
-import sopra.myMenu.model.PhysicalActivity;
-import sopra.myMenu.model.PreferenceAlimentaire;
-import sopra.myMenu.model.TypeAlimentation;
-import sopra.myMenu.model.Utilisateur;
-import sopra.myMenu.repository.IAdresseRepository;
-import sopra.myMenu.repository.IPreferenceAlimentaireRepository;
-import sopra.myMenu.repository.IUtilisateurRepository;
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
 
+@SpringBootTest
 public class TestBaptiste {
-	ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("classpath:application-context.xml");
+
+	@Autowired
+	IUtilisateurRepository utilisateurRepo;
+	@Autowired
+	IAdresseRepository adresseRepo;
+	@Autowired
+	IPreferenceAlimentaireRepository prefAlimRepo;
 
 	@Test
 	public void utilisateurAdressePreferenceAlimentaireCreate() {
 
 		// CREATION UTILISATEUR
-		SimpleDateFormat sdf = new SimpleDateFormat("dd/mm/yyyy");
-		IUtilisateurRepository utilisateurRepo = context.getBean(IUtilisateurRepository.class);
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		Utilisateur tom = new Utilisateur();
 		try {
-			tom.setDateNaissance(sdf.parse("10/05/1994"));
+			tom.setDateNaissance(sdf.parse("1994-05-10"));
 		} catch (ParseException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
@@ -45,13 +53,11 @@ public class TestBaptiste {
 		tom.setTaille(177.5F);
 
 		// CREATION PREF ALIM
-		IPreferenceAlimentaireRepository prefAlimRepo = context.getBean(IPreferenceAlimentaireRepository.class);
 		PreferenceAlimentaire prefAlim = new PreferenceAlimentaire(TypeAlimentation.NONE, null);
 
 		// tom.addPreferenceAlimentaire(prefAlim);
 
 		// CREATION ADRESSE
-		IAdresseRepository adresseRepo = context.getBean(IAdresseRepository.class);
 		Adresse adr = new Adresse("33 rue IKEA", "Residence plikepluck", "33000", "Bordeaux", "France");
 		// adr.setUtilisateur(tom);
 		adr.setCoordonnees(new Coordonnees(4.0, 88.0));
@@ -70,37 +76,37 @@ public class TestBaptiste {
 		Utilisateur tomFind = utilisateurRepo.findById(tom.getId()).get();
 
 		// TEST UTILISATEUR
-		Assert.assertEquals(Genre.NON_BINAIRE, tomFind.getGenre());
-		Assert.assertEquals(PhysicalActivity.PANTOUFLARD, tomFind.getPhysicalActivity());
+		assertEquals(Genre.NON_BINAIRE, tomFind.getGenre());
+		assertEquals(PhysicalActivity.PANTOUFLARD, tomFind.getPhysicalActivity());
 		try {
-			Assert.assertEquals(sdf.parse("10/05/1994"), tomFind.getDateNaissance());
+			assertEquals(sdf.parse("1994-05-10"), tomFind.getDateNaissance());
 		} catch (ParseException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		Assert.assertEquals(18.0F, tomFind.getImc(), 0.0F);
-		Assert.assertEquals(77.5F, tomFind.getPoids(), 0.0F);
-		Assert.assertEquals(177.5F, tomFind.getTaille(), 0.0F);
+		assertEquals(18.0F, tomFind.getImc(), 0.0F);
+		assertEquals(77.5F, tomFind.getPoids(), 0.0F);
+		assertEquals(177.5F, tomFind.getTaille(), 0.0F);
 
-		Assert.assertEquals("Favrot", tomFind.getNom());
-		Assert.assertEquals("Tom", tomFind.getPrenom());
+		assertEquals("Favrot", tomFind.getNom());
+		assertEquals("Tom", tomFind.getPrenom());
 
 		// TEST PREF ALIM
 		PreferenceAlimentaire prefFind = prefAlimRepo.findById(prefAlim.getId()).get();
-		Assert.assertEquals(TypeAlimentation.NONE, prefFind.getTypeAlimentation());
+		assertEquals(TypeAlimentation.NONE, prefFind.getTypeAlimentation());
 
 		// TEST ADRESSE
 		Adresse adrFind = adresseRepo.findById(adr.getId()).get();
 
 		System.out.println(adrFind.toString());
 
-		Assert.assertEquals("33000", adrFind.getCodePostal());
-		Assert.assertEquals("Residence plikepluck", adrFind.getComplement());
-		Assert.assertEquals("33 rue IKEA", adrFind.getRue());
-		Assert.assertEquals("France", adrFind.getPays());
-		Assert.assertEquals("Bordeaux", adrFind.getVille());
-		Assert.assertEquals(4.0, adrFind.getCoordonnees().getLongitude(), 0.0);
-		Assert.assertEquals(88.0, adrFind.getCoordonnees().getLatitude(), 0.0);
+		assertEquals("33000", adrFind.getCodePostal());
+		assertEquals("Residence plikepluck", adrFind.getComplement());
+		assertEquals("33 rue IKEA", adrFind.getRue());
+		assertEquals("France", adrFind.getPays());
+		assertEquals("Bordeaux", adrFind.getVille());
+		assertEquals(4.0, adrFind.getCoordonnees().getLongitude(), 0.0);
+		assertEquals(88.0, adrFind.getCoordonnees().getLatitude(), 0.0);
 
 		utilisateurRepo.delete(tomFind);
 		utilisateurRepo.delete(tom);
@@ -114,10 +120,9 @@ public class TestBaptiste {
 	public void utilisateurAdressePreferenceAlimentaireUpdate() {
 		// CREATION UTILISATEUR
 		SimpleDateFormat sdf = new SimpleDateFormat("dd/mm/yyyy");
-		IUtilisateurRepository utilisateurRepo = context.getBean(IUtilisateurRepository.class);
 		Utilisateur tom = new Utilisateur();
 		try {
-			tom.setDateNaissance(sdf.parse("10/05/1994"));
+			tom.setDateNaissance(sdf.parse("1994-05-10"));
 		} catch (ParseException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
@@ -131,13 +136,11 @@ public class TestBaptiste {
 		tom.setTaille(177.5F);
 
 		// CREATION PREF ALIM
-		IPreferenceAlimentaireRepository prefAlimRepo = context.getBean(IPreferenceAlimentaireRepository.class);
 		PreferenceAlimentaire prefAlim = new PreferenceAlimentaire(TypeAlimentation.NONE, null);
 
 		// tom.addPreferenceAlimentaire(prefAlim);
 
 		// CREATION ADRESSE
-		IAdresseRepository adresseRepo = context.getBean(IAdresseRepository.class);
 		Adresse adr = new Adresse("33 rue IKEA", "Residence plikepluck", "33000", "Bordeaux", "France");
 		// adr.setUtilisateur(tom);
 		adr.setCoordonnees(new Coordonnees(4.0, 88.0));
@@ -160,7 +163,7 @@ public class TestBaptiste {
 
 		tom.setGenre(Genre.HOMME);
 		try {
-			tom.setDateNaissance(sdf.parse("14/01/1874"));
+			tom.setDateNaissance(sdf.parse("1874-01-14"));
 		} catch (ParseException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
@@ -176,20 +179,20 @@ public class TestBaptiste {
 
 		tom = utilisateurRepo.findById(tom.getId()).get();
 
-		Assert.assertEquals(Genre.HOMME, tom.getGenre());
-		Assert.assertEquals(PhysicalActivity.INTENSIF, tom.getPhysicalActivity());
+		assertEquals(Genre.HOMME, tom.getGenre());
+		assertEquals(PhysicalActivity.INTENSIF, tom.getPhysicalActivity());
 		try {
-			Assert.assertEquals(sdf.parse("14/01/1874"), tom.getDateNaissance());
+			assertEquals(sdf.parse("1874-01-14"), tom.getDateNaissance());
 		} catch (ParseException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		Assert.assertEquals(77.0F, tom.getImc(), 0.0F);
-		Assert.assertEquals(67.5F, tom.getPoids(), 0.0F);
-		Assert.assertEquals(167.5F, tom.getTaille(), 0.0F);
+		assertEquals(77.0F, tom.getImc(), 0.0F);
+		assertEquals(67.5F, tom.getPoids(), 0.0F);
+		assertEquals(167.5F, tom.getTaille(), 0.0F);
 
-		Assert.assertEquals("Favori", tom.getNom());
-		Assert.assertEquals("Thomas", tom.getPrenom());
+		assertEquals("Favori", tom.getNom());
+		assertEquals("Thomas", tom.getPrenom());
 
 		// TEST ADRESSE
 		adr = adresseRepo.save(adr);
@@ -206,13 +209,13 @@ public class TestBaptiste {
 		adr = adresseRepo.save(adr);
 		adr = adresseRepo.findById(adr.getId()).get();
 
-		Assert.assertEquals("33555", adr.getCodePostal());
-		Assert.assertEquals("Residence Brook OEP Langedek", adr.getComplement());
-		Assert.assertEquals("33 rue HEMA", adr.getRue());
-		Assert.assertEquals("Espagne", adr.getPays());
-		Assert.assertEquals("SantaMariaPutaCruz", adr.getVille());
-		Assert.assertEquals(99.0, adr.getCoordonnees().getLongitude(), 0.0);
-		Assert.assertEquals(35.0, adr.getCoordonnees().getLatitude(), 0.0);
+		assertEquals("33555", adr.getCodePostal());
+		assertEquals("Residence Brook OEP Langedek", adr.getComplement());
+		assertEquals("33 rue HEMA", adr.getRue());
+		assertEquals("Espagne", adr.getPays());
+		assertEquals("SantaMariaPutaCruz", adr.getVille());
+		assertEquals(99.0, adr.getCoordonnees().getLongitude(), 0.0);
+		assertEquals(35.0, adr.getCoordonnees().getLatitude(), 0.0);
 
 		// TEST PREF ALIM
 		prefAlim = prefAlimRepo.save(prefAlim);
@@ -223,7 +226,7 @@ public class TestBaptiste {
 		prefAlim = prefAlimRepo.save(prefAlim);
 		prefAlim = prefAlimRepo.findById(prefAlim.getId()).get();
 
-		Assert.assertEquals(TypeAlimentation.VEGAN, prefAlim.getTypeAlimentation());
+		assertEquals(TypeAlimentation.VEGAN, prefAlim.getTypeAlimentation());
 
 		utilisateurRepo.delete(tom);
 		prefAlimRepo.delete(prefAlim);
@@ -232,12 +235,11 @@ public class TestBaptiste {
 
 	@Test
 	public void utilisateurAdressePreferenceAlimentaireFindall() {
-		// CREATION UTILISATEURS
-		SimpleDateFormat sdf = new SimpleDateFormat("dd/mm/yyyy");
-		IUtilisateurRepository utilisateurRepo = context.getBean(IUtilisateurRepository.class);
+		// CREATION UTILISATEUR
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		Utilisateur tom = new Utilisateur();
 		try {
-			tom.setDateNaissance(sdf.parse("10/05/1994"));
+			tom.setDateNaissance(sdf.parse("1994-05-10"));
 		} catch (ParseException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
@@ -254,7 +256,7 @@ public class TestBaptiste {
 
 		Utilisateur emma = new Utilisateur();
 		try {
-			emma.setDateNaissance(sdf.parse("15/10/1994"));
+			emma.setDateNaissance(sdf.parse("1994-10-15"));
 		} catch (ParseException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
@@ -269,7 +271,6 @@ public class TestBaptiste {
 
 		emma = utilisateurRepo.save(emma);
 		// CREATION PREF ALIM
-		IPreferenceAlimentaireRepository prefAlimRepo = context.getBean(IPreferenceAlimentaireRepository.class);
 		PreferenceAlimentaire prefAlim = new PreferenceAlimentaire(TypeAlimentation.NONE, null);
 		prefAlim = prefAlimRepo.save(prefAlim);
 
@@ -278,7 +279,6 @@ public class TestBaptiste {
 		// tom.addPreferenceAlimentaire(prefAlim);
 
 		// CREATION ADRESSE
-		IAdresseRepository adresseRepo = context.getBean(IAdresseRepository.class);
 		Adresse adr = new Adresse("33 rue IKEA", "Residence plikepluck", "33000", "Bordeaux", "France");
 		// adr.setUtilisateur(tom);
 		adr.setCoordonnees(new Coordonnees(4.0, 88.0));
@@ -292,7 +292,7 @@ public class TestBaptiste {
 		// TEST UTILISATEUR
 		List<Utilisateur> utilisateurs = utilisateurRepo.findAll();
 
-		Assert.assertEquals(2, utilisateurs.size());
+		assertEquals(2, utilisateurs.size());
 
 		utilisateurRepo.delete(tom);
 		utilisateurRepo.delete(emma);
@@ -300,7 +300,7 @@ public class TestBaptiste {
 		// TEST PREF ALIM
 		List<PreferenceAlimentaire> prefsalims = prefAlimRepo.findAll();
 
-		Assert.assertEquals(2, prefsalims.size());
+		assertEquals(2, prefsalims.size());
 
 		prefAlimRepo.delete(prefAlim);
 		prefAlimRepo.delete(prefAlim2);
@@ -308,20 +308,19 @@ public class TestBaptiste {
 		// TEST Adresse
 		List<Adresse> adresses = adresseRepo.findAll();
 
-		Assert.assertEquals(2, adresses.size());
+		assertEquals(2, adresses.size());
 
 		adresseRepo.delete(adr);
 		adresseRepo.delete(adr2);
 
 	}
-
+	@Test
 	public void utilisateurAdressePreferenceAlimentaireDelete() {
-		// CREATION UTILISATEURS
-		SimpleDateFormat sdf = new SimpleDateFormat("dd/mm/yyyy");
-		IUtilisateurRepository utilisateurRepo = context.getBean(IUtilisateurRepository.class);
+		// CREATION UTILISATEUR
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		Utilisateur tom = new Utilisateur();
 		try {
-			tom.setDateNaissance(sdf.parse("10/05/1994"));
+			tom.setDateNaissance(sdf.parse("1994-05-10"));
 		} catch (ParseException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
@@ -338,7 +337,7 @@ public class TestBaptiste {
 
 		Utilisateur emma = new Utilisateur();
 		try {
-			emma.setDateNaissance(sdf.parse("15/10/1994"));
+			emma.setDateNaissance(sdf.parse("1994-10-15"));
 		} catch (ParseException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
@@ -353,7 +352,6 @@ public class TestBaptiste {
 
 		emma = utilisateurRepo.save(emma);
 		// CREATION PREF ALIM
-		IPreferenceAlimentaireRepository prefAlimRepo = context.getBean(IPreferenceAlimentaireRepository.class);
 		PreferenceAlimentaire prefAlim = new PreferenceAlimentaire(TypeAlimentation.NONE, null);
 		prefAlim = prefAlimRepo.save(prefAlim);
 
@@ -362,7 +360,6 @@ public class TestBaptiste {
 		// tom.addPreferenceAlimentaire(prefAlim);
 
 		// CREATION ADRESSE
-		IAdresseRepository adresseRepo = context.getBean(IAdresseRepository.class);
 		Adresse adr = new Adresse("33 rue IKEA", "Residence plikepluck", "33000", "Bordeaux", "France");
 		// adr.setUtilisateur(tom);
 		adr.setCoordonnees(new Coordonnees(4.0, 88.0));
@@ -376,38 +373,38 @@ public class TestBaptiste {
 		// TEST UTILISATEUR
 		List<Utilisateur> utilisateurs = utilisateurRepo.findAll();
 
-		Assert.assertEquals(2, utilisateurs.size());
+		assertEquals(2, utilisateurs.size());
 
 		utilisateurRepo.delete(tom);
 		utilisateurRepo.delete(emma);
 
 		utilisateurs = utilisateurRepo.findAll();
 
-		Assert.assertEquals(0, utilisateurs.size());
+		assertEquals(0, utilisateurs.size());
 
 		// TEST PREF ALIM
 		List<PreferenceAlimentaire> prefsalims = prefAlimRepo.findAll();
 
-		Assert.assertEquals(2, prefsalims.size());
+		assertEquals(2, prefsalims.size());
 
 		prefAlimRepo.delete(prefAlim);
 		prefAlimRepo.delete(prefAlim2);
 
 		prefsalims = prefAlimRepo.findAll();
 
-		Assert.assertEquals(0, prefsalims.size());
+		assertEquals(0, prefsalims.size());
 
 		// TEST Adresse
 		List<Adresse> adresses = adresseRepo.findAll();
 
-		Assert.assertEquals(2, adresses.size());
+		assertEquals(2, adresses.size());
 
 		adresseRepo.delete(adr);
 		adresseRepo.delete(adr2);
 
 		adresses = adresseRepo.findAll();
 
-		Assert.assertEquals(0, adresses.size());
+		assertEquals(0, adresses.size());
 
 	}
 

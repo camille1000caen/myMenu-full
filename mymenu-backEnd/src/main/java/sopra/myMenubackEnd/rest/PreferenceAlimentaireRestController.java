@@ -8,6 +8,7 @@ import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.query.Param;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -93,6 +94,7 @@ public class PreferenceAlimentaireRestController {
 
 	@PostMapping("")
 	@JsonView(Views.ViewPreferenceAlimentaire.class)
+	@PreAuthorize("hasRole('ADMIN')")
 	public PreferenceAlimentaire create(@Valid @RequestBody PreferenceAlimentaire preferenceAlimentaire, BindingResult result) {
 		if (result.hasErrors()) {
 			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Erreur validation");
@@ -117,6 +119,7 @@ public class PreferenceAlimentaireRestController {
 
 
 	@DeleteMapping("/{id}")
+	@PreAuthorize("hasRole('ADMIN')")
 	public void delete(@PathVariable Long id) {
 		prefAlimRepo.deleteById(id);
 	}
