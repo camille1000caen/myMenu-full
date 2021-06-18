@@ -1,24 +1,25 @@
 package sopra.myMenubackEnd.test;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import java.util.List;
 
-import org.junit.Assert;
-import org.junit.Test;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
 
-import sopra.myMenu.model.Repas;
-import sopra.myMenu.model.TypeRepas;
-import sopra.myMenu.repository.IRepasRepository;
+import sopra.myMenubackEnd.model.Repas;
+import sopra.myMenubackEnd.model.TypeRepas;
+import sopra.myMenubackEnd.repository.IRepasRepository;
 
+@SpringBootTest
 public class TestRepas {
 
+	@Autowired
+	private IRepasRepository repasRepo;
+	
 	@Test
 	public void repasCreate() {
-
-		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(
-				"classpath:application-context.xml");
-
-		IRepasRepository repasRepo = context.getBean(IRepasRepository.class);
 		
 		Repas repas1 = new Repas();
 
@@ -28,22 +29,16 @@ public class TestRepas {
 
 			Repas repasFind = repasRepo.findById(repas1.getId()).get();
 
-			Assert.assertEquals(TypeRepas.PETIT_DEJ, repasFind.getTypeRepas());
+			assertEquals(TypeRepas.PETIT_DEJ, repasFind.getTypeRepas());
 		}
 
 		finally {
 			repasRepo.delete(repas1);
-			context.close();
 		}
 	}
 
 	@Test
 	public void repasUpdate() {
-
-		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(
-				"classpath:application-context.xml");
-
-		IRepasRepository repasRepo = context.getBean(IRepasRepository.class);
 
 		Repas repas1 = new Repas(TypeRepas.PETIT_DEJ);
 
@@ -56,22 +51,16 @@ public class TestRepas {
 		Repas repasFind = repasRepo.findById(repas1.getId()).get();
 
 		try {
-			Assert.assertEquals(TypeRepas.DINNER, repasFind.getTypeRepas());
+			assertEquals(TypeRepas.DINNER, repasFind.getTypeRepas());
 
 		} finally {
 			repasRepo.delete(repas1);
-			context.close();
 		}
 	}
 
 	@Test
 	public void repasFindAll() {
 
-		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(
-				"classpath:application-context.xml");
-
-		IRepasRepository repasRepo = context.getBean(IRepasRepository.class);
-
 		Repas repas1 = new Repas(TypeRepas.PETIT_DEJ);
 		Repas repas2 = new Repas(TypeRepas.DEJ);
 		Repas repas3 = new Repas(TypeRepas.DINNER);
@@ -83,26 +72,18 @@ public class TestRepas {
 		List<Repas> repas = repasRepo.findAll();
 
 		try {
-			Assert.assertEquals(3, repas.size());
+			assertEquals(3, repas.size());
 		}
 
 		finally {
 			repasRepo.delete(repas1);
 			repasRepo.delete(repas2);
 			repasRepo.delete(repas3);
-			
-			context.close();
 		}
-
 	}
 
 	@Test
 	public void repasDelete() {
-
-		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(
-				"classpath:application-context.xml");
-
-		IRepasRepository repasRepo = context.getBean(IRepasRepository.class);
 
 		Repas repas1 = new Repas(TypeRepas.PETIT_DEJ);
 		Repas repas2 = new Repas(TypeRepas.DEJ);
@@ -115,7 +96,7 @@ public class TestRepas {
 		List<Repas> repas = repasRepo.findAll();
 
 		try {
-			Assert.assertEquals(3, repas.size());
+			assertEquals(3, repas.size());
 		}
 
 		finally {
@@ -125,9 +106,7 @@ public class TestRepas {
 
 			repas = repasRepo.findAll();
 
-			Assert.assertEquals(0, repas.size());
-			
-			context.close();
+			assertEquals(0, repas.size());
 		}
 	}
 

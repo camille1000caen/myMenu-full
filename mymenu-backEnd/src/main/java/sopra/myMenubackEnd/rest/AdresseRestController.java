@@ -7,6 +7,7 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -129,6 +130,7 @@ public class AdresseRestController {
 
 	@PostMapping("")
 	@JsonView(Views.ViewAdresse.class)
+	@PreAuthorize("hasRole('ADMIN')")
 	public Adresse create(@Valid @RequestBody Adresse adresse, BindingResult result) {
 		if (result.hasErrors()) {
 			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Erreur validation");
@@ -153,6 +155,7 @@ public class AdresseRestController {
 
 
 	@DeleteMapping("/{id}")
+	@PreAuthorize("hasRole('ADMIN')")
 	public void delete(@PathVariable Long id) {
 		adresseRepo.deleteById(id);
 	}

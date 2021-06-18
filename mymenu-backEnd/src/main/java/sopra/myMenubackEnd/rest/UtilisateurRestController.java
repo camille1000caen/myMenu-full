@@ -7,6 +7,7 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -101,6 +102,7 @@ public class UtilisateurRestController {
 	
 	@PostMapping("")
 	@JsonView(Views.ViewUtilisateur.class)
+	@PreAuthorize("hasRole('ADMIN')")
 	public Utilisateur create(@Valid @RequestBody Utilisateur utilisateur, BindingResult result) {
 		if (result.hasErrors()) {
 			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Erreur validation");
@@ -125,6 +127,7 @@ public class UtilisateurRestController {
 
 
 	@DeleteMapping("/{id}")
+	@PreAuthorize("hasRole('ADMIN')")
 	public void delete(@PathVariable Long id) {
 		utilisateurRepo.deleteById(id);
 	}
