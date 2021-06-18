@@ -12,12 +12,12 @@ import sopra.myMenubackEnd.model.Menu;
 public interface IMenuRepository extends JpaRepository<Menu, Long>{
 
 	@Query("select distinct m from Menu m WHERE m.planning.id =:idPlanning")
-	List<Menu> findAllByPlanning(@Param("idPlanning") Long idPlanning);
+	List<Menu> findAllMenusByPlanning(@Param("idPlanning") Long idPlanning);
 	
 	@Query("select distinct m from Menu m left join fetch m.planning WHERE m.planning IS NOT NULL")
-	List<Menu> findAllWithPlanning();
+	List<Menu> findAllMenusWithPlanning();
 	
 	@Query("select distinct m from Menu m left join fetch m.planning where m.id = :id")
-	Optional<Menu> findByIdWithPlanning(@Param("id") Long id);
+	Optional<Menu> findMenuByIdWithPlanning(@Param("id") Long id);
 	
 }
