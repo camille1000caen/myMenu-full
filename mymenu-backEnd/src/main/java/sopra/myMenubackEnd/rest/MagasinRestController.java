@@ -27,8 +27,6 @@ import sopra.myMenubackEnd.model.Views;
 import sopra.myMenubackEnd.model.Views.ViewMagasinWithMagasinIngredient;
 import sopra.myMenubackEnd.repository.IMagasinRepository;
 
-
-
 @RestController
 @RequestMapping("/magasin")
 @CrossOrigin("*")
