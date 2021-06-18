@@ -12,9 +12,6 @@ import javax.persistence.PersistenceException;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
-
-
 import sopra.myMenubackEnd.model.Adresse;
 import sopra.myMenubackEnd.model.AjustementQuantite;
 import sopra.myMenubackEnd.model.Ingredient;
