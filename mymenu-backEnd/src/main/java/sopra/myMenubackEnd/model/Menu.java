@@ -1,6 +1,5 @@
 package sopra.myMenubackEnd.model;
 
-import java.time.Duration;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -16,22 +15,36 @@ import javax.persistence.Table;
 
 import org.springframework.data.annotation.Version;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonView;
+
 @Entity
 @Table(name = "menu")
 public class Menu {
 		@Id
 		@GeneratedValue
+		@JsonView(Views.ViewCommon.class)
 		private Long id;
+		
 		@Version
+		@JsonView(Views.ViewCommon.class)
 		private int version;
+		
 		@Column(name = "jour")
+		@JsonView(Views.ViewCommon.class)
 		private Date jour;
+	
 		@Column(name = "periode")
-		private Duration periode;
+		@JsonIgnore
+		private Integer periode;
+		
 		@OneToMany(mappedBy = "menu")
+		@JsonIgnore
 		private List<Repas> repas = new ArrayList<Repas>();
+		
 		@ManyToOne
 		@JoinColumn(name = "planning_id")
+		@JsonView(Views.ViewMenuWithPlanning.class)
 		private Planning planning;
 		
 		//private final Duration = Duration.of(1, WEEKS);
@@ -40,12 +53,12 @@ public class Menu {
 			super();
 		}
 		
-		public Menu(Duration periode) {
+		public Menu(Integer periode) {
 			super();
 			this.periode = periode;
 		}
 		
-		public Menu(Long id, Duration periode) {
+		public Menu(Long id, Integer periode) {
 			super();
 			this.id = id;
 			this.periode = periode;
@@ -68,11 +81,11 @@ public class Menu {
 			this.jour = jour;
 		}
 
-		public Duration getPeriode() {
+		public Integer getPeriode() {
 			return periode;
 		}
 
-		public void setPeriode(Duration periode) {
+		public void setPeriode(Integer periode) {
 			this.periode = periode;
 		}
 

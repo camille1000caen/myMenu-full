@@ -16,7 +16,7 @@ import sopra.myMenubackEnd.model.Planning;
 		@Query("select distinct p from Planning p WHERE p.objectif.id =:idObjectif")
 		List<Planning> findAllByObjectif(@Param("idObjectif") Long idObjectif);
 		
-		@Query("select distinct p from Planning p left join fetch p.objectif WHERE p.objectif IS NOT  NULL")
+		@Query("select distinct p from Planning p left join fetch p.objectif WHERE p.objectif IS NOT NULL")
 		List<Planning> findAllWithObjectif();
 		
 		@Query("select distinct p from Planning p left join fetch p.objectif where p.id = :id")
@@ -25,7 +25,7 @@ import sopra.myMenubackEnd.model.Planning;
 		@Query("select distinct p from Planning p WHERE p.utilisateur.id =:idUtilisateur")
 		List<Planning> findAllByUtilisateur(@Param("idUtilisateur") Long idUtilisateur);
 		
-		@Query("select distinct p from Planning p left join fetch p.utilisateur WHERE p.utilisateur IS NOT  NULL")
+		@Query("select distinct p from Planning p left join fetch p.utilisateur WHERE p.utilisateur IS NOT NULL")
 		List<Planning> findAllWithUtilisateur();
 		
 		@Query("select distinct p from Planning p left join fetch p.utilisateur where p.id = :id")

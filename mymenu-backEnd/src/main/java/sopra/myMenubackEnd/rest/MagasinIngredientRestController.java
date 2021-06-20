@@ -7,6 +7,7 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -80,6 +81,7 @@ public class MagasinIngredientRestController {
 
 	@PostMapping("")
 	@JsonView(Views.ViewMagasinIngredient.class)
+	@PreAuthorize("hasRole('ADMIN')")
 	public MagasinIngredient create(@RequestBody MagasinIngredient magasinIngredient) {
 
 		magasinIngredient = magasinIngredientRepo.save(magasinIngredient);
@@ -89,6 +91,7 @@ public class MagasinIngredientRestController {
 
 	@PutMapping("/{id}")
 	@JsonView(Views.ViewMagasinIngredient.class)
+	@PreAuthorize("hasRole('ADMIN')")
 	public MagasinIngredient update(@RequestBody MagasinIngredient magasinIngredient, @PathVariable Long id) {
 		if (!magasinIngredientRepo.existsById(id)) {
 			throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Unable to find resource");
@@ -100,6 +103,7 @@ public class MagasinIngredientRestController {
 	}
 
 	@DeleteMapping("/{id}")
+	@PreAuthorize("hasRole('ADMIN')")
 	public void delete(@PathVariable Long id) {
 		magasinIngredientRepo.deleteById(id);
 	}
