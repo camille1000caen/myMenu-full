@@ -1,0 +1,38 @@
+import {Injectable} from '@angular/core';
+import {HttpClient} from "@angular/common/http";
+import {Observable} from "rxjs";
+
+@Injectable({
+  providedIn: 'root'
+})
+export class AppConfigService {
+
+  backEndUrl: string = "http://localhost:8080/rest/";
+
+  constructor(private http: HttpClient) {
+
+  }
+
+  findAllGenre(): Observable<Array<string>> {
+    return this.http.get<Array<string>>(this.backEndUrl + "genre");
+  }
+  findAllPhysicalActivity(): Observable<Array<string>> {
+    return this.http.get<Array<string>>(this.backEndUrl + "physicalactivity");
+  }
+  findAllProduitSaison(): Observable<Array<string>> {
+    return this.http.get<Array<string>>(this.backEndUrl + "produitsaison");
+  }
+  findAllTypeObjectif(): Observable<Array<string>> {
+    return this.http.get<Array<string>>(this.backEndUrl + "typeobjectif");
+  }
+  findAllTypeAlimentaire(): Observable<Array<string>> {
+    return this.http.get<Array<string>>(this.backEndUrl + "typealimentaire");
+  }
+  findAllTypeProduit(): Observable<Array<string>> {
+    return this.http.get<Array<string>>(this.backEndUrl + "typeproduit");
+  }
+  findAllTypeRepas(): Observable<Array<string>> {
+    return this.http.get<Array<string>>(this.backEndUrl + "typerepas");
+  }
+
+}
