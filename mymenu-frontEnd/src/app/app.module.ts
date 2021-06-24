@@ -3,16 +3,12 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { AjustementQuantiteComponent } from './ajustement-quantite/ajustement-quantite.component';
-import {FormsModule} from "@angular/forms";
-import {HttpClientModule} from "@angular/common/http";
-import { ListeCoursesComponent } from './liste-courses/liste-courses.component';
+import { UtilisateurComponent } from './utilisateur/utilisateur.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    AjustementQuantiteComponent,
-    ListeCoursesComponent
+    UtilisateurComponent
   ],
   imports: [
     BrowserModule,
