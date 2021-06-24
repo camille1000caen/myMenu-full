@@ -6,11 +6,13 @@ import { AppComponent } from './app.component';
 import { AjustementQuantiteComponent } from './ajustement-quantite/ajustement-quantite.component';
 import {FormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
+import { ListeCoursesComponent } from './liste-courses/liste-courses.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    AjustementQuantiteComponent
+    AjustementQuantiteComponent,
+    ListeCoursesComponent
   ],
   imports: [
     BrowserModule,
