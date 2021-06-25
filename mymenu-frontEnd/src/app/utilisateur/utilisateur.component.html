@@ -1,48 +1,100 @@
-<div class="card mt-3">
-  <div class="card-header bg-info text-white">
-    <h2>Liste des stagiaires</h2>
+<div class="wrapper">
+  <div class="container py-4 w-50">
+    <div class="card w-20">
+      <div class="card-header bg-info text-white text-center">
+        <h3>Compléter votre profil</h3>
+      </div>
+      <div class="card-body">
+        <form>
+          <div class="form-group">
+            <div
+              class="btn-group btn-group-lg d-flex justify-content-center px-5">
+              <button type="button" class="btn" id="btn-venus">
+                <i class="fas fa-venus fa-2x"></i>
+              </button>
+              <button type="button" class="btn" id="btn-mars">
+                <i class="fas fa-mars fa-2x"></i>
+              </button>
+              <button type="button" class="btn" id="btn-MarsVenus">
+                <i class="fas fa-venus-mars fa-2x"></i>
+              </button>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="nom">Nom:</label> <input type="text"
+                                                 class="form-control" id="nom" placeholder="Nom">
+          </div>
+
+          <div class="form-group">
+            <label for="prenom">Prénom:</label> <input type="text"
+                                                       class="form-control" id="prenom" placeholder="Prénom">
+          </div>
+
+          <div class="form-group">
+            <label for="dateDeNaissance">Date de naissance:</label> <input
+            type="date" class="form-control" id="dateDeNaissance"
+            placeholder="Date de naissance">
+          </div>
+
+          <div class="form-group">
+            <label for="poids">Poids:</label> <input type="number"
+                                                     class="form-control" id="poids" placeholder="Poids (en kg)">
+          </div>
+
+          <div class="form-group">
+            <label for="taille">Taille:</label> <input type="number"
+                                                       class="form-control" id="taille" placeholder="Taille (en cm)">
+          </div>
+
+          <div class="form-group">
+            <label for="activite">Activité:</label> <select
+            class="custom-select my-1 mr-sm-2" id="activite">
+            <option selected>Choisir...</option>
+            <option value="1">Pantouflard</option>
+            <option value="2">Occasionnel</option>
+            <option value="3">Régulier</option>
+            <option value="3">Intensif</option>
+            <option value="3">Professionnel</option>
+          </select>
+          </div>
+
+          <div class="form-group">
+            <label for="prefAlim">Préférences alimentaires:</label> <select
+            class="custom-select my-1 mr-sm-2" id="prefAlim">
+            <option selected>Choisir...</option>
+            <option value="1">Aucune</option>
+            <option value="2">Vegan</option>
+            <option value="3">Halal</option>
+            <option value="3">Végétarien</option>
+          </select>
+
+          </div>
+          <div class="form-group">
+            <label for="objectif">Objectif:</label> <select
+            class="custom-select my-1 mr-sm-2" id="objectif">
+            <option selected>Choisir...</option>
+            <option value="1">Perte de poids</option>
+            <option value="2">Bien être</option>
+            <option value="3">Prise de masse</option>
+          </select>
+          </div>
+
+        </form>
+      </div>
+
+      <div class="card-footer">
+        <div class="btn-group btn-group-lg float-right">
+          <a href="profile2.html">
+            <button type="button" class="btn btn-success">
+              <i class="fa fa-check"></i>
+            </button>
+          </a>
+          <button type="button" class="btn btn-secondary">
+            <i class="fa fa-undo"></i>
+          </button>
+        </div>
+      </div>
+    </div>
   </div>
-  <div class="card-body">
-    <table class="table table-striped">
-      <thead>
-      <tr>
-        <th>#</th>
-        <th>Version</th>
-        <th>Civilité</th>
-        <th>Nom</th>
-        <th>Prénom</th>
-        <th>Courriel</th>
-        <th>Téléphone</th>
-        <th>Date de naissance</th>
-        <th>Niveau d'étude</th>
-        <th>Adresse</th>
-        <th>Evaluation</th>
-        <th></th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr *ngFor="let stagiaire of list()">
-        <td>{{stagiaire.id}}</td>
-        <td>{{stagiaire.version}}</td>
-        <td>{{stagiaire.civilite}}</td>
-        <td>{{stagiaire.nom}}</td>
-        <td>{{stagiaire.prenom}}</td>
-        <td>{{stagiaire.email}}</td>
-        <td>{{stagiaire.telephone}}</td>
-        <td>{{stagiaire.dtNaissance | date:'dd/MM/yyyy'}} ({{stagiaire.dtNaissance | age}} ans)</td>
-        <td>{{stagiaire.niveauEtude}}</td>
-        <td>{{stagiaire.adresse?.rue}} {{stagiaire.adresse?.codePostal}} {{stagiaire.adresse?.ville}}</td>
-        <td>{{stagiaire.evaluation?.id}}</td>
-        <td><div class="btn-group btn-group-sm">
-          <a class="btn btn-primary" (click)="edit(stagiaire.id)"><i class="fa fa-edit"></i></a>
-          <a class="btn btn-danger" (click)="delete(stagiaire.id)"><i class="fa fa-trash"></i></a>
-        </div></td>
-      </tr>
-      </tbody>
-    </table>
-  </div>
-  <div class="card-footer">
-    <a class="btn btn-success btn-lg" (click)="add()">
-      <i class="fa fa-plus"></i>
-    </a>
-  </div>
+</div>

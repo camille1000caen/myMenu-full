@@ -1,6 +1,8 @@
 <header class="header-MenuSelection">
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="home.html">MyMenu</a>
+    <div routerLinkActive="active">
+    <a class="navbar-brand" [routerLink]="['/']">MyMenu</a>
+    </div>
     <button class="navbar-toggler" type="button" data-toggle="collapse"
             data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -10,22 +12,30 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
-        <li class="nav-item"><a class="nav-link" href="#">Comment
-          ça marche ?</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">Comment ça marche ?</a></li>
 
         <li class="nav-item dropdown"><a
           class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
           role="button" data-toggle="dropdown" aria-haspopup="true"
           aria-expanded="false"> Nos Recettes </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="#">Les mieux notées</a> <a
-            class="dropdown-item" href="#">New !</a> <a
-            class="dropdown-item" href="#">Healthy</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">Végétariennes</a> <a
-            class="dropdown-item" href="#">Vegan</a> <a
-            class="dropdown-item" href="#">Halal</a>
-          </div></li>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="#">Les mieux notées</a> <a
+              class="dropdown-item" href="#">New !</a> <a
+              class="dropdown-item" href="#">Healthy</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#">Végétariennes</a> <a
+              class="dropdown-item" href="#">Vegan</a> <a
+              class="dropdown-item" href="#">Halal</a>
+            </div>
+        </li>
+
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link" [routerLink]="['/profil']">Profil</a>
+        </li>
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link" [routerLink]="['/ingredient']">Ingredient</a>
+        </li>
+
       </ul>
 
       <form class="form-inline my-2 my-lg-0">

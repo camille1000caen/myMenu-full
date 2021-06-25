@@ -12,13 +12,15 @@ import { PlanningComponent } from './planning/planning.component';
 import { PlatComponent } from './plat/plat.component';
 import { RecetteComponent } from './recette/recette.component';
 import { IngredientComponent } from './ingredient/ingredient.component';
-import {FormsModule} from "@angular/forms";
-import {HttpClientModule} from "@angular/common/http";
 import { UtilisateurComponent } from './utilisateur/utilisateur.component';
 import { AdresseComponent } from './adresse/adresse.component';
 import { PreferenceAlimentaireComponent } from './preference-alimentaire/preference-alimentaire.component';
+import { RepasComponent } from './repas/repas.component';
 import {FormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
+import { MenuCardComponent } from './menu-card/menu-card.component';
+import { HomeComponent } from './home/home.component';
+
 
 @NgModule({
   declarations: [
@@ -28,21 +30,20 @@ import {HttpClientModule} from "@angular/common/http";
     HomebodyComponent,
     ObjectifComponent,
     MenuComponent,
-    PlanningComponent
+    PlanningComponent,
     AppComponent,
     PlatComponent,
     RecetteComponent,
-    IngredientComponent
-    AppComponent,
+    IngredientComponent,
     UtilisateurComponent,
     AdresseComponent,
-    PreferenceAlimentaireComponent
+    PreferenceAlimentaireComponent,
+    RepasComponent,
+    MenuCardComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
-    FormsModule,
-    HttpClientModule
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
