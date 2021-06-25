@@ -9,33 +9,29 @@
         <th>#</th>
         <th>Version</th>
         <th>Rue</th>
-        <th>Nom</th>
-        <th>Prénom</th>
-        <th>Courriel</th>
-        <th>Téléphone</th>
-        <th>Date de naissance</th>
-        <th>Niveau d'étude</th>
-        <th>Adresse</th>
-        <th>Evaluation</th>
+        <th>Complement</th>
+        <th>CodePostal</th>
+        <th>Ville</th>
+        <th>Pays</th>
+        <th>Coordonnees</th>
+        <th>Utilisateur</th>
         <th></th>
       </tr>
       </thead>
       <tbody>
-      <tr *ngFor="let stagiaire of list()">
-        <td>{{stagiaire.id}}</td>
-        <td>{{stagiaire.version}}</td>
-        <td>{{stagiaire.civilite}}</td>
-        <td>{{stagiaire.nom}}</td>
-        <td>{{stagiaire.prenom}}</td>
-        <td>{{stagiaire.email}}</td>
-        <td>{{stagiaire.telephone}}</td>
-        <td>{{stagiaire.dtNaissance | date:'dd/MM/yyyy'}} ({{stagiaire.dtNaissance | age}} ans)</td>
-        <td>{{stagiaire.niveauEtude}}</td>
-        <td>{{stagiaire.adresse?.rue}} {{stagiaire.adresse?.codePostal}} {{stagiaire.adresse?.ville}}</td>
-        <td>{{stagiaire.evaluation?.id}}</td>
+      <tr *ngFor="let adr of list()">
+        <td>{{adr.id}}</td>
+        <td>{{adr.version}}</td>
+        <td>{{adr.rue}}</td>
+        <td>{{adr.complement}}</td>
+        <td>{{adr.codePostal}}</td>
+        <td>{{adr.ville}}</td>
+        <td>{{adr.pays}}</td>
+        <td>{{adr.coordonnees?.latitude}} {{adr.coordonnees?.longitude}}</td>
+        <td>{{adr.utilisateur?.nom}} {{adr.utilisateur?.prenom}}</td>
         <td><div class="btn-group btn-group-sm">
-          <a class="btn btn-primary" (click)="edit(stagiaire.id)"><i class="fa fa-edit"></i></a>
-          <a class="btn btn-danger" (click)="delete(stagiaire.id)"><i class="fa fa-trash"></i></a>
+          <a class="btn btn-primary" (click)="edit(adr.id)"><i class="fa fa-edit"></i></a>
+          <a class="btn btn-danger" (click)="delete(adr.id)"><i class="fa fa-trash"></i></a>
         </div></td>
       </tr>
       </tbody>
@@ -46,3 +42,4 @@
       <i class="fa fa-plus"></i>
     </a>
   </div>
+</div>
