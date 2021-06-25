@@ -15,10 +15,14 @@ import { IngredientComponent } from './ingredient/ingredient.component';
 import { UtilisateurComponent } from './utilisateur/utilisateur.component';
 import { AdresseComponent } from './adresse/adresse.component';
 import { PreferenceAlimentaireComponent } from './preference-alimentaire/preference-alimentaire.component';
+import { RepasComponent } from './repas/repas.component';
 import {FormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
+import { MenuCardComponent } from './menu-card/menu-card.component';
+import { HomeComponent } from './home/home.component';
 import {ListeCoursesComponent} from "./liste-courses/liste-courses.component";
 import {AjustementQuantiteComponent} from "./ajustement-quantite/ajustement-quantite.component";
+
 
 @NgModule({
   declarations: [
@@ -29,14 +33,18 @@ import {AjustementQuantiteComponent} from "./ajustement-quantite/ajustement-quan
     ObjectifComponent,
     MenuComponent,
     PlanningComponent,
+    AppComponent,
+=======
+    AppComponent,
     PlatComponent,
     RecetteComponent,
     IngredientComponent,
-    AppComponent,
     UtilisateurComponent,
     AdresseComponent,
     PreferenceAlimentaireComponent,
-    UtilisateurComponent,
+    RepasComponent,
+    MenuCardComponent,
+    HomeComponent,
     ListeCoursesComponent,
     AjustementQuantiteComponent,
   ],
@@ -45,11 +53,15 @@ import {AjustementQuantiteComponent} from "./ajustement-quantite/ajustement-quan
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    FormsModule,
-    HttpClientModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule
+>>>>>>> Camille
+=======
+    HttpClientModule,
+
+
+>>>>>>> Solenn
   ],
   providers: [],
   bootstrap: [AppComponent]

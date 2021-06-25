@@ -54,12 +54,13 @@ header {
   margin-bottom: 0px;
 }
 
-/* -------------------------------------------------------------- Boddy */
+/* -------------------------------------------------------------- Body */
 
 .home-background {
   text-align: center;
-  height: 100%;
+  height: calc(100vh - 168px);
   background-image:url(../src/app/images/homePageLight.jpg);
+  overflow: hidden;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -104,44 +105,12 @@ h3 {
   border: none;
 }
 
-/* -------------------------------------------------------------- Bootstrap redesign voir SCSS pour plustard */
-
 /* -------------------------------------------------------------- Footer Section */
 
-#footer-home {
-  width:100%;
-  position:absolute;
-  bottom:0;
-  padding: 10px 0px;
-  color: #4B5D6C;
+footer {
   background-color: #F8F9FA;
-}
-
-/* -------------------------------------------------------------- Test start */
-
-#footer-general {
-  width:100%;
+  padding-top: 0.5rem;
   text-align: center;
-  margin-top: 0px;
-  padding: 10px 0px;
-  color: #4B5D6C;
-  background-image:url(../src/app/images/bottom_banner_desktop.jpg);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  margin-top: 20px;
-}
-
-.footer-menuSelection {
-  width:100%;
-  text-align: center;
-  margin-top: 0px;
-  padding: 10px 0px;
-  color: #4B5D6C;
-  background-image:url(../src/app/images/bottom_banner_desktop.jpg);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
   box-shadow: 0 -5px 5px -5px #333;
 }
 
@@ -171,18 +140,22 @@ h3 {
 
 .fa-twitter:hover {
   color:#E8833A;
+  text-decoration: none;
 }
 
 .fa-facebook:hover {
   color: #E8833A;
+  text-decoration: none;
 }
 
 .fa-instagram:hover {
   color: #E8833A;
+  text-decoration: none;
 }
 
 .fa-envelope:hover {
   color:#E8833A;
+  text-decoration: none;
 }
 
 /* -------------------------------------------------------------- Genre logos */
