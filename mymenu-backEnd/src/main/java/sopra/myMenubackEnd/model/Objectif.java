@@ -6,44 +6,55 @@ import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
+import org.springframework.data.annotation.Version;
+
+import com.fasterxml.jackson.annotation.JsonView;
 
 @Entity
 @Table(name = "objectifs")
 public class Objectif {
 	@Id
 	@GeneratedValue
+	@JsonView(Views.ViewCommon.class)
 	private Long id;
+	@Version
+	@JsonView(Views.ViewCommon.class)
+	private int version;
 	@Enumerated(EnumType.STRING)
+	@JsonView(Views.ViewObjectifWithTypeObjectif.class)
 	private TypeObjectif typeObjectif;
 	@Column(name = "commentaire")
+	@JsonView(Views.ViewCommon.class)
 	private String commentaire;
 	@Column(name = "nombreRepasParJour")
+	@JsonView(Views.ViewCommon.class)
 	private int nombreRepasParJour;
 	@Column(name = "nombreCaloriesParSemaine")
+	@JsonView(Views.ViewCommon.class)
 	private int nombreCaloriesParSemaine;
+	
+	@OneToOne(mappedBy="objectif")
+	@JoinColumn(name= "planning_id")
+	private Planning planning;
 	
 	public Objectif() {
 		super();
 	}
 	
-	public Objectif(TypeObjectif typeObjectif, String commentaire, int nombreRepasParJour,
-			int nombreCaloriesParSemaine) {
-		super();
-		this.typeObjectif = typeObjectif;
-		this.commentaire = commentaire;
-		this.nombreRepasParJour = nombreRepasParJour;
-		this.nombreCaloriesParSemaine = nombreCaloriesParSemaine;
-	}
-	
-	public Objectif(Long id, TypeObjectif typeObjectif, String commentaire, int nombreRepasParJour,
-			int nombreCaloriesParSemaine) {
+	public Objectif(Long id, int version, TypeObjectif typeObjectif, String commentaire, int nombreRepasParJour,
+			int nombreCaloriesParSemaine, Planning planning) {
 		super();
 		this.id = id;
+		this.version = version;
 		this.typeObjectif = typeObjectif;
 		this.commentaire = commentaire;
 		this.nombreRepasParJour = nombreRepasParJour;
 		this.nombreCaloriesParSemaine = nombreCaloriesParSemaine;
+		this.planning = planning;
 	}
 
 	public Long getId() {
@@ -84,6 +95,22 @@ public class Objectif {
 
 	public void setNombreCaloriesParSemaine(int nombreCaloriesParSemaine) {
 		this.nombreCaloriesParSemaine = nombreCaloriesParSemaine;
+	}
+
+	public int getVersion() {
+		return version;
+	}
+
+	public void setVersion(int version) {
+		this.version = version;
+	}
+
+	public Planning getPlanning() {
+		return planning;
+	}
+
+	public void setPlanning(Planning planning) {
+		this.planning = planning;
 	}
 	
 }
