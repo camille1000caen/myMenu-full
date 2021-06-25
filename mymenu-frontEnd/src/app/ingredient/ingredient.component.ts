@@ -22,6 +22,13 @@ export class IngredientComponent implements OnInit {
   list(): Array<Ingredient> {
     return this.ingredientService.findAll();
   }
+<<<<<<< HEAD
+=======
+ListByRecette(id: number) {
+    return this.ingredientService.findByRecette(id);
+}
+
+>>>>>>> Solenn
 
   add() {
     this.ingredientForm = new Ingredient();

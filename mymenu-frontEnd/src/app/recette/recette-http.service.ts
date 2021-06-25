@@ -2,6 +2,8 @@ import {Recette} from "../model/recette";
 import {Injectable} from "@angular/core";
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
+import {Ingredient} from "../model/ingredient";
+import {AppConfigService} from "../app-config.service";
 
 @Injectable({
   providedIn: 'root'
@@ -9,21 +11,22 @@ import {Observable} from "rxjs";
 export class RecetteHttpService {
   recettes: Array<Recette>;
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private appConfig: AppConfigService) {
     this.load()
   }
+
 
   findAll(): Array<Recette> {
     return this.recettes;
   }
 
   findById(id: number): Observable<Recette> {
-    return this.http.get<Recette>("recette/" + id);
+    return this.http.get<Recette>(this.appConfig.backEndUrl +"recette/" + id);
   }
 
   create(recette: Recette) {
 
-    this.http.post<Recette>("recette", recette).subscribe(resp => {
+    this.http.post<Recette>(this.appConfig.backEndUrl +"recette", recette).subscribe(resp => {
       this.load();
     }, error => console.log(error));
   }
@@ -31,17 +34,17 @@ export class RecetteHttpService {
   modify(recette: Recette): Observable<Recette> {
 
 
-    return this.http.put<Recette>("recette/" + recette.id, recette);
+    return this.http.put<Recette>(this.appConfig.backEndUrl +"recette/" + recette.id, recette);
   }
 
   deleteById(id: number) {
-    this.http.delete("recette/" + id).subscribe(resp => {
+    this.http.delete(this.appConfig.backEndUrl +"recette/" + id).subscribe(resp => {
       this.load();
     }, error => console.log(error));
   }
 
   load() {
-    this.http.get<Array<Recette>>("recette/").subscribe(resp => {
+    this.http.get<Array<Recette>>(this.appConfig.backEndUrl +"recette").subscribe(resp => {
       this.recettes = resp;
     }, error => console.log(error))
   }

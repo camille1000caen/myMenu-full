@@ -16,12 +16,16 @@ import { UtilisateurComponent } from './utilisateur/utilisateur.component';
 import { AdresseComponent } from './adresse/adresse.component';
 import { PreferenceAlimentaireComponent } from './preference-alimentaire/preference-alimentaire.component';
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 import {FormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import {ListeCoursesComponent} from "./liste-courses/liste-courses.component";
 import {AjustementQuantiteComponent} from "./ajustement-quantite/ajustement-quantite.component";
 >>>>>>> Camille
+=======
+
+>>>>>>> Solenn
 
 @NgModule({
   declarations: [
@@ -32,10 +36,18 @@ import {AjustementQuantiteComponent} from "./ajustement-quantite/ajustement-quan
     ObjectifComponent,
     MenuComponent,
     PlanningComponent,
+<<<<<<< HEAD
     PlatComponent,
     RecetteComponent,
     IngredientComponent,
     AppComponent,
+=======
+    AppComponent,
+    PlatComponent,
+    RecetteComponent,
+    IngredientComponent,
+
+>>>>>>> Solenn
     UtilisateurComponent,
     AdresseComponent,
     PreferenceAlimentaireComponent,
@@ -48,6 +60,7 @@ import {AjustementQuantiteComponent} from "./ajustement-quantite/ajustement-quan
     AppRoutingModule,
     FormsModule,
 <<<<<<< HEAD
+<<<<<<< HEAD
     HttpClientModule,
     AppRoutingModule,
 =======
@@ -58,6 +71,11 @@ import {AjustementQuantiteComponent} from "./ajustement-quantite/ajustement-quan
     FormsModule,
     HttpClientModule
 >>>>>>> Camille
+=======
+    HttpClientModule,
+
+
+>>>>>>> Solenn
   ],
   providers: [],
   bootstrap: [AppComponent]
