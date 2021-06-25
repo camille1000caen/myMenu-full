@@ -25,8 +25,8 @@ export class AppConfigService {
   findAllTypeObjectif(): Observable<Array<string>> {
     return this.http.get<Array<string>>(this.backEndUrl + "typeobjectif");
   }
-  findAllTypeAlimentaire(): Observable<Array<string>> {
-    return this.http.get<Array<string>>(this.backEndUrl + "typealimentaire");
+  findAllTypeAlimentations(): Observable<Array<string>> {
+    return this.http.get<Array<string>>(this.backEndUrl + "typealimentation");
   }
   findAllTypeProduit(): Observable<Array<string>> {
     return this.http.get<Array<string>>(this.backEndUrl + "typeproduit");
