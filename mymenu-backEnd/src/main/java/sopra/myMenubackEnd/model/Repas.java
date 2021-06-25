@@ -11,23 +11,30 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-
 import javax.persistence.Table;
 
 import org.springframework.data.annotation.Version;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 @Entity
 @Table(name = "repas")
 public class Repas {
+	
 	@Id
 	@GeneratedValue
-	private Long id;
+	@JsonView(Views.ViewCommon.class)
+	private Long id;	
 	@Version
+	@JsonView(Views.ViewCommon.class)
 	private int version;
 	@Enumerated(EnumType.STRING)
+	@JsonView(Views.ViewRepasWithTypeRepas.class)
 	private TypeRepas typeRepas;
+	
 	@ManyToOne
 	@JoinColumn(name = "menu")
+	@JsonView(Views.ViewRepasWithMenu.class)
 	private Menu menu;
 	@OneToMany(mappedBy = "repas")
 	private List<Plat> plats = new ArrayList<Plat>();

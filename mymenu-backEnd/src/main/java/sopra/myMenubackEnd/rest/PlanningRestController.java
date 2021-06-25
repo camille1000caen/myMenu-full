@@ -57,7 +57,7 @@ public class PlanningRestController {
 	@JsonView(Views.ViewPlanningWithObjectif.class)
 	public Planning findByIdWithObjectif(@PathVariable Long id) {
 
-		Optional<Planning> optPlanning = planningRepo.findByIdWithObjectif(id);
+		Optional<Planning> optPlanning = planningRepo.findPlanningByIdWithObjectif(id);
 
 		if (optPlanning.isPresent()) {
 			return optPlanning.get();
@@ -70,16 +70,26 @@ public class PlanningRestController {
 	@JsonView(Views.ViewPlanning.class)
 	public List<Planning> findAllByObjectif(@PathVariable Long idObjectif) {
 
-		List<Planning> plannings = planningRepo.findAllByObjectif(idObjectif);
+		List<Planning> plannings = planningRepo.findAllPlanningsByObjectif(idObjectif);
 
 		return plannings;
 	}
+	
+	@GetMapping("/with-objectif")
+	@JsonView(Views.ViewPlanningWithObjectif.class)
+	public List<Planning> findAllWithObjectif() {
+
+		List<Planning> plannings = planningRepo.findAllPlanningsWithObjectif();
+
+		return plannings;
+	}
+	
 	
 	@GetMapping("/{id}/detail-utilisateur")
 	@JsonView(Views.ViewPlanningWithUtilisateur.class)
 	public Planning findByIdWithUtilisateur(@PathVariable Long id) {
 
-		Optional<Planning> optPlanning = planningRepo.findByIdWithUtilisateur(id);
+		Optional<Planning> optPlanning = planningRepo.findPlanningByIdWithUtilisateur(id);
 
 		if (optPlanning.isPresent()) {
 			return optPlanning.get();
@@ -92,7 +102,7 @@ public class PlanningRestController {
 	@JsonView(Views.ViewPlanning.class)
 	public List<Planning> findAllByUtilisateur(@PathVariable Long idUtilisateur) {
 
-		List<Planning> plannings = planningRepo.findAllByUtilisateur(idUtilisateur);
+		List<Planning> plannings = planningRepo.findAllPlanningsByUtilisateur(idUtilisateur);
 
 		return plannings;
 	}
@@ -101,20 +111,11 @@ public class PlanningRestController {
 	@JsonView(Views.ViewPlanningWithUtilisateur.class)
 	public List<Planning> findAllWithUtilisateur() {
 
-		List<Planning> plannings = planningRepo.findAllWithUtilisateur();
+		List<Planning> plannings = planningRepo.findAllPlanningsWithUtilisateur();
 
 		return plannings;
 	}
 		
-	@GetMapping("/with-objectif")
-	@JsonView(Views.ViewPlanningWithObjectif.class)
-	public List<Planning> findAllWithObjectif() {
-
-		List<Planning> plannings = planningRepo.findAllWithObjectif();
-
-		return plannings;
-	}
-	
 	@PostMapping("")
 	@JsonView(Views.ViewPlanning.class)
 	public Planning create(@Valid @RequestBody Planning planning, BindingResult result) {

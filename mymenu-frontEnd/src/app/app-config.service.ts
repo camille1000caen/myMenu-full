@@ -8,7 +8,6 @@ import {Observable} from "rxjs";
 export class AppConfigService {
 
   backEndUrl: string = "http://localhost:8080/";
-
   constructor(private http: HttpClient) {
 
   }
@@ -25,8 +24,8 @@ export class AppConfigService {
   findAllTypeObjectif(): Observable<Array<string>> {
     return this.http.get<Array<string>>(this.backEndUrl + "typeobjectif");
   }
-  findAllTypeAlimentaire(): Observable<Array<string>> {
-    return this.http.get<Array<string>>(this.backEndUrl + "typealimentaire");
+  findAllTypeAlimentations(): Observable<Array<string>> {
+    return this.http.get<Array<string>>(this.backEndUrl + "typealimentation");
   }
   findAllTypeProduit(): Observable<Array<string>> {
     return this.http.get<Array<string>>(this.backEndUrl + "typeproduit");
@@ -36,3 +35,4 @@ export class AppConfigService {
   }
 
 }
+

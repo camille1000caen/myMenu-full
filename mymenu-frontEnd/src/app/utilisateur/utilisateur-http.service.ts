@@ -2,9 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {AppConfigService} from "../app-config.service";
-
-class Utilisateur {
-}
+import {Utilisateur} from "../model/utilisateur";
 
 @Injectable({
   providedIn: 'root'
@@ -12,6 +10,8 @@ class Utilisateur {
 export class UtilisateurHttpService {
 
   utilisateurs: Array<Utilisateur>;
+  genres:Array<string>=new Array<string>();
+  physicalActivitys:Array<string>=new Array<string>();
 
   constructor(private http: HttpClient, private appConfig: AppConfigService) {
     this.load()
@@ -36,14 +36,20 @@ export class UtilisateurHttpService {
   }
 
   deleteById(id: number) {
-    this.http.delete(this.appConfig.backEndUrl + "evaluation/" + id).subscribe(resp => {
+    this.http.delete(this.appConfig.backEndUrl + "utilisateur/" + id).subscribe(resp => {
       this.load();
     }, error => console.log(error));
   }
 
   load() {
-    this.http.get<Array<Evaluation>>(this.appConfig.backEndUrl + "evaluation").subscribe(resp => {
-      this.evaluations = resp;
+    this.http.get<Array<Utilisateur>>(this.appConfig.backEndUrl + "utilisateur").subscribe(resp => {
+      this.utilisateurs = resp;
     }, error => console.log(error))
+    this.appConfig.findAllGenre().subscribe(resp => {
+      this.genres = resp;
+    }, error => console.log(error));
+    this.appConfig.findAllPhysicalActivity().subscribe(resp => {
+      this.physicalActivitys = resp;
+    }, error => console.log(error));
   }
 }

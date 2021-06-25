@@ -25,23 +25,19 @@ public class Menu {
 		@GeneratedValue
 		@JsonView(Views.ViewCommon.class)
 		private Long id;
-		
 		@Version
 		@JsonView(Views.ViewCommon.class)
 		private int version;
-		
 		@Column(name = "jour")
 		@JsonView(Views.ViewCommon.class)
 		private Date jour;
-	
+		
 		@Column(name = "periode")
 		@JsonIgnore
-		private Integer periode;
-		
+		private Integer periode;	
 		@OneToMany(mappedBy = "menu")
 		@JsonIgnore
-		private List<Repas> repas = new ArrayList<Repas>();
-		
+		private List<Repas> repas = new ArrayList<Repas>();	
 		@ManyToOne
 		@JoinColumn(name = "planning_id")
 		@JsonView(Views.ViewMenuWithPlanning.class)
