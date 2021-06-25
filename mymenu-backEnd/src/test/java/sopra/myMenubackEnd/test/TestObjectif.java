@@ -105,6 +105,36 @@ public class TestObjectif {
 	}
 	
 	@Test
+	public void findAllObjectifByTypeObjectif() {
+
+		Objectif objectif1 = new Objectif();
+		Objectif objectif2 = new Objectif();
+
+		objectif1.setTypeObjectif(TypeObjectif.BIEN_ETRE);
+		objectif1.setCommentaire("commentaire1");
+		objectif1.setNombreCaloriesParSemaine(2400);
+		objectif1.setNombreRepasParJour(3);
+		objectif1 = objectifRepo.save(objectif1);
+
+		objectif2.setTypeObjectif(TypeObjectif.PRISE_MASSE);
+		objectif2.setCommentaire("commentaire2");
+		objectif2.setNombreCaloriesParSemaine(1800);
+		objectif2.setNombreRepasParJour(2);
+		objectif2 = objectifRepo.save(objectif2);
+
+		List<Objectif> objectifs = objectifRepo.findAllObjectifByTypeObjectif(TypeObjectif.PRISE_MASSE);
+				
+		try {
+			assertEquals(1, objectifs.size());
+		}
+
+		finally {
+			objectifRepo.delete(objectif1);
+			objectifRepo.delete(objectif2);
+		}
+	}
+	
+	@Test
 	public void objectifDelete() {
 
 		Objectif objectif1 = new Objectif();

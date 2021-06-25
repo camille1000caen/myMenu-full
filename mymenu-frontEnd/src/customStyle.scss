@@ -1,0 +1,455 @@
+@charset "UTF-8";
+
+html {
+  height: 100%;
+}
+
+body {
+  font-family: "-apple-system,BlinkMacSystemFont";
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  margin: 0;
+}
+
+.wrapper {
+  display:flex;
+  flex: 1;
+  align-items: center;
+}
+
+.wrapper-profil2 {
+  display: flex;
+  flex: 1;
+  align-items: center;
+}
+
+.wrapper-SelectionMenu {
+  display: flex;
+  flex: 1;
+}
+.wrapper-SelectionMenu  > .listMenus {
+  flex: 1;
+}
+
+.wrapper-SelectionMenu  > nav,
+.wrapper-SelectionMenu > aside {
+  flex: 0 0 20vw;
+  background: #f0ebe1;
+}
+.wrapper-SelectionMenu  > nav {
+  order: -1;
+}
+
+.logoNbMenu {
+  flex: 1;
+}
+/* -------------------------------------------------------------- Header */
+
+header {
+  margin-bottom: 20px;
+}
+
+.header-MenuSelection {
+  margin-bottom: 0px;
+}
+
+/* -------------------------------------------------------------- Boddy */
+
+.home-background {
+  text-align: center;
+  height: 100%;
+  background-image:url(../src/app/images/homePageLight.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.home-body {
+  position: absolute;
+  width: 100%;
+  top: 40%;
+}
+/* -------------------------------------------------------------- couleurs de texte */
+.green{
+  color: #75BB21;
+}
+.orange{
+  color: #E8833A;
+}
+
+h1 {
+  padding-top: 10px;
+  font-size: 32px;
+}
+
+h2 {
+  font-size: 26px;
+  color: #4B5D6C;
+}
+
+h3 {
+  font-size: 24px;
+  color: #4B5D6C;
+}
+/* -------------------------------------------------------------- Bootstrap redesign voir SCSS pour plustard */
+
+.btn-success {
+  background-color: #75BB21;
+  border: none;
+}
+
+.btn-secondary {
+  background-color: #E8833A;
+  border: none;
+}
+
+/* -------------------------------------------------------------- Bootstrap redesign voir SCSS pour plustard */
+
+/* -------------------------------------------------------------- Footer Section */
+
+#footer-home {
+  width:100%;
+  position:absolute;
+  bottom:0;
+  padding: 10px 0px;
+  color: #4B5D6C;
+  background-color: #F8F9FA;
+}
+
+/* -------------------------------------------------------------- Test start */
+
+#footer-general {
+  width:100%;
+  text-align: center;
+  margin-top: 0px;
+  padding: 10px 0px;
+  color: #4B5D6C;
+  background-image:url(../src/app/images/bottom_banner_desktop.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-top: 20px;
+}
+
+.footer-menuSelection {
+  width:100%;
+  text-align: center;
+  margin-top: 0px;
+  padding: 10px 0px;
+  color: #4B5D6C;
+  background-image:url(../src/app/images/bottom_banner_desktop.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  box-shadow: 0 -5px 5px -5px #333;
+}
+
+/* -------------------------------------------------------------- Footer logos */
+
+.footer-logo{
+  padding: 20px 16px;
+  cursor: pointer;
+}
+
+.fa-twitter {
+  color:#4B5D6C;
+}
+
+.fa-facebook {
+  cursor: pointer;
+  color:#4B5D6C;
+}
+
+.fa-instagram{
+  color:#4B5D6C;
+}
+
+.fa-envelope {
+  color:#4B5D6C;
+}
+
+.fa-twitter:hover {
+  color:#E8833A;
+}
+
+.fa-facebook:hover {
+  color: #E8833A;
+}
+
+.fa-instagram:hover {
+  color: #E8833A;
+}
+
+.fa-envelope:hover {
+  color:#E8833A;
+}
+
+/* -------------------------------------------------------------- Genre logos */
+
+.fa-venus{
+  color: #4B5D6C;
+  padding: 20px;
+}
+
+.fa-venus:active{
+  color: yellow;
+  padding: 20px;
+}
+
+.fa-mars{
+  color: #4B5D6C;
+  padding: 20px;
+}
+
+.fa-venus-mars{
+  color: #4B5D6C;
+  padding: 20px;
+}
+
+.btn-venus:visited{
+  background-color:  #D3455B;
+  padding: 20px;
+  border: none;
+}
+
+.fa-mars{
+  color: #4B5D6C;
+  padding: 20px;
+}
+
+.fa-venus-mars{
+  color: #4B5D6C;
+  padding: 20px;
+}
+
+.fa-venus:hover{
+  color: #D3455B;
+}
+
+.fa-mars:hover{
+  color: #17A2B8;
+}
+
+.fa-venus-mars:hover{
+  color: #E8833A;
+}
+
+/* -------------------------------------------------------------- menuSelection Section */
+
+hr {
+  width: 80%;
+  height: 12px;
+  border: none;
+  margin-top: 0px;
+  border-bottom: none;
+  box-shadow: 0 5px 5px -5px #4B5D6C;
+}
+
+.listDetail {
+
+  width: 50%;
+  padding: 1%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  box-shadow: 5px 0 5px -5px #4B5D6C;
+}
+
+.list-group-item {
+  background-color: transparent;
+  color: #4B5D6C;
+}
+
+.trashCan {
+  appearance: none;
+  background-color: transparent;
+  border: none;
+  font-size: 1.4rem;
+  cursor: pointer;
+  margin: 0.3rem;
+}
+
+.trashCan:hover{
+  color: #dd4b39;
+}
+
+.plusBtn {
+  appearance: none;
+  background-color: transparent;
+  border: none;
+  font-size: 1.4rem;
+  cursor: pointer;
+  margin: 0.3rem;
+}
+
+.plusBtn:hover{
+  color: #75BB21;
+}
+
+.breakfastDetail {
+  flex: 1;
+}
+
+.lunchDetail {
+  flex: 1;
+}
+
+.dinnerDetail {
+  flex: 1;
+}
+
+.btn-CheckMenu {
+  flex: 1;
+}
+
+.listMenus {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+}
+
+.card {
+  border: solid 5px #f7f7f7;
+  box-shadow: 0 0 5px #4B5D6C;
+}
+
+.card-title {
+  font-size: 1rem;
+}
+.card-img-top {
+  width: 100%;
+  height: 10vw;
+  object-fit: cover;
+}
+
+.card-text {
+  //display: none;
+}
+.petitDejTitle {
+  color: #E8833A;
+}
+
+.dejeunerTitle {
+  color: #14c0af;
+}
+
+.dinnerTitle {
+  color: #75BB21;
+}
+
+/*#carouselExampleIndicators {
+	background-color: purple;
+	align-self: center;
+}
+
+.carousel-inner {
+	background-color: green;
+	align-self: center;
+}*/
+
+.album {
+  padding-left: 5rem;
+  padding-right: 5rem;
+}
+
+.carousel-control-prev-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%4B5D6C' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E") !important;
+}
+.carousel-control-next-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%4B5D6C' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E") !important;
+}
+.carousel-indicators li {
+  background-color: #4B5D6C;
+}
+
+.carousel-control-prev {
+  width: 4rem;
+}
+
+.carousel-control-next {
+  width: 4rem;
+}
+.checkbox-Custom {
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+}
+
+.input-group-text {
+  padding: 10px;
+}
+
+
+/* -------------------------------------------------------------- Test Custom Checkbox START */
+/*input {
+	cursor: pointer;
+}
+
+input[type=checkbox] {
+    visibility: hidden;
+}
+
+.input-group-text {
+	padding: 0px;
+	background-color: grey;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border: 0;
+}
+
+.customCheckbox{
+	position: absolute;
+	height: 37px;
+	width: 37px;
+	margin-left: 2px;
+	background-color: white;
+	border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border-top-left-radius: 0.20rem;
+    border-bottom-left-radius: 0.20rem;
+}
+
+.input-group-text input:active ~ .customCheckbox {
+    background-color: #75BB21;
+}
+
+.input-group-text input:checked ~ .customCheckbox {
+    background-color: #75BB21;
+}
+
+.customCheckbox:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+
+.input-group-text input:checked ~ .customCheckbox:after {
+    display: block;
+}
+
+.input-group-text .customCheckbox:after {
+    left: 10px;
+    bottom: 10px;
+    width: 16px;
+    height: 22px;
+    border: solid white;
+    border-width: 0 4px 4px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+.checkbox-SelectionMenu {
+	width: 42px;
+    height: 42px;
+}
+
+.form-check {
+	padding: 0;
+}*/
+/* -------------------------------------------------------------- Test Custom Checkbox END */
+

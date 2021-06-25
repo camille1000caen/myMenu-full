@@ -25,11 +25,9 @@ public class Planning {
 	@GeneratedValue
 	@JsonView(Views.ViewCommon.class)
 	private Long id;
-	
 	@Version
 	@JsonView(Views.ViewCommon.class)
 	private int version;
-	
 	@Column(name = "periode")
 	@JsonView(Views.ViewCommon.class)
 	private Integer periode;
@@ -37,12 +35,10 @@ public class Planning {
 	@OneToMany(mappedBy = "planning")
 	@JsonIgnore
 	private List<Menu> menus = new ArrayList<Menu>(); 
-	
 	@OneToOne
 	@JoinColumn(name = "Objectif_Id")
 	@JsonView(Views.ViewPlanningWithObjectif.class)
 	private Objectif objectif;
-	
 	@ManyToOne
 	@JoinColumn(name = "utilisateur_id")
 	@JsonView(Views.ViewPlanningWithUtilisateur.class)

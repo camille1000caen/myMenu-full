@@ -8,10 +8,31 @@ import {Observable} from "rxjs";
 export class AppConfigService {
 
   backEndUrl: string = "http://localhost:8080/";
-
   constructor(private http: HttpClient) {
 
   }
 
+  findAllGenre(): Observable<Array<string>> {
+    return this.http.get<Array<string>>(this.backEndUrl + "genre");
+  }
+  findAllPhysicalActivity(): Observable<Array<string>> {
+    return this.http.get<Array<string>>(this.backEndUrl + "physicalactivity");
+  }
+  findAllProduitSaison(): Observable<Array<string>> {
+    return this.http.get<Array<string>>(this.backEndUrl + "produitsaison");
+  }
+  findAllTypeObjectif(): Observable<Array<string>> {
+    return this.http.get<Array<string>>(this.backEndUrl + "typeobjectif");
+  }
+  findAllTypeAlimentations(): Observable<Array<string>> {
+    return this.http.get<Array<string>>(this.backEndUrl + "typealimentation");
+  }
+  findAllTypeProduit(): Observable<Array<string>> {
+    return this.http.get<Array<string>>(this.backEndUrl + "typeproduit");
+  }
+  findAllTypeRepas(): Observable<Array<string>> {
+    return this.http.get<Array<string>>(this.backEndUrl + "typerepas");
+  }
 
 }
+
