@@ -27,6 +27,8 @@ public class Views {
 	
 	public static class ViewAjustementQuantite extends ViewCommon{}
 	
+	public static class ViewAjustementQuantiteWithIngredient extends ViewAjustementQuantite{}
+	
 	public static class ViewMagasinIngredient extends ViewCommon{}
 	
 //	----------------------------------------------------------------------------------------- ViewPlanning

@@ -19,6 +19,7 @@ import com.fasterxml.jackson.annotation.JsonView;
 @Table(name="ajustementQuantite")
 public class AjustementQuantite {
 	@Id
+//	@Column(name="ajustement_quantite_id")
 	@GeneratedValue
 	@JsonView(Views.ViewCommon.class)
 	private Long id;

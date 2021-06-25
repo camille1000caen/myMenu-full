@@ -12,11 +12,16 @@ import { PlanningComponent } from './planning/planning.component';
 import { PlatComponent } from './plat/plat.component';
 import { RecetteComponent } from './recette/recette.component';
 import { IngredientComponent } from './ingredient/ingredient.component';
-import {FormsModule} from "@angular/forms";
-import {HttpClientModule} from "@angular/common/http";
 import { UtilisateurComponent } from './utilisateur/utilisateur.component';
 import { AdresseComponent } from './adresse/adresse.component';
 import { PreferenceAlimentaireComponent } from './preference-alimentaire/preference-alimentaire.component';
+<<<<<<< HEAD
+=======
+import {FormsModule} from "@angular/forms";
+import {HttpClientModule} from "@angular/common/http";
+import {ListeCoursesComponent} from "./liste-courses/liste-courses.component";
+import {AjustementQuantiteComponent} from "./ajustement-quantite/ajustement-quantite.component";
+>>>>>>> Camille
 
 @NgModule({
   declarations: [
@@ -33,14 +38,26 @@ import { PreferenceAlimentaireComponent } from './preference-alimentaire/prefere
     AppComponent,
     UtilisateurComponent,
     AdresseComponent,
-    PreferenceAlimentaireComponent
+    PreferenceAlimentaireComponent,
+    UtilisateurComponent,
+    ListeCoursesComponent,
+    AjustementQuantiteComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+<<<<<<< HEAD
     HttpClientModule,
     AppRoutingModule,
+=======
+    HttpClientModule,
+    FormsModule,
+    HttpClientModule,
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule
+>>>>>>> Camille
   ],
   providers: [],
   bootstrap: [AppComponent]
