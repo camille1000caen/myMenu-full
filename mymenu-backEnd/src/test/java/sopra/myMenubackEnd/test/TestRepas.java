@@ -83,6 +83,32 @@ public class TestRepas {
 	}
 
 	@Test
+	public void findAllRepasByTypeRepas() {
+
+		Repas repas1 = new Repas(TypeRepas.PETIT_DEJ);
+		Repas repas2 = new Repas(TypeRepas.DEJ);
+		Repas repas3 = new Repas(TypeRepas.DEJ);
+		Repas repas4 = new Repas(TypeRepas.DINNER);
+
+		repas1 = repasRepo.save(repas1);
+		repas2 = repasRepo.save(repas2);
+		repas3 = repasRepo.save(repas3);
+
+		List<Repas> repas = repasRepo.findAllRepasByTypeRepas(TypeRepas.DEJ);
+
+		try {
+			assertEquals(2, repas.size());
+		}
+
+		finally {
+			repasRepo.delete(repas1);
+			repasRepo.delete(repas2);
+			repasRepo.delete(repas3);
+			repasRepo.delete(repas4);
+		}
+	}
+	
+	@Test
 	public void repasDelete() {
 
 		Repas repas1 = new Repas(TypeRepas.PETIT_DEJ);

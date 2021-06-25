@@ -41,13 +41,24 @@ public class Views {
 	
 	public static class ViewMenu extends ViewCommon{}
 	
-	public static class ViewMenuWithPlanning extends ViewPlanning{}
+	public static class ViewMenuWithPlanning extends ViewMenu{}
 	
 //	----------------------------------------------------------------------------------------- ViewRepas
 	
+	public static class ViewRepas extends ViewCommon{}
 	
+	public static class ViewRepasWithTypeRepas extends ViewRepas{}
+	
+	public static class ViewRepasWithMenu extends ViewRepas{}
 	
 //	----------------------------------------------------------------------------------------- ViewObjectif
+	
+	public static class ViewObjectif extends ViewCommon{}
+	
+	public static class ViewObjectifWithTypeObjectif extends ViewObjectif{}
+	
+//	-----------------------------------------------------------------------------------------
+	
 	public static class ViewIngredient extends ViewCommon{}
 	
 	public static class ViewPlat extends ViewCommon{}

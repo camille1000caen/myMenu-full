@@ -57,7 +57,7 @@ public class MenuRestController {
 		@JsonView(Views.ViewMenuWithPlanning.class)
 		public Menu findByIdWithPlanning(@PathVariable Long id) {
 
-			Optional<Menu> optMenu = menuRepo.findByIdWithPlanning(id);
+			Optional<Menu> optMenu = menuRepo.findMenuByIdWithPlanning(id);
 
 			if (optMenu.isPresent()) {
 				return optMenu.get();
@@ -70,7 +70,7 @@ public class MenuRestController {
 		@JsonView(Views.ViewMenu.class)
 		public List<Menu> findAllByPlanning(@PathVariable Long idObjectif) {
 
-			List<Menu> menus = menuRepo.findAllByPlanning(idObjectif);
+			List<Menu> menus = menuRepo.findAllMenusByPlanning(idObjectif);
 
 			return menus;
 		}
@@ -80,7 +80,7 @@ public class MenuRestController {
 		@JsonView(Views.ViewMenuWithPlanning.class)
 		public List<Menu> findAllWithPlanning() {
 
-			List<Menu> menus = menuRepo.findAllWithPlanning();
+			List<Menu> menus = menuRepo.findAllMenusWithPlanning();
 
 			return menus;
 		}
