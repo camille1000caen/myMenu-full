@@ -15,17 +15,14 @@ import { IngredientComponent } from './ingredient/ingredient.component';
 import { UtilisateurComponent } from './utilisateur/utilisateur.component';
 import { AdresseComponent } from './adresse/adresse.component';
 import { PreferenceAlimentaireComponent } from './preference-alimentaire/preference-alimentaire.component';
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
+import { RepasComponent } from './repas/repas.component';
 import {FormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
+import { MenuCardComponent } from './menu-card/menu-card.component';
+import { HomeComponent } from './home/home.component';
 import {ListeCoursesComponent} from "./liste-courses/liste-courses.component";
 import {AjustementQuantiteComponent} from "./ajustement-quantite/ajustement-quantite.component";
->>>>>>> Camille
-=======
 
->>>>>>> Solenn
 
 @NgModule({
   declarations: [
@@ -36,35 +33,24 @@ import {AjustementQuantiteComponent} from "./ajustement-quantite/ajustement-quan
     ObjectifComponent,
     MenuComponent,
     PlanningComponent,
-<<<<<<< HEAD
-    PlatComponent,
-    RecetteComponent,
-    IngredientComponent,
     AppComponent,
 =======
     AppComponent,
     PlatComponent,
     RecetteComponent,
     IngredientComponent,
-
->>>>>>> Solenn
     UtilisateurComponent,
     AdresseComponent,
     PreferenceAlimentaireComponent,
-    UtilisateurComponent,
+    RepasComponent,
+    MenuCardComponent,
+    HomeComponent,
     ListeCoursesComponent,
     AjustementQuantiteComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule,
-<<<<<<< HEAD
-<<<<<<< HEAD
-    HttpClientModule,
-    AppRoutingModule,
-=======
-    HttpClientModule,
     FormsModule,
     HttpClientModule,
     AppRoutingModule,
