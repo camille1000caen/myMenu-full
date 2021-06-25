@@ -12,13 +12,9 @@ import { PlanningComponent } from './planning/planning.component';
 import { PlatComponent } from './plat/plat.component';
 import { RecetteComponent } from './recette/recette.component';
 import { IngredientComponent } from './ingredient/ingredient.component';
-import {FormsModule} from "@angular/forms";
-import {HttpClientModule} from "@angular/common/http";
 import { UtilisateurComponent } from './utilisateur/utilisateur.component';
 import { AdresseComponent } from './adresse/adresse.component';
 import { PreferenceAlimentaireComponent } from './preference-alimentaire/preference-alimentaire.component';
-import {FormsModule} from "@angular/forms";
-import {HttpClientModule} from "@angular/common/http";
 import {FormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import {ListeCoursesComponent} from "./liste-courses/liste-courses.component";
@@ -32,15 +28,14 @@ import {AjustementQuantiteComponent} from "./ajustement-quantite/ajustement-quan
     HomebodyComponent,
     ObjectifComponent,
     MenuComponent,
-    PlanningComponent
-    AppComponent,
+    PlanningComponent,
     PlatComponent,
     RecetteComponent,
-    IngredientComponent
+    IngredientComponent,
     AppComponent,
     UtilisateurComponent,
     AdresseComponent,
-    PreferenceAlimentaireComponent
+    PreferenceAlimentaireComponent,
     UtilisateurComponent,
     ListeCoursesComponent,
     AjustementQuantiteComponent,
@@ -49,8 +44,7 @@ import {AjustementQuantiteComponent} from "./ajustement-quantite/ajustement-quan
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
-    AppRoutingModule,
+    HttpClientModule,
     FormsModule,
     HttpClientModule,
     AppRoutingModule,

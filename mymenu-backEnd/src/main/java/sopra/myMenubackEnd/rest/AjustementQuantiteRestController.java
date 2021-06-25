@@ -38,6 +38,12 @@ public class AjustementQuantiteRestController {
 		return ajustementRepo.findAll();
 	}
 	
+//	@GetMapping("")
+//	@JsonView(Views.ViewAjustementQuantiteWithIngredient.class)
+//	public List<AjustementQuantite> findAll() {
+//		return ajustementRepo.findAllWithIngredient();
+//	}
+	
 	@GetMapping("/{id}")
 	@JsonView(Views.ViewAjustementQuantite.class)
 	public AjustementQuantite find(@PathVariable Long id) {

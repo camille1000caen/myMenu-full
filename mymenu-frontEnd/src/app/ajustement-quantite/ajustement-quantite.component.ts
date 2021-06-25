@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {AjustementQuantite} from "../model/ajustementQuantite";
 import {AjustementQuantiteHttpService} from "./ajustementQuantite-http.service";
+import {Ingredient} from "../model/ingredient";
+import {IngredientHttpService} from "../ingredient/ingredient-http.service";
 
 @Component({
   selector: 'app-ajustement-quantite',
@@ -11,7 +13,7 @@ export class AjustementQuantiteComponent implements OnInit {
 
   ajustementQuantiteForm : AjustementQuantite = null;
 
-  constructor(private ajustementQuantiteService : AjustementQuantiteHttpService) { }
+  constructor(private ajustementQuantiteService : AjustementQuantiteHttpService, private ingredientService : IngredientHttpService ) { }
 
   ngOnInit(): void {
   }
@@ -19,6 +21,10 @@ export class AjustementQuantiteComponent implements OnInit {
   list(): Array<AjustementQuantite> {
     return this.ajustementQuantiteService.findAll();
   }
+
+  // listIngredients() : Array<Ingredient>{
+  //   return this.in
+  // }
 
   add() {
     this.ajustementQuantiteForm = new AjustementQuantite();
