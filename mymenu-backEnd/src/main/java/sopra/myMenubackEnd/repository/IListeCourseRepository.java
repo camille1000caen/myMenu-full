@@ -13,7 +13,7 @@ import sopra.myMenubackEnd.model.ListeCourse;
 
 public interface IListeCourseRepository extends JpaRepository<ListeCourse,Long> {
 	
-	@Query("select distinct l from ListeCourse l left join fetch l.ajustementQuantite")
+	@Query("select l from ListeCourse l left join fetch l.ajustementQuantite")
 	List<ListeCourse> findAllWithAjustement();
 
 	@Query("select distinct l from ListeCourse l left join fetch l.ajustementQuantite where l.id = :id")

@@ -68,6 +68,16 @@ public class IngredientRestController {
 		return ingredientRepo.findIngredientByProduitSaison(produitSaison);
 
 	}
+	
+	@GetMapping("/byrecette/{id}")
+	@JsonView(Views.ViewIngredient.class)
+	public List<Ingredient> findAllIngredientByRecette(@PathVariable Long id) {
+			
+		return ingredientRepo.findAllIngredientByRecette(id);
+
+	}
+	
+	
 	@GetMapping("/by-typeProduit/{typeProduit}")
 	@JsonView(Views.ViewIngredient.class)
 	public List<Ingredient> findIngredientByTypeProduit(@PathVariable TypeProduit typeProduit) {
@@ -81,7 +91,7 @@ public class IngredientRestController {
 		return ingredientRepo.findIngredientByName(name);
 	}
 	@PostMapping("")
-	@PreAuthorize("hasRole('ADMIN')")
+	//@PreAuthorize("hasRole('ADMIN')")
 	@JsonView(Views.ViewIngredient.class)
 	public Ingredient create(@RequestBody Ingredient ingredient) {
 		ingredient = ingredientRepo.save(ingredient);
@@ -90,7 +100,7 @@ public class IngredientRestController {
 	}
 
 	@PutMapping("/{id}")
-	@PreAuthorize("hasRole('ADMIN')")
+	//@PreAuthorize("hasRole('ADMIN')")
 	@JsonView(Views.ViewIngredient.class)
 	public Ingredient update(@RequestBody Ingredient ingredient, @PathVariable Long id) {
 		if (!ingredientRepo.existsById(id)) {
@@ -103,7 +113,7 @@ public class IngredientRestController {
 	}
 
 	@DeleteMapping("/{id}")
-	@PreAuthorize("hasRole('ADMIN')")
+	//@PreAuthorize("hasRole('ADMIN')")
 	public void delete(@PathVariable Long id) {
 		ingredientRepo.deleteById(id);
 	}

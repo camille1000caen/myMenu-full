@@ -14,7 +14,7 @@ export class AdresseComponent implements OnInit {
 
   adresseForm: Adresse = null;
 
-  constructor(private adresseService: AdresseHttpService,/*private magasinService : MagasinHttpService*/private utilisateurService:UtilisateurHttpService) {
+  constructor(private adresseService: AdresseHttpService,private utilisateurService:UtilisateurHttpService) {
   }
 
   ngOnInit(): void {
@@ -24,10 +24,6 @@ export class AdresseComponent implements OnInit {
     return this.adresseService.findAll();
   }
 
-  /*listMagasin(): Array<Magasin> {
-    return this.magasinService.findAll();
-  }*/
-
   listUtilisateur(): Array<Utilisateur> {
     return this.utilisateurService.findAll();
   }
@@ -35,7 +31,6 @@ export class AdresseComponent implements OnInit {
   add() {
     this.adresseForm = new Adresse();
     this.adresseForm.coordonnees=new Coordonnees();
-    //this.adresseForm.magasin=new Magasin();
     this.adresseForm.utilisateur=new Utilisateur();
   }
 
@@ -45,9 +40,6 @@ export class AdresseComponent implements OnInit {
       if (!this.adresseForm.coordonnees) {
         this.adresseForm.coordonnees = new Coordonnees();
       }
-      /*if (!this.adresseForm.magasin) {
-        this.adresseForm.magasin = new Magasin();
-      }*/
       if (!this.adresseForm.utilisateur) {
         this.adresseForm.utilisateur = new Utilisateur();
       }

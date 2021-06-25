@@ -44,7 +44,7 @@ public class Recette {
 	private TypeAlimentation typeAlimentation;
 	
 	@ManyToMany(mappedBy="recettes")
-	@JsonIgnore
+
 	private List<Ingredient> ingredients = new ArrayList<Ingredient>();
 	@OneToOne(mappedBy= "recette")
 	private Plat plat;

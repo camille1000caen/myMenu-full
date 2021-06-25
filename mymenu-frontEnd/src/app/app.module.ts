@@ -12,11 +12,17 @@ import { PlanningComponent } from './planning/planning.component';
 import { PlatComponent } from './plat/plat.component';
 import { RecetteComponent } from './recette/recette.component';
 import { IngredientComponent } from './ingredient/ingredient.component';
-import {FormsModule} from "@angular/forms";
-import {HttpClientModule} from "@angular/common/http";
 import { UtilisateurComponent } from './utilisateur/utilisateur.component';
 import { AdresseComponent } from './adresse/adresse.component';
 import { PreferenceAlimentaireComponent } from './preference-alimentaire/preference-alimentaire.component';
+import { RepasComponent } from './repas/repas.component';
+import {FormsModule} from "@angular/forms";
+import {HttpClientModule} from "@angular/common/http";
+import { MenuCardComponent } from './menu-card/menu-card.component';
+import { HomeComponent } from './home/home.component';
+import {ListeCoursesComponent} from "./liste-courses/liste-courses.component";
+import {AjustementQuantiteComponent} from "./ajustement-quantite/ajustement-quantite.component";
+
 
 @NgModule({
   declarations: [
@@ -27,13 +33,20 @@ import { PreferenceAlimentaireComponent } from './preference-alimentaire/prefere
     ObjectifComponent,
     MenuComponent,
     PlanningComponent,
+    AppComponent,
+=======
+    AppComponent,
     PlatComponent,
     RecetteComponent,
     IngredientComponent,
-    AppComponent,
     UtilisateurComponent,
     AdresseComponent,
-    PreferenceAlimentaireComponent
+    PreferenceAlimentaireComponent,
+    RepasComponent,
+    MenuCardComponent,
+    HomeComponent,
+    ListeCoursesComponent,
+    AjustementQuantiteComponent,
   ],
   imports: [
     BrowserModule,
@@ -41,6 +54,14 @@ import { PreferenceAlimentaireComponent } from './preference-alimentaire/prefere
     FormsModule,
     HttpClientModule,
     AppRoutingModule,
+    FormsModule,
+    HttpClientModule
+>>>>>>> Camille
+=======
+    HttpClientModule,
+
+
+>>>>>>> Solenn
   ],
   providers: [],
   bootstrap: [AppComponent]
