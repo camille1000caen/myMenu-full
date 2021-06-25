@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {ListeCourses} from "../model/listeCourses";
 import {ListeCoursesHttpService} from "./liste-Courses-http.service";
+import {AjustementQuantiteHttpService} from "../ajustement-quantite/ajustementQuantite-http.service";
+import {AjustementQuantite} from "../model/ajustementQuantite";
 
 @Component({
   selector: 'app-liste-courses',
@@ -11,7 +13,7 @@ export class ListeCoursesComponent implements OnInit {
 
   listeCoursesForm: ListeCourses=null;
 
-  constructor(private listeCoursesService : ListeCoursesHttpService) { }
+  constructor(private listeCoursesService : ListeCoursesHttpService, private ajustementService : AjustementQuantiteHttpService) { }
 
   ngOnInit(): void {
   }
@@ -20,8 +22,13 @@ export class ListeCoursesComponent implements OnInit {
     return this.listeCoursesService.findAll();
   }
 
+  listAjustement(): Array<AjustementQuantite> {
+    return this.ajustementService.findAll();
+  }
+
   add() {
     this.listeCoursesForm = new ListeCourses();
+    this.listeCoursesForm.ajustementQuantite= new AjustementQuantite();
   }
 
   edit(id: number) {

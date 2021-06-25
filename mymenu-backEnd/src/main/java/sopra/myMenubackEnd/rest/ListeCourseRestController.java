@@ -38,10 +38,11 @@ public class ListeCourseRestController {
 	private IListeCourseRepository listeCourseRepo;
 
 	@GetMapping("")
-	@JsonView(Views.ViewListeCourse.class)
-	public List<ListeCourse> findAllWithAjustement() {
-		return listeCourseRepo.findAll();
+	@JsonView(Views.ViewListeCourseWithAjustement.class)
+	public List<ListeCourse> findAll() {
+		return listeCourseRepo.findAllWithAjustement();
 	}
+	
 
 	@GetMapping("/{id}")
 	@JsonView(Views.ViewListeCourse.class)

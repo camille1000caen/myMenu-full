@@ -1,11 +1,11 @@
 export class AjustementQuantite{
   id : number;
   version : number;
-  nombrePersonne : number;
+ quantiteModifiee : number;
 
-  constructor( id? : number, version? :number, nombrePersonne? : number){
+  constructor( id? : number, version? :number, quantiteModifiee? : number){
     this.id=id!;
     this.version=version!;
-    this.nombrePersonne=nombrePersonne!;
+    this.quantiteModifiee=quantiteModifiee!;
   }
 }
