@@ -40,7 +40,7 @@ export class AdresseHttpService {
   }
 
   load() {
-    this.http.get<Array<Adresse>>(this.appConfig.backEndUrl + "adresse").subscribe(resp => {
+    this.http.get<Array<Adresse>>(this.appConfig.backEndUrl + "adresse/with-utilisateur").subscribe(resp => {
       this.adresses = resp;
     }, error => console.log(error))
   }

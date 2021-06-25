@@ -20,8 +20,6 @@ import org.springframework.web.server.ResponseStatusException;
 import com.fasterxml.jackson.annotation.JsonView;
 
 import sopra.myMenubackEnd.model.Plat;
-import sopra.myMenubackEnd.model.ProduitSaison;
-import sopra.myMenubackEnd.model.TypeProduit;
 import sopra.myMenubackEnd.model.Views;
 import sopra.myMenubackEnd.repository.IPlatRepository;
 @RestController

@@ -1,0 +1,20 @@
+<div class="card mt-3">
+  <div class="card-header bg-info text-white">
+    <h2>Liste des ajustements</h2>
+  </div>
+  <div class="card-body">
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th>id </th>
+        <th>Quantité modifiée</th>
+      </thead>
+      <tbody>
+      <tr *ngFor ="let ajustement of list()">
+        <td>{{ajustement.id}}</td>
+        <td>{{ajustement.quantiteModifiee}}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

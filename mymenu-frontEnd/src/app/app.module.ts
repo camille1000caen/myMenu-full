@@ -20,6 +20,8 @@ import {FormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import { MenuCardComponent } from './menu-card/menu-card.component';
 import { HomeComponent } from './home/home.component';
+import {ListeCoursesComponent} from "./liste-courses/liste-courses.component";
+import {AjustementQuantiteComponent} from "./ajustement-quantite/ajustement-quantite.component";
 
 
 @NgModule({
@@ -32,6 +34,8 @@ import { HomeComponent } from './home/home.component';
     MenuComponent,
     PlanningComponent,
     AppComponent,
+=======
+    AppComponent,
     PlatComponent,
     RecetteComponent,
     IngredientComponent,
@@ -41,12 +45,23 @@ import { HomeComponent } from './home/home.component';
     RepasComponent,
     MenuCardComponent,
     HomeComponent,
+    ListeCoursesComponent,
+    AjustementQuantiteComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule
+>>>>>>> Camille
+=======
+    HttpClientModule,
+
+
+>>>>>>> Solenn
   ],
   providers: [],
   bootstrap: [AppComponent]
