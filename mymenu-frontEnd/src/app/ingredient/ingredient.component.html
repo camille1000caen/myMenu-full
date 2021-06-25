@@ -1,1 +1,51 @@
-<p>ingredient works!</p>
+<div class="card mt-3">
+  <div class="card-header bg-info text-white">
+    <h2>Liste des ingredients</h2>
+  </div>
+  <div class="card-body">
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th>#</th>
+        <th>Version</th>
+
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let ingredient of ListByRecette(1)">
+        <td>{{ingredient.id}}</td>
+        <td>{{ingredient.version}}</td>
+
+
+
+        <td><div class="btn-group btn-group-sm">
+          <a class="btn btn-primary" (click)="edit(ingredient.id)"><i class="fa fa-edit"></i></a>
+          <a class="btn btn-danger" (click)="delete(ingredient.id)"><i class="fa fa-trash"></i></a>
+        </div></td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="card-footer">
+    <a class="btn btn-success btn-lg" (click)="add()">
+      <i class="fa fa-plus"></i>
+    </a>
+  </div>
+
+
+
+
+    <div class="card-footer">
+      <div class="btn-group btn-group-lg float-right">
+        <a class="btn btn-success" (click)="save()">
+          <i class="fa fa-check"></i>
+        </a>
+        <a class="btn btn-warning" (click)="cancel()">
+          <i class="fa fa-undo"></i>
+        </a>
+      </div>
+    </div>
+
+  </div>
+</div>
+

@@ -3,6 +3,7 @@ import {Injectable} from "@angular/core";
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {Plat} from "../model/plat";
+import {AppConfigService} from "../app-config.service";
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,7 @@ import {Plat} from "../model/plat";
 export class PlatHttpService {
   plats: Array<Plat>;
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private appConfig: AppConfigService) {
     this.load()
   }
 
@@ -24,7 +25,7 @@ export class PlatHttpService {
 
   create(plat: Plat) {
 
-    this.http.post<Plat>("plat", plat).subscribe(resp => {
+    this.http.post<Plat>(this.appConfig.backEndUrl +"plat", plat).subscribe(resp => {
       this.load();
     }, error => console.log(error));
   }
@@ -32,17 +33,17 @@ export class PlatHttpService {
   modify(plat: Plat): Observable<Plat> {
 
 
-    return this.http.put<Plat>("plat/" + plat.id, plat);
+    return this.http.put<Plat>(this.appConfig.backEndUrl +"plat/" + plat.id, plat);
   }
 
   deleteById(id: number) {
-    this.http.delete("plat/" + id).subscribe(resp => {
+    this.http.delete(this.appConfig.backEndUrl +"plat/" + id).subscribe(resp => {
       this.load();
     }, error => console.log(error));
   }
 
   load() {
-    this.http.get<Array<Plat>>("plat/").subscribe(resp => {
+    this.http.get<Array<Plat>>(this.appConfig.backEndUrl +"plat").subscribe(resp => {
       this.plats = resp;
     }, error => console.log(error))
   }

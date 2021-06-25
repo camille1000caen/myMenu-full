@@ -17,8 +17,7 @@ import {HttpClientModule} from "@angular/common/http";
 import { UtilisateurComponent } from './utilisateur/utilisateur.component';
 import { AdresseComponent } from './adresse/adresse.component';
 import { PreferenceAlimentaireComponent } from './preference-alimentaire/preference-alimentaire.component';
-import {FormsModule} from "@angular/forms";
-import {HttpClientModule} from "@angular/common/http";
+
 
 @NgModule({
   declarations: [
@@ -28,12 +27,12 @@ import {HttpClientModule} from "@angular/common/http";
     HomebodyComponent,
     ObjectifComponent,
     MenuComponent,
-    PlanningComponent
+    PlanningComponent,
     AppComponent,
     PlatComponent,
     RecetteComponent,
-    IngredientComponent
-    AppComponent,
+    IngredientComponent,
+
     UtilisateurComponent,
     AdresseComponent,
     PreferenceAlimentaireComponent
@@ -42,10 +41,9 @@ import {HttpClientModule} from "@angular/common/http";
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
-    AppRoutingModule,
-    FormsModule,
     HttpClientModule,
+
+
   ],
   providers: [],
   bootstrap: [AppComponent]
