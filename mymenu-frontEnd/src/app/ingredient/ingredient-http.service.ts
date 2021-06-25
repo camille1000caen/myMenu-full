@@ -11,11 +11,9 @@ import {AppConfigService} from "../app-config.service";
 export class IngredientHttpService {
   ingredients: Array<Ingredient>;
 
-<<<<<<< HEAD
+
   constructor(private http: HttpClient, private appConfig : AppConfigService) {
-=======
-  constructor(private http: HttpClient, private appConfig: AppConfigService) {
->>>>>>> Solenn
+
     this.load()
   }
 
@@ -41,11 +39,7 @@ export class IngredientHttpService {
   }
 
   modify(ingredient: Ingredient): Observable<Ingredient> {
-<<<<<<< HEAD
-=======
 
-
->>>>>>> Solenn
     return this.http.put<Ingredient>(this.appConfig.backEndUrl +"ingredient/" + ingredient.id, ingredient);
   }
 

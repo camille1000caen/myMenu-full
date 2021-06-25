@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import {Ingredient} from "../model/ingredient";
 import {IngredientHttpService} from "./ingredient-http.service";
 
+import { jsPDF } from "jspdf";
+
 @Component({
   selector: 'app-ingredient',
   templateUrl: './ingredient.component.html',
@@ -13,6 +15,7 @@ export class IngredientComponent implements OnInit {
   ingredientForm: Ingredient = null;
   ingredients: Array<Ingredient>;
 
+
   constructor(private ingredientService: IngredientHttpService) {
 
   }
@@ -22,13 +25,26 @@ export class IngredientComponent implements OnInit {
   list(): Array<Ingredient> {
     return this.ingredientService.findAll();
   }
-<<<<<<< HEAD
-=======
+
 ListByRecette(id: number) {
     return this.ingredientService.findByRecette(id);
 }
 
->>>>>>> Solenn
+  pdfDownload() {
+    var doc = new jsPDF();
+    var interligne = 10;
+    doc.setTextColor(255, 182, 18);
+    doc.text("Ingrédients : ",10, interligne);
+    doc.text("Quantité : ",70, interligne);
+    doc.setTextColor(0, 0, 0);
+
+    for (let ingred of this.ingredientService.findAll()){
+      interligne=interligne+7;
+      doc.text(ingred.nom,10, interligne);
+      doc.text(ingred.quantite.toString(), 70, interligne);
+  }
+    doc.save("Ma liste de course.pdf");
+  }
 
   add() {
     this.ingredientForm = new Ingredient();

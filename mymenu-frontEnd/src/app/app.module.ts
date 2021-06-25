@@ -34,8 +34,6 @@ import {AjustementQuantiteComponent} from "./ajustement-quantite/ajustement-quan
     MenuComponent,
     PlanningComponent,
     AppComponent,
-=======
-    AppComponent,
     PlatComponent,
     RecetteComponent,
     IngredientComponent,
@@ -56,12 +54,6 @@ import {AjustementQuantiteComponent} from "./ajustement-quantite/ajustement-quan
     AppRoutingModule,
     FormsModule,
     HttpClientModule
->>>>>>> Camille
-=======
-    HttpClientModule,
-
-
->>>>>>> Solenn
   ],
   providers: [],
   bootstrap: [AppComponent]
