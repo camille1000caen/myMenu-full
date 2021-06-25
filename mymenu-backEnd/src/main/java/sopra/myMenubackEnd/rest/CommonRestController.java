@@ -14,7 +14,7 @@ import sopra.myMenubackEnd.model.TypeProduit;
 import sopra.myMenubackEnd.model.TypeRepas;
 
 @RestController
-@RequestMapping("/rest")
+@RequestMapping("")
 @CrossOrigin("*")
 public class CommonRestController {
 
