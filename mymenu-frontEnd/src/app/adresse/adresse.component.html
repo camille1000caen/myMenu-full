@@ -1,0 +1,51 @@
+<<<<<<< HEAD
+<<<<<<< HEAD
+<div class="card mt-3">
+  <div class="card-header bg-info text-white">
+    <h2>Liste des Adresses</h2>
+  </div>
+  <div class="card-body">
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th>#</th>
+        <th>Version</th>
+        <th>Rue</th>
+        <th>Complement</th>
+        <th>CodePostal</th>
+        <th>Ville</th>
+        <th>Pays</th>
+        <th>Coordonnees</th>
+        <th>Utilisateur</th>
+        <th></th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let adr of list()">
+        <td>{{adr.id}}</td>
+        <td>{{adr.version}}</td>
+        <td>{{adr.rue}}</td>
+        <td>{{adr.complement}}</td>
+        <td>{{adr.codePostal}}</td>
+        <td>{{adr.ville}}</td>
+        <td>{{adr.pays}}</td>
+        <td>{{adr.coordonnees?.latitude}} {{adr.coordonnees?.longitude}}</td>
+        <td>{{adr.utilisateur?.nom}} {{adr.utilisateur?.prenom}}</td>
+        <td><div class="btn-group btn-group-sm">
+          <a class="btn btn-primary" (click)="edit(adr.id)"><i class="fa fa-edit"></i></a>
+          <a class="btn btn-danger" (click)="delete(adr.id)"><i class="fa fa-trash"></i></a>
+        </div></td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="card-footer">
+    <a class="btn btn-success btn-lg" (click)="add()">
+      <i class="fa fa-plus"></i>
+    </a>
+  </div>
+</div>
+=======
+>>>>>>> Camille
+=======
+>>>>>>> Solenn

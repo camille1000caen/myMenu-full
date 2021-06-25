@@ -24,8 +24,6 @@ export class AdresseComponent implements OnInit {
     return this.adresseService.findAll();
   }
 
-
-
   listUtilisateur(): Array<Utilisateur> {
     return this.utilisateurService.findAll();
   }
@@ -33,7 +31,6 @@ export class AdresseComponent implements OnInit {
   add() {
     this.adresseForm = new Adresse();
     this.adresseForm.coordonnees=new Coordonnees();
-
     this.adresseForm.utilisateur=new Utilisateur();
   }
 
@@ -43,7 +40,6 @@ export class AdresseComponent implements OnInit {
       if (!this.adresseForm.coordonnees) {
         this.adresseForm.coordonnees = new Coordonnees();
       }
-
       if (!this.adresseForm.utilisateur) {
         this.adresseForm.utilisateur = new Utilisateur();
       }

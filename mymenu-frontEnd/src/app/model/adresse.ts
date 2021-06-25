@@ -1,7 +1,5 @@
 import {Utilisateur} from "./utilisateur";
 import {Coordonnees} from "./coordonnees";
-
-
 export class Adresse {
   id: number;
   version: number;
@@ -14,8 +12,6 @@ export class Adresse {
   coordonnees:Coordonnees;
   utilisateur:Utilisateur;
 
-
-
   constructor(id?: number, version?: number, rue?: string, complement?: string, codePostal?: string, ville?: string, pays?: string,coordonnees?:Coordonnees,utilisateur?:Utilisateur) {
     this.id = id!;
     this.version = version!;
@@ -25,8 +21,9 @@ export class Adresse {
     this.ville=ville!;
     this.pays = pays!;
     this.coordonnees = coordonnees!;
+<<<<<<< HEAD
+=======
     this.utilisateur = utilisateur!;
-
   }
 
 }

@@ -11,7 +11,7 @@ import {IngredientHttpService} from "./ingredient-http.service";
 export class IngredientComponent implements OnInit {
 
   ingredientForm: Ingredient = null;
-
+  ingredients: Array<Ingredient>;
 
   constructor(private ingredientService: IngredientHttpService) {
 
@@ -22,14 +22,34 @@ export class IngredientComponent implements OnInit {
   list(): Array<Ingredient> {
     return this.ingredientService.findAll();
   }
+<<<<<<< HEAD
+=======
 ListByRecette(id: number) {
     return this.ingredientService.findByRecette(id);
 }
 
+>>>>>>> Solenn
 
   add() {
     this.ingredientForm = new Ingredient();
+  }
 
+  moins(id : number){
+    this.ingredientService.findById(id).subscribe(resp=> {
+       this.ingredientForm=resp;
+       this.ingredientForm.quantite-=1;
+       this.save();
+
+    }, err => console.log(err));
+  }
+
+  plus(id : number){
+    this.ingredientService.findById(id).subscribe(resp=> {
+      this.ingredientForm=resp;
+      this.ingredientForm.quantite+=1;
+      this.save();
+
+    }, err => console.log(err));
   }
 
   edit(id: number) {
