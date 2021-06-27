@@ -6,7 +6,7 @@
     <table class="table table-striped">
       <thead>
       <tr>
-<<<<<<< HEAD
+
         <th>Ingédient </th>
         <th></th>
         <th>Quantité (g)</th>
@@ -66,16 +66,16 @@
         <i class="fa fa-undo"></i>
       </a>
     </div>
-=======
+
         <th>#</th>
         <th>Version</th>
 
-      </tr>
-      </thead>
+
+
       <tbody>
-      <tr *ngFor="let ingredient of ListByRecette(1)">
+      <tr *ngFor="let ingredient of listRecette()">
         <td>{{ingredient.id}}</td>
-        <td>{{ingredient.version}}</td>
+
 
 
 
@@ -85,29 +85,29 @@
         </div></td>
       </tr>
       </tbody>
-    </table>
-  </div>
-  <div class="card-footer">
-    <a class="btn btn-success btn-lg" (click)="add()">
-      <i class="fa fa-plus"></i>
-    </a>
-  </div>
+<!--    </table>-->
+<!--  </div>-->
+<!--  <div class="card-footer">-->
+<!--    <a class="btn btn-success btn-lg" (click)="add()">-->
+<!--      <i class="fa fa-plus"></i>-->
+<!--    </a>-->
+<!--  </div>-->
 
 
 
 
-    <div class="card-footer">
-      <div class="btn-group btn-group-lg float-right">
-        <a class="btn btn-success" (click)="save()">
-          <i class="fa fa-check"></i>
-        </a>
-        <a class="btn btn-warning" (click)="cancel()">
-          <i class="fa fa-undo"></i>
-        </a>
-      </div>
-    </div>
+<!--    <div class="card-footer">-->
+<!--      <div class="btn-group btn-group-lg float-right">-->
+<!--        <a class="btn btn-success" (click)="save()">-->
+<!--          <i class="fa fa-check"></i>-->
+<!--        </a>-->
+<!--        <a class="btn btn-warning" (click)="cancel()">-->
+<!--          <i class="fa fa-undo"></i>-->
+<!--        </a>-->
+<!--      </div>-->
+<!--    </div>-->
 
->>>>>>> Solenn
+<!--&gt;-->
   </div>
 </div>
 
