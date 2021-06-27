@@ -24,6 +24,7 @@ import {ListeCoursesComponent} from "./liste-courses/liste-courses.component";
 import {AjustementQuantiteComponent} from "./ajustement-quantite/ajustement-quantite.component";
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,8 +34,6 @@ import {AjustementQuantiteComponent} from "./ajustement-quantite/ajustement-quan
     ObjectifComponent,
     MenuComponent,
     PlanningComponent,
-    AppComponent,
-=======
     AppComponent,
     PlatComponent,
     RecetteComponent,
@@ -56,12 +55,6 @@ import {AjustementQuantiteComponent} from "./ajustement-quantite/ajustement-quan
     AppRoutingModule,
     FormsModule,
     HttpClientModule
->>>>>>> Camille
-=======
-    HttpClientModule,
-
-
->>>>>>> Solenn
   ],
   providers: [],
   bootstrap: [AppComponent]
