@@ -1,11 +1,40 @@
-<div class="card mt-3">
-  <div class="card-header bg-info text-white">
-    <h2>Liste des ingredients</h2>
-  </div>
-  <div class="card-body">
-    <table class="table table-striped">
-      <thead>
-      <tr>
+<div class="wrapper">
+  <div class="container py-4 w-50">
+    <div class="card w-20">
+      <div class="card-header bg-info text-white text-center">
+        <h2>Liste des ingredients</h2>
+      </div>
+      <div class="card-body">
+        <table class="table table-striped">
+          <thead>
+          <tr>
+            <th>Ingédient </th>
+            <th></th>
+            <th >Quantité (g)</th>
+            <th></th>
+          </thead>
+          <tbody>
+          <tr *ngFor ="let ingred of list()">
+            <td>{{ingred.nom}}</td>
+            <td>
+              <div class="btn-group btn-group-sm">
+                <a class="btn btn-secondary" (click)="moins(ingred.id)"><i class="fas fa-minus"></i></a>
+              </div>
+            </td>
+            <td>
+              <a class="btn" (click)="edit(ingred.id)" >{{ingred.quantite}}</a>
+            </td>
+            <td>
+              <div class="btn-group btn-group-sm">
+                <a class="btn btn-success" (click)="plus(ingred.id)"><i class="fas fa-plus"></i></a>
+              </div>
+            </td>
+            <td>
+              <div class="btn-group btn-group-sm">
+                <a class="btn btn-primary" (click)="edit(ingred.id)" (click)="ngAfterViewInit()"><i class="fa fa-edit"></i></a>
+                <a class="btn btn-danger" (click)="delete(ingred.id)"><i class="fa fa-trash"></i></a>
+              </div>
+            </td>
 
         <th>Ingédient </th>
         <th></th>
