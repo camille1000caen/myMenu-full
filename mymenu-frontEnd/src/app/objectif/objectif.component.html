@@ -8,7 +8,7 @@
       <tr>
         <th>Identifiant</th>
         <th>Version</th>
-        <th>Type d'ojectif</th>
+        <th>Type d'objectif</th>
         <th>Nombre de repas/jour</th>
         <th>Nombre de repas/semaine</th>
         <th></th>
@@ -41,12 +41,14 @@
     <div class="card-header bg-info text-white">
       <h3>Edition de l'objectif</h3>
     </div>
-
     <div class="card-body">
-      <div class="form-group">
-        <label for="comportemental">Type d'ojectif :</label>
-        <input type="text" class="form-control" id="comportemental" [(ngModel)]="objectifForm.typeObjectif">
-      </div>
+    <div class="form-group">
+      <label for="typeObjectif">TypeObjectif:</label>
+      <select class="form-control" id="typeObjectif" [(ngModel)]="objectifForm.typeObjectif">
+        <option value="">Choisir un Objectif</option>
+        <option *ngFor="let obj of listObjectif()" value="{{obj}}">{{obj}}</option>
+      </select>
+    </div>
       <div class="form-group">
         <label for="technique">Nombre de repas/jour :</label>
         <input type="number" class="form-control" id="technique" [(ngModel)]="objectifForm.nombreRepasParJour">
@@ -71,4 +73,3 @@
   </div>
 
 </div>
-

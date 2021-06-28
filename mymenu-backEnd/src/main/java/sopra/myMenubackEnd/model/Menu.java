@@ -15,6 +15,7 @@ import javax.persistence.Table;
 
 import org.springframework.data.annotation.Version;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonView;
 
@@ -29,7 +30,7 @@ public class Menu {
 		@JsonView(Views.ViewCommon.class)
 		private int version;
 		@Column(name = "jour")
-		@JsonView(Views.ViewCommon.class)
+		@JsonFormat(pattern = "yyyy-MM-dd")
 		private Date jour;
 		
 		@Column(name = "periode")

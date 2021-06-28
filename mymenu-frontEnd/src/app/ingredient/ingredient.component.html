@@ -1,44 +1,136 @@
+<!--
 <div class="card mt-3">
   <div class="card-header bg-info text-white">
     <h2>Liste des ingredients</h2>
   </div>
-  <div class="card-body">
-    <table class="table table-striped">
-      <thead>
-      <tr>
+<!--  <div class="card-body">-->
+<!--    <table class="table table-striped">-->
+<!--      <thead>-->
+<!--      <tr>-->
+<div class="wrapper ">
+  <!--  <div class="">-->
+  <div class="container py-4">
+    <div class="card w-20 ">
+      <div class="card-header bg-info text-white text-center">
+        <h2>Liste des ingredients</h2>
+      </div>
+      <div class="card-body">
+        <table class="table table-striped">
+          <thead>
+          <tr>
+            <th>Ingédient </th>
+            <th></th>
+            <th>Quantité (g)</th>
+            <th></th>
+          </thead>
+          <tbody>
+          <tr *ngFor ="let ingred of list(); let index = index;">
+            <td>{{ingred.nom}}</td>
+            <td>
+              <div class="btn-group btn-group-sm">
+                <a class="btn btn-secondary" (click)="moins(ingred.id)"><i class="fas fa-minus"></i></a>
+              </div>
+            </td>
+            <td>
+              <a class="btn" (click)="edit(ingred.id)" >{{ingred.quantite}}</a>
+            </td>
 
-        <th>Ingédient </th>
+<!--        <th>Ingédient </th>-->
+<!--        <th></th>-->
+<!--        <th>Quantité (g)</th>-->
+<!--        <th></th>-->
+<!--      </thead>-->
+<!--      <tbody>-->
+<!--      <tr *ngFor ="let ingred of list()">-->
+<!--        <td>{{ingred.nom}}</td>-->
+<!--        <td>-->
+<!--          <div class="btn-group btn-group-sm">-->
+<!--            <a class="btn btn-secondary" (click)="moins(ingred.id)"><i class="fas fa-minus"></i></a>-->
+<!--          </div>-->
+<!--        </td>-->
+<!--        <td>-->
+<!--          <a class="btn" (click)="edit(ingred.id)" >{{ingred.quantite}}</a>-->
+<!--        </td>-->
+<!--        <td>-->
+<!--        <div class="btn-group btn-group-sm">-->
+<!--          <a class="btn btn-success" (click)="plus(ingred.id)"><i class="fas fa-plus"></i></a>-->
+<!--        </div>-->
+<!--        </td>-->
+<!--        <td>-->
+<!--          <div class="btn-group btn-group-sm">-->
+<!--            <a class="btn btn-primary" (click)="edit(ingred.id)"><i class="fa fa-edit"></i></a>-->
+<!--            <a class="btn btn-danger" (click)="delete(ingred.id)"><i class="fa fa-trash"></i></a>-->
+<!--          </div>-->
+<!--        </td>-->
+<!--      </tr>-->
+<!--      </tbody>-->
+<!--      <tfoot>-->
+<!--      <tr >-->
+
+<!--        <td colspan="5"><a class="btn btn-success"><i class="far fa-file-pdf"> Générer ma liste de courses au format PDF</i></a></td>-->
+<!--      </tr>-->
+<!--      </tfoot>-->
+<!--    </table>-->
+<!--  </div>-->
+<!--</div>-->
+<!--<div class="card mt-3" *ngIf="ingredientForm">-->
+<!--  <div class="card-header bg-info text-white">-->
+<!--    <h3>Edition des ingredients</h3>-->
+<!--  </div>-->
+
+<!--  <div class="card-body">-->
+<!--    <div class="form-group">-->
+<!--      <label for="codification">Quantité (g) : </label>-->
+<!--      <input type="number" class="form-control" id="codification" [(ngModel)]="ingredientForm.quantite">-->
+<!--    </div>-->
+<!--  </div>-->
+
+<!--  <div class="card-footer">-->
+<!--    <div class="btn-group btn-group-lg float-right">-->
+<!--      <a class="btn btn-success" (click)="save()">-->
+<!--        <i class="fa fa-check"></i>-->
+<!--      </a>-->
+<!--      <a class="btn btn-warning" (click)="cancel()">-->
+<!--        <i class="fa fa-undo"></i>-->
+<!--      </a>-->
+<!--    </div>-->
+    <div class="card-body">
+      <table class="table table-striped">
+        <thead>
+        <th>Ingredient</th>
         <th></th>
-        <th>Quantité (g)</th>
+        <th>#Recette</th>
         <th></th>
-      </thead>
+        </thead>
+
       <tbody>
-      <tr *ngFor ="let ingred of list()">
-        <td>{{ingred.nom}}</td>
+      <tr *ngFor="let ingredient of list()">
+        <td>{{ingredient.nom}}</td>
+        <td>{{ingredient.recette?.nom}}</td>
         <td>
-          <div class="btn-group btn-group-sm">
-            <a class="btn btn-secondary" (click)="moins(ingred.id)"><i class="fas fa-minus"></i></a>
-          </div>
+            <table border="0">
+              <tr *ngFor="let recette of listRecette(13)">
+                <td>{{ingredient.recette?.nom}}</td>
+              </tr>
+            </table>
         </td>
-        <td>
-          <a class="btn" (click)="edit(ingred.id)" >{{ingred.quantite}}</a>
-        </td>
-        <td>
-        <div class="btn-group btn-group-sm">
-          <a class="btn btn-success" (click)="plus(ingred.id)"><i class="fas fa-plus"></i></a>
-        </div>
-        </td>
-        <td>
-          <div class="btn-group btn-group-sm">
-            <a class="btn btn-primary" (click)="edit(ingred.id)"><i class="fa fa-edit"></i></a>
-            <a class="btn btn-danger" (click)="delete(ingred.id)"><i class="fa fa-trash"></i></a>
-          </div>
-        </td>
+<<<<<<< HEAD
       </tr>
       </tbody>
       <tfoot>
-      <tr >
+      <tr>
 
+            <td>
+              <div class="btn-group btn-group-sm">
+                <a class="btn btn-success" (click)="plus(ingred.id)"><i class="fas fa-plus"></i></a>
+              </div>
+            </td>
+            <td>
+              <div class="btn-group btn-group-sm">
+                <a class="btn btn-primary" (click)="edit(ingred.id)"><i class="fa fa-edit"></i></a>
+                <a class="btn btn-danger" (click)="delete(ingred.id)"><i class="fa fa-trash"></i></a>
+              </div>
+            </td>
           </tr>
           </tbody>
           <tfoot>
@@ -47,46 +139,93 @@
           </tr>
           </tfoot>
         </table>
-
       </div>
     </div>
-
-
-<div class="container py-4 w-50 ">
-  <div class="card w-20"*ngIf="ingredientForm">
+  </div>
+  <!--  </div>-->
+  <!--    <div class="container py-4 w-50 position-absolute top-0 start-0 translate-middle">-->
+  <div class="card fixed-bottom" *ngIf="ingredientForm">
     <div class="card-header bg-info text-white">
-      <h3>Edition de la consultation</h3>
+      <h3>Edition de la quantité</h3>
     </div>
+=======
+       </tr>
+    </tbody>
+      </table>
+>>>>>>> Solenn
+    <div class="card-body">
+      <div class="form-group">
+        <td> Ingrédient : {{ingredientForm.nom}}</td>
+      </div>
+      <div class="form-group">
+        <label for="quantite">Quantité (g) :</label>
+        <input type="number" class="form-control" id="quantite" [(ngModel)]="ingredientForm.quantite">
+      </div>
+      <div>
+        <div class="btn-group btn-group-lg float-right">
+          <a class="btn btn-success" (click)="save()">
+            <i class="fa fa-check"></i>
+          </a>
+          <a class="btn btn-warning" (click)="cancel()">
+            <i class="fa fa-undo"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--        </div>-->
 
-        <th>#</th>
-        <th>Version</th>
+<!--        <th>#</th>-->
+<!--        <th>Version</th>-->
+
+&lt;!&ndash;    <div class="card-footer">&ndash;&gt;
+&lt;!&ndash;      <div class="btn-group btn-group-lg float-right">&ndash;&gt;
+&lt;!&ndash;        <a class="btn btn-success" (click)="save()">&ndash;&gt;
+&lt;!&ndash;          <i class="fa fa-check"></i>&ndash;&gt;
+&lt;!&ndash;        </a>&ndash;&gt;
+&lt;!&ndash;        <a class="btn btn-warning" (click)="cancel()">&ndash;&gt;
+&lt;!&ndash;          <i class="fa fa-undo"></i>&ndash;&gt;
+&lt;!&ndash;        </a>&ndash;&gt;
+&lt;!&ndash;      </div>&ndash;&gt;
+&lt;!&ndash;    </div>&ndash;&gt;
+&lt;!&ndash;  </div>&ndash;&gt;
 
 
+<!--      <tbody>-->
+<!--      <tr *ngFor="let ingredient of listRecette()">-->
+<!--        <td>{{ingredient.id}}</td>-->
 
-      <tbody>
-      <tr *ngFor="let ingredient of listRecette()">
-        <td>{{ingredient.id}}</td>
-
-<!--    <div class="card-footer">-->
-<!--      <div class="btn-group btn-group-lg float-right">-->
-<!--        <a class="btn btn-success" (click)="save()">-->
-<!--          <i class="fa fa-check"></i>-->
-<!--        </a>-->
-<!--        <a class="btn btn-warning" (click)="cancel()">-->
-<!--          <i class="fa fa-undo"></i>-->
-<!--        </a>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--  </div>-->
-
-
-
+<<<<<<< HEAD
         <td><div class="btn-group btn-group-sm">
           <a class="btn btn-primary" (click)="edit(ingredient.id)"><i class="fa fa-edit"></i></a>
           <a class="btn btn-danger" (click)="delete(ingredient.id)"><i class="fa fa-trash"></i></a>
         </div></td>
       </tr>
       </tbody>
+&lt;!&ndash;    </table>&ndash;&gt;
+&lt;!&ndash;  </div>&ndash;&gt;
+&lt;!&ndash;  <div class="card-footer">&ndash;&gt;
+&lt;!&ndash;    <a class="btn btn-success btn-lg" (click)="add()">&ndash;&gt;
+&lt;!&ndash;      <i class="fa fa-plus"></i>&ndash;&gt;
+&lt;!&ndash;    </a>&ndash;&gt;
+&lt;!&ndash;  </div>&ndash;&gt;
+=======
+<!--        <td><div class="btn-group btn-group-sm">-->
+<!--          <a class="btn btn-primary" (click)="edit(ingredient.id)"><i class="fa fa-edit"></i></a>-->
+<!--          <a class="btn btn-danger" (click)="delete(ingredient.id)"><i class="fa fa-trash"></i></a>-->
+<!--        </div></td>-->
+<!--      </tr>-->
+<!--      </tbody>-->
+
+
+
+<!--        <td><div class="btn-group btn-group-sm">-->
+<!--          <a class="btn btn-primary" (click)="edit(ingredient.id)"><i class="fa fa-edit"></i></a>-->
+<!--          <a class="btn btn-danger" (click)="delete(ingredient.id)"><i class="fa fa-trash"></i></a>-->
+<!--        </div></td>-->
+<!--      </tr>-->
+<!--      </tbody>-->
 <!--    </table>-->
 <!--  </div>-->
 <!--  <div class="card-footer">-->
@@ -94,68 +233,86 @@
 <!--      <i class="fa fa-plus"></i>-->
 <!--    </a>-->
 <!--  </div>-->
+>>>>>>> Solenn
 
 
 
 
-<!--    <div class="card-footer">-->
-<!--      <div class="btn-group btn-group-lg float-right">-->
-<!--        <a class="btn btn-success" (click)="save()">-->
-<!--          <i class="fa fa-check"></i>-->
-<!--        </a>-->
-<!--        <a class="btn btn-warning" (click)="cancel()">-->
-<!--          <i class="fa fa-undo"></i>-->
-<!--        </a>-->
-<!--      </div>-->
-<!--    </div>-->
-
-<!--&gt;-->
-  </div>
-</div>
-
-<!--          <div class="card mt-3">-->
-<!--            <div class="card-header bg-info text-white">-->
-<!--              <h2>Liste des ingredients</h2>-->
-<!--            </div>-->
-<!--            <div class="card-body">-->
-<!--              <table class="table table-striped">-->
-<!--                <thead>-->
-<!--                <tr>-->
-
-<!--              <th>#</th>-->
-<!--              <th>Version</th>-->
-
-<!--            </tr>-->
-<!--            </thead>-->
-<!--            <tbody>-->
-<!--            <tr *ngFor="let ingredient of ListByRecette(1)">-->
-<!--              <td>{{ingredient.id}}</td>-->
-<!--              <td>{{ingredient.version}}</td>-->
-<!--              <td><div class="btn-group btn-group-sm">-->
-<!--                <a class="btn btn-primary" (click)="edit(ingredient.id)"><i class="fa fa-edit"></i></a>-->
-<!--                <a class="btn btn-danger" (click)="delete(ingredient.id)"><i class="fa fa-trash"></i></a>-->
-<!--              </div></td>-->
-<!--            </tr>-->
-<!--            </tbody>-->
-<!--          </table>-->
-<!--        </div>-->
+&lt;!&ndash;    <div class="card-footer">&ndash;&gt;
+&lt;!&ndash;      <div class="btn-group btn-group-lg float-right">&ndash;&gt;
+&lt;!&ndash;        <a class="btn btn-success" (click)="save()">&ndash;&gt;
+&lt;!&ndash;          <i class="fa fa-check"></i>&ndash;&gt;
+&lt;!&ndash;        </a>&ndash;&gt;
+&lt;!&ndash;        <a class="btn btn-warning" (click)="cancel()">&ndash;&gt;
+&lt;!&ndash;          <i class="fa fa-undo"></i>&ndash;&gt;
+&lt;!&ndash;        </a>&ndash;&gt;
+&lt;!&ndash;      </div>&ndash;&gt;
+&lt;!&ndash;    </div>&ndash;&gt;
 <!--        <div class="card-footer">-->
-<!--          <a class="btn btn-success btn-lg" (click)="add()">-->
-<!--            <i class="fa fa-plus"></i>-->
-<!--          </a>-->
-<!--        </div>-->
-
-<!--          <div class="card-footer">-->
-<!--            <div class="btn-group btn-group-lg float-right">-->
-<!--              <a class="btn btn-success" (click)="save()">-->
-<!--                <i class="fa fa-check"></i>-->
-<!--              </a>-->
-<!--              <a class="btn btn-warning" (click)="cancel()">-->
-<!--                <i class="fa fa-undo"></i>-->
-<!--              </a>-->
-<!--            </div>-->
+<!--          <div class="btn-group btn-group-lg float-right">-->
+<!--            <a class="btn btn-success" (click)="save()">-->
+<!--              <i class="fa fa-check"></i>-->
+<!--            </a>-->
+<!--            <a class="btn btn-warning" (click)="cancel()">-->
+<!--              <i class="fa fa-undo"></i>-->
+<!--            </a>-->
 <!--          </div>-->
 <!--        </div>-->
-<!--        </div>-->
-<!--      </div>-->
 
+&lt;!&ndash;&gt;&ndash;&gt;
+  </div>
+</div>
+<!--    &lt;!&ndash;&gt;&ndash;&gt;-->
+<!--  </div>-->
+<!--</div>-->
+
+<<<<<<< HEAD
+&lt;!&ndash;          <div class="card mt-3">&ndash;&gt;
+&lt;!&ndash;            <div class="card-header bg-info text-white">&ndash;&gt;
+&lt;!&ndash;              <h2>Liste des ingredients</h2>&ndash;&gt;
+&lt;!&ndash;            </div>&ndash;&gt;
+&lt;!&ndash;            <div class="card-body">&ndash;&gt;
+&lt;!&ndash;              <table class="table table-striped">&ndash;&gt;
+&lt;!&ndash;                <thead>&ndash;&gt;
+&lt;!&ndash;                <tr>&ndash;&gt;
+
+&lt;!&ndash;              <th>#</th>&ndash;&gt;
+&lt;!&ndash;              <th>Version</th>&ndash;&gt;
+
+&lt;!&ndash;            </tr>&ndash;&gt;
+&lt;!&ndash;            </thead>&ndash;&gt;
+&lt;!&ndash;            <tbody>&ndash;&gt;
+&lt;!&ndash;            <tr *ngFor="let ingredient of ListByRecette(1)">&ndash;&gt;
+&lt;!&ndash;              <td>{{ingredient.id}}</td>&ndash;&gt;
+&lt;!&ndash;              <td>{{ingredient.version}}</td>&ndash;&gt;
+&lt;!&ndash;              <td><div class="btn-group btn-group-sm">&ndash;&gt;
+&lt;!&ndash;                <a class="btn btn-primary" (click)="edit(ingredient.id)"><i class="fa fa-edit"></i></a>&ndash;&gt;
+&lt;!&ndash;                <a class="btn btn-danger" (click)="delete(ingredient.id)"><i class="fa fa-trash"></i></a>&ndash;&gt;
+&lt;!&ndash;              </div></td>&ndash;&gt;
+&lt;!&ndash;            </tr>&ndash;&gt;
+&lt;!&ndash;            </tbody>&ndash;&gt;
+&lt;!&ndash;          </table>&ndash;&gt;
+&lt;!&ndash;        </div>&ndash;&gt;
+&lt;!&ndash;        <div class="card-footer">&ndash;&gt;
+&lt;!&ndash;          <a class="btn btn-success btn-lg" (click)="add()">&ndash;&gt;
+&lt;!&ndash;            <i class="fa fa-plus"></i>&ndash;&gt;
+&lt;!&ndash;          </a>&ndash;&gt;
+&lt;!&ndash;        </div>&ndash;&gt;
+
+&lt;!&ndash;          <div class="card-footer">&ndash;&gt;
+&lt;!&ndash;            <div class="btn-group btn-group-lg float-right">&ndash;&gt;
+&lt;!&ndash;              <a class="btn btn-success" (click)="save()">&ndash;&gt;
+&lt;!&ndash;                <i class="fa fa-check"></i>&ndash;&gt;
+&lt;!&ndash;              </a>&ndash;&gt;
+&lt;!&ndash;              <a class="btn btn-warning" (click)="cancel()">&ndash;&gt;
+&lt;!&ndash;                <i class="fa fa-undo"></i>&ndash;&gt;
+&lt;!&ndash;              </a>&ndash;&gt;
+&lt;!&ndash;            </div>&ndash;&gt;
+&lt;!&ndash;          </div>&ndash;&gt;
+&lt;!&ndash;        </div>&ndash;&gt;
+&lt;!&ndash;        </div>&ndash;&gt;
+&lt;!&ndash;      </div>&ndash;&gt;
+-->
+
+=======
+>>>>>>> Solenn

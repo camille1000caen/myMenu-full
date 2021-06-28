@@ -53,7 +53,7 @@ public class MenuRestController {
 			}
 		}
 		
-		@GetMapping("/{id}/detail-objectif")
+		@GetMapping("/{id}/detail-planning")
 		@JsonView(Views.ViewMenuWithPlanning.class)
 		public Menu findByIdWithPlanning(@PathVariable Long id) {
 
@@ -86,7 +86,7 @@ public class MenuRestController {
 		}
 		
 		@PostMapping("")
-		@PreAuthorize("hasRole('ADMIN')")
+		//@PreAuthorize("hasRole('ADMIN')")
 		@JsonView(Views.ViewListeCourse.class)
 		public Menu create(@Valid @RequestBody Menu menu, BindingResult result) {
 			if (result.hasErrors()) {
@@ -99,7 +99,7 @@ public class MenuRestController {
 		}
 		
 		@PutMapping("/{id}")
-		@PreAuthorize("hasRole('ADMIN')")
+		//@PreAuthorize("hasRole('ADMIN')")
 		@JsonView(Views.ViewMenu.class)
 		public Menu update(@RequestBody Menu menu, @PathVariable Long id) {
 			if (!menuRepo.existsById(id)) {
@@ -112,7 +112,7 @@ public class MenuRestController {
 		}
 		
 		@DeleteMapping("/{id}")
-		@PreAuthorize("hasRole('ADMIN')")
+		//@PreAuthorize("hasRole('ADMIN')")
 		public void delete(@PathVariable Long id) {
 			menuRepo.deleteById(id);
 		}

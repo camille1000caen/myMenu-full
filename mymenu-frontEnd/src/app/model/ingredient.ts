@@ -1,3 +1,7 @@
+import { Recette } from "./recette";
+
+
+
 export class Ingredient {
   id:number;
   version:number;
@@ -5,6 +9,7 @@ export class Ingredient {
   quantite:number;
   typeProduit: string;
   produitSaison: string;
+  recette: Recette;
 
 
   constructor(id?:number,version?:number, nom?:string, quantite?: number, typeProduit?:string, produitSaison?:string) {
