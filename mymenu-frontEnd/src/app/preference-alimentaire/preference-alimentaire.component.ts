@@ -34,6 +34,7 @@ export class PreferenceAlimentaireComponent implements OnInit {
 
   add() {
     this.preferenceAlimentaireForm = new PreferenceAlimentaire();
+    this.preferenceAlimentaireForm.utilisateur=new Utilisateur();
   }
 
   edit(id: number) {

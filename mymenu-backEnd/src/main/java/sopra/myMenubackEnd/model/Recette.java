@@ -43,10 +43,8 @@ public class Recette {
 	@Enumerated(EnumType.STRING)
 	
 	private TypeAlimentation typeAlimentation;
-	
 	@ManyToMany
 	(mappedBy="recettes")
-
 	private List<Ingredient> ingredients = new ArrayList<Ingredient>();
 	@OneToOne(mappedBy= "recette")
 	private Plat plat;

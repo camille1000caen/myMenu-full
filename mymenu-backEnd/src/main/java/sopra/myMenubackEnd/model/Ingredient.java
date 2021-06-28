@@ -77,6 +77,11 @@ public class Ingredient {
 	}
 
 
+	public Ingredient(String nom) {
+		this.nom =nom;
+	}
+
+
 	public Ingredient(String nom, float quantite) {
 		super();
 		this.nom = nom;

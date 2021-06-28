@@ -19,6 +19,9 @@ export class ObjectifComponent implements OnInit {
   list(): Array<Objectif> {
     return this.objectifService.findAll();
   }
+  listObjectif(): Array<string> {
+    return this.objectifService.typeObjectif;
+  }
 
   add() {
     this.objectifForm = new Objectif();
@@ -36,9 +39,7 @@ export class ObjectifComponent implements OnInit {
     if (!this.objectifForm.id) {
       this.objectifService.create(this.objectifForm);
     } else {
-      this.objectifService.modify(this.objectifForm).subscribe(resp => {
-        this.objectifService.load();
-      }, error => console.log(error));
+      this.objectifService.modify(this.objectifForm);
     }
     this.objectifForm = null;
   }

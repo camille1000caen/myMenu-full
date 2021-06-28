@@ -11,8 +11,8 @@ import sopra.myMenubackEnd.model.Planning;
 
 	public interface IPlanningRepository extends JpaRepository<Planning, Long> {
 		
-		@Query("select distinct p from Planning p WHERE p.objectif.id =:idObjectif")
-		List<Planning> findAllPlanningsByObjectif(@Param("idObjectif") Long idObjectif);
+		@Query("select distinct p from Planning p WHERE p.objectif.typeObjectif =:typeObjectif")
+		List<Planning> findAllPlanningsByTypeObjectif(@Param("typeObjectif") String typeObjectif);
 		
 		@Query("select distinct p from Planning p left join fetch p.objectif WHERE p.objectif IS NOT NULL")
 		List<Planning> findAllPlanningsWithObjectif();
@@ -28,4 +28,10 @@ import sopra.myMenubackEnd.model.Planning;
 		
 		@Query("select distinct p from Planning p left join fetch p.utilisateur where p.id = :id")
 		Optional<Planning> findPlanningByIdWithUtilisateur(@Param("id") Long id);
+		
+		@Query("select distinct p from Planning p left join fetch p.utilisateur left join fetch p.objectif")
+		List<Planning> findAllPlanningsWithUtilisateurAndObjectif();
+		
+		@Query("select distinct p from Planning p left join fetch p.utilisateur left join fetch p.objectif where p.id=:id")
+		Optional<Planning> findbyIdWithUtilisateurAndObjectif(@Param("id") Long id);
 }

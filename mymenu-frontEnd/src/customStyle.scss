@@ -5,9 +5,9 @@ html {
 }
 
 body {
-  font-family: "-apple-system,BlinkMacSystemFont";
+  font-family: "Fira Sans Extra Condensed", Arial, Helvetica, sans-serif;;
   display: flex;
-  min-height: 100vh;
+  min-height: 100%;
   flex-direction: column;
   margin: 0;
 }
@@ -18,16 +18,11 @@ body {
   align-items: center;
 }
 
-.wrapper-profil2 {
-  display: flex;
-  flex: 1;
-  align-items: center;
-}
-
 .wrapper-SelectionMenu {
   display: flex;
   flex: 1;
 }
+
 .wrapper-SelectionMenu  > .listMenus {
   flex: 1;
 }
@@ -48,10 +43,15 @@ body {
 
 header {
   margin-bottom: 20px;
+  box-shadow: 0 5px 5px -6px #333;
 }
 
 .header-MenuSelection {
   margin-bottom: 0px;
+}
+
+.logoNavBar {
+  height: 40px;
 }
 
 /* -------------------------------------------------------------- Body */
@@ -59,7 +59,7 @@ header {
 .home-background {
   text-align: center;
   height: calc(100vh - 168px);
-  background-image:url(../src/app/images/homePageLight.jpg);
+  background-image:url(assets/images/homePageLight.jpg);
   overflow: hidden;
   background-position: center;
   background-repeat: no-repeat;
@@ -79,6 +79,10 @@ header {
   color: #E8833A;
 }
 
+.grey{
+  color: #4B5D6C;
+}
+
 h1 {
   padding-top: 10px;
   font-size: 32px;
@@ -91,7 +95,6 @@ h2 {
 
 h3 {
   font-size: 24px;
-  color: #4B5D6C;
 }
 /* -------------------------------------------------------------- Bootstrap redesign voir SCSS pour plustard */
 
@@ -110,8 +113,10 @@ h3 {
 footer {
   background-color: #F8F9FA;
   padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
   text-align: center;
-  box-shadow: 0 -5px 5px -5px #333;
+  box-shadow: 0 -5px 5px -6px #333;
+  margin-top: auto;
 }
 
 /* -------------------------------------------------------------- Footer logos */
@@ -299,7 +304,7 @@ hr {
 }
 
 .card-text {
-  //display: none;
+  display: none;
 }
 .petitDejTitle {
   color: #E8833A;
