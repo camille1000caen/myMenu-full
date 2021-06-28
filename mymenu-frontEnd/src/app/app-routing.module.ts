@@ -10,6 +10,11 @@ import {RecetteComponent} from "./recette/recette.component";
 import {PlatComponent} from "./plat/plat.component";
 import { SelectionMenuComponent } from './selection-menu/selection-menu.component';
 import {PreferenceAlimentaireComponent} from "./preference-alimentaire/preference-alimentaire.component";
+import {ObjectifComponent} from "./objectif/objectif.component";
+import {Planning} from "./model/planning";
+import {PlanningComponent} from "./planning/planning.component";
+import {RepasComponent} from "./repas/repas.component";
+import {MenuComponent} from "./menu/menu.component";
 
 
 const routes: Routes = [
@@ -24,6 +29,10 @@ const routes: Routes = [
   {path: "profil", component: UtilisateurComponent},
   {path: "selectionMenu", component: SelectionMenuComponent},
   {path: "preferencealimentaire", component: PreferenceAlimentaireComponent},
+  {path: "objectif", component: ObjectifComponent},
+  {path: "planning", component: PlanningComponent},
+  {path: "repas", component: RepasComponent},
+  {path: "menu", component: MenuComponent},
 ];
 
 @NgModule({

@@ -37,11 +37,11 @@ public class Planning {
 	private List<Menu> menus = new ArrayList<Menu>(); 
 	@OneToOne
 	@JoinColumn(name = "Objectif_Id")
-	@JsonView(Views.ViewPlanningWithObjectif.class)
+	@JsonView({Views.ViewPlanningWithObjectif.class,Views.ViewPlanningDetail.class})
 	private Objectif objectif;
 	@ManyToOne
 	@JoinColumn(name = "utilisateur_id")
-	@JsonView(Views.ViewPlanningWithUtilisateur.class)
+	@JsonView({Views.ViewPlanningWithUtilisateur.class,Views.ViewPlanningDetail.class})
 	private Utilisateur utilisateur;
 	
 	public Planning() {

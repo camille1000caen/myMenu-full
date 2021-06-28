@@ -1,8 +1,10 @@
 package sopra.myMenubackEnd.model;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -14,7 +16,9 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import org.springframework.data.annotation.Version;
+import org.springframework.format.annotation.DateTimeFormat;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonView;
 
 @Entity
@@ -29,9 +33,8 @@ public class Repas {
 	@JsonView(Views.ViewCommon.class)
 	private int version;
 	@Enumerated(EnumType.STRING)
-	@JsonView(Views.ViewRepasWithTypeRepas.class)
+	@JsonView(Views.ViewCommon.class)
 	private TypeRepas typeRepas;
-	
 	@ManyToOne
 	@JoinColumn(name = "menu")
 	@JsonView(Views.ViewRepasWithMenu.class)
@@ -51,6 +54,14 @@ public class Repas {
 	public Repas(Long id, TypeRepas typeRepas) {
 		super();
 		this.id = id;
+		this.typeRepas = typeRepas;
+	}
+	
+
+	public Repas(Long id, int version, TypeRepas typeRepas) {
+		super();
+		this.id = id;
+		this.version = version;
 		this.typeRepas = typeRepas;
 	}
 
