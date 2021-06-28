@@ -13,6 +13,7 @@ import {Recette} from "../model/recette";
 export class IngredientHttpService {
   ingredients: Array<Ingredient>;
 
+
   constructor(private http: HttpClient, private appConfig : AppConfigService, private recetteService: RecetteHttpService) {
 
      this.load()
@@ -21,13 +22,24 @@ export class IngredientHttpService {
   findAll(): Array<Ingredient> {
     return this.ingredients;
   }
+  findAllByRecette(id: number): Array<Ingredient>{
+    this.findByRecette(id);
+    return this.findAll();
 
+    }
+  findByRecette(id: number){
+    this.http.get<Array<Ingredient>>(this.appConfig.backEndUrl +"ingredient/byrecette/" + id).subscribe(resp => {
+      this.ingredients= resp;
 
+<<<<<<< HEAD
     findByRecette(id:number) {
     this.http.get<Array<Ingredient>>(this.appConfig.backEndUrl +"ingredient/byrecette/"+id ).subscribe(resp => {
       this.ingredients = resp;
     }, error => console.log(error))
 
+=======
+    }, error =>{console.log(error);})
+>>>>>>> Solenn
   }
 
   findById(id: number): Observable<Ingredient> {

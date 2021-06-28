@@ -24,8 +24,14 @@ const routes: Routes = [
   {path: "listeCourse", component: ListeCoursesComponent},
   {path: "utilisateur", component: UtilisateurComponent},
   {path: "ingredient", component: IngredientComponent},
+<<<<<<< HEAD
   {path: "recette", component: RecetteComponent},
   {path: "plat", component: PlatComponent},
+=======
+  {path:"recette", component: RecetteComponent},
+  {path:"plat", component: PlatComponent},
+  {path: "", component: HomeComponent},
+>>>>>>> Solenn
   {path: "profil", component: UtilisateurComponent},
   {path: "selectionMenu", component: SelectionMenuComponent},
   {path: "preferencealimentaire", component: PreferenceAlimentaireComponent},

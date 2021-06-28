@@ -77,6 +77,11 @@ public class Ingredient {
 	}
 
 
+	public Ingredient(String nom) {
+		this.nom =nom;
+	}
+
+
 	public Long getId() {
 		return id;
 	}
