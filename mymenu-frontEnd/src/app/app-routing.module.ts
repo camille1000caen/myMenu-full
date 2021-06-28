@@ -8,7 +8,11 @@ import {ListeCoursesComponent} from "./liste-courses/liste-courses.component";
 import {AjustementQuantiteComponent} from "./ajustement-quantite/ajustement-quantite.component";
 import {RecetteComponent} from "./recette/recette.component";
 import {PlatComponent} from "./plat/plat.component";
-import { SelectionMenuComponent } from './selection-menu/selection-menu.component';
+import {SelectionMenuComponent} from './selection-menu/selection-menu.component';
+import {ObjectifComponent} from "./objectif/objectif.component";
+import {RepasComponent} from "./repas/repas.component";
+import {MenuComponent} from "./menu/menu.component";
+import {PlanningComponent} from "./planning/planning.component";
 
 
 const routes: Routes = [
@@ -21,7 +25,11 @@ const routes: Routes = [
   {path: "recette", component: RecetteComponent},
   {path: "plat", component: PlatComponent},
   {path: "profil", component: UtilisateurComponent},
-  {path: "selectionMenu", component: SelectionMenuComponent}
+  {path: "selectionMenu", component: SelectionMenuComponent},
+  {path: "planning", component: PlanningComponent},
+  {path: "menu", component: MenuComponent},
+  {path: "objectif", component: ObjectifComponent},
+  {path: "repas", component: RepasComponent}
 ];
 
 @NgModule({

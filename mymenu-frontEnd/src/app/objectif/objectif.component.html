@@ -1,1 +1,74 @@
-<p>objectif works!</p>
+<div class="card mt-3">
+  <div class="card-header bg-info text-white">
+    <h2>Liste des objectifs</h2>
+  </div>
+  <div class="card-body">
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th>Identifiant</th>
+        <th>Version</th>
+        <th>Type d'ojectif</th>
+        <th>Nombre de repas/jour</th>
+        <th>Nombre de repas/semaine</th>
+        <th></th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let obj of list()">
+        <td>{{obj.id}}</td>
+        <td>{{obj.version}}</td>
+        <td>{{obj.typeObjectif}}</td>
+        <td>{{obj.nombreRepasParJour}}</td>
+        <td>{{obj.nombreCaloriesParSemaine}}</td>
+        <td>
+          <div class="btn-group btn-group-sm">
+            <a class="btn btn-primary" (click)="edit(obj.id)"><i class="fa fa-edit"></i></a>
+            <a class="btn btn-danger" (click)="delete(obj.id)"><i class="fa fa-trash"></i></a>
+          </div>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="card-footer">
+    <a class="btn btn-success btn-lg" (click)="add()">
+      <i class="fa fa-plus"></i>
+    </a>
+  </div>
+
+  <div class="card mt-3" *ngIf="objectifForm">
+    <div class="card-header bg-info text-white">
+      <h3>Edition de l'objectif</h3>
+    </div>
+
+    <div class="card-body">
+      <div class="form-group">
+        <label for="comportemental">Type d'ojectif :</label>
+        <input type="text" class="form-control" id="comportemental" [(ngModel)]="objectifForm.typeObjectif">
+      </div>
+      <div class="form-group">
+        <label for="technique">Nombre de repas/jour :</label>
+        <input type="number" class="form-control" id="technique" [(ngModel)]="objectifForm.nombreRepasParJour">
+      </div>
+      <div class="form-group">
+        <label for="commentaires">Nombre de repas/semaine :</label>
+        <input type="number" class="form-control" id="commentaires" [(ngModel)]="objectifForm.nombreCaloriesParSemaine">
+      </div>
+    </div>
+
+    <div class="card-footer">
+      <div class="btn-group btn-group-lg float-right">
+        <a class="btn btn-success" (click)="save()">
+          <i class="fa fa-check"></i>
+        </a>
+        <a class="btn btn-warning" (click)="cancel()">
+          <i class="fa fa-undo"></i>
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
