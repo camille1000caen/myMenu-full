@@ -4,44 +4,28 @@ import {HomeComponent} from "./home/home.component";
 import {UtilisateurComponent} from "./utilisateur/utilisateur.component";
 import {IngredientComponent} from "./ingredient/ingredient.component";
 import {AdresseComponent} from "./adresse/adresse.component";
-
-const routes: Routes = [
-
-  {path: "adresse", component: AdresseComponent},
-
-=======
 import {ListeCoursesComponent} from "./liste-courses/liste-courses.component";
 import {AjustementQuantiteComponent} from "./ajustement-quantite/ajustement-quantite.component";
-import {UtilisateurComponent} from "./utilisateur/utilisateur.component";
-import {IngredientComponent} from "./ingredient/ingredient.component";
+import {RecetteComponent} from "./recette/recette.component";
+import {PlatComponent} from "./plat/plat.component";
+import { SelectionMenuComponent } from './selection-menu/selection-menu.component';
 
 const routes: Routes = [
+  {path: "", component: HomeComponent},
+  {path: "adresse", component: AdresseComponent},
   {path: "ajustementQuantite", component: AjustementQuantiteComponent},
   {path: "listeCourse", component: ListeCoursesComponent},
   {path: "utilisateur", component: UtilisateurComponent},
   {path: "ingredient", component: IngredientComponent},
->>>>>>> Camille
-=======
-import {RecetteComponent} from "./recette/recette.component";
-import {PlatComponent} from "./plat/plat.component";
-import {IngredientComponent} from "./ingredient/ingredient.component";
-
-const routes: Routes = [
-
-  {path:"recette", component: RecetteComponent},
-  {path:"plat", component: PlatComponent},
-  {path:"ingredient", component: IngredientComponent}
-
-
->>>>>>> Solenn
-  {path: "", component: HomeComponent},
+  {path: "recette", component: RecetteComponent},
+  {path: "plat", component: PlatComponent},
   {path: "profil", component: UtilisateurComponent},
-  {path: "ingredient", component: IngredientComponent},
+  {path: "selectionMenu", component: SelectionMenuComponent}
 ];
-
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
+
 export class AppRoutingModule { }

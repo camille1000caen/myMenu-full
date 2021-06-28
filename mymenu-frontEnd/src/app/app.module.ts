@@ -16,13 +16,14 @@ import { UtilisateurComponent } from './utilisateur/utilisateur.component';
 import { AdresseComponent } from './adresse/adresse.component';
 import { PreferenceAlimentaireComponent } from './preference-alimentaire/preference-alimentaire.component';
 import { RepasComponent } from './repas/repas.component';
-import {FormsModule} from "@angular/forms";
-import {HttpClientModule} from "@angular/common/http";
+import { FormsModule} from "@angular/forms";
+import { HttpClientModule} from "@angular/common/http";
 import { MenuCardComponent } from './menu-card/menu-card.component';
 import { HomeComponent } from './home/home.component';
-import {ListeCoursesComponent} from "./liste-courses/liste-courses.component";
-import {AjustementQuantiteComponent} from "./ajustement-quantite/ajustement-quantite.component";
-
+import { ListeCoursesComponent} from "./liste-courses/liste-courses.component";
+import { AjustementQuantiteComponent} from "./ajustement-quantite/ajustement-quantite.component";
+import { SelectionMenuComponent } from './selection-menu/selection-menu.component';
+import { CardComponent } from './card/card.component';
 
 @NgModule({
   declarations: [
@@ -30,12 +31,10 @@ import {AjustementQuantiteComponent} from "./ajustement-quantite/ajustement-quan
     HeaderComponent,
     FooterComponent,
     HomebodyComponent,
+    HomeComponent,
     ObjectifComponent,
     MenuComponent,
     PlanningComponent,
-    AppComponent,
-=======
-    AppComponent,
     PlatComponent,
     RecetteComponent,
     IngredientComponent,
@@ -44,26 +43,21 @@ import {AjustementQuantiteComponent} from "./ajustement-quantite/ajustement-quan
     PreferenceAlimentaireComponent,
     RepasComponent,
     MenuCardComponent,
-    HomeComponent,
     ListeCoursesComponent,
     AjustementQuantiteComponent,
+    SelectionMenuComponent,
+    CardComponent,
   ],
+
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule,
-    AppRoutingModule,
-    FormsModule,
     HttpClientModule
->>>>>>> Camille
-=======
-    HttpClientModule,
-
-
->>>>>>> Solenn
   ],
+
   providers: [],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }
