@@ -28,10 +28,10 @@ export class IngredientComponent implements OnInit {
   list(): Array<Ingredient> {
     return this.ingredientService.findAll();
   }
+listRecette(id: number){
+    return this.ingredientService.findAllByRecette(id);
+}
 
- listByRecette(id: number) {
-    return this.ingredientService.findByRecette(id);
- }
 
   add() {
     this.ingredientForm = new Ingredient();
