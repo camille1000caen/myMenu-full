@@ -39,6 +39,7 @@ public class Adresse {
 	@JsonView(Views.ViewCommon.class)
 	private String pays;
 	@Embedded
+	@JsonView(Views.ViewCommon.class)
 	private Coordonnees coordonnees;
 	@ManyToOne
 	@JoinColumn(name = "Utilisateur_Id")

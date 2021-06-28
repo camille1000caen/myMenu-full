@@ -1,1 +1,39 @@
-<p>planning works!</p>
+<div class="card mt-3">
+  <div class="card-header bg-info text-white">
+    <h2>Liste des objectifs</h2>
+  </div>
+  <div class="card-body">
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th>Identifiant</th>
+        <th>Version</th>
+        <th>periode</th>
+        <th>Objectif</th>
+        <th>Utilisateur</th>
+        <th></th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let plan of list()">
+        <td>{{plan.id}}</td>
+        <td>{{plan.version}}</td>
+        <td>{{plan.periode}}</td>
+        <td>{{plan.objectif?.typeObjectif}} {{plan.objectif?.nombreRepasParJour}}</td>
+        <td>{{plan.utilisateur?.nom}} {{plan.utilisateur?.prenom}}</td>
+        <td>
+          <div class="btn-group btn-group-sm">
+            <a class="btn btn-primary" (click)="edit(plan.id)"><i class="fa fa-edit"></i></a>
+            <a class="btn btn-danger" (click)="delete(plan.id)"><i class="fa fa-trash"></i></a>
+          </div>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="card-footer">
+    <a class="btn btn-success btn-lg" (click)="add()">
+      <i class="fa fa-plus"></i>
+    </a>
+  </div>
+  </div>

@@ -1,1 +1,37 @@
-<p>repas works!</p>
+<div class="card mt-3">
+  <div class="card-header bg-info text-white">
+    <h2>Liste des Repas</h2>
+  </div>
+  <div class="card-body">
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th>Identifiant</th>
+        <th>Version</th>
+        <th>Type Repas</th>
+        <th>Menu</th>
+        <th></th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let rep of list()">
+        <td>{{rep.id}}</td>
+        <td>{{rep.version}}</td>
+        <td>{{rep.typeRepas}}</td>
+        <td>{{rep.menu?.id}} - {{rep.menu?.jour| date:'dd/MM/yyyy'}}</td>
+        <td>
+          <div class="btn-group btn-group-sm">
+            <a class="btn btn-primary" (click)="edit(rep.id)"><i class="fa fa-edit"></i></a>
+            <a class="btn btn-danger" (click)="delete(rep.id)"><i class="fa fa-trash"></i></a>
+          </div>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="card-footer">
+    <a class="btn btn-success btn-lg" (click)="add()">
+      <i class="fa fa-plus"></i>
+    </a>
+  </div>
+</div>

@@ -1,0 +1,35 @@
+<div class="card mt-3">
+  <div class="card-header bg-info text-white">
+    <h2>Liste des Preferences Alimentaires</h2>
+  </div>
+  <div class="card-body">
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th>#</th>
+        <th>Version</th>
+        <th>TypeAlimentation</th>
+        <th>Utilisateur</th>
+        <th></th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let pref of list()">
+        <td>{{pref.id}}</td>
+        <td>{{pref.version}}</td>
+        <td>{{pref.typeAlimentation}}</td>
+        <td>{{pref.utilisateur?.nom}} {{pref.utilisateur?.prenom}}</td>
+        <td><div class="btn-group btn-group-sm">
+          <a class="btn btn-primary" (click)="edit(pref.id)"><i class="fa fa-edit"></i></a>
+          <a class="btn btn-danger" (click)="delete(pref.id)"><i class="fa fa-trash"></i></a>
+        </div></td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="card-footer">
+    <a class="btn btn-success btn-lg" (click)="add()">
+      <i class="fa fa-plus"></i>
+    </a>
+  </div>
+</div>

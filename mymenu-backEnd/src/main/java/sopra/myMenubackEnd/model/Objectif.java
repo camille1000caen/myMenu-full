@@ -6,8 +6,6 @@ import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import org.springframework.data.annotation.Version;
@@ -25,7 +23,7 @@ public class Objectif {
 	@JsonView(Views.ViewCommon.class)
 	private int version;
 	@Enumerated(EnumType.STRING)
-	@JsonView(Views.ViewObjectifWithTypeObjectif.class)
+	@JsonView(Views.ViewCommon.class)
 	private TypeObjectif typeObjectif;
 	@Column(name = "commentaire")
 	@JsonView(Views.ViewCommon.class)
@@ -36,17 +34,14 @@ public class Objectif {
 	@Column(name = "nombreCaloriesParSemaine")
 	@JsonView(Views.ViewCommon.class)
 	private int nombreCaloriesParSemaine;
-	
-	@OneToOne(mappedBy="objectif")
-	@JoinColumn(name= "planning_id")
-	private Planning planning;
+
 	
 	public Objectif() {
 		super();
 	}
 	
 	public Objectif(Long id, int version, TypeObjectif typeObjectif, String commentaire, int nombreRepasParJour,
-			int nombreCaloriesParSemaine, Planning planning) {
+			int nombreCaloriesParSemaine) {
 		super();
 		this.id = id;
 		this.version = version;
@@ -54,7 +49,7 @@ public class Objectif {
 		this.commentaire = commentaire;
 		this.nombreRepasParJour = nombreRepasParJour;
 		this.nombreCaloriesParSemaine = nombreCaloriesParSemaine;
-		this.planning = planning;
+		
 	}
 
 	public Long getId() {
@@ -103,14 +98,6 @@ public class Objectif {
 
 	public void setVersion(int version) {
 		this.version = version;
-	}
-
-	public Planning getPlanning() {
-		return planning;
-	}
-
-	public void setPlanning(Planning planning) {
-		this.planning = planning;
 	}
 	
 }
