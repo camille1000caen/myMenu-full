@@ -4,6 +4,8 @@ import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {Ingredient} from "../model/ingredient";
 import {AppConfigService} from "../app-config.service";
+import {RecetteHttpService} from "../recette/recette-http.service";
+import {Recette} from "../model/recette";
 
 @Injectable({
   providedIn: 'root'
@@ -11,16 +13,18 @@ import {AppConfigService} from "../app-config.service";
 export class IngredientHttpService {
   ingredients: Array<Ingredient>;
 
-  constructor(private http: HttpClient, private appConfig : AppConfigService) {
+  constructor(private http: HttpClient, private appConfig : AppConfigService, private recetteService: RecetteHttpService) {
 
-    this.load()
+     this.load()
   }
 
   findAll(): Array<Ingredient> {
     return this.ingredients;
   }
-  findByRecette(id: number) {
-    this.http.get<Array<Ingredient>>(this.appConfig.backEndUrl +"ingredient/byrecette/").subscribe(resp => {
+
+
+    findByRecette() {
+    this.http.get<Array<Ingredient>>(this.appConfig.backEndUrl +"ingredient/byrecette/" ).subscribe(resp => {
       this.ingredients = resp;
     }, error => console.log(error))
 

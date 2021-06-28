@@ -10,6 +10,7 @@ import {RecetteComponent} from "./recette/recette.component";
 import {PlatComponent} from "./plat/plat.component";
 import { SelectionMenuComponent } from './selection-menu/selection-menu.component';
 
+
 const routes: Routes = [
   {path: "", component: HomeComponent},
   {path: "adresse", component: AdresseComponent},

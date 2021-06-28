@@ -52,6 +52,9 @@ public class Ingredient {
 	@ManyToMany 
 	@JoinTable(name = "recettes", joinColumns = @JoinColumn(name = "ingredient_id"), inverseJoinColumns = @JoinColumn(name = "recette_id"))
 	private List<Recette> recettes = new ArrayList<Recette>();
+	
+	//@JoinColumn(name = "recette_id")
+	//private Recette recette;
 	@ManyToOne
 	@JoinColumn(name = "AjustementQuantite_id")
 	private AjustementQuantite ajustementQuantite;
@@ -132,6 +135,10 @@ public class Ingredient {
 	public void setNombreCalories100g(Float nombreCalories100g) {
 		this.nombreCalories100g = nombreCalories100g;
 	}
+
+
+
+	
 
 	public List<Recette> getRecettes() {
 		return recettes;

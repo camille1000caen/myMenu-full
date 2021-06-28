@@ -1,7 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-
 import {Ingredient} from "../model/ingredient";
 import {IngredientHttpService} from "./ingredient-http.service";
+import {newArray} from "@angular/compiler/src/util";
+import {RecetteHttpService} from "../recette/recette-http.service";
+import {Recette} from "../model/recette";
+
+import { jsPDF } from "jspdf";
+import {formatDate} from "@angular/common";
 
 @Component({
   selector: 'app-ingredient',
@@ -13,6 +18,7 @@ export class IngredientComponent implements OnInit {
   ingredientForm: Ingredient = null;
   ingredients: Array<Ingredient>;
 
+
   constructor(private ingredientService: IngredientHttpService) {
 
   }
@@ -23,9 +29,9 @@ export class IngredientComponent implements OnInit {
     return this.ingredientService.findAll();
   }
 
-ListByRecette(id: number) {
+ listByRecette(id: number) {
     return this.ingredientService.findByRecette(id);
-}
+ }
 
   add() {
     this.ingredientForm = new Ingredient();
@@ -76,6 +82,7 @@ ListByRecette(id: number) {
   delete(id: number) {
     this.ingredientService.deleteById(id);
   }
+
 
 }
 

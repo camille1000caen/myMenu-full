@@ -10,6 +10,7 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -43,7 +44,8 @@ public class Recette {
 	
 	private TypeAlimentation typeAlimentation;
 	
-	@ManyToMany(mappedBy="recettes")
+	@ManyToMany
+	(mappedBy="recettes")
 
 	private List<Ingredient> ingredients = new ArrayList<Ingredient>();
 	@OneToOne(mappedBy= "recette")

@@ -25,7 +25,7 @@ public interface IIngredientRepository extends JpaRepository<Ingredient, Long> {
 	@Query("select i from Ingredient i where i.typeProduit= :typeProduit")
 	List<Ingredient> findIngredientByTypeProduit(@Param("typeProduit") TypeProduit typeProduit);
 	
-	@Query("select i from Ingredient i left join fetch i.recettes r")
+	@Query("select i from Ingredient i left join fetch i.recettes r where r.id= :id")
 	List<Ingredient> findAllIngredientByRecette(@Param("id") Long id);
 
 	
