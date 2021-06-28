@@ -1,49 +1,83 @@
 <div class="wrapper-SelectionMenu">
   <section class="listMenus">
 
+
     <h1>Nos selections</h1>
     <h2>Merci de sélectionner vos menus</h2>
     <hr>
-    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+    <div id="carouselExampleIndicators" class="carousel slide pb-5" data-ride="carousel">
       <ol class="carousel-indicators">
-        <li data-target="#carouselExampleIndicators" data-slide-to="0"
-            class="active"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
         <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
         <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
       </ol>
 
       <div class="carousel-inner">
+        <!-- ---------------------------------------------------------------------------- CAROUSEL SLIDE 1-->
         <div class="carousel-item active">
-          <!-- ---------------------------------------------------------------------------- BREAKFAST -->
+          <!-- ---------------------------------------------------------------------------- BREAKFAST ROW 1 -->
           <h2 class="petitDejTitle">Petit déjeuner</h2>
-          <app-menu-card></app-menu-card>
-          <app-menu-card></app-menu-card>
-          <!-- ---------------------------------------------------------------------------- LUNCH -->
+          <div class="album py-3">
+            <div class="card-deck">
+              <app-card *ngFor="let index of nBMenuPerRow" class="card"></app-card>
+            </div>
+          </div>
+          <!-- ---------------------------------------------------------------------------- BREAKFAST ROW 2 -->
+          <div class="album py-3">
+            <div class="card-deck">
+              <app-card *ngFor="let index of nBMenuPerRow" class="card"></app-card>
+            </div>
+          </div>
+          <!-- ---------------------------------------------------------------------------- BREAKFAST END-->
         </div>
+        <!-- ---------------------------------------------------------------------------- CAROUSEL SLIDE 2-->
         <div class="carousel-item">
-          <h2 class="petitDejTitle">Déjeuner</h2>
-          <app-menu-card></app-menu-card>
-          <app-menu-card></app-menu-card>
+          <!-- ---------------------------------------------------------------------------- LUNCH ROW 1 -->
+          <h2 class="dejeunerTitle">Déjeuner</h2>
+          <div class="album py-3">
+            <div class="card-deck">
+              <app-card *ngFor="let index of nBMenuPerRow" class="card"></app-card>
+            </div>
+          </div>
+          <!-- ---------------------------------------------------------------------------- LUNCH ROW 2 -->
+          <div class="album py-3">
+            <div class="card-deck">
+              <app-card *ngFor="let index of nBMenuPerRow" class="card"></app-card>
+            </div>
+          </div>
+          <!-- ---------------------------------------------------------------------------- LUNCH END-->
         </div>
-        <!-- ---------------------------------------------------------------------------- DINNER -->
+        <!-- ---------------------------------------------------------------------------- CAROUSEL SLIDE 3-->
         <div class="carousel-item">
-          <h2 class="petitDejTitle">Dinner</h2>
-          <app-menu-card></app-menu-card>
-          <app-menu-card></app-menu-card>
+          <!-- ---------------------------------------------------------------------------- DINNER ROW 1 -->
+          <h2 class="dinnerTitle">Dîner</h2>
+          <div class="album py-3">
+            <div class="card-deck">
+              <app-card *ngFor="let index of nBMenuPerRow" class="card"></app-card>
+            </div>
+          </div>
+          <!-- ---------------------------------------------------------------------------- LUNCH ROW 2 -->
+          <div class="album py-3">
+            <div class="card-deck">
+              <app-card *ngFor="let index of nBMenuPerRow" class="card"></app-card>
+            </div>
+          </div>
+          <!-- ---------------------------------------------------------------------------- DINNER END-->
         </div>
       </div>
 
       <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+					 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
         <span class="sr-only">Previous</span>
       </a>
       <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+					<span class="carousel-control-next-icon" aria-hidden="true"></span>
         <span class="sr-only">Next</span>
       </a>
-    </div>
-  </section>
 
+    </div>
+
+  </section>
   <nav class="listDetail">
     <div class="Cart">
       <h1>Panier : <span class="breakfast-MenuDetail-Qt" id="totalMenu">2 / 21 </span></h1>
@@ -75,7 +109,7 @@
 
       <li class="list-group-item">
         <div class="lunch-MenuDetail">
-          <h2>Déjeuner : <span class="lunch-MenuDetail-Qt" id="result2">0 / 7 </span></h2>
+          <h2>Déjeuner : <span class="lunch-MenuDetail-Qt">0 / 7 </span></h2>
           <ul class="list-group">
             <li class="list-group-item d-flex justify-content-between align-items-center">
               A list item
@@ -98,7 +132,7 @@
 
       <li class="list-group-item">
         <div class="diner-MenuDetail">
-          <h2>Dîner : <span class="dinner-MenuDetail-Qt" id="result2">0 / 7 </span></h2>
+          <h2>Dîner : <span class="dinner-MenuDetail-Qt">0 / 7 </span></h2>
           <ul class="list-group">
             <li class="list-group-item d-flex justify-content-between align-items-center">
               A list item
@@ -121,6 +155,4 @@
 
     </ul>
   </nav>
-
-
 </div>
