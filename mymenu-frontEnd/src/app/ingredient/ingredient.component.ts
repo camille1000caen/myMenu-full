@@ -32,9 +32,11 @@ export class IngredientComponent implements OnInit {
     return this.ingredientService.findAll();
   }
 
- listByRecette(id: number) {
-    return this.ingredientService.findByRecette(id);
-}
+//  listByRecette(id: number) {
+//     return this.ingredientService.findByRecette(id);
+// }
+
+
   //  canvas = document.querySelector('canvas');
   //  getCursorPosition(canvas, event: { clientX: number; clientY: number; }) {
   //
@@ -44,15 +46,15 @@ export class IngredientComponent implements OnInit {
   //   console.log("x: " + x + " y: " + y)
   // }
 
-  @ViewChild('myCanvas')
-  myCanvas: ElementRef<HTMLCanvasElement>;
+  // @ViewChild('myCanvas')
+  // myCanvas: ElementRef<HTMLCanvasElement>;
 
-  public context: CanvasRenderingContext2D;
+  // public context: CanvasRenderingContext2D;
 
-  ngAfterViewInit(): void {
-    this.context = this.myCanvas.nativeElement.getContext('2d');
-    console.log(this.context);
-  }
+  // ngAfterViewInit(): void {
+  //   this.context = this.myCanvas.nativeElement.getContext('2d');
+  //   console.log(this.context);
+  // }
 
   // canvas.addEventListener('mousedown', function(e) {
   //   getCursorPosition(canvas, e)
@@ -167,6 +169,7 @@ export class IngredientComponent implements OnInit {
       this.ingredientForm = resp;
 
     }, err => console.log(err));
+
   }
 
   save() {
