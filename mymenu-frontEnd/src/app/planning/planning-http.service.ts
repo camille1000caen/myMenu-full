@@ -3,6 +3,7 @@ import {Injectable} from "@angular/core";
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {Planning} from "../model/planning";
+import {AppConfigService} from "../app-config.service";
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,7 @@ import {Planning} from "../model/planning";
 export class PlanningHttpService {
   plannings: Array<Planning>;
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient,private appConfig: AppConfigService) {
     this.load()
   }
 
@@ -19,30 +20,30 @@ export class PlanningHttpService {
   }
 
   findById(id: number): Observable<Planning> {
-    return this.http.get<Planning>("planning/" + id);
+    return this.http.get<Planning>(this.appConfig.backEndUrl +"planning/" + id);
   }
 
   create(planning: Planning) {
 
-    this.http.post<Planning>("planning", planning).subscribe(resp => {
+    this.http.post<Planning>(this.appConfig.backEndUrl +"planning", planning).subscribe(resp => {
       this.load();
     }, error => console.log(error));
   }
 
-  modify(planning: Planning): Observable<Planning> {
-
-
-    return this.http.put<Planning>("planning/" + planning.id, planning);
+  modify(planning: Planning) {
+    this.http.put<Planning>(this.appConfig.backEndUrl +"planning/" + planning.id, planning).subscribe(resp => {
+      this.load();
+    }, error => console.log(error));
   }
 
   deleteById(id: number) {
-    this.http.delete("planning/" + id).subscribe(resp => {
+    this.http.delete(this.appConfig.backEndUrl +"planning/" + id).subscribe(resp => {
       this.load();
     }, error => console.log(error));
   }
 
   load() {
-    this.http.get<Array<Planning>>("planning/").subscribe(resp => {
+    this.http.get<Array<Planning>>(this.appConfig.backEndUrl +"planning/detail").subscribe(resp => {
       this.plannings = resp;
     }, error => console.log(error))
   }

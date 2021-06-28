@@ -3,6 +3,7 @@ import {Injectable} from "@angular/core";
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {Menu} from "../model/menu";
+import {AppConfigService} from "../app-config.service";
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,7 @@ import {Menu} from "../model/menu";
 export class MenuHttpService {
   menus: Array<Menu>;
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient,private appConfig: AppConfigService) {
     this.load()
   }
 
@@ -19,30 +20,30 @@ export class MenuHttpService {
   }
 
   findById(id: number): Observable<Menu> {
-    return this.http.get<Menu>("menu/" + id);
+    return this.http.get<Menu>(this.appConfig.backEndUrl + "menu/" + id);
   }
 
   create(menu: Menu) {
 
-    this.http.post<Menu>("menu", menu).subscribe(resp => {
+    this.http.post<Menu>(this.appConfig.backEndUrl + "menu", menu).subscribe(resp => {
       this.load();
     }, error => console.log(error));
   }
 
-  modify(menu: Menu): Observable<Menu> {
-
-
-    return this.http.put<Menu>("menu/" + menu.id, menu);
+  modify(menu: Menu) {
+    this.http.put<Menu>(this.appConfig.backEndUrl +"menu/" + menu.id, menu).subscribe(resp => {
+      this.load();
+    }, error => console.log(error));
   }
 
   deleteById(id: number) {
-    this.http.delete("menu/" + id).subscribe(resp => {
+    this.http.delete(this.appConfig.backEndUrl +"menu/" + id).subscribe(resp => {
       this.load();
     }, error => console.log(error));
   }
 
   load() {
-    this.http.get<Array<Menu>>("menu/").subscribe(resp => {
+    this.http.get<Array<Menu>>(this.appConfig.backEndUrl +"menu/with-planning").subscribe(resp => {
       this.menus = resp;
     }, error => console.log(error))
   }

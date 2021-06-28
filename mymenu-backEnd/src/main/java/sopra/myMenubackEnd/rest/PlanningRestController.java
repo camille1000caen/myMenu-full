@@ -40,6 +40,25 @@ public class PlanningRestController {
 		return planningRepo.findAll();
 	}
 	
+	@GetMapping("/detail")
+	@JsonView(Views.ViewPlanningDetail.class)
+	public List<Planning> findAllPlanningsWithUtilisateurAndObjectif() {
+		return planningRepo.findAllPlanningsWithUtilisateurAndObjectif();
+	}
+	
+	@GetMapping("/detail/{id}")
+	@JsonView(Views.ViewPlanningDetail.class)
+	public Planning findbyIdWithUtilisateurAndObjectif(@PathVariable Long id) {
+
+		Optional<Planning> optPlanning = planningRepo.findbyIdWithUtilisateurAndObjectif(id);
+
+		if (optPlanning.isPresent()) {
+			return optPlanning.get();
+		} else {
+			throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Unable to find resource");
+		}
+	}
+	
 	@GetMapping("/{id}")
 	@JsonView(Views.ViewPlanning.class)
 	public Planning find(@PathVariable Long id) {
@@ -66,11 +85,12 @@ public class PlanningRestController {
 		}
 	}
 	
-	@GetMapping("/by-objectif/{idObjectif}")
+	
+	@GetMapping("/by-typeobjectif/{typeObjectif}")
 	@JsonView(Views.ViewPlanning.class)
-	public List<Planning> findAllByObjectif(@PathVariable Long idObjectif) {
+	public List<Planning> findAllPlanningsByTypeObjectif(@PathVariable String typeObjectif) {
 
-		List<Planning> plannings = planningRepo.findAllPlanningsByObjectif(idObjectif);
+		List<Planning> plannings = planningRepo.findAllPlanningsByTypeObjectif(typeObjectif);
 
 		return plannings;
 	}
@@ -129,7 +149,7 @@ public class PlanningRestController {
 	}
 	
 	@PutMapping("/{id}")
-	@PreAuthorize("hasRole('ADMIN')")
+	//@PreAuthorize("hasRole('ADMIN')")
 	@JsonView(Views.ViewPlanning.class)
 	public Planning update(@RequestBody Planning planning, @PathVariable Long id) {
 		if (!planningRepo.existsById(id)) {

@@ -41,7 +41,7 @@ export class PreferenceAlimentaireHttpService {
   }
 
   load() {
-    this.http.get<Array<PreferenceAlimentaire>>(this.appConfig.backEndUrl + "preferencealimentaire").subscribe(resp => {
+    this.http.get<Array<PreferenceAlimentaire>>(this.appConfig.backEndUrl + "preferencealimentaire/detailUtilisateur").subscribe(resp => {
       this.preferenceAlimentaires = resp;
     }, error => console.log(error))
     this.appConfig.findAllTypeAlimentations().subscribe(resp => {
