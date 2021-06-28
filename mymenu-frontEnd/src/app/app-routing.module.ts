@@ -9,6 +9,7 @@ import {AjustementQuantiteComponent} from "./ajustement-quantite/ajustement-quan
 import {RecetteComponent} from "./recette/recette.component";
 import {PlatComponent} from "./plat/plat.component";
 import { SelectionMenuComponent } from './selection-menu/selection-menu.component';
+import {PreferenceAlimentaireComponent} from "./preference-alimentaire/preference-alimentaire.component";
 
 
 const routes: Routes = [
@@ -21,7 +22,8 @@ const routes: Routes = [
   {path: "recette", component: RecetteComponent},
   {path: "plat", component: PlatComponent},
   {path: "profil", component: UtilisateurComponent},
-  {path: "selectionMenu", component: SelectionMenuComponent}
+  {path: "selectionMenu", component: SelectionMenuComponent},
+  {path: "preferencealimentaire", component: PreferenceAlimentaireComponent},
 ];
 
 @NgModule({

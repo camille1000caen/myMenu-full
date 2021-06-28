@@ -23,8 +23,8 @@ export class IngredientHttpService {
   }
 
 
-    findByRecette() {
-    this.http.get<Array<Ingredient>>(this.appConfig.backEndUrl +"ingredient/byrecette/" ).subscribe(resp => {
+    findByRecette(id:number) {
+    this.http.get<Array<Ingredient>>(this.appConfig.backEndUrl +"ingredient/byrecette/"+id ).subscribe(resp => {
       this.ingredients = resp;
     }, error => console.log(error))
 
