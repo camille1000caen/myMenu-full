@@ -18,7 +18,6 @@ const routes: Routes = [
   {path: "ingredient", component: IngredientComponent},
   {path:"recette", component: RecetteComponent},
   {path:"plat", component: PlatComponent},
-  {path:"ingredient", component: IngredientComponent},
   {path: "", component: HomeComponent},
   {path: "profil", component: UtilisateurComponent},
 
