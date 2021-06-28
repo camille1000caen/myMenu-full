@@ -5,6 +5,9 @@ import {newArray} from "@angular/compiler/src/util";
 import {RecetteHttpService} from "../recette/recette-http.service";
 import {Recette} from "../model/recette";
 
+import { jsPDF } from "jspdf";
+import {formatDate} from "@angular/common";
+
 @Component({
   selector: 'app-ingredient',
   templateUrl: './ingredient.component.html',

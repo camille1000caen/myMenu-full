@@ -21,7 +21,6 @@ export class Adresse {
     this.ville=ville!;
     this.pays = pays!;
     this.coordonnees = coordonnees!;
-
     this.utilisateur = utilisateur!;
   }
 
