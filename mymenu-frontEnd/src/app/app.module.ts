@@ -25,6 +25,7 @@ import { AjustementQuantiteComponent} from "./ajustement-quantite/ajustement-qua
 import { SelectionMenuComponent } from './selection-menu/selection-menu.component';
 import { CardComponent } from './card/card.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
