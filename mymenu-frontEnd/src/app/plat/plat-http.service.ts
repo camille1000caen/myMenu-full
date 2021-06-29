@@ -43,7 +43,7 @@ export class PlatHttpService {
   }
 
   load() {
-    this.http.get<Array<Plat>>(this.appConfig.backEndUrl +"plat").subscribe(resp => {
+    this.http.get<Array<Plat>>(this.appConfig.backEndUrl +"plat/detail").subscribe(resp => {
       this.plats = resp;
     }, error => console.log(error))
   }
