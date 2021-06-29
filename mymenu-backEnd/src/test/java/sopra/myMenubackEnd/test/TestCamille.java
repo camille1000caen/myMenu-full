@@ -86,7 +86,7 @@ public class TestCamille {
 			ajustementRepo.delete(ajustement1);
 		}
 
-	}	
+	}	 
 
 	@Test
 	public void ajustementUpdate() {
