@@ -18,7 +18,7 @@ export class ConnexionDTOComponent implements OnInit {
   connexion(){
     console.log(this.conn)
     this.connexionService.connexionAuth(this.conn).subscribe(resp=>{
-      sessionStorage.getItem("utilisateur",JSON.stringify(resp));
+      sessionStorage.setItem("utilisateur",JSON.stringify(resp));
     })
 
   }

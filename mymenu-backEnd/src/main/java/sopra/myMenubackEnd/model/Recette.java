@@ -9,13 +9,16 @@ import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.Lob;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import org.springframework.data.annotation.Version;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonView;
 
 
@@ -33,29 +36,31 @@ public class Recette {
 	@Column(name = "nom")
 	@JsonView(Views.ViewCommon.class)
 	private String nom;
-	@JsonView(Views.ViewCommon.class)
 	@Column(name = "etapes")
-	@Lob
+	@JsonView(Views.ViewCommon.class)
 	private String etapes;
-	@JsonView(Views.ViewCommon.class)
 	@Column(name = "nombre_pers")
-	private int nombrePers;
-	@Column(name = "total_calories")
 	@JsonView(Views.ViewCommon.class)
-	private int totalCalories;
+	private int nombrePers;
+	//@Column(name = "total_calories")
+	//private int totalCalories;
 	@Column(name = "note")
 	@JsonView(Views.ViewCommon.class)
 	private float note;
+	@Enumerated(EnumType.STRING)
 	@JsonView(Views.ViewCommon.class)
-	@Enumerated(EnumType.STRING)	
 	private TypeAlimentation typeAlimentation;
-	@JsonView(Views.ViewCommon.class)
-	@Column
-	private String photo;
+	@ManyToOne
+	@JoinColumn(name="plat_id")
+	@JsonView(Views.ViewRecetteDetail.class)
+	private Plat plat;
 	@ManyToMany
 	(mappedBy="recettes")
-	private List<Ingredient> ingredients = new ArrayList<Ingredient>();
-	
+		private List<Ingredient> ingredients = new ArrayList<Ingredient>();
+	@ManyToOne
+	@JoinColumn(name= "plat_id")
+	@JsonView(Views.ViewRecetteDetail.class)
+	private Plat plat;
 	public Recette() {
 		super();
 	}
@@ -65,7 +70,7 @@ public class Recette {
 		this.nom = nom;
 		this.etapes = etapes;
 		this.nombrePers = nombrePers;
-		this.totalCalories = totalCalories;
+		//this.totalCalories = totalCalories;
 		this.note = note;
 		this.typeAlimentation = typeAlimentation;
 		
@@ -111,13 +116,13 @@ public class Recette {
 		this.nombrePers = nombrePers;
 	}
 
-	public int getTotalCalories() {
-		return totalCalories;
-	}
-
-	public void setTotalCalories(int totalCalories) {
-		this.totalCalories = totalCalories;
-	}
+//	public int getTotalCalories() {
+//		return totalCalories;
+//	}
+//
+//	public void setTotalCalories(int totalCalories) {
+//		this.totalCalories = totalCalories;
+//	}
 
 	public TypeAlimentation getTypeRecette() {
 		return typeAlimentation;
@@ -151,12 +156,12 @@ public class Recette {
 		this.typeAlimentation = typeAlimentation;
 	}
 
-	public String getPhoto() {
-		return photo;
+	public Plat getPlat() {
+		return plat;
 	}
 
-	public void setPhoto(String photo) {
-		this.photo = photo;
+	public void setPlat(Plat plat) {
+		this.plat = plat;
 	}
 	
 	
