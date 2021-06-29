@@ -10,6 +10,7 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.Lob;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
@@ -38,6 +39,7 @@ public class Recette {
 	private String nom;
 	@Column(name = "etapes")
 	@JsonView(Views.ViewCommon.class)
+	@Lob
 	private String etapes;
 	@Column(name = "nombre_pers")
 	@JsonView(Views.ViewCommon.class)
@@ -47,6 +49,9 @@ public class Recette {
 	@Column(name = "note")
 	@JsonView(Views.ViewCommon.class)
 	private float note;
+	@Column(name = "photo")
+	@JsonView(Views.ViewCommon.class)
+	private String photo;
 	@Enumerated(EnumType.STRING)
 	@JsonView(Views.ViewCommon.class)
 	private TypeAlimentation typeAlimentation;
@@ -57,10 +62,7 @@ public class Recette {
 	@ManyToMany
 	(mappedBy="recettes")
 		private List<Ingredient> ingredients = new ArrayList<Ingredient>();
-	@ManyToOne
-	@JoinColumn(name= "plat_id")
-	@JsonView(Views.ViewRecetteDetail.class)
-	private Plat plat;
+	
 	public Recette() {
 		super();
 	}
@@ -83,7 +85,13 @@ public class Recette {
 	public void setNote(float note) {
 		this.note = note;
 	}
+	public String getPhoto() {
+		return photo;
+	}
 
+	public void setPhoto(String photo) {
+		this.photo = photo;
+	}
 	public Long getId() {
 		return id;
 	}
