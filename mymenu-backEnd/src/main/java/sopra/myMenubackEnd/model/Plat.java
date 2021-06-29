@@ -1,11 +1,14 @@
 package sopra.myMenubackEnd.model;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -25,14 +28,19 @@ public class Plat {
 	@ManyToOne
 	@JoinColumn(name = "repas_id")
 	private Repas repas;
-	@OneToOne
-	@JoinColumn(name= "recette_id")
-	private Recette recette;
+	@OneToMany(mappedBy = "plat")
+	private List<Recette> recette;
 	
 	public Plat() {
 		super();
 	}
-
+	
+	public Plat(Long id, int version, int nombrePersonne) {
+		super();
+		this.id = id;
+		this.version = version;
+		this.nombrePersonne = nombrePersonne;
+	}
 
 	public Plat(int nombrePersonne) {
 		super();
@@ -67,16 +75,6 @@ public class Plat {
 
 	public void setRepas(Repas repas) {
 		this.repas = repas;
-	}
-
-
-	public Recette getRecette() {
-		return recette;
-	}
-
-
-	public void setRecette(Recette recette) {
-		this.recette = recette;
 	}
 
 

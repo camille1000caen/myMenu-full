@@ -4,6 +4,8 @@ import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {Plat} from "../model/plat";
 import {AppConfigService} from "../app-config.service";
+import {Repas} from "../model/repas";
+import {Ingredient} from "../model/ingredient";
 
 @Injectable({
   providedIn: 'root'
@@ -17,6 +19,18 @@ export class PlatHttpService {
 
   findAll(): Array<Plat> {
     return this.plats;
+  }
+
+  findAllByRepas(repas :Repas): Array<Plat> {
+    this.findByRepas(repas);
+    return this.findAll();
+  }
+
+    findByRepas(repas :Repas){
+    this.http.get<Plat>(this.appConfig.backEndUrl +"plat/by-repas/" + repas).subscribe(resp => {
+      this.load();
+    }, error => console.log(error));
+
   }
 
   findById(id: number): Observable<Plat> {
