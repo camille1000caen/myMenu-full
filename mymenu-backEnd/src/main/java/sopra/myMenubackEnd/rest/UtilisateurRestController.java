@@ -22,7 +22,6 @@ import org.springframework.web.server.ResponseStatusException;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
-import sopra.myMenubackEnd.model.ConnexionDTO;
 import sopra.myMenubackEnd.model.Genre;
 import sopra.myMenubackEnd.model.PhysicalActivity;
 import sopra.myMenubackEnd.model.Utilisateur;

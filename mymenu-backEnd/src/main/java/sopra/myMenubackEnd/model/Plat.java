@@ -26,13 +26,19 @@ public class Plat {
 	@ManyToOne
 	@JoinColumn(name = "repas_id")
 	private Repas repas;
-	@OneToMany(mappedBy= "plat")
+	@OneToMany(mappedBy = "plats")
 	private Recette recette;
 	
 	public Plat() {
 		super();
 	}
-
+	
+	public Plat(Long id, int version, int nombrePersonne) {
+		super();
+		this.id = id;
+		this.version = version;
+		this.nombrePersonne = nombrePersonne;
+	}
 
 	public Plat(int nombrePersonne) {
 		super();
@@ -67,16 +73,6 @@ public class Plat {
 
 	public void setRepas(Repas repas) {
 		this.repas = repas;
-	}
-
-
-	public Recette getRecette() {
-		return recette;
-	}
-
-
-	public void setRecette(Recette recette) {
-		this.recette = recette;
 	}
 
 

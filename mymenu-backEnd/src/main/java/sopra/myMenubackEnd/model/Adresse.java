@@ -26,9 +26,6 @@ public class Adresse {
 	@Column(name = "Rue")
 	@JsonView(Views.ViewCommon.class)
 	private String rue;
-	@Column(name = "Complement")
-	@JsonView(Views.ViewCommon.class)
-	private String complement;
 	@Column(name = "CodePostal")
 	@JsonView(Views.ViewCommon.class)
 	private String codePostal;
@@ -54,10 +51,9 @@ public class Adresse {
 		super();
 	}
 
-	public Adresse(String rue, String complement, String codePostal, String ville, String pays) {
+	public Adresse(String rue,String codePostal, String ville, String pays) {
 		super();
 		this.rue = rue;
-		this.complement = complement;
 		this.codePostal = codePostal;
 		this.ville = ville;
 		this.pays = pays;
@@ -77,14 +73,6 @@ public class Adresse {
 
 	public void setRue(String rue) {
 		this.rue = rue;
-	}
-
-	public String getComplement() {
-		return complement;
-	}
-
-	public void setComplement(String complement) {
-		this.complement = complement;
 	}
 
 	public String getCodePostal() {
@@ -137,7 +125,7 @@ public class Adresse {
 
 	@Override
 	public String toString() {
-		return "Adresse [rue=" + rue + ", complement=" + complement + ", codePostal=" + codePostal + ", ville=" + ville
+		return "Adresse [rue=" + rue + ", codePostal=" + codePostal + ", ville=" + ville
 				+ ", pays=" + pays + "]";
 	}
 

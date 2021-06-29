@@ -33,9 +33,6 @@
           <a class="nav-link" [routerLink]="['/profil']">Profil</a>
         </li>
         <li class="nav-item" routerLinkActive="active">
-          <a class="nav-link" [routerLink]="['/ingredient']">Ingredient</a>
-        </li>
-        <li class="nav-item" routerLinkActive="active">
           <a class="nav-link" [routerLink]="['/selectionMenu']">Sélection des menus</a>
         </li>
         <li class="nav-item" routerLinkActive="active">
@@ -69,7 +66,7 @@
       </ul>
 
       <form class="form-inline my-2 my-lg-0">
-        <button class="btn btn-success my-2 my-sm-0" type="submit">Connexion</button>
+        <button class="btn btn-success my-2 my-sm-0" [routerLink]="['/connexion']">Connexion</button>
       </form>
 
     </div>

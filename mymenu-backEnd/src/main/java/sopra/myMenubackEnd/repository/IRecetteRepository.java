@@ -1,6 +1,7 @@
 package sopra.myMenubackEnd.repository;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -29,6 +30,16 @@ public interface IRecetteRepository extends JpaRepository<Recette, Long>{
 	@Query("select r from Recette r where r.typeAlimentation= :typeAlimentation")
 	List<Recette> findByTypeAlimentation(@Param("typeAlimentation")TypeAlimentation typeAlimentation);
 	
+	@Query("select distinct r from Recette r WHERE r.plat.id =:id")
+	List<Recette> findAllRecetteByPlat(@Param("id") Long id);
 	
+	@Query("select distinct r from Recette r left join fetch r.plat WHERE r.plat IS NOT NULL")
+	List<Recette> findAllRecetteWithPlat();
+	
+	@Query("select distinct r from Recette r left join fetch r.plat where r.id = :id")
+	Optional<Recette> findRecetteByIdWithPlat(@Param("id") Long id);
+	
+	@Query("select r from Recette r left join fetch r.plat ORDER BY r.note DESC")
+	List<Recette> findByRisingNoteWithPlat();
 
 }

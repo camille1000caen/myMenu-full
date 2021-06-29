@@ -7,7 +7,6 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 import sopra.myMenubackEnd.model.Plat;
-import sopra.myMenubackEnd.model.Repas;
 import sopra.myMenubackEnd.model.TypeRepas;
 
 
