@@ -20,6 +20,8 @@ import org.springframework.web.server.ResponseStatusException;
 import com.fasterxml.jackson.annotation.JsonView;
 
 import sopra.myMenubackEnd.model.Plat;
+import sopra.myMenubackEnd.model.Repas;
+import sopra.myMenubackEnd.model.TypeRepas;
 import sopra.myMenubackEnd.model.Views;
 import sopra.myMenubackEnd.repository.IPlatRepository;
 @RestController
@@ -38,11 +40,19 @@ public class PlatRestController {
 			
 			return plats;
 		}
-		@GetMapping("/by-repas/{repas}")
+		@GetMapping("/by-repas/{id}")
 		@JsonView(Views.ViewPlat.class)
-		public List<Plat> findAllByRepas(@PathVariable String repas) {
+		public List<Plat> findAllByRepas(@PathVariable Long id) {
 				
-			return platRepo.findAllByRepas(repas);
+			return platRepo.findAllByRepas(id);
+
+		}
+		
+		@GetMapping("/by-typerepas/{typerepas}")
+		@JsonView(Views.ViewPlat.class)
+		public List<Plat> findAllWithRepasByTypeRepas(@PathVariable TypeRepas typeRepas) {
+				
+			return platRepo.findAllWithRepasByTypeRepas(typeRepas);
 
 		}
 		@GetMapping("/{id}")
@@ -62,13 +72,13 @@ public class PlatRestController {
 		
 		@GetMapping("/detailrepas")
 		@JsonView(Views.ViewPlat.class)
-		public List<Plat> findAllWithRepas(@PathVariable String repas) {
+		public List<Plat> findAllWithRepas() {
 				
-			return platRepo.findAllWithRepas(repas);
+			return platRepo.findAllWithRepas();
 		}
 		
 		@PostMapping("")
-		@PreAuthorize("hasRole('ADMIN')")
+		//@PreAuthorize("hasRole('ADMIN')")
 		@JsonView(Views.ViewPlat.class)
 		public Plat create(@RequestBody Plat plat) {
 			plat = platRepo.save(plat);
@@ -77,7 +87,7 @@ public class PlatRestController {
 		}
 
 		@PutMapping("/{id}")
-		@PreAuthorize("hasRole('ADMIN')")
+		//@PreAuthorize("hasRole('ADMIN')")
 		@JsonView(Views.ViewPlat.class)
 		public Plat update(@RequestBody Plat plat, @PathVariable Long id) {
 			if (!platRepo.existsById(id)) {
@@ -90,7 +100,7 @@ public class PlatRestController {
 		}
 
 		@DeleteMapping("/{id}")
-		@PreAuthorize("hasRole('ADMIN')")
+		//@PreAuthorize("hasRole('ADMIN')")
 		public void delete(@PathVariable Long id) {
 			platRepo.deleteById(id);
 		}

@@ -7,14 +7,19 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 import sopra.myMenubackEnd.model.Plat;
+import sopra.myMenubackEnd.model.Repas;
+import sopra.myMenubackEnd.model.TypeRepas;
 
 
 
 public interface IPlatRepository extends JpaRepository <Plat,Long>{
-	@Query("select distinct p from Plat p where p.repas= :repas")
-	List<Plat>findAllByRepas(@Param("repas")String repas);
+	@Query("select distinct p from Plat p where p.repas.id= :idRepas")
+	List<Plat>findAllByRepas(@Param("idRepas")Long idRepas);
 	
 	@Query("select distinct p from Plat p left join fetch p.repas")
-	List<Plat>findAllWithRepas(@Param("repas")String repas);
+	List<Plat>findAllWithRepas();
+	
+	@Query("select distinct p from Plat p left join fetch p.repas where p.repas.typeRepas=:typeRepas")
+	List<Plat>findAllWithRepasByTypeRepas(@Param("typeRepas")TypeRepas typeRepas);
 	
 }

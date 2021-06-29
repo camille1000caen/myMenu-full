@@ -9,7 +9,9 @@ import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -29,24 +31,31 @@ public class Recette {
 	@JsonView(Views.ViewCommon.class)
 	private Long id;
 	@Version
+	@JsonView(Views.ViewCommon.class)
 	private int version;
 	@Column(name = "nom")
+	@JsonView(Views.ViewCommon.class)
 	private String nom;
 	@Column(name = "etapes")
+	@JsonView(Views.ViewCommon.class)
 	private String etapes;
 	@Column(name = "nombre_pers")
+	@JsonView(Views.ViewCommon.class)
 	private int nombrePers;
-	@Column(name = "total_calories")
-	private int totalCalories;
+	//@Column(name = "total_calories")
+	//private int totalCalories;
 	@Column(name = "note")
+	@JsonView(Views.ViewCommon.class)
 	private float note;
 	@Enumerated(EnumType.STRING)
 	
 	private TypeAlimentation typeAlimentation;
 	@ManyToMany
 	(mappedBy="recettes")
-	private List<Ingredient> ingredients = new ArrayList<Ingredient>();
-	@OneToOne(mappedBy= "recette")
+		private List<Ingredient> ingredients = new ArrayList<Ingredient>();
+	@ManyToOne
+	@JoinColumn(name= "plat_id")
+	@JsonView(Views.ViewRecetteDetail.class)
 	private Plat plat;
 	public Recette() {
 		super();
@@ -57,7 +66,7 @@ public class Recette {
 		this.nom = nom;
 		this.etapes = etapes;
 		this.nombrePers = nombrePers;
-		this.totalCalories = totalCalories;
+		//this.totalCalories = totalCalories;
 		this.note = note;
 		this.typeAlimentation = typeAlimentation;
 		
@@ -103,13 +112,13 @@ public class Recette {
 		this.nombrePers = nombrePers;
 	}
 
-	public int getTotalCalories() {
-		return totalCalories;
-	}
-
-	public void setTotalCalories(int totalCalories) {
-		this.totalCalories = totalCalories;
-	}
+//	public int getTotalCalories() {
+//		return totalCalories;
+//	}
+//
+//	public void setTotalCalories(int totalCalories) {
+//		this.totalCalories = totalCalories;
+//	}
 
 	public TypeAlimentation getTypeRecette() {
 		return typeAlimentation;

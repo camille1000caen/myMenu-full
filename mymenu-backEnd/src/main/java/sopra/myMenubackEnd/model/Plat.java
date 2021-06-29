@@ -6,6 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -25,8 +26,7 @@ public class Plat {
 	@ManyToOne
 	@JoinColumn(name = "repas_id")
 	private Repas repas;
-	@OneToOne
-	@JoinColumn(name= "recette_id")
+	@OneToMany(mappedBy= "plat")
 	private Recette recette;
 	
 	public Plat() {
