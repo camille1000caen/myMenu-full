@@ -10,6 +10,7 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.Lob;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
@@ -33,6 +34,7 @@ public class Recette {
 	@Column(name = "nom")
 	@JsonView(Views.ViewCommon.class)
 	private String nom;
+	@Lob
 	@Column(name = "etapes")
 	@JsonView(Views.ViewCommon.class)
 	private String etapes;
@@ -50,9 +52,12 @@ public class Recette {
 	@Enumerated(EnumType.STRING)
 	@JsonView(Views.ViewCommon.class)
 	private TypeAlimentation typeAlimentation;
-	@ManyToMany
-	(mappedBy="recettes")
-		private List<Ingredient> ingredients = new ArrayList<Ingredient>();
+	@ManyToMany	(mappedBy="recettes")
+	private List<Ingredient> ingredients = new ArrayList<Ingredient>();
+	@JoinColumn(name= "plat_id")
+	@ManyToOne
+	@JsonView(Views.ViewRecetteDetail.class)
+	private Plat plat;
 
 	public Recette() {
 		super();
@@ -149,13 +154,7 @@ public class Recette {
 		this.typeAlimentation = typeAlimentation;
 	}
 
-	public Plat getPlat() {
-		return plat;
-	}
 
-	public void setPlat(Plat plat) {
-		this.plat = plat;
-	}
 
 	public String getPhoto() {
 		return photo;
@@ -163,6 +162,14 @@ public class Recette {
 
 	public void setPhoto(String photo) {
 		this.photo = photo;
+	}
+
+	public Plat getPlat() {
+		return plat;
+	}
+
+	public void setPlat(Plat plat) {
+		this.plat = plat;
 	}
 	
 	

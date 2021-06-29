@@ -114,7 +114,7 @@ public class BasedeDonnes {
 	
 	Plat plat1=new Plat();
 	plat1.setNombrePersonne(4);
-	plat1.setRecette(listRecettes1);
+	plat1.setRecettes(listRecettes1);
 	plat1.setRepas(repas1);
 	plat1 = platRepo.save(plat1);
 	}
@@ -213,7 +213,7 @@ public class BasedeDonnes {
 		
 		Plat plat1=new Plat();
 		plat1.setNombrePersonne(4);
-		plat1.setRecette(listRecettes1);
+		plat1.setRecettes(listRecettes1);
 		plat1.setRepas(repas1);
 		plat1 = platRepo.save(plat1);
 		}
@@ -332,7 +332,7 @@ public class BasedeDonnes {
 		
 		Plat plat1=new Plat();
 		plat1.setNombrePersonne(4);
-		plat1.setRecette(listRecettes1);
+		plat1.setRecettes(listRecettes1);
 		plat1.setRepas(repas1);
 		plat1 = platRepo.save(plat1);
 		}
@@ -470,7 +470,7 @@ public class BasedeDonnes {
 		
 		Plat plat1=new Plat();
 		plat1.setNombrePersonne(4);
-		plat1.setRecette(listRecettes1);
+		plat1.setRecettes(listRecettes1);
 		plat1.setRepas(repas1);
 		plat1 = platRepo.save(plat1);
 		}
@@ -577,7 +577,7 @@ public class BasedeDonnes {
 		
 		Plat plat1=new Plat();
 		plat1.setNombrePersonne(4);
-		plat1.setRecette(listRecettes1);
+		plat1.setRecettes(listRecettes1);
 		plat1.setRepas(repas1);
 		plat1 = platRepo.save(plat1);
 		}
