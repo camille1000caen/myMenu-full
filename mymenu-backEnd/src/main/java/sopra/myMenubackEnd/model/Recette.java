@@ -9,13 +9,14 @@ import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.Lob;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import org.springframework.data.annotation.Version;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonView;
 
 
@@ -28,30 +29,19 @@ public class Recette {
 	@JsonView(Views.ViewCommon.class)
 	private Long id;
 	@Version
-	@JsonView(Views.ViewCommon.class)
 	private int version;
 	@Column(name = "nom")
-	@JsonView(Views.ViewCommon.class)
 	private String nom;
-	@JsonView(Views.ViewCommon.class)
 	@Column(name = "etapes")
-	@Lob
 	private String etapes;
-	@JsonView(Views.ViewCommon.class)
 	@Column(name = "nombre_pers")
 	private int nombrePers;
 	@Column(name = "total_calories")
-	@JsonView(Views.ViewCommon.class)
 	private int totalCalories;
 	@Column(name = "note")
-	@JsonView(Views.ViewCommon.class)
 	private float note;
-	@JsonView(Views.ViewCommon.class)
-	@Enumerated(EnumType.STRING)	
+	@Enumerated(EnumType.STRING)
 	private TypeAlimentation typeAlimentation;
-	@JsonView(Views.ViewCommon.class)
-	@Column
-	private String photo;
 	@ManyToMany
 	(mappedBy="recettes")
 	private List<Ingredient> ingredients = new ArrayList<Ingredient>();
@@ -149,14 +139,6 @@ public class Recette {
 
 	public void setTypeAlimentation(TypeAlimentation typeAlimentation) {
 		this.typeAlimentation = typeAlimentation;
-	}
-
-	public String getPhoto() {
-		return photo;
-	}
-
-	public void setPhoto(String photo) {
-		this.photo = photo;
 	}
 	
 	
