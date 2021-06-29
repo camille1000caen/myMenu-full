@@ -44,16 +44,16 @@ public class Recette {
 	@Column(name = "note")
 	@JsonView(Views.ViewCommon.class)
 	private float note;
+	@Column
+	@JsonView(Views.ViewCommon.class)
+	private String photo;
 	@Enumerated(EnumType.STRING)
 	@JsonView(Views.ViewCommon.class)
 	private TypeAlimentation typeAlimentation;
 	@ManyToMany
 	(mappedBy="recettes")
 		private List<Ingredient> ingredients = new ArrayList<Ingredient>();
-	@ManyToOne
-	@JoinColumn(name= "plat_id")
-	@JsonView(Views.ViewRecetteDetail.class)
-	private Plat plat;
+
 	public Recette() {
 		super();
 	}
@@ -155,6 +155,14 @@ public class Recette {
 
 	public void setPlat(Plat plat) {
 		this.plat = plat;
+	}
+
+	public String getPhoto() {
+		return photo;
+	}
+
+	public void setPhoto(String photo) {
+		this.photo = photo;
 	}
 	
 	
