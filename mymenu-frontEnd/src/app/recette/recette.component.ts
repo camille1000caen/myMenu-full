@@ -9,9 +9,9 @@ import {Recette} from "../model/recette";
 })
 export class RecetteComponent implements OnInit {
 
-  recetteForm: Recette = null;
+  recette: Recette = null;
   typeRecette: Array<String> =  new Array<String>();
-
+  tab: Array<Recette> = this.recetteService.findAllByRisingNote();
   constructor(private recetteService: RecetteHttpService) {
     this.typeRecette.push("Halal");
     this.typeRecette.push("None");
@@ -24,35 +24,39 @@ export class RecetteComponent implements OnInit {
     return this.recetteService.findAll();
   }
 
+  listPlat(): Array<Recette> {
+    return this.recetteService.findAll();
+  }
 
-
-  add() {
-    this.recetteForm = new Recette();
-
+  randomRecette(tab:Array<Recette>):Recette {
+    var idx =Math.floor(Math.random()*tab.length);
+    this.recette = tab[idx];
+    this.tab.splice(idx,1);
+    return this.recette;
   }
 
   edit(id: number) {
 
     this.recetteService.findById(id).subscribe(resp=> {
-      this.recetteForm = resp;
+      this.recette = resp;
 
     }, err => console.log(err));
   }
 
   save() {
 
-    if (!this.recetteForm.id) {
-      this.recetteService.create(this.recetteForm);
+    if (!this.recette.id) {
+      this.recetteService.create(this.recette);
     } else {
-      this.recetteService.modify(this.recetteForm).subscribe(resp => {
+      this.recetteService.modify(this.recette).subscribe(resp => {
         this.recetteService.load();
       }, error => console.log(error));
     }
-    this.recetteForm = null;
+    this.recette = null;
   }
 
   cancel() {
-    this.recetteForm = null;
+    this.recette = null;
   }
 
   delete(id: number) {

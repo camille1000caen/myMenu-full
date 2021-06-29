@@ -2,7 +2,6 @@ import {Recette} from "../model/recette";
 import {Injectable} from "@angular/core";
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
-import {Ingredient} from "../model/ingredient";
 import {AppConfigService} from "../app-config.service";
 
 @Injectable({
@@ -17,6 +16,13 @@ export class RecetteHttpService {
 
 
   findAll(): Array<Recette> {
+    return this.recettes;
+  }
+
+  findAllByRisingNote(): Array<Recette> {
+     this.http.get<Array<Recette>>(this.appConfig.backEndUrl +"recette/detail/by-rising-note").subscribe(resp => {
+      this.recettes = resp;
+    }, error => console.log(error))
     return this.recettes;
   }
 

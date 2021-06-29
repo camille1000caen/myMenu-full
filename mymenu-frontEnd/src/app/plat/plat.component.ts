@@ -14,7 +14,6 @@ export class PlatComponent implements OnInit {
 
   platForm: Plat = null;
 
-
   constructor(private platService: PlatHttpService) {
 
   }

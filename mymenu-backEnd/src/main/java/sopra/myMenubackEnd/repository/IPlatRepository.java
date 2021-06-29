@@ -18,12 +18,6 @@ public interface IPlatRepository extends JpaRepository <Plat,Long>{
 	@Query("select distinct p from Plat p left join fetch p.repas")
 	List<Plat>findAllWithRepas();
 	
-	@Query("select distinct p from Plat p left join fetch p.recette")
-	List<Plat>findAllWithRecette();
-	
-	@Query("select distinct p from Plat p left join fetch p.recette left join fetch p.repas")
-	List<Plat>findAllWithRecetteAndRepas();
-	
 	@Query("select distinct p from Plat p left join fetch p.repas where p.repas.typeRepas=:typeRepas")
 	List<Plat>findAllWithRepasByTypeRepas(@Param("typeRepas")TypeRepas typeRepas);
 	

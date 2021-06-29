@@ -9,7 +9,9 @@ import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -29,19 +31,30 @@ public class Recette {
 	@JsonView(Views.ViewCommon.class)
 	private Long id;
 	@Version
+	@JsonView(Views.ViewCommon.class)
 	private int version;
 	@Column(name = "nom")
+	@JsonView(Views.ViewCommon.class)
 	private String nom;
 	@Column(name = "etapes")
+	@JsonView(Views.ViewCommon.class)
 	private String etapes;
 	@Column(name = "nombre_pers")
+	@JsonView(Views.ViewCommon.class)
 	private int nombrePers;
 	@Column(name = "total_calories")
+	@JsonView(Views.ViewCommon.class)
 	private int totalCalories;
 	@Column(name = "note")
+	@JsonView(Views.ViewCommon.class)
 	private float note;
 	@Enumerated(EnumType.STRING)
+	@JsonView(Views.ViewCommon.class)
 	private TypeAlimentation typeAlimentation;
+	@ManyToOne
+	@JoinColumn(name="plat_id")
+	@JsonView(Views.ViewRecetteDetail.class)
+	private Plat plat;
 	@ManyToMany
 	(mappedBy="recettes")
 	private List<Ingredient> ingredients = new ArrayList<Ingredient>();
@@ -139,6 +152,14 @@ public class Recette {
 
 	public void setTypeAlimentation(TypeAlimentation typeAlimentation) {
 		this.typeAlimentation = typeAlimentation;
+	}
+
+	public Plat getPlat() {
+		return plat;
+	}
+
+	public void setPlat(Plat plat) {
+		this.plat = plat;
 	}
 	
 	
