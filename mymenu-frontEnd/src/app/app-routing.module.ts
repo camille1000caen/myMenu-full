@@ -15,6 +15,7 @@ import {Planning} from "./model/planning";
 import {PlanningComponent} from "./planning/planning.component";
 import {RepasComponent} from "./repas/repas.component";
 import {MenuComponent} from "./menu/menu.component";
+import {ConnexionDTOComponent} from "./connexion-dto/connexion-dto.component";
 
 
 const routes: Routes = [
@@ -36,6 +37,7 @@ const routes: Routes = [
   {path: "menu", component: MenuComponent},
   {path: "recette", component: RecetteComponent},
   {path: "listeCourses", component: ListeCoursesComponent},
+  {path: "connexion", component: ConnexionDTOComponent},
 ];
 
 @NgModule({
