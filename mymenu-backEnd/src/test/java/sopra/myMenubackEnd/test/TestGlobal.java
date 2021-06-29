@@ -62,11 +62,11 @@ public class TestGlobal {
 		tm.menuUpdate();
 		
 		TestRecette tr = new TestRecette();
-		tr.RecetteCreate();
-		tr.RecetteFindAll();
-		tr.RecetteDelete();
-		tr.RecetteUpdate();
-		
+//		tr.RecetteCreate();
+//		tr.RecetteFindAll();
+//		tr.RecetteDelete();
+//		tr.RecetteUpdate();
+//		
 		TestIngredient ti = new TestIngredient();
 		ti.IngredientCreate();
 		ti.IngredientDelete();

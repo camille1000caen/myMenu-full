@@ -15,13 +15,13 @@ export class IngredientHttpService {
 
 
   constructor(private http: HttpClient, private appConfig : AppConfigService, private recetteService: RecetteHttpService) {
-
      this.load()
   }
 
   findAll(): Array<Ingredient> {
     return this.ingredients;
   }
+
   findAllByRecette(id: number): Array<Ingredient>{
     this.findByRecette(id);
     return this.findAll();
@@ -46,7 +46,6 @@ export class IngredientHttpService {
   }
 
   modify(ingredient: Ingredient): Observable<Ingredient> {
-
     return this.http.put<Ingredient>(this.appConfig.backEndUrl +"ingredient/" + ingredient.id, ingredient);
   }
 
