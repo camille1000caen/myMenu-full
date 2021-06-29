@@ -12,7 +12,7 @@ import sopra.myMenubackEnd.model.TypeRepas;
 
 
 public interface IPlatRepository extends JpaRepository <Plat,Long>{
-	@Query("select distinct p from Plat p where p.repas= :repas")
+	@Query("select distinct p from Plat p where p.repas.id= :idRepas")
 	List<Plat>findAllByRepas(@Param("idRepas")Long idRepas);
 	
 	@Query("select distinct p from Plat p left join fetch p.repas")

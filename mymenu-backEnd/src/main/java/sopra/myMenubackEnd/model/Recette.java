@@ -42,9 +42,8 @@ public class Recette {
 	@Column(name = "nombre_pers")
 	@JsonView(Views.ViewCommon.class)
 	private int nombrePers;
-	@Column(name = "total_calories")
-	@JsonView(Views.ViewCommon.class)
-	private int totalCalories;
+	//@Column(name = "total_calories")
+	//private int totalCalories;
 	@Column(name = "note")
 	@JsonView(Views.ViewCommon.class)
 	private float note;
@@ -57,8 +56,11 @@ public class Recette {
 	private Plat plat;
 	@ManyToMany
 	(mappedBy="recettes")
-	private List<Ingredient> ingredients = new ArrayList<Ingredient>();
-	
+		private List<Ingredient> ingredients = new ArrayList<Ingredient>();
+	@ManyToOne
+	@JoinColumn(name= "plat_id")
+	@JsonView(Views.ViewRecetteDetail.class)
+	private Plat plat;
 	public Recette() {
 		super();
 	}
@@ -68,7 +70,7 @@ public class Recette {
 		this.nom = nom;
 		this.etapes = etapes;
 		this.nombrePers = nombrePers;
-		this.totalCalories = totalCalories;
+		//this.totalCalories = totalCalories;
 		this.note = note;
 		this.typeAlimentation = typeAlimentation;
 		
@@ -114,13 +116,13 @@ public class Recette {
 		this.nombrePers = nombrePers;
 	}
 
-	public int getTotalCalories() {
-		return totalCalories;
-	}
-
-	public void setTotalCalories(int totalCalories) {
-		this.totalCalories = totalCalories;
-	}
+//	public int getTotalCalories() {
+//		return totalCalories;
+//	}
+//
+//	public void setTotalCalories(int totalCalories) {
+//		this.totalCalories = totalCalories;
+//	}
 
 	public TypeAlimentation getTypeRecette() {
 		return typeAlimentation;

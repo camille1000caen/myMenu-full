@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import {PlatHttpService} from "./plat-http.service";
 import {Plat} from "../model/plat";
+import {Repas} from "../model/repas";
 
 
 
@@ -23,7 +24,9 @@ export class PlatComponent implements OnInit {
   list(): Array<Plat> {
     return this.platService.findAll();
   }
-
+  listPlat(repas :Repas) {
+    return this.platService.findAllByRepas(repas);
+  }
 
 
   add() {
