@@ -2,7 +2,7 @@ package sopra.myMenubackEnd.test;
 
 public class TestGlobal {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
 		TestBaptiste tb = new TestBaptiste();
 		tb.utilisateurAdressePreferenceAlimentaireCreate();
 		tb.utilisateurAdressePreferenceAlimentaireUpdate();
@@ -38,6 +38,15 @@ public class TestGlobal {
 		tc.magasinFindByVille();
 		tc.magasinFindByZipCode();
 		
+		ControllerRestTestCamille tcRest= new ControllerRestTestCamille();
+		tcRest.listeCourseGet();
+		tcRest.ajustementQuantiteGet();
+		tcRest.magasinGet();
+		tcRest.magasinIngredientPost();
+		tcRest.magasinPost();
+		tcRest.quantiteModifeePost();
+		tcRest.magasinIngredientGet();
+		
 		
 		TestPlat tp = new TestPlat();
 		tp.platCreate();
@@ -49,7 +58,7 @@ public class TestGlobal {
 		
 		tm.menuCreate();
 		tm.menuDelete();
-		tm.menuFindAll();
+		tm.menuFindAll(); 
 		tm.menuUpdate();
 		
 		TestRecette tr = new TestRecette();

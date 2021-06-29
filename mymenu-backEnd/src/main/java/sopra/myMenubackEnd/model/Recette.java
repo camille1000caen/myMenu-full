@@ -18,7 +18,6 @@ import javax.persistence.Table;
 
 import org.springframework.data.annotation.Version;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonView;
 
 
@@ -36,9 +35,11 @@ public class Recette {
 	@Column(name = "nom")
 	@JsonView(Views.ViewCommon.class)
 	private String nom;
+	@JsonView(Views.ViewCommon.class)
 	@Column(name = "etapes")
 	@JsonView(Views.ViewCommon.class)
 	private String etapes;
+	@JsonView(Views.ViewCommon.class)
 	@Column(name = "nombre_pers")
 	@JsonView(Views.ViewCommon.class)
 	private int nombrePers;
@@ -47,9 +48,12 @@ public class Recette {
 	@Column(name = "note")
 	@JsonView(Views.ViewCommon.class)
 	private float note;
-	@Enumerated(EnumType.STRING)
-	
+	@JsonView(Views.ViewCommon.class)
+	@Enumerated(EnumType.STRING)	
 	private TypeAlimentation typeAlimentation;
+	@JsonView(Views.ViewCommon.class)
+	@Column
+	private String photo;
 	@ManyToMany
 	(mappedBy="recettes")
 		private List<Ingredient> ingredients = new ArrayList<Ingredient>();
@@ -136,14 +140,6 @@ public class Recette {
 		this.ingredients = ingredients;
 	}
 
-	public Plat getPlat() {
-		return plat;
-	}
-
-	public void setPlat(Plat plat) {
-		this.plat = plat;
-	}
-
 	public int getVersion() {
 		return version;
 	}
@@ -158,6 +154,14 @@ public class Recette {
 
 	public void setTypeAlimentation(TypeAlimentation typeAlimentation) {
 		this.typeAlimentation = typeAlimentation;
+	}
+
+	public String getPhoto() {
+		return photo;
+	}
+
+	public void setPhoto(String photo) {
+		this.photo = photo;
 	}
 	
 	

@@ -65,6 +65,8 @@ public class Views {
 	
 	public static class ViewPlat extends ViewCommon{}
 	
+	public static class ViewPlatDetail extends ViewPlat{}
+	
 	public static class ViewRecette extends ViewCommon{}
 	
 	public static class ViewRecetteDetail extends ViewRecette{}

@@ -43,7 +43,6 @@ public class Utilisateur {
 	private boolean enable;
 	@OneToMany(mappedBy = "user")
 	private Set<UtilisateurRole> roles;
-	
 	@Column(name = "Nom")
 	@JsonView(Views.ViewCommon.class)
 	private String nom;

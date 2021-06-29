@@ -71,10 +71,24 @@ public class PlatRestController {
 			
 		
 		@GetMapping("/detailrepas")
-		@JsonView(Views.ViewPlat.class)
+		@JsonView(Views.ViewPlatDetail.class)
 		public List<Plat> findAllWithRepas() {
 				
 			return platRepo.findAllWithRepas();
+		}
+		
+		@GetMapping("/detailrecette")
+		@JsonView(Views.ViewPlatDetail.class)
+		public List<Plat> findAllWithRecette() {
+				
+			return platRepo.findAllWithRecette();
+		}
+		
+		@GetMapping("/detail")
+		@JsonView(Views.ViewPlatDetail.class)
+		public List<Plat> findAllWithRecetteAndRepas() {
+				
+			return platRepo.findAllWithRecetteAndRepas();
 		}
 		
 		@PostMapping("")

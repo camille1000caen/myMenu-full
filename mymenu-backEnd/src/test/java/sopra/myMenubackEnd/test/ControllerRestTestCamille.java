@@ -21,8 +21,6 @@ import org.springframework.test.web.servlet.MockMvc;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import org.springframework.security.test.context.support.WithUserDetails;
-
-import sopra.formation.model.Evaluation;
 import sopra.myMenubackEnd.model.AjustementQuantite;
 import sopra.myMenubackEnd.model.Magasin;
 import sopra.myMenubackEnd.model.MagasinIngredient;
