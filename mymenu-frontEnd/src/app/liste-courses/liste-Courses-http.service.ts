@@ -3,6 +3,7 @@ import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {AppConfigService} from "../app-config.service";
 import {ListeCourses} from "../model/listeCourses";
+import {Ingredient} from "../model/ingredient";
 
 
 @Injectable({
@@ -10,39 +11,56 @@ import {ListeCourses} from "../model/listeCourses";
 })
 export class ListeCoursesHttpService {
 
-  listeCourses: Array<ListeCourses>;
+  listeCourses: Array<Ingredient>;
+  ingredients : Array<Ingredient>;
 
   constructor(private http: HttpClient, private appConfig: AppConfigService) {
     this.load()
   }
 
-  findAll(): Array<ListeCourses> {
-    return this.listeCourses;
+  findAll(): Array<Ingredient> {
+    return this.ingredients;
   }
 
-  findById(id: number): Observable<ListeCourses> {
-    return this.http.get<ListeCourses>(this.appConfig.backEndUrl + "listeCourse/" + id);
+  findById(id: number): Ingredient {
+    // return this.http.get<Ingredient>(this.appConfig.backEndUrl +"ingredient/" + id);
+    for (let ingredient of this.ingredients) {
+      if (ingredient.id == id) {
+        return ingredient;
+      }
+    }
+    return null;
   }
 
-  create(listeCourse: ListeCourses) {
-    this.http.post<ListeCourses>(this.appConfig.backEndUrl + "listeCourse", listeCourse).subscribe(resp => {
-      this.load();
-    }, error => console.log(error));
-  }
-
-  modify(listeCourse: ListeCourses): Observable<ListeCourses> {
-    return this.http.put<ListeCourses>(this.appConfig.backEndUrl + "listeCourse/" + listeCourse.id, listeCourse);
+  modify(ingredient: Ingredient){
+    let find: boolean = false;
+    for (var indice = 0; indice < this.ingredients.length; indice++) {
+      if (this.listeCourses[indice].id == ingredient.id) {
+        find = true;
+        break;
+      }
+    }
+    if (find) {
+      this.listeCourses[indice] = ingredient;
+    }
   }
 
   deleteById(id: number) {
-    this.http.delete(this.appConfig.backEndUrl + "listeCourse/" + id).subscribe(resp => {
-      this.load();
-    }, error => console.log(error));
+    let find: boolean = false;
+    for (var indice = 0; indice < this.ingredients.length; indice++) {
+      if (this.ingredients[indice].id == id) {
+        find = true;
+        break;
+      }
+    }
+    if (find) {
+      this.ingredients.splice(indice, 1);
+    }
   }
 
   load() {
-    this.http.get<Array<ListeCourses>>(this.appConfig.backEndUrl + "listeCourse").subscribe(resp => {
-      this.listeCourses = resp;
+    this.http.get<Array<Ingredient>>(this.appConfig.backEndUrl +"ingredient").subscribe(resp => {
+      this.ingredients = resp;
     }, error => console.log(error))
   }
 }
