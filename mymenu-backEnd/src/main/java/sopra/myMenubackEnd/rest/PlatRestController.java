@@ -38,11 +38,11 @@ public class PlatRestController {
 			
 			return plats;
 		}
-		@GetMapping("/by-repas/{repas}")
+		@GetMapping("/by-repas/{id}")
 		@JsonView(Views.ViewPlat.class)
-		public List<Plat> findAllByRepas(@PathVariable String repas) {
+		public List<Plat> findAllByRepas(@PathVariable Long id) {
 				
-			return platRepo.findAllByRepas(repas);
+			return platRepo.findAllByRepas(id);
 
 		}
 		@GetMapping("/{id}")
@@ -61,10 +61,24 @@ public class PlatRestController {
 			
 		
 		@GetMapping("/detailrepas")
-		@JsonView(Views.ViewPlat.class)
-		public List<Plat> findAllWithRepas(@PathVariable String repas) {
+		@JsonView(Views.ViewPlatDetail.class)
+		public List<Plat> findAllWithRepas() {
 				
-			return platRepo.findAllWithRepas(repas);
+			return platRepo.findAllWithRepas();
+		}
+		
+		@GetMapping("/detailrecette")
+		@JsonView(Views.ViewPlatDetail.class)
+		public List<Plat> findAllWithRecette() {
+				
+			return platRepo.findAllWithRecette();
+		}
+		
+		@GetMapping("/detail")
+		@JsonView(Views.ViewPlatDetail.class)
+		public List<Plat> findAllWithRecetteAndRepas() {
+				
+			return platRepo.findAllWithRecetteAndRepas();
 		}
 		
 		@PostMapping("")
