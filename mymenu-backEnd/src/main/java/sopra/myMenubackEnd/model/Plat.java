@@ -1,5 +1,7 @@
 package sopra.myMenubackEnd.model;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -26,8 +28,8 @@ public class Plat {
 	@ManyToOne
 	@JoinColumn(name = "repas_id")
 	private Repas repas;
-	@OneToMany(mappedBy = "plats")
-	private Recette recette;
+	@OneToMany(mappedBy = "plat")
+	private List<Recette> recette;
 	
 	public Plat() {
 		super();
