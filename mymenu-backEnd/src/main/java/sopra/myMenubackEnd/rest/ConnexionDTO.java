@@ -1,4 +1,4 @@
-package sopra.myMenubackEnd.model;
+package sopra.myMenubackEnd.rest;
 
 public class ConnexionDTO {
 	private String email;
@@ -11,6 +11,13 @@ public class ConnexionDTO {
 		this.username = pseudo;
 		this.password = password;
 	}
+	
+
+	public ConnexionDTO() {
+		super();
+	}
+
+
 
 	public String getEmail() {
 		return email;

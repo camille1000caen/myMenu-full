@@ -67,20 +67,6 @@ public class PlatRestController {
 			return platRepo.findAllWithRepas();
 		}
 		
-		@GetMapping("/detailrecette")
-		@JsonView(Views.ViewPlatDetail.class)
-		public List<Plat> findAllWithRecette() {
-				
-			return platRepo.findAllWithRecette();
-		}
-		
-		@GetMapping("/detail")
-		@JsonView(Views.ViewPlatDetail.class)
-		public List<Plat> findAllWithRecetteAndRepas() {
-				
-			return platRepo.findAllWithRecetteAndRepas();
-		}
-		
 		@PostMapping("")
 		@PreAuthorize("hasRole('ADMIN')")
 		@JsonView(Views.ViewPlat.class)

@@ -43,15 +43,39 @@ public class RecetteRestController {
 		return recettes;
 	}
 	
+	@GetMapping("/detail")
+	@JsonView(Views.ViewRecetteDetail.class)
+	public List<Recette>  findAllRecetteWithPlat(){
+		List<Recette> recettes = recetteRepo.findAllRecetteWithPlat();
+		
+		return recettes;
+	}
+	
+	@GetMapping("/by-plat/{id}")
+	@JsonView(Views.ViewRecette.class)
+	public List<Recette>  findAllRecetteByPlat(@PathVariable Long id){
+		List<Recette> recettes = recetteRepo.findAllRecetteByPlat(id);
+		
+		return recettes;
+	}
+	
+	
 	@GetMapping("/by-rising-note")
-	@JsonView(Views.ViewAdresse.class)
+	@JsonView(Views.ViewRecette.class)
 	public List<Recette> findByRisingNote() {
 
 		return recetteRepo.findByRisingNote();
 	}
 	
+	@GetMapping("/detail/by-rising-note")
+	@JsonView(Views.ViewRecetteDetail.class)
+	public List<Recette> findByRisingNoteWithPlat() {
+
+		return recetteRepo.findByRisingNoteWithPlat();
+	}
+	
 	@GetMapping("/by-rising-calories")
-	@JsonView(Views.ViewAdresse.class)
+	@JsonView(Views.ViewRecette.class)
 	public List<Recette> findByRisingCalories() {
 
 		return recetteRepo.findByRisingCalories();
@@ -68,9 +92,24 @@ public class RecetteRestController {
 			return optRecette.get();
 		}else {
 			throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Unable to find resource");
-		}
+		}	
+	}
+	
+	@GetMapping("/detail/{id}")
+	@JsonView(Views.ViewRecetteDetail.class)
+	
+	public Recette findByIdWithPlat(@PathVariable Long id) {
 		
+		Optional<Recette> optRecette = recetteRepo.findRecetteByIdWithPlat(id);
+		
+		if(optRecette.isPresent()) {
+			return optRecette.get();
+		}else {
+			throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Unable to find resource");
 		}
+	}
+	
+	
 	@PostMapping("")
 	@JsonView(Views.ViewRecette.class)
 	@PreAuthorize("hasRole('ADMIN')")

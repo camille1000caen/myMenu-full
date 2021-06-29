@@ -18,10 +18,8 @@ export class ConnexionDtoHttpService {
   constructor(private http: HttpClient,private appConfig: AppConfigService) {
   }
 
-  connexionAuth(conn: ConnexionDTO) {
-    this.http.post<Utilisateur>(this.appConfig.backEndUrl + "auth", conn).subscribe(resp => {
-      this.conn=resp;
-    }, error => console.log(error));
+  connexionAuth(conn: ConnexionDTO):Observable<Utilisateur> {
+      return this.http.post<Utilisateur>(this.appConfig.backEndUrl + "auth", conn);
   }
 }
 
