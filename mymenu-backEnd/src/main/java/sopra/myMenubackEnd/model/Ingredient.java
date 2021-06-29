@@ -82,6 +82,13 @@ public class Ingredient {
 	}
 
 
+	public Ingredient(String nom, float quantite) {
+		super();
+		this.nom = nom;
+		this.quantite = quantite;
+	}
+
+
 	public Long getId() {
 		return id;
 	}

@@ -8,7 +8,7 @@ import {ListeCoursesComponent} from "./liste-courses/liste-courses.component";
 import {AjustementQuantiteComponent} from "./ajustement-quantite/ajustement-quantite.component";
 import {RecetteComponent} from "./recette/recette.component";
 import {PlatComponent} from "./plat/plat.component";
-import { SelectionMenuComponent } from './selection-menu/selection-menu.component';
+import {SelectionMenuComponent } from './selection-menu/selection-menu.component';
 import {PreferenceAlimentaireComponent} from "./preference-alimentaire/preference-alimentaire.component";
 import {ObjectifComponent} from "./objectif/objectif.component";
 import {Planning} from "./model/planning";
@@ -24,14 +24,9 @@ const routes: Routes = [
   {path: "listeCourse", component: ListeCoursesComponent},
   {path: "utilisateur", component: UtilisateurComponent},
   {path: "ingredient", component: IngredientComponent},
-<<<<<<< HEAD
-  {path: "recette", component: RecetteComponent},
-  {path: "plat", component: PlatComponent},
-=======
   {path:"recette", component: RecetteComponent},
   {path:"plat", component: PlatComponent},
   {path: "", component: HomeComponent},
->>>>>>> Solenn
   {path: "profil", component: UtilisateurComponent},
   {path: "selectionMenu", component: SelectionMenuComponent},
   {path: "preferencealimentaire", component: PreferenceAlimentaireComponent},
@@ -39,6 +34,8 @@ const routes: Routes = [
   {path: "planning", component: PlanningComponent},
   {path: "repas", component: RepasComponent},
   {path: "menu", component: MenuComponent},
+  {path: "recette", component: RecetteComponent},
+  {path: "listeCourses", component: ListeCoursesComponent},
 ];
 
 @NgModule({

@@ -24,6 +24,7 @@ import { ListeCoursesComponent} from "./liste-courses/liste-courses.component";
 import { AjustementQuantiteComponent} from "./ajustement-quantite/ajustement-quantite.component";
 import { SelectionMenuComponent } from './selection-menu/selection-menu.component';
 import { CardComponent } from './card/card.component';
+import { ConnexionDTOComponent } from './connexion-dto/connexion-dto.component';
 
 
 @NgModule({
@@ -48,6 +49,7 @@ import { CardComponent } from './card/card.component';
     AjustementQuantiteComponent,
     SelectionMenuComponent,
     CardComponent,
+    ConnexionDTOComponent,
   ],
 
   imports: [
