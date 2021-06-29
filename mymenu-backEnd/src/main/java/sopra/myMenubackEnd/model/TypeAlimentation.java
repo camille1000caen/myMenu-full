@@ -1,7 +1,7 @@
 package sopra.myMenubackEnd.model;
 
 public enum TypeAlimentation {
-	NONE("None"),VEGAN("VEGAN"),HALAL("HALAL"),VEGETARIEN("VEGETARIEN");
+	NONE("None"),VEGAN("VEGAN"),HALAL("HALAL"),VEGETARIEN("VEGETARIEN"),FLEXITARIEN("FLEXITARIEN");
 	
 	private final String label;
 

@@ -46,8 +46,7 @@ public class Recette {
 	@ManyToMany
 	(mappedBy="recettes")
 	private List<Ingredient> ingredients = new ArrayList<Ingredient>();
-	@OneToOne(mappedBy= "recette")
-	private Plat plat;
+	
 	public Recette() {
 		super();
 	}
@@ -125,14 +124,6 @@ public class Recette {
 
 	public void setIngredients(List<Ingredient> ingredients) {
 		this.ingredients = ingredients;
-	}
-
-	public Plat getPlat() {
-		return plat;
-	}
-
-	public void setPlat(Plat plat) {
-		this.plat = plat;
 	}
 
 	public int getVersion() {
