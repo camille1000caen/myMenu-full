@@ -14,7 +14,6 @@ export class RecetteHttpService {
     this.load()
   }
 
-
   findAll(): Array<Recette> {
     return this.recettes;
   }
@@ -28,15 +27,12 @@ export class RecetteHttpService {
   }
 
   create(recette: Recette) {
-
     this.http.post<Recette>(this.appConfig.backEndUrl +"recette", recette).subscribe(resp => {
       this.load();
     }, error => console.log(error));
   }
 
   modify(recette: Recette): Observable<Recette> {
-
-
     return this.http.put<Recette>(this.appConfig.backEndUrl +"recette/" + recette.id, recette);
   }
 

@@ -74,27 +74,6 @@
 <!--      </div>-->
 <!--    </div>-->
 <!--  </div>-->
-  <div class="card-body">
-    <table class="table table-striped">
-      <thead>
-      <th>Ingredient</th>
-      <th></th>
-      <th>#Recette</th>
-      <th></th>
-      </thead>
 
-      <tbody>
-      <tr *ngFor="let ingredient of list()">
-        <td>{{ingredient.nom}}</td>
-        <td>
-          <table border="0">
-            <tr *ngFor="let recette of listRecette(1)">
-              <td>{{recette?.nom}}</td>
-            </tr>
-          </table>
-        </td>
-      </tr>
-      </tbody>
-    </table>
 </div>
 
