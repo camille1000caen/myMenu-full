@@ -1,5 +1,6 @@
 package sopra.myMenubackEnd.rest;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -70,8 +71,17 @@ public class RecetteRestController {
 	@GetMapping("/detail/by-rising-note")
 	@JsonView(Views.ViewRecetteDetail.class)
 	public List<Recette> findByRisingNoteWithPlat() {
-
-		return recetteRepo.findByRisingNoteWithPlat();
+		List<Recette> res=huitpremier(recetteRepo.findByRisingNoteWithPlat());
+		return res;
+	}
+	
+	public List<Recette> huitpremier(List<Recette>list) {
+		List<Recette> res=new ArrayList<Recette>();
+		for (int i=0;i<8;i++) {
+			//res.add(list.get((int) Math.floor(Math.random()*list.size())));
+			res.add(list.get(i));
+		}
+		return res;
 	}
 	
 	@GetMapping("/by-rising-calories")
