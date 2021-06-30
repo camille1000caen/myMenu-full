@@ -84,12 +84,6 @@ public class RecetteRestController {
 		return res;
 	}
 	
-	@GetMapping("/by-rising-calories")
-	@JsonView(Views.ViewRecette.class)
-	public List<Recette> findByRisingCalories() {
-
-		return recetteRepo.findByRisingCalories();
-	}
 	
 	@GetMapping("/{id}")
 	@JsonView(Views.ViewRecette.class)

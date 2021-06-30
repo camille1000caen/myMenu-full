@@ -24,7 +24,7 @@ export class SelectionMenuComponent implements OnInit {
   findByRisingNote() {
     this.recetteService.findAllByRisingNote().subscribe(resp => {
       this.tab=resp;
-      console.log(this.tab);
+      //console.log(this.tab);
     })
   }
 
