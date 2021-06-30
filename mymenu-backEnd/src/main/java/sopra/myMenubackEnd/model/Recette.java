@@ -10,6 +10,7 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.Lob;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
@@ -32,9 +33,12 @@ public class Recette {
 	private int version;
 	@Column(name = "nom")
 	@JsonView(Views.ViewCommon.class)
+	@Lob
 	private String nom;
+	@Lob
 	@Column(name = "etapes")
 	@JsonView(Views.ViewCommon.class)
+	@Lob
 	private String etapes;
 	@Column(name = "nombre_pers")
 	@JsonView(Views.ViewCommon.class)
@@ -47,11 +51,9 @@ public class Recette {
 	@Enumerated(EnumType.STRING)
 	@JsonView(Views.ViewCommon.class)
 	private TypeAlimentation typeAlimentation;
-	@ManyToMany
-	(mappedBy="recettes")
-		private List<Ingredient> ingredients = new ArrayList<Ingredient>();
+	@ManyToMany	(mappedBy="recettes")
+	private List<Ingredient> ingredients = new ArrayList<Ingredient>();
 	@ManyToOne
-	@JoinColumn(name= "plat_id")
 	@JsonView(Views.ViewRecetteDetail.class)
 	private Plat plat;
 	
@@ -77,7 +79,13 @@ public class Recette {
 	public void setNote(Float note) {
 		this.note = note;
 	}
+	public String getPhoto() {
+		return photo;
+	}
 
+	public void setPhoto(String photo) {
+		this.photo = photo;
+	}
 	public Long getId() {
 		return id;
 	}
@@ -148,6 +156,16 @@ public class Recette {
 
 	public void setTypeAlimentation(TypeAlimentation typeAlimentation) {
 		this.typeAlimentation = typeAlimentation;
+	}
+
+
+
+	public String getPhoto() {
+		return photo;
+	}
+
+	public void setPhoto(String photo) {
+		this.photo = photo;
 	}
 
 	public Plat getPlat() {
