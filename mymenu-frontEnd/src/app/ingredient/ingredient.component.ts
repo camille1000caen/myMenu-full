@@ -13,13 +13,13 @@ import {formatDate} from "@angular/common";
   selector: 'app-ingredient',
   templateUrl: './ingredient.component.html',
   styleUrls: ['./ingredient.component.scss'],
-  // template: `<canvas #myCanvas></canvas>`
+
 })
 export class IngredientComponent implements OnInit {
 
   ingredientForm: Ingredient = null;
   ingredients: Array<Ingredient>;
-
+listeCourse: Array<Ingredient> = new Array<Ingredient>();
 
 
   constructor(private ingredientService: IngredientHttpService) {
@@ -32,6 +32,7 @@ export class IngredientComponent implements OnInit {
     return this.ingredientService.findAll();
   }
 listRecette(id: number){
+
     return this.ingredientService.findAllByRecette(id);
 }
 
