@@ -9,7 +9,7 @@ import {ConnexionDtoHttpService} from "./connexion-dto-http.service";
   styleUrls: ['./connexion-dto.component.scss']
 })
 export class ConnexionDTOComponent implements OnInit {
-  conn:ConnexionDTO;
+  conn:ConnexionDTO=new ConnexionDTO();
 
   constructor(private connexionService: ConnexionDtoHttpService) {
 
@@ -19,6 +19,9 @@ export class ConnexionDTOComponent implements OnInit {
     console.log(this.conn)
     this.connexionService.connexionAuth(this.conn).subscribe(resp=>{
       sessionStorage.setItem("utilisateur",JSON.stringify(resp));
+    }, error => {
+      console.log(error);
+
     })
 
   }

@@ -46,10 +46,7 @@ public class Recette {
 	private int totalCalories;
 	@Column(name = "note")
 	@JsonView(Views.ViewCommon.class)
-	private float note;
-	@Column(name = "photo")
-	@JsonView(Views.ViewCommon.class)
-	private String photo;
+	private Float note;
 	@Enumerated(EnumType.STRING)
 	@JsonView(Views.ViewCommon.class)
 	private TypeAlimentation typeAlimentation;
@@ -59,6 +56,7 @@ public class Recette {
 	@JoinColumn(name= "plat_id")
 	@JsonView(Views.ViewRecetteDetail.class)
 	private Plat plat;
+	
 	public Recette() {
 		super();
 	}
@@ -74,11 +72,11 @@ public class Recette {
 		
 	}
 
-	public float getNote() {
+	public Float getNote() {
 		return note;
 	}
 
-	public void setNote(float note) {
+	public void setNote(Float note) {
 		this.note = note;
 	}
 	public String getPhoto() {

@@ -27,6 +27,7 @@ import sopra.myMenubackEnd.model.PhysicalActivity;
 import sopra.myMenubackEnd.model.Utilisateur;
 import sopra.myMenubackEnd.model.Views;
 import sopra.myMenubackEnd.repository.IUtilisateurRepository;
+import sopra.myMenubackEnd.service.ConnexionDTO;
 
 
 
@@ -116,7 +117,7 @@ public class UtilisateurRestController {
 	@PostMapping("/auth")
 	@JsonView(Views.ViewUtilisateur.class)
 	public Utilisateur ConnAuth(@RequestBody ConnexionDTO conn) {
-		Optional<Utilisateur> optUtilisateur = utilisateurRepo.findByConn(conn.getUsername(),conn.getEmail(),conn.getPassword());
+		Optional<Utilisateur> optUtilisateur = utilisateurRepo.findByConn(conn.getUsername(),conn.getPassword());
 
 		if (optUtilisateur.isPresent()) {
 			return optUtilisateur.get();
