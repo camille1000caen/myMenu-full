@@ -17,8 +17,6 @@ public class ConnexionDTO {
 		super();
 	}
 
-
-
 	public String getEmail() {
 		return email;
 	}
