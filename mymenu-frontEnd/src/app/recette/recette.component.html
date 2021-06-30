@@ -1,40 +1,37 @@
-<div class="wrapper ">
-  <!--  <div class="">-->
-  <div class="container py-4">
-    <div class="card w-20 ">
-      <div class="card-header bg-info text-white text-center">
-        <h2>Liste des ingredients</h2>
-      </div>
-      <div class="card-body">
-        <table class="table table-striped">
-          <thead>
-          <tr>
-            <th> Nom </th>
-            <th>Image </th>
-            <th>Etapes </th>
-          </thead>
-          <tbody>
-          <tr *ngFor ="let recette of list()">
-            <td>{{recette.nom}}</td>
-            <td>{{recette.etapes}}</td>
-            <td><img class="card-img-top" src="{{recette.photo}}" alt="Card image cap"></td>
+<!--<div class="wrapper ">-->
+<!--  &lt;!&ndash;  <div class="">&ndash;&gt;-->
+<!--  <div class="container py-4">-->
+<!--    <div class="card w-20 ">-->
+<!--      <div class="card-header bg-info text-white text-center">-->
+<!--        <h2>Liste des ingredients</h2>-->
+<!--      </div>-->
+<!--      <div class="card-body">-->
+<!--        <table class="table table-striped">-->
+<!--          <thead>-->
+<!--          <tr>-->
+<!--            <th>Nom </th>-->
+<!--            <th>Note </th>-->
+<!--          </thead>-->
+<!--          <tbody>-->
+<!--          <tr *ngFor ="let recette of list()">-->
+<!--            <td>{{recette.nom}}</td>-->
+<!--            <td>{{recette.note}}</td>-->
+<!--          </tr>-->
+<!--          </tbody>-->
+<!--          <tfoot>-->
 
-          </tr>
-          </tbody>
-          <tfoot>
-
-          </tfoot>
-        </table>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!--<img class="card-img-top" src={{}} alt="Card image cap">-->
-<!--<div class="card-body">-->
-<!--  <h5 class="card-title">{{randomRecette(this.tab).nom}}</h5>-->
-<!--  <p class="card-text"> Pour {{recette.plat?.nombrePersonne}} à savourer entre petits et grands, {{recette.etapes}}</p>-->
+<!--          </tfoot>-->
+<!--        </table>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
 <!--</div>-->
+
+<img class="card-img-top" src="" alt="Card image cap">
+<div class="card-body">
+  <h5 class="card-title">{{recette.nom}}</h5>
+  <p class="card-text"> Pour à savourer entre petits et grands</p>
+</div>
 
 <!--<div class="card-footer">-->
 <!--  <div class="form-check btn-group float-right">-->

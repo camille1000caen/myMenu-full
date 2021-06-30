@@ -10,10 +10,11 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import org.springframework.data.annotation.Version;
+
+import com.fasterxml.jackson.annotation.JsonView;
 
 @Entity
 @Table(name = "plat")
@@ -21,10 +22,13 @@ public class Plat {
 	
 	@Id
 	@GeneratedValue
+	@JsonView(Views.ViewCommon.class)
 	private Long id;
 	@Version
+	@JsonView(Views.ViewCommon.class)
 	private int version;
 	@Column(name = "nombre_personne")
+	@JsonView(Views.ViewCommon.class)
 	private int nombrePersonne;
 	@ManyToOne
 	@JoinColumn(name = "repas_id")
@@ -32,6 +36,16 @@ public class Plat {
 	@OneToMany(mappedBy = "plat")
 	private List<Recette> recettes= new ArrayList<Recette>();
 	
+	
+
+	public List<Recette> getRecettes() {
+		return recettes;
+	}
+
+	public void setRecettes(List<Recette> recettes) {
+		this.recettes = recettes;
+	}
+
 	public Plat() {
 		super();
 	}
@@ -88,13 +102,6 @@ public class Plat {
 		this.version = version;
 	}
 
-	public List<Recette> getRecettes() {
-		return recettes;
-	}
-
-	public void setRecettes(List<Recette> recettes) {
-		this.recettes = recettes;
-	}
 
 
 

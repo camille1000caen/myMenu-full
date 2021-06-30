@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {RecetteHttpService} from "./recette-http.service";
 import {Recette} from "../model/recette";
 import {jsPDF} from "jspdf";
@@ -10,16 +10,21 @@ import {jsPDF} from "jspdf";
 })
 export class RecetteComponent implements OnInit {
 
-  recette: Recette = null;
+  @Input()
+  idRecette : number;
+
+  recette: Recette = new Recette();
   typeRecette: Array<String> =  new Array<String>();
-  tab: Array<Recette> = this.recetteService.findAllByRisingNote();
+  tab: Array<Recette>;
+
   constructor(private recetteService: RecetteHttpService) {
-    this.typeRecette.push("Halal");
-    this.typeRecette.push("None");
-    this.typeRecette.push("Vegan");
+
   }
 
   ngOnInit(): void {
+    this.recetteService.findById(this.idRecette).subscribe(resp=> {
+      this.recette = resp;
+    });
   }
   list(): Array<Recette> {
     return this.recetteService.findAll();
@@ -30,12 +35,7 @@ export class RecetteComponent implements OnInit {
     return this.recetteService.findAll();
   }
 
-  randomRecette(tab:Array<Recette>):Recette {
-    var idx =Math.floor(Math.random()*tab.length);
-    this.recette = tab[idx];
-    this.tab.splice(idx,1);
-    return this.recette;
-  }
+
 
   edit(id: number) {
 

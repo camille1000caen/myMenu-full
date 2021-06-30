@@ -514,6 +514,8 @@ public class BasedeDonnes {
 		recette1.setPhoto("../../assets/images/biscuit_cereals.jpg");
 		recette1=recetteRepo.save(recette1);
 		
+		
+		
 		Ingredient ingredient1=new Ingredient("farine",150);//ingredient1 recette1
 		ingredient1.setRecettes(listRecettes1);
 		ingredient1=ingredientRepo.save(ingredient1);
