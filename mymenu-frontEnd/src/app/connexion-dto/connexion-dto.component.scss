@@ -45,6 +45,10 @@ button {
   transition: transform 80ms ease-in;
 }
 
+.greenBtn {
+  color: #FFFFFF;
+}
+
 button:active {
   transform: scale(0.95);
 }

@@ -1,26 +1,28 @@
 @charset "UTF-8";
 
-html {
+html, body {
   height: 100%;
 }
 
 body {
   font-family: "Fira Sans Extra Condensed", Arial, Helvetica, sans-serif;;
   display: flex;
-  min-height: 100%;
+  //min-height: 100%;
   flex-direction: column;
   margin: 0;
 }
 
 .wrapper {
-  display:flex;
-  flex: 1;
-  align-items: center;
+  width: 100%;
+  padding: 0px;
+  margin-right: auto;
+  margin-left: auto;
+  border: none;
 }
 
 .wrapper-SelectionMenu {
   display: flex;
-  flex: 1;
+  flex: 1 0 auto;
 }
 
 .wrapper-SelectionMenu  > .listMenus {
@@ -116,13 +118,12 @@ footer {
   padding-bottom: 0.5rem;
   text-align: center;
   box-shadow: 0 -5px 5px -6px #333;
-  margin-top: auto;
 }
 
 /* -------------------------------------------------------------- Footer logos */
 
 .footer-logo{
-  padding: 20px 16px;
+  padding: 14px 20px;
   cursor: pointer;
 }
 

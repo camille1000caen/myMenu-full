@@ -25,6 +25,7 @@ import { AjustementQuantiteComponent} from "./ajustement-quantite/ajustement-qua
 import { SelectionMenuComponent } from './selection-menu/selection-menu.component';
 import { CardComponent } from './card/card.component';
 import { ConnexionDTOComponent } from './connexion-dto/connexion-dto.component';
+import { PresentationComponent } from './presentation/presentation.component';
 
 
 @NgModule({
@@ -50,6 +51,7 @@ import { ConnexionDTOComponent } from './connexion-dto/connexion-dto.component';
     SelectionMenuComponent,
     CardComponent,
     ConnexionDTOComponent,
+    PresentationComponent,
   ],
 
   imports: [
