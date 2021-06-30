@@ -80,7 +80,7 @@
   </section>
   <nav class="listDetail">
     <div class="Cart">
-      <h1>Panier : <span class="breakfast-MenuDetail-Qt" id="totalMenu">2 / 21 </span></h1>
+      <h1>Panier : <span class="breakfast-MenuDetail-Qt" id="totalMenu">0 / 21 </span></h1>
     </div>
 
     <ul class="list-group list-group-flush ">
@@ -89,16 +89,12 @@
           <h2>Petit déjeuner : <span class="breakfast-MenuDetail-Qt" id="totalBreakfast">0 / 7 </span></h2>
           <ul class="list-group ">
             <li class="list-group-item d-flex justify-content-between align-items-center">
-              A list item
+              item 1
               <span class="badge badge-primary badge-pill">4</span>
             </li>
             <li class="list-group-item d-flex justify-content-between align-items-center">
-              A second list item
+              item 2
               <span class="badge badge-primary badge-pill">2</span>
-            </li>
-            <li class="list-group-item d-flex justify-content-between align-items-center">
-              A third list item
-              <span class="badge badge-primary badge-pill">1</span>
             </li>
           </ul>
           <button class="trashCan" type="submit" name="trashCan" value="">
@@ -112,16 +108,12 @@
           <h2>Déjeuner : <span class="lunch-MenuDetail-Qt">0 / 7 </span></h2>
           <ul class="list-group">
             <li class="list-group-item d-flex justify-content-between align-items-center">
-              A list item
+              item 1
               <span class="badge badge-primary badge-pill">4</span>
             </li>
             <li class="list-group-item d-flex justify-content-between align-items-center">
-              A second list item
+              item 2
               <span class="badge badge-primary badge-pill">2</span>
-            </li>
-            <li class="list-group-item d-flex justify-content-between align-items-center">
-              A third list item
-              <span class="badge badge-primary badge-pill">1</span>
             </li>
           </ul>
           <button class="trashCan" type="submit" name="trashCan" value="">
@@ -135,21 +127,23 @@
           <h2>Dîner : <span class="dinner-MenuDetail-Qt">0 / 7 </span></h2>
           <ul class="list-group">
             <li class="list-group-item d-flex justify-content-between align-items-center">
-              A list item
+              item 1
               <span class="badge badge-primary badge-pill">4</span>
             </li>
             <li class="list-group-item d-flex justify-content-between align-items-center">
-              A second list item
+              item 2
               <span class="badge badge-primary badge-pill">2</span>
-            </li>
-            <li class="list-group-item d-flex justify-content-between align-items-center">
-              A third list item
-              <span class="badge badge-primary badge-pill">1</span>
             </li>
           </ul>
           <button class="trashCan" type="submit" name="trashCan" value="">
             <i class="fas fa-trash-alt trashCan"></i>
           </button>
+        </div>
+        <div class="pt-2">
+          <a [routerLink]="['/recette']" class="btn btn-lg btn-info"><i class="far fa-file-pdf"></i> Mes recettes !</a>
+        </div>
+        <div class="pt-2">
+          <a [routerLink]="['/listeCourses']" class="btn btn-lg btn-success"><i class="far fa-file-pdf"></i> Ma liste de course !</a>
         </div>
       </li>
 

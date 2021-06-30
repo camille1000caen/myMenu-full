@@ -32,7 +32,7 @@ public class BasedeDonnes {
 	
 	
 /********************************************************************************************************************	
-*************************************Petit Dej**********************************************************************
+*************************************Petit Dej **********************************************************************	1
 ********************************************************************************************************************/	
 	
 //plat1 avec recettes1 et tous ses ingédients
@@ -123,14 +123,16 @@ public class BasedeDonnes {
 	repas1=repasRepo.save(repas1);
 	
 	Plat plat1=new Plat();
-	plat1.setNombrePersonne(4);
-	plat1.setRecettes(listRecettes1);
+	plat1.setNombrePersonne(6);
+	//plat1.setRecettes(listRecettes1);
+	recette1.setPlat(plat1);
 	plat1.setRepas(repas1);
 	plat1 = platRepo.save(plat1);
+	recette1=recetteRepo.save(recette1);
 	}
 	
 	/********************************************************************************************************************	
-	********************************************************************************************************************	
+	********************************************************************************************************************	2
 	********************************************************************************************************************/	
 	
 	@Test
@@ -237,13 +239,15 @@ public class BasedeDonnes {
 	
 	Plat plat1=new Plat();
 	plat1.setNombrePersonne(6);
-	plat1.setRecettes(listRecettes1);
+	//plat1.setRecettes(listRecettes1);
+	recette1.setPlat(plat1);
 	plat1.setRepas(repas1);
 	plat1 = platRepo.save(plat1);
+	recette1=recetteRepo.save(recette1);
 	}
 	
 	/********************************************************************************************************************	
-	********************************************************************************************************************	
+	********************************************************************************************************************	3
 	********************************************************************************************************************/
 	@Test
 	public void EnglishBreakfast(){
@@ -321,15 +325,17 @@ public class BasedeDonnes {
 	repas1=repasRepo.save(repas1);
 	
 	Plat plat1=new Plat();
-	plat1.setNombrePersonne(2);
-	plat1.setRecettes(listRecettes1);
+	plat1.setNombrePersonne(6);
+	//plat1.setRecettes(listRecettes1);
+	recette1.setPlat(plat1);
 	plat1.setRepas(repas1);
 	plat1 = platRepo.save(plat1);
+	recette1=recetteRepo.save(recette1);
 	}
 	
 	/********************************************************************************************************************	
-	********************************************************************************************************************	
-	********************************************************************************************************************/
+	********************************************************************************************************************	4
+	*******************************************************************************************************************/
 	@Test
 	public void CrumbleFruitSec(){
 	Recette recette1=new Recette();
@@ -337,16 +343,16 @@ public class BasedeDonnes {
 			+ "Préchauffez le four à 170°C (thermostat 5-6).\r\n"
 			+ "\r\n"
 			+ "ÉTAPE 2\r\n"
-			+ "Préparez le crumble en mélangeant l'oeuf, le sucre, la farine, le beurre mou et le sel. Le tout doit s'émietter.\r\n"
+			+ "Préparez le crumble en mélangeant l'oeuf, le sucre, la farine, le beurre mou\r et le sel. Le tout doit s'émietter.\r\n"
 			+ "\r\n"
 			+ "ÉTAPE 3\r\n"
-			+ "Etalez sur une plaque tapissée de papier sulfurisé par petites miettes ou amas plus ou moins gros (ajoutez un peu de farine si c'est trop pâteux).\r\n"
+			+ "Etalez sur une plaque tapissée de papier sulfurisé par petites miettes ou \r amas plus ou moins gros (ajoutez un peu de farine si c'est trop pâteux).\r\n"
 			+ "\r\n"
 			+ "ÉTAPE 4\r\n"
-			+ "Enfournez pendant 13 minutes en surveillant la cuisson : le crumble doit être bien doré et croustillant sur le dessus.\r\n"
+			+ "Enfournez pendant 13 minutes en surveillant la cuisson : le crumble doit \r être bien doré et croustillant sur le dessus.\r\n"
 			+ "\r\n"
 			+ "ÉTAPE 5\r\n"
-			+ "Mélangez tous les autres ingrédients et ajoutez le crumble cuit en miettes, une fois bien refroidi (pour que le chocolat ne fonde pas).\r\n"
+			+ "Mélangez tous les autres ingrédients et ajoutez le crumble cuit en miettes, \r une fois bien refroidi (pour que le chocolat ne fonde pas).\r\n"
 			+ "\r\n"
 			+ "ÉTAPE 6\r\n"
 			+ "A servir au petit-déjeuner avec du lait.");
@@ -421,29 +427,31 @@ public class BasedeDonnes {
 	
 	Plat plat1=new Plat();
 	plat1.setNombrePersonne(6);
-	plat1.setRecettes(listRecettes1);
+	//plat1.setRecettes(listRecettes1);
+	recette1.setPlat(plat1);
 	plat1.setRepas(repas1);
 	plat1 = platRepo.save(plat1);
+	recette1=recetteRepo.save(recette1);
 	}
 	
 	/********************************************************************************************************************	
-	********************************************************************************************************************	
+	********************************************************************************************************************	5
 	********************************************************************************************************************/
 	
 	@Test
 	public void Pancake(){
 	Recette recette1=new Recette();
 	recette1.setEtapes("ÉTAPE 1\r\n"
-			+ "Faire fondre le beurre, dans une casserole à feu doux ou dans un bol au micro-ondes.\r\n"
+			+ "Faire fondre le beurre, dans une casserole à feu doux ou dans un bol au \r micro-ondes.\r\n"
 			+ "\r\n"
 			+ "ÉTAPE 2\r\n"
-			+ "Mettre la farine, la levure et le sucre dans un saladier. Mélanger et creuser un puits.\r\n"
+			+ "Mettre la farine, la levure et le sucre dans un saladier. Mélanger et \r creuser un puits.\r\n"
 			+ "\r\n"
 			+ "ÉTAPE 3\r\n"
 			+ "Ajouter ensuite les oeufs entiers et fouetter l'ensemble.\r\n"
 			+ "\r\n"
 			+ "ÉTAPE 4\r\n"
-			+ "Incorporer le beurre fondu, fouetter puis délayer progressivement le mélange avec le lait afin d'éviter les grumeaux.\r\n"
+			+ "Incorporer le beurre fondu, fouetter puis délayer progressivement le \r mélange avec le lait afin d'éviter les grumeaux.\r\n"
 			+ "\r\n"
 			+ "ÉTAPE 5\r\n"
 			+ "Laisser reposer la pâte au minimum 1 heure au réfrigérateur.\r\n"
@@ -463,7 +471,7 @@ public class BasedeDonnes {
 	recette1=recetteRepo.save(recette1);
 	List<Recette> listRecettes1 = new ArrayList<Recette>();
 	listRecettes1.add(recette1);	
-	recette1.setPhoto("../../assets/images/crumble_fruit_sec.jpg");
+	recette1.setPhoto("../../assets/images/pancakes.jpg");
 	recette1=recetteRepo.save(recette1);
 	
 	Ingredient ingredient1=new Ingredient("farine",200);//ingredient1 recette1
@@ -521,12 +529,14 @@ public class BasedeDonnes {
 	
 	Plat plat1=new Plat();
 	plat1.setNombrePersonne(6);
-	plat1.setRecettes(listRecettes1);
+	//plat1.setRecettes(listRecettes1);
+	recette1.setPlat(plat1);
 	plat1.setRepas(repas1);
 	plat1 = platRepo.save(plat1);
+	recette1=recetteRepo.save(recette1);
 	}
 	/********************************************************************************************************************	
-	********************************************************************************************************************	
+	********************************************************************************************************************	6
 	********************************************************************************************************************/
 	@Test
 	public void Smoothie(){
@@ -586,20 +596,162 @@ public class BasedeDonnes {
 	
 	Plat plat1=new Plat();
 	plat1.setNombrePersonne(6);
-	plat1.setRecettes(listRecettes1);
+	//plat1.setRecettes(listRecettes1);
+	recette1.setPlat(plat1);
 	plat1.setRepas(repas1);
 	plat1 = platRepo.save(plat1);
+	recette1=recetteRepo.save(recette1);
 	}
 	
 	/********************************************************************************************************************	
-	********************************************************************************************************************	
+	********************************************************************************************************************	7
 	********************************************************************************************************************/
+	@Test
+	public void Crepes(){
+	Recette recette1=new Recette();
+	recette1.setEtapes("ÉTAPE 1\r\n"
+			+ "Mettre la farine dans une terrine et former un puits.\r\n"
+			+ "ÉTAPE 2\r\n"
+			+ "Y déposer les oeufs entiers, le sucre, l'huile et le beurre.\r\n"
+			+ "ÉTAPE 3\r\n"
+			+ "Mélanger délicatement avec un fouet en ajoutant au fur et à mesure le lait.\r La pâte ainsi obtenue doit avoir une consistance d'un liquide légèrement épais."
+			+ "ÉTAPE 4\r\n"
+			+ "Parfumer de rhum.\r\n"
+			+ "ÉTAPE 5\r\n"
+			+ "Faire chauffer une poêle antiadhésive et la huiler très légèrement.\r Y verser une louche de pâte, la répartir dans la poêle puis attendre qu'elle soit cuite d'un côté avant de la retourner.\r Cuire ainsi toutes les crêpes à feu doux.\r\n"
+			);
+	recette1.setNom("Crêpes");
+	recette1.setNombrePers(2);
+	recette1.setNote(4.8F);
+//	List<TypeAlimentation> typesAlim=new ArrayList<TypeAlimentation>();
+//	typesAlim.add(TypeAlimentation.NONE);
+//	typesAlim.add(TypeAlimentation.VEGAN);
+//	typesAlim.add(TypeAlimentation.HALAL);
+//	typesAlim.add(TypeAlimentation.VEGETARIEN);
+//	recette1.setTypeAlimentation(typesAlim);
+	recette1.setTypeAlimentation(TypeAlimentation.NONE);
+	recette1=recetteRepo.save(recette1);
+	List<Recette> listRecettes1 = new ArrayList<Recette>();
+	listRecettes1.add(recette1);	
+	recette1.setPhoto("../../assets/images/crepes.jpg");
+	recette1=recetteRepo.save(recette1);
+	
+	Ingredient ingredient1=new Ingredient("Farine",300);//ingredient1 recette1
+	ingredient1.setRecettes(listRecettes1);
+	ingredient1=ingredientRepo.save(ingredient1);
+	Ingredient ingredient2=new Ingredient("Oeufs",3);//ingredient2 recette1
+	ingredient2.setRecettes(listRecettes1);
+	ingredient2=ingredientRepo.save(ingredient2);
+	Ingredient ingredient3=new Ingredient("Beurre",50);
+	ingredient3.setRecettes(listRecettes1);
+	ingredient3=ingredientRepo.save(ingredient3);
+	Ingredient ingredient4=new Ingredient("lait",60);
+	ingredient4.setRecettes(listRecettes1);
+	ingredient4=ingredientRepo.save(ingredient4);
 	
 	
+	List<Ingredient> ingredients1=new ArrayList<Ingredient>();
+	ingredients1.add(ingredient1);
 	
+	ingredients1.add(ingredient2);
+	ingredient2.setRecettes(listRecettes1);
+	ingredients1.add(ingredient3);
+	ingredient3.setRecettes(listRecettes1);
+	ingredients1.add(ingredient4);
+	ingredient4.setRecettes(listRecettes1);
+	
+	recette1.setIngredients(ingredients1);
+	recette1=recetteRepo.save(recette1);
+	
+	Repas repas1=new Repas();
+	repas1.setTypeRepas(TypeRepas.PETIT_DEJ);
+	repas1=repasRepo.save(repas1);
+	
+	Plat plat1=new Plat();
+	plat1.setNombrePersonne(2);
+	//plat1.setRecettes(listRecettes1);
+	recette1.setPlat(plat1);
+	plat1.setRepas(repas1);
+	plat1 = platRepo.save(plat1);
+	recette1=recetteRepo.save(recette1);
+	}
 	
 	/********************************************************************************************************************	
-	*******************************************Dej**********************************************************************
+	********************************************************************************************************************	8
+	********************************************************************************************************************/
+	@Test
+	public void Gaufre(){
+	Recette recette1=new Recette();
+	recette1.setEtapes("ÉTAPE 1\r\n"
+			+ "Séparer les blancs d'oeuf des jaunes, mettre les blancs dans un récipient à part.\r\n"
+			+ "ÉTAPE 2\r\n"
+			+ "Dans un deuxième récipient, mélanger tous les autres ingrédients en une pâte bien lisse.\r\n"
+			+ "ÉTAPE 3\r\n"
+			+ "Monter les blancs d'oeuf en neige bien ferme, les ajouter délicatement à la pâte en soulevant la masse (former des 8 avec une cuillère en bois)."
+			+ "ÉTAPE 4\r\n"
+			+ "Verser une louche de pâte dans l'appareil chauffé et laisser cuire ainsi de suite jusqu'à épuisement du stock !\r\n"
+			+ "ÉTAPE 5\r\n"
+			+ "Déguster les gaufres bien chaudes !\r\n"
+			);
+	
+	recette1.setNom("Gaufres");
+	recette1.setNombrePers(2);
+	recette1.setNote(4.9F);
+//	List<TypeAlimentation> typesAlim=new ArrayList<TypeAlimentation>();
+//	typesAlim.add(TypeAlimentation.NONE);
+//	typesAlim.add(TypeAlimentation.VEGAN);
+//	typesAlim.add(TypeAlimentation.HALAL);
+//	typesAlim.add(TypeAlimentation.VEGETARIEN);
+//	recette1.setTypeAlimentation(typesAlim);
+	recette1.setTypeAlimentation(TypeAlimentation.NONE);
+	recette1=recetteRepo.save(recette1);
+	List<Recette> listRecettes1 = new ArrayList<Recette>();
+	listRecettes1.add(recette1);	
+	recette1.setPhoto("../../assets/images/gaufres.jpg");
+	recette1=recetteRepo.save(recette1);
+	
+	Ingredient ingredient1=new Ingredient("Farine",500);//ingredient1 recette1
+	ingredient1.setRecettes(listRecettes1);
+	ingredient1=ingredientRepo.save(ingredient1);
+	Ingredient ingredient2=new Ingredient("Oeufs",4);//ingredient2 recette1
+	ingredient2.setRecettes(listRecettes1);
+	ingredient2=ingredientRepo.save(ingredient2);
+	Ingredient ingredient3=new Ingredient("Beurre",150);
+	ingredient3.setRecettes(listRecettes1);
+	ingredient3=ingredientRepo.save(ingredient3);
+	Ingredient ingredient4=new Ingredient("lait",60);
+	ingredient4.setRecettes(listRecettes1);
+	ingredient4=ingredientRepo.save(ingredient4);
+	
+	
+	List<Ingredient> ingredients1=new ArrayList<Ingredient>();
+	ingredients1.add(ingredient1);
+	
+	ingredients1.add(ingredient2);
+	ingredient2.setRecettes(listRecettes1);
+	ingredients1.add(ingredient3);
+	ingredient3.setRecettes(listRecettes1);
+	ingredients1.add(ingredient4);
+	ingredient4.setRecettes(listRecettes1);
+	
+	recette1.setIngredients(ingredients1);
+	recette1=recetteRepo.save(recette1);
+	
+	Repas repas1=new Repas();
+	repas1.setTypeRepas(TypeRepas.PETIT_DEJ);
+	repas1=repasRepo.save(repas1);
+	
+	Plat plat1=new Plat();
+	plat1.setNombrePersonne(4);
+	//plat1.setRecettes(listRecettes1);
+	recette1.setPlat(plat1);
+	plat1.setRepas(repas1);
+	plat1 = platRepo.save(plat1);
+	recette1=recetteRepo.save(recette1);
+	}
+	
+	/********************************************************************************************************************	
+	*******************************************Dej **********************************************************************
 	********************************************************************************************************************/	
 	
 	//plat1 avec recettes1 et tous ses ingédients
@@ -695,10 +847,12 @@ public class BasedeDonnes {
 		repas1=repasRepo.save(repas1);
 		
 		Plat plat1=new Plat();
-		plat1.setNombrePersonne(4);
-		plat1.setRecettes(listRecettes1);
+		plat1.setNombrePersonne(6);
+		//plat1.setRecettes(listRecettes1);
+		recette1.setPlat(plat1);
 		plat1.setRepas(repas1);
 		plat1 = platRepo.save(plat1);
+		recette1=recetteRepo.save(recette1);
 		}
 		
 		
@@ -820,10 +974,12 @@ public class BasedeDonnes {
 		repas1=repasRepo.save(repas1);
 		
 		Plat plat1=new Plat();
-		plat1.setNombrePersonne(4);
-		plat1.setRecettes(listRecettes1);
+		plat1.setNombrePersonne(6);
+		//plat1.setRecettes(listRecettes1);
+		recette1.setPlat(plat1);
 		plat1.setRepas(repas1);
 		plat1 = platRepo.save(plat1);
+		recette1=recetteRepo.save(recette1);
 		}
 		
 /********************************************************************************************************************	
@@ -962,11 +1118,12 @@ public class BasedeDonnes {
 		repas1=repasRepo.save(repas1);
 		
 		Plat plat1=new Plat();
-		plat1.setNombrePersonne(4);
-		plat1.setRecettes(listRecettes1);
+		plat1.setNombrePersonne(6);
+		//plat1.setRecettes(listRecettes1);
+		recette1.setPlat(plat1);
 		plat1.setRepas(repas1);
 		plat1 = platRepo.save(plat1);
+		recette1=recetteRepo.save(recette1);
 		}
-		
-		
+				
 }

@@ -35,7 +35,6 @@ const routes: Routes = [
   {path: "planning", component: PlanningComponent},
   {path: "repas", component: RepasComponent},
   {path: "menu", component: MenuComponent},
-  {path: "recette", component: RecetteComponent},
   {path: "listeCourses", component: ListeCoursesComponent},
   {path: "connexion", component: ConnexionDTOComponent},
 ];

@@ -9,6 +9,7 @@ import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
@@ -34,6 +35,7 @@ public class Recette {
 	private String nom;
 	@Column(name = "etapes")
 	@JsonView(Views.ViewCommon.class)
+	@Lob
 	private String etapes;
 	@Column(name = "nombre_pers")
 	@JsonView(Views.ViewCommon.class)
