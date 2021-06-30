@@ -35,6 +35,7 @@ public class Recette {
 	@JsonView(Views.ViewCommon.class)
 	@Lob
 	private String nom;
+	@Lob
 	@Column(name = "etapes")
 	@JsonView(Views.ViewCommon.class)
 	@Lob
@@ -53,7 +54,6 @@ public class Recette {
 	@ManyToMany	(mappedBy="recettes")
 	private List<Ingredient> ingredients = new ArrayList<Ingredient>();
 	@ManyToOne
-	@JoinColumn(name= "plat_id")
 	@JsonView(Views.ViewRecetteDetail.class)
 	private Plat plat;
 	
@@ -156,6 +156,16 @@ public class Recette {
 
 	public void setTypeAlimentation(TypeAlimentation typeAlimentation) {
 		this.typeAlimentation = typeAlimentation;
+	}
+
+
+
+	public String getPhoto() {
+		return photo;
+	}
+
+	public void setPhoto(String photo) {
+		this.photo = photo;
 	}
 
 	public Plat getPlat() {

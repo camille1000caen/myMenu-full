@@ -4,6 +4,7 @@ import {Observable} from "rxjs";
 import {AppConfigService} from "../app-config.service";
 import {ListeCourses} from "../model/listeCourses";
 import {Ingredient} from "../model/ingredient";
+import {newArray} from "@angular/compiler/src/util";
 
 
 @Injectable({
@@ -11,15 +12,15 @@ import {Ingredient} from "../model/ingredient";
 })
 export class ListeCoursesHttpService {
 
-  listeCourses: Array<Ingredient>;
-  ingredients : Array<Ingredient>;
+  listeCourses: Array<Ingredient>=new Array<Ingredient>();
+  ingredients : Array<Ingredient>=new Array<Ingredient>();
 
   constructor(private http: HttpClient, private appConfig: AppConfigService) {
     this.load()
   }
 
   findAll(): Array<Ingredient> {
-    return this.ingredients;
+      return this.ingredients;
   }
 
   findById(id: number): Ingredient {
@@ -59,7 +60,7 @@ export class ListeCoursesHttpService {
   }
 
   load() {
-    this.http.get<Array<Ingredient>>(this.appConfig.backEndUrl +"ingredient").subscribe(resp => {
+      this.http.get<Array<Ingredient>>(this.appConfig.backEndUrl +"ingredient").subscribe(resp => {
       this.ingredients = resp;
     }, error => console.log(error))
   }

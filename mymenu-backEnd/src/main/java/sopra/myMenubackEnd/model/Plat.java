@@ -1,5 +1,6 @@
 package sopra.myMenubackEnd.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -33,7 +34,7 @@ public class Plat {
 	@JoinColumn(name = "repas_id")
 	private Repas repas;
 	@OneToMany(mappedBy = "plat")
-	private List<Recette> recette;
+	private List<Recette> recettes= new ArrayList<Recette>();
 	
 	
 
@@ -100,5 +101,19 @@ public class Plat {
 	public void setVersion(int version) {
 		this.version = version;
 	}
+
+	public List<Recette> getRecettes() {
+		return recettes;
+	}
+
+	public void setRecettes(List<Recette> recettes) {
+		this.recettes = recettes;
+	}
+
+
+
+
+	
+	
 	
 }
