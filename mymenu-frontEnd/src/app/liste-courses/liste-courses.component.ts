@@ -8,6 +8,7 @@ import {jsPDF} from "jspdf";
 import {HttpClient} from "@angular/common/http";
 import {AppConfigService} from "../app-config.service";
 import {newArray} from "@angular/compiler/src/util";
+import {isEmpty} from "rxjs/operators";
 
 @Component({
   selector: 'app-liste-courses',
@@ -19,6 +20,8 @@ export class ListeCoursesComponent implements OnInit {
   listeCourseForm: Ingredient = null;
   listeCourse: Array<Ingredient> = new Array<Ingredient>();
   listeFinale: Array<Ingredient> = new Array<Ingredient>();
+  listeIdTest : Array<number>=new Array<number>();
+
 
   constructor(private listeService: ListeCoursesHttpService, private ingredientService : IngredientHttpService) {
    }
@@ -29,10 +32,15 @@ export class ListeCoursesComponent implements OnInit {
   list(): Array<Ingredient> {
     return this.listeService.findAll();
   }
+  listRecette(id: number) : Array<Ingredient>{
+    // return this.ingredientService.findAllByRecette(id);
+    return this.listeService.findAll();
+  }
 
   listCopie() : Array<Ingredient>{
     let listeIntermediaire=new Array<Ingredient>();
     var listeNom=new Array<String>();
+    const isEmpty = (val: any) => val == null || !(Object.keys(val) || val).length;
 
     this.listeCourse=this.list();
 
@@ -46,6 +54,9 @@ export class ListeCoursesComponent implements OnInit {
         }
           listeIntermediaire[indice].quantite+=this.listeCourse[ingred].quantite;
         this.listeCourse.splice(Number(ingred),1);
+        if(isEmpty(listeIntermediaire)){
+          break;
+        }
       }else if(!listeNom.includes(this.listeCourse[ingred].nom)){
         listeNom.push(this.listeCourse[ingred].nom);
         listeIntermediaire.push(this.listeCourse[ingred]);
@@ -56,9 +67,7 @@ export class ListeCoursesComponent implements OnInit {
     return this.listeCourse=listeIntermediaire;
   }
 
-  listRecette(id: number){
-    return this.ingredientService.findAllByRecette(id);
-  }
+
 
   pdfDownload() {
     var doc = new jsPDF();
