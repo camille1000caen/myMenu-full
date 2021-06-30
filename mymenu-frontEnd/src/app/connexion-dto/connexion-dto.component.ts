@@ -9,7 +9,7 @@ import {ConnexionDtoHttpService} from "./connexion-dto-http.service";
   styleUrls: ['./connexion-dto.component.scss']
 })
 export class ConnexionDTOComponent implements OnInit {
-  conn:ConnexionDTO=new ConnexionDTO();
+  conn:ConnexionDTO=new ConnexionDTO('newUser','','');
 
   constructor(private connexionService: ConnexionDtoHttpService) {
 

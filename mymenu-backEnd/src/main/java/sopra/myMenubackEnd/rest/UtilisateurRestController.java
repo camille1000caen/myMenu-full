@@ -117,7 +117,7 @@ public class UtilisateurRestController {
 	@PostMapping("/auth")
 	@JsonView(Views.ViewUtilisateur.class)
 	public Utilisateur ConnAuth(@RequestBody ConnexionDTO conn) {
-		Optional<Utilisateur> optUtilisateur = utilisateurRepo.findByConn(conn.getUsername(),conn.getPassword());
+		Optional<Utilisateur> optUtilisateur = utilisateurRepo.findByConn(conn.getUsername(),conn.getEmail(),conn.getPassword());
 
 		if (optUtilisateur.isPresent()) {
 			return optUtilisateur.get();

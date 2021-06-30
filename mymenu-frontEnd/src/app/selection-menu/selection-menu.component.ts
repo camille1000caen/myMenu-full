@@ -1,6 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Recette} from "../model/recette";
 import {RecetteHttpService} from "../recette/recette-http.service";
+import {newArray} from "@angular/compiler/src/util";
 
 @Component({
   selector: 'app-selection-menu',
@@ -11,7 +12,7 @@ export class SelectionMenuComponent implements OnInit {
 
   nBMenuPerRow = new Array(4); //0 - 3
   recette: Recette = null;
-  tab: Array<Recette>;
+  tab: Array<Recette>=new Array<Recette>();
 
   constructor(private recetteService: RecetteHttpService) {
     this.findByRisingNote();
@@ -26,16 +27,14 @@ export class SelectionMenuComponent implements OnInit {
       console.log(this.tab);
     })
   }
-  randomRecette():Recette {
-    //console.log("this.tab.length = " + this.tab.length);
-    if(this.tab.length==0){
-      this.findByRisingNote();
-    }
-    var idx =Math.floor(Math.random()*this.tab.length);
-    this.recette = this.tab[idx];
-    this.tab.splice(idx,1);
 
-    return this.recette;
+  tabFirst4(): Array<Recette> {
+    return this.tab.filter((rec, i) => i < 4);
   }
+
+  tabLast4(): Array<Recette> {
+    return this.tab.filter((rec, i) => i >= 4);
+  }
+
 
 }
