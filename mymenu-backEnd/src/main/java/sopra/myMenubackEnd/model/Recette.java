@@ -37,6 +37,7 @@ public class Recette {
 	private String nom;
 	@Column(name = "etapes")
 	@JsonView(Views.ViewCommon.class)
+	@Lob
 	private String etapes;
 	@Column(name = "nombre_pers")
 	@JsonView(Views.ViewCommon.class)
@@ -46,6 +47,9 @@ public class Recette {
 	@Column(name = "note")
 	@JsonView(Views.ViewCommon.class)
 	private float note;
+	@Column(name = "photo")
+	@JsonView(Views.ViewCommon.class)
+	private String photo;
 	@Enumerated(EnumType.STRING)
 	@JsonView(Views.ViewCommon.class)
 	private TypeAlimentation typeAlimentation;
@@ -77,7 +81,13 @@ public class Recette {
 	public void setNote(float note) {
 		this.note = note;
 	}
+	public String getPhoto() {
+		return photo;
+	}
 
+	public void setPhoto(String photo) {
+		this.photo = photo;
+	}
 	public Long getId() {
 		return id;
 	}
