@@ -44,8 +44,8 @@ public class Recette {
 	@Column(name = "nombre_pers")
 	@JsonView(Views.ViewCommon.class)
 	private int nombrePers;
-	//@Column(name = "total_calories")
-	//private int totalCalories;
+	@Column(name = "total_calories")
+	private int totalCalories;
 	@Column(name = "note")
 	@JsonView(Views.ViewCommon.class)
 	private float note;

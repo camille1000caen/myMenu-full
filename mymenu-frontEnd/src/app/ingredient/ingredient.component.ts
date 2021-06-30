@@ -13,13 +13,13 @@ import {formatDate} from "@angular/common";
   selector: 'app-ingredient',
   templateUrl: './ingredient.component.html',
   styleUrls: ['./ingredient.component.scss'],
-  // template: `<canvas #myCanvas></canvas>`
+
 })
 export class IngredientComponent implements OnInit {
 
   ingredientForm: Ingredient = null;
   ingredients: Array<Ingredient>;
-
+listeCourse: Array<Ingredient> = new Array<Ingredient>();
 
 
   constructor(private ingredientService: IngredientHttpService) {
@@ -32,36 +32,41 @@ export class IngredientComponent implements OnInit {
     return this.ingredientService.findAll();
   }
 listRecette(id: number){
+
     return this.ingredientService.findAllByRecette(id);
 }
 
-//  listByRecette(id: number) {
-//     return this.ingredientService.findByRecette(id);
-// }
-
-
-  //  canvas = document.querySelector('canvas');
-  //  getCursorPosition(canvas, event: { clientX: number; clientY: number; }) {
+  // listCopie() : Array<Ingredient>{
+  //   let listeIntermediaire=new Array<Ingredient>();
+  //   var listeNom=new Array<String>();
   //
-  //   const rect = canvas.getBoundingClientRect()
-  //   const x = event.clientX - rect.left
-  //   const y = event.clientY - rect.top
-  //   console.log("x: " + x + " y: " + y)
+  //   this.listeCourse=this.list();
+  //
+  //   for(var ingred in this.listeCourse){
+  //     if(listeNom.includes(this.listeCourse[ingred].nom)){
+  //       let indice=0;
+  //       for(let i=0; i<listeNom.length;i++){
+  //         if(listeNom[i]===this.listeCourse[ingred].nom){
+  //           indice=i;
+  //         }
+  //       }
+  //       listeIntermediaire[indice].quantite+=this.listeCourse[ingred].quantite;
+  //       console.log("listeIntermediaire[indice].quantite "+listeIntermediaire[indice].nom+listeIntermediaire[indice].quantite);
+  //       console.log("this.listeCourse[ingred].quantite "+this.listeCourse[ingred].quantite);
+  //       console.log("ingred "+ingred);
+  //
+  //       this.listeCourse.splice(Number(ingred),1);
+  //     }else if(!listeNom.includes(this.listeCourse[ingred].nom)){
+  //       listeNom.push(this.listeCourse[ingred].nom);
+  //       listeIntermediaire.push(this.listeCourse[ingred]);
+  //     }else{
+  //       break;
+  //     }
+  //   }
+  //   return this.listeCourse=listeIntermediaire;
   // }
 
-  // @ViewChild('myCanvas')
-  // myCanvas: ElementRef<HTMLCanvasElement>;
 
-  // public context: CanvasRenderingContext2D;
-
-  // ngAfterViewInit(): void {
-  //   this.context = this.myCanvas.nativeElement.getContext('2d');
-  //   console.log(this.context);
-  // }
-
-  // canvas.addEventListener('mousedown', function(e) {
-  //   getCursorPosition(canvas, e)
-  // })
 
   pdfDownload() {
     var doc = new jsPDF();

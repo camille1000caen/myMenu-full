@@ -51,9 +51,9 @@ export class ListeCoursesComponent implements OnInit {
       return this.listeCourse=listeIntermediaire;
   }
 
-  listRecette(id: number){
-    return this.ingredientService.findAllByRecette(id);
-  }
+  // listRecette(id: number){
+  //   return this.ingredientService.findAllByRecette(id);
+  // }
 
   pdfDownload() {
     var doc = new jsPDF();
