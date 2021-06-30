@@ -85,6 +85,9 @@ public class BasedeDonnes {
 	Ingredient ingredient8=new Ingredient("beurre",25);
 	ingredient8.setRecettes(listRecettes1);
 	ingredient8=ingredientRepo.save(ingredient8);
+	Ingredient ingredient9=new Ingredient("beurre",25);
+	ingredient9.setRecettes(listRecettes1);
+	ingredient9=ingredientRepo.save(ingredient9);
 	
 	
 	
@@ -105,6 +108,8 @@ public class BasedeDonnes {
 	ingredient7.setRecettes(listRecettes1);
 	ingredients1.add(ingredient8);
 	ingredient8.setRecettes(listRecettes1);
+	ingredients1.add(ingredient9);
+	ingredient9.setRecettes(listRecettes1);
 	recette1.setIngredients(ingredients1);
 	recette1=recetteRepo.save(recette1);
 	

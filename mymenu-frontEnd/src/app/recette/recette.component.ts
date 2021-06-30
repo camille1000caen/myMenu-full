@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {RecetteHttpService} from "./recette-http.service";
 import {Recette} from "../model/recette";
+import {jsPDF} from "jspdf";
 
 @Component({
   selector: 'app-recette',
@@ -23,6 +24,7 @@ export class RecetteComponent implements OnInit {
   list(): Array<Recette> {
     return this.recetteService.findAll();
   }
+
 
   listPlat(): Array<Recette> {
     return this.recetteService.findAll();

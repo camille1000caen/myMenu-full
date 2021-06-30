@@ -35,33 +35,6 @@ listRecette(id: number){
     return this.ingredientService.findAllByRecette(id);
 }
 
-//  listByRecette(id: number) {
-//     return this.ingredientService.findByRecette(id);
-// }
-
-
-  //  canvas = document.querySelector('canvas');
-  //  getCursorPosition(canvas, event: { clientX: number; clientY: number; }) {
-  //
-  //   const rect = canvas.getBoundingClientRect()
-  //   const x = event.clientX - rect.left
-  //   const y = event.clientY - rect.top
-  //   console.log("x: " + x + " y: " + y)
-  // }
-
-  // @ViewChild('myCanvas')
-  // myCanvas: ElementRef<HTMLCanvasElement>;
-
-  // public context: CanvasRenderingContext2D;
-
-  // ngAfterViewInit(): void {
-  //   this.context = this.myCanvas.nativeElement.getContext('2d');
-  //   console.log(this.context);
-  // }
-
-  // canvas.addEventListener('mousedown', function(e) {
-  //   getCursorPosition(canvas, e)
-  // })
 
   pdfDownload() {
     var doc = new jsPDF();
