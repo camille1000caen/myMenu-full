@@ -87,11 +87,11 @@ public class MyMenuUtilisateurAdressePrefAlimDataTest {
 				Solenn.setPhysicalActivity(PhysicalActivity.INTENSIF);
 				Solenn.setPoids(54.5F);
 				Solenn.setTaille(155.0F);
-				tom.setEmail(null);
-				tom.setTelephone(null);
-				tom.setPassword(null);
-				tom.setEnable(true);
-				tom.setUsername(null);
+				Solenn.setEmail("solenn.stefansk);
+				Solenn.setTelephone(null);
+				Solenn.setPassword(null);
+				Solenn.setEnable(true);
+				Solenn.setUsername(null);
 		// CREATION UTILISATEUR
 				Utilisateur Camille = new Utilisateur();
 				try {

@@ -12,17 +12,18 @@ export class RecetteComponent implements OnInit {
   @Input()
   idRecette : number;
 
-  recette: Recette = null;
+  recette: Recette = new Recette();
   typeRecette: Array<String> =  new Array<String>();
   tab: Array<Recette>;
 
   constructor(private recetteService: RecetteHttpService) {
-    this.recetteService.findById(this.idRecette).subscribe(resp=> {
-      this.recette = resp;
-    })
+
   }
 
   ngOnInit(): void {
+    this.recetteService.findById(this.idRecette).subscribe(resp=> {
+      this.recette = resp;
+    });
   }
   list(): Array<Recette> {
     return this.recetteService.findAll();
