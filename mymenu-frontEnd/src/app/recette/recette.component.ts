@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {RecetteHttpService} from "./recette-http.service";
 import {Recette} from "../model/recette";
 
@@ -9,13 +9,17 @@ import {Recette} from "../model/recette";
 })
 export class RecetteComponent implements OnInit {
 
+  @Input()
+  idRecette : number;
+
   recette: Recette = null;
   typeRecette: Array<String> =  new Array<String>();
-  tab: Array<Recette> = this.recetteService.findAllByRisingNote();
+  tab: Array<Recette>;
+
   constructor(private recetteService: RecetteHttpService) {
-    this.typeRecette.push("Halal");
-    this.typeRecette.push("None");
-    this.typeRecette.push("Vegan");
+    this.recetteService.findById(this.idRecette).subscribe(resp=> {
+      this.recette = resp;
+    })
   }
 
   ngOnInit(): void {
@@ -28,12 +32,7 @@ export class RecetteComponent implements OnInit {
     return this.recetteService.findAll();
   }
 
-  randomRecette(tab:Array<Recette>):Recette {
-    var idx =Math.floor(Math.random()*tab.length);
-    this.recette = tab[idx];
-    this.tab.splice(idx,1);
-    return this.recette;
-  }
+
 
   edit(id: number) {
 

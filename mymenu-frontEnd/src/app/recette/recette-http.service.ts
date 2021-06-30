@@ -19,11 +19,8 @@ export class RecetteHttpService {
     return this.recettes;
   }
 
-  findAllByRisingNote(): Array<Recette> {
-     this.http.get<Array<Recette>>(this.appConfig.backEndUrl +"recette/detail/by-rising-note").subscribe(resp => {
-      this.recettes = resp;
-    }, error => console.log(error))
-    return this.recettes;
+  findAllByRisingNote(): Observable<Array<Recette>>{
+    return this.http.get<Array<Recette>>(this.appConfig.backEndUrl + "recette/detail/by-rising-note");
   }
 
   findById(id: number): Observable<Recette> {
