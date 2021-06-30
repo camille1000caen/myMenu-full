@@ -5,6 +5,7 @@ import {AppConfigService} from "../app-config.service";
 import {ListeCourses} from "../model/listeCourses";
 import {Ingredient} from "../model/ingredient";
 import {newArray} from "@angular/compiler/src/util";
+import {Recette} from "../model/recette";
 
 
 @Injectable({
@@ -14,13 +15,33 @@ export class ListeCoursesHttpService {
 
   listeCourses: Array<Ingredient>=new Array<Ingredient>();
   ingredients : Array<Ingredient>=new Array<Ingredient>();
+  listeIdTest : Array<number>=new Array<number>();
+
 
   constructor(private http: HttpClient, private appConfig: AppConfigService) {
-    this.load()
+    this.listeIdTest = [1, 79];
+
+    for (var i = 0; i < this.listeIdTest.length; i++) {
+      this.findByRecette(this.listeIdTest[i]);
+    }
   }
 
   findAll(): Array<Ingredient> {
       return this.ingredients;
+  }
+
+  findAllByRecette(id: number): Array<Ingredient>{
+     this.findByRecette(id);
+    return this.findAll();
+  }
+
+
+  findByRecette(id:number){//}  : Array<Ingredient>{
+    this.http.get<Array<Ingredient>>(this.appConfig.backEndUrl +"ingredient/byrecette/"+id ).subscribe(resp => {
+      for(var i=0;i<resp.length;i++){
+        this.ingredients.push(resp[i]);
+      }
+    }, error => console.log(error))
   }
 
   findById(id: number): Ingredient {

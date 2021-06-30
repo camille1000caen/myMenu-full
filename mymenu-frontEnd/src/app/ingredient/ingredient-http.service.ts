@@ -25,10 +25,10 @@ export class IngredientHttpService {
   findAllByRecette(id: number): Array<Ingredient>{
     this.findByRecette(id);
     return this.findAll();
-
     }
 
-    findByRecette(id:number) {
+
+    findByRecette(id:number){
     this.http.get<Array<Ingredient>>(this.appConfig.backEndUrl +"ingredient/byrecette/"+id ).subscribe(resp => {
       this.ingredients = resp;
     }, error => console.log(error))
