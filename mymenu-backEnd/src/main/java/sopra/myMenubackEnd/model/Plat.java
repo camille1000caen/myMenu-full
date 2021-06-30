@@ -102,13 +102,6 @@ public class Plat {
 		this.version = version;
 	}
 
-	public List<Recette> getRecettes() {
-		return recettes;
-	}
-
-	public void setRecettes(List<Recette> recettes) {
-		this.recettes = recettes;
-	}
 
 
 
