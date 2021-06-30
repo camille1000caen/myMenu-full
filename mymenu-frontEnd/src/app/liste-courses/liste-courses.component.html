@@ -1,5 +1,4 @@
 <div class="wrapper ">
-  <!--  <div class="">-->
   <div class="container py-4">
     <div class="card w-20 ">
       <div class="card-header bg-info text-white text-center">
@@ -9,7 +8,7 @@
         <table class="table table-striped">
           <thead>
           <tr>
-            <th>Ingédient </th>
+            <th>Ingrédient </th>
             <th></th>
             <th>Quantité (g)</th>
             <th></th>
@@ -25,7 +24,6 @@
             <td>
               <a class="btn" (click)="edit(ingred.id)" >{{ingred.quantite}}</a>
             </td>
-<!--            <td>{{ingred.quantite}}</td>-->
             <td>
               <div class="btn-group btn-group-sm">
                 <a class="btn btn-success" (click)="plus(ingred.id)"><i class="fas fa-plus"></i></a>
@@ -48,8 +46,6 @@
       </div>
     </div>
   </div>
-  <!--  </div>-->
-  <!--    <div class="container py-4 w-50 position-absolute top-0 start-0 translate-middle">-->
   <div class="card fixed-bottom" *ngIf="listeCourseForm">
     <div class="card-header bg-info text-white">
       <h3>Edition de la quantité</h3>
@@ -67,9 +63,6 @@
           <a class="btn btn-success" (click)="save()">
             <i class="fa fa-check"></i>
           </a>
-<!--          <a class="btn btn-warning" (click)="cancel()">-->
-<!--            <i class="fa fa-undo"></i>-->
-<!--          </a>-->
         </div>
       </div>
     </div>
