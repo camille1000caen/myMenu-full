@@ -9,8 +9,6 @@ import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.Lob;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
@@ -33,7 +31,6 @@ public class Recette {
 	private int version;
 	@Column(name = "nom")
 	@JsonView(Views.ViewCommon.class)
-	@Lob
 	private String nom;
 	@Column(name = "etapes")
 	@JsonView(Views.ViewCommon.class)
@@ -45,21 +42,24 @@ public class Recette {
 	private int totalCalories;
 	@Column(name = "note")
 	@JsonView(Views.ViewCommon.class)
-	private float note;
+	private Float note;
+	@Column(name = "photo")
+	@JsonView(Views.ViewCommon.class)
+	private String photo;
 	@Enumerated(EnumType.STRING)
 	@JsonView(Views.ViewCommon.class)
 	private TypeAlimentation typeAlimentation;
 	@ManyToMany	(mappedBy="recettes")
 	private List<Ingredient> ingredients = new ArrayList<Ingredient>();
 	@ManyToOne
-	@JoinColumn(name= "plat_id")
 	@JsonView(Views.ViewRecetteDetail.class)
 	private Plat plat;
+	
 	public Recette() {
 		super();
 	}
 
-	public Recette(String nom, String etapes, int nombrePers, int totalCalories,float note, TypeAlimentation typeAlimentation) {
+	public Recette(String nom, String etapes, int nombrePers, int totalCalories,Float note, TypeAlimentation typeAlimentation,String photo) {
 		super();
 		this.nom = nom;
 		this.etapes = etapes;
@@ -67,17 +67,24 @@ public class Recette {
 		this.totalCalories = totalCalories;
 		this.note = note;
 		this.typeAlimentation = typeAlimentation;
+		this.photo=photo;
 		
 	}
 
-	public float getNote() {
+	public Float getNote() {
 		return note;
 	}
 
-	public void setNote(float note) {
+	public void setNote(Float note) {
 		this.note = note;
 	}
+	public String getPhoto() {
+		return photo;
+	}
 
+	public void setPhoto(String photo) {
+		this.photo = photo;
+	}
 	public Long getId() {
 		return id;
 	}

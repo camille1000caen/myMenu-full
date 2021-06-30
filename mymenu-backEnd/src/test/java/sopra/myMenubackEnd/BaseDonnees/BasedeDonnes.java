@@ -114,7 +114,7 @@ public class BasedeDonnes {
 	
 	Plat plat1=new Plat();
 	plat1.setNombrePersonne(4);
-	plat1.setRecette(recette1);
+	plat1.setRecettes(listRecettes1);
 	plat1.setRepas(repas1);
 	plat1 = platRepo.save(plat1);
 	}
@@ -213,7 +213,7 @@ public class BasedeDonnes {
 		
 		Plat plat1=new Plat();
 		plat1.setNombrePersonne(4);
-		plat1.setRecette(recette1);
+		plat1.setRecettes(listRecettes1);
 		plat1.setRepas(repas1);
 		plat1 = platRepo.save(plat1);
 		}
@@ -332,7 +332,7 @@ public class BasedeDonnes {
 		
 		Plat plat1=new Plat();
 		plat1.setNombrePersonne(4);
-		plat1.setRecette(recette1);
+		plat1.setRecettes(listRecettes1);
 		plat1.setRepas(repas1);
 		plat1 = platRepo.save(plat1);
 		}
@@ -470,7 +470,7 @@ public class BasedeDonnes {
 		
 		Plat plat1=new Plat();
 		plat1.setNombrePersonne(4);
-		plat1.setRecette(recette1);
+		plat1.setRecettes(listRecettes1);
 		plat1.setRepas(repas1);
 		plat1 = platRepo.save(plat1);
 		}
@@ -508,6 +508,8 @@ public class BasedeDonnes {
 		listRecettes1.add(recette1);	
 		recette1.setPhoto("../../assets/images/biscuit_cereals.jpg");
 		recette1=recetteRepo.save(recette1);
+		
+		
 		
 		Ingredient ingredient1=new Ingredient("farine",150);//ingredient1 recette1
 		ingredient1.setRecettes(listRecettes1);
@@ -577,7 +579,7 @@ public class BasedeDonnes {
 		
 		Plat plat1=new Plat();
 		plat1.setNombrePersonne(4);
-		plat1.setRecette(recette1);
+		plat1.setRecettes(listRecettes1);
 		plat1.setRepas(repas1);
 		plat1 = platRepo.save(plat1);
 		}

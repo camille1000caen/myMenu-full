@@ -19,7 +19,7 @@ export class ConnexionDtoHttpService {
   }
 
   connexionAuth(conn: ConnexionDTO):Observable<Utilisateur> {
-      return this.http.post<Utilisateur>(this.appConfig.backEndUrl + "auth", conn);
+      return this.http.post<Utilisateur>(this.appConfig.backEndUrl + "utilisateur/auth", conn);
   }
 }
 
