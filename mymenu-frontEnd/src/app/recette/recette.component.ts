@@ -16,7 +16,7 @@ export class RecetteComponent implements OnInit {
   recette: Recette = new Recette();
   typeRecette: Array<String> =  new Array<String>();
   tab: Array<Recette>;
-
+  recettes:Array<Recette>;
   constructor(private recetteService: RecetteHttpService) {
 
   }
@@ -64,7 +64,7 @@ export class RecetteComponent implements OnInit {
   delete(id: number) {
     this.recetteService.deleteById(id);
   }
-  pdfDownload() {
+  /*pdfDownload() {
     var doc = new jsPDF();
     var interligne = 40;
     var indentation=15;
@@ -140,7 +140,7 @@ export class RecetteComponent implements OnInit {
       doc.text("2021 Copyright - MyMenu", 70, 290);
       doc.save("Ma liste de course.pdf");
 
-  }
+  }*/
 
 }
 

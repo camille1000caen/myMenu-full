@@ -27,25 +27,27 @@
 <!--  </div>-->
 <!--</div>-->
 
-<img class="card-img-top" src="" alt="Card image cap">
+<img class="card-img-top" src="{{recette.photo}}" alt="Card image cap"/>
 <div class="card-body">
   <h5 class="card-title">{{recette.nom}}</h5>
   <p class="card-text"> Pour à savourer entre petits et grands</p>
 </div>
-<tfoot>
-<tr>
-  <td colspan="5" class="text-center"><a class="btn btn-success" (click)="pdfDownload()"><i class="far fa-file-pdf"> Générer ma liste de recettes au format PDF</i></a></td>
-</tr>
-</tfoot>
 
-<!--<div class="card-footer">-->
-<!--  <div class="form-check btn-group float-right">-->
-<!--    <div class="input-group-text">-->
-<!--      <input type="checkbox" class="checkbox-Custom" value="">-->
-<!--    </div>-->
-<!--    <button type="submit" class="btn btn-info">-->
-<!--      <i class="fa fa-sync"></i>-->
-<!--    </button>-->
-<!--  </div>-->
-<!--</div>-->
+
+<div class="card-footer">
+<div class="form-check btn-group float-right">
+    <div class="input-group-text">
+      <input type="checkbox" class="checkbox-Custom" value="">
+    </div>
+    <button type="submit" class="btn btn-info">
+      <i class="fa fa-sync"></i>
+    </button>
+  <tfoot>
+  <tr>
+    <td colspan="5" class="text-center"><a class="btn btn-success"><i class="far fa-file-pdf"></i></a></td>
+  </tr>
+  </tfoot>
+  </div>
+
+</div>
 
