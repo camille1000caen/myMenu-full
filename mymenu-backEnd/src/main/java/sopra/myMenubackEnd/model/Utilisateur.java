@@ -38,7 +38,7 @@ public class Utilisateur {
 	@Column(name = "Password")
 	@JsonView(Views.ViewCommon.class)
 	private String password;
-	@Column(name = "Enable")
+	@Column(name = "Enable",columnDefinition = "tinyint(1)")
 	@JsonView(Views.ViewCommon.class)
 	private boolean enable;
 	@OneToMany(mappedBy = "user")

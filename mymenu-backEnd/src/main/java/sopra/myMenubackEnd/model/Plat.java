@@ -10,7 +10,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import org.springframework.data.annotation.Version;
@@ -35,7 +34,7 @@ public class Plat {
 	@JoinColumn(name = "repas_id")
 	private Repas repas;
 	@OneToMany(mappedBy = "plat")
-	private List <Recette> recettes = new ArrayList<Recette>();;
+	private List<Recette> recettes= new ArrayList<Recette>();
 	
 	
 
@@ -102,5 +101,12 @@ public class Plat {
 	public void setVersion(int version) {
 		this.version = version;
 	}
+
+
+
+
+
+	
+	
 	
 }

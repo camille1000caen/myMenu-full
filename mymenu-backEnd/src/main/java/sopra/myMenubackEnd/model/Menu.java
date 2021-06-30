@@ -32,10 +32,7 @@ public class Menu {
 		@Column(name = "jour")
 		@JsonFormat(pattern = "yyyy-MM-dd")
 		private Date jour;
-		
-		@Column(name = "periode")
-		@JsonIgnore
-		private Integer periode;	
+			
 		@OneToMany(mappedBy = "menu")
 		@JsonIgnore
 		private List<Repas> repas = new ArrayList<Repas>();	
@@ -50,16 +47,6 @@ public class Menu {
 			super();
 		}
 		
-		public Menu(Integer periode) {
-			super();
-			this.periode = periode;
-		}
-		
-		public Menu(Long id, Integer periode) {
-			super();
-			this.id = id;
-			this.periode = periode;
-		}
 
 		public Long getId() {
 			return id;
@@ -78,13 +65,6 @@ public class Menu {
 			this.jour = jour;
 		}
 
-		public Integer getPeriode() {
-			return periode;
-		}
-
-		public void setPeriode(Integer periode) {
-			this.periode = periode;
-		}
 
 		public List<Repas> getRepas() {
 			return repas;

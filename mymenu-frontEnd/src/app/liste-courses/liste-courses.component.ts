@@ -8,6 +8,7 @@ import {jsPDF} from "jspdf";
 import {HttpClient} from "@angular/common/http";
 import {AppConfigService} from "../app-config.service";
 import {newArray} from "@angular/compiler/src/util";
+import {isEmpty} from "rxjs/operators";
 
 @Component({
   selector: 'app-liste-courses',
@@ -18,6 +19,9 @@ export class ListeCoursesComponent implements OnInit {
 
   listeCourseForm: Ingredient = null;
   listeCourse: Array<Ingredient> = new Array<Ingredient>();
+  listeFinale: Array<Ingredient> = new Array<Ingredient>();
+  listeIdTest : Array<number>=new Array<number>();
+
 
   constructor(private listeService: ListeCoursesHttpService, private ingredientService : IngredientHttpService) {
    }
@@ -28,32 +32,42 @@ export class ListeCoursesComponent implements OnInit {
   list(): Array<Ingredient> {
     return this.listeService.findAll();
   }
+  listRecette(id: number) : Array<Ingredient>{
+    // return this.ingredientService.findAllByRecette(id);
+    return this.listeService.findAll();
+  }
 
   listCopie() : Array<Ingredient>{
     let listeIntermediaire=new Array<Ingredient>();
-    let tablePositions=new Array<Number>();
-    let ingredientP : Ingredient;
-    let nomP="";
-    let sommeQte=0;
-    for(let i=0; i<this.list().length;i++){
-      nomP=listeIntermediaire[i].nom;
-      ingredientP=null;
-      sommeQte+=listeIntermediaire[i].quantite;
-      for(let j=i;listeIntermediaire.length;i++){
-        sommeQte+=listeIntermediaire[i].quantite;
-        if(nomP==listeIntermediaire[i].nom){
-          ingredientP.nom=nomP;
-          ingredientP.quantite=sommeQte;
-          listeIntermediaire.push(ingredientP);
+    var listeNom=new Array<String>();
+    const isEmpty = (val: any) => val == null || !(Object.keys(val) || val).length;
+
+    this.listeCourse=this.list();
+
+    for(var ingred in this.listeCourse){
+      if(listeNom.includes(this.listeCourse[ingred].nom)){
+        let indice=0;
+        for(let i=0; i<listeNom.length;i++){
+          if(listeNom[i]===this.listeCourse[ingred].nom){
+            indice=i;
+          }
         }
+          listeIntermediaire[indice].quantite+=this.listeCourse[ingred].quantite;
+        this.listeCourse.splice(Number(ingred),1);
+        if(isEmpty(listeIntermediaire)){
+          break;
+        }
+      }else if(!listeNom.includes(this.listeCourse[ingred].nom)){
+        listeNom.push(this.listeCourse[ingred].nom);
+        listeIntermediaire.push(this.listeCourse[ingred]);
+      }else{
+        break;
       }
     }
-      return this.listeCourse=listeIntermediaire;
+    return this.listeCourse=listeIntermediaire;
   }
 
-  // listRecette(id: number){
-  //   return this.ingredientService.findAllByRecette(id);
-  // }
+
 
   pdfDownload() {
     var doc = new jsPDF();
@@ -158,7 +172,6 @@ export class ListeCoursesComponent implements OnInit {
 
   edit(id : number) {
     this.listeCourseForm=this.listeService.findById(id);
-
   }
 
   save() {

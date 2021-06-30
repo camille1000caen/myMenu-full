@@ -1,4 +1,4 @@
-package sopra.myMenubackEnd.rest;
+package sopra.myMenubackEnd.service;
 
 public class ConnexionDTO {
 	private String email;
@@ -16,8 +16,6 @@ public class ConnexionDTO {
 	public ConnexionDTO() {
 		super();
 	}
-
-
 
 	public String getEmail() {
 		return email;

@@ -27,6 +27,7 @@ import sopra.myMenubackEnd.model.PhysicalActivity;
 import sopra.myMenubackEnd.model.Utilisateur;
 import sopra.myMenubackEnd.model.Views;
 import sopra.myMenubackEnd.repository.IUtilisateurRepository;
+import sopra.myMenubackEnd.service.ConnexionDTO;
 
 
 
