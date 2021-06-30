@@ -23,6 +23,10 @@ export class RecetteHttpService {
     return this.http.get<Array<Recette>>(this.appConfig.backEndUrl + "recette/detail/by-rising-note");
   }
 
+  findAllByRisingNoteByTypeRepas(typeRepas:string): Observable<Array<Recette>>{
+    return this.http.get<Array<Recette>>(this.appConfig.backEndUrl + "recette/detail/by-rising-note/by-type-repas/"+typeRepas);
+  }
+
   findById(id: number): Observable<Recette> {
     return this.http.get<Recette>(this.appConfig.backEndUrl +"recette/" + id);
   }

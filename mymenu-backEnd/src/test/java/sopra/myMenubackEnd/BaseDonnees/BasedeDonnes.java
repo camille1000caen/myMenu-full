@@ -30,6 +30,11 @@ public class BasedeDonnes {
 	@Autowired
 	private IRepasRepository repasRepo;
 	
+	
+/********************************************************************************************************************	
+*************************************Petit Dej**********************************************************************
+********************************************************************************************************************/	
+	
 //plat1 avec recettes1 et tous ses ingédients
 	@Test
 	public void BriochePerdueCaramel(){
@@ -123,6 +128,479 @@ public class BasedeDonnes {
 	plat1.setRepas(repas1);
 	plat1 = platRepo.save(plat1);
 	}
+	
+	/********************************************************************************************************************	
+	********************************************************************************************************************	
+	********************************************************************************************************************/	
+	
+	@Test
+	public void BiscuitCereal(){
+	Recette recette1=new Recette();
+	recette1.setEtapes("ÉTAPE 1\r\n"
+			+ "Dans une jatte, pétrissez tous les ingrédients ensemble jusqu'à obtenir une boule de pâte.\r\n"
+			+ "\r\n"
+			+ "ÉTAPE 2\r\n"
+			+ "Si vous souhaitez faire différents biscuits avec cette même pâte, ne mettez pas les ingrédients optionnels.\r\n"
+			+ "\r\n"
+			+ "ÉTAPE 3\r\n"
+			+ "Enveloppez la pâte dans du film transparent et mettre au frigo pour une dizaine de minutes au moins.\r\n"
+			+ "\r\n"
+			+ "ÉTAPE 4\r\n"
+			+ "Préchauffez votre four à 200°C et placez du papier sulfurisé sur une plaque de cuisson.\r\n"
+			+ "\r\n"
+			+ "ÉTAPE 5\r\n"
+			+ "Sortez la pâte du frigo et, si vous le souhaitez, séparez la pâte en plusieurs parts pour y ajouter les ingrédients optionnels.\r\n"
+			+ "\r\n"
+			+ "ÉTAPE 6\r\n"
+			+ "Formez de petites boules de pâtes que vous écraserez dans la paume avant de placer sur la plaque.\r\n"
+			+ "\r\n"
+			+ "ÉTAPE 7\r\n"
+			+ "Placez au four pour environ 10 minutes, selon votre four. Restez à proximité des biscuits. Ils doivent être à peine dorés pour restez moelleux ou bien dorés pour être un peu plus croquants.");
+	recette1.setNom("Biscuits aux céréales");
+	recette1.setNombrePers(6);
+	recette1.setNote(4.6F);
+
+	recette1.setTypeAlimentation(TypeAlimentation.NONE);
+	recette1=recetteRepo.save(recette1);
+	List<Recette> listRecettes1 = new ArrayList<Recette>();
+	listRecettes1.add(recette1);	
+	recette1.setPhoto("../../assets/images/biscuit_cereals.jpg");
+	recette1=recetteRepo.save(recette1);
+	
+	
+	
+	Ingredient ingredient1=new Ingredient("farine",150);//ingredient1 recette1
+	ingredient1.setRecettes(listRecettes1);
+	ingredient1=ingredientRepo.save(ingredient1);
+	Ingredient ingredient2=new Ingredient("sucre",50);//ingredient2 recette1
+	ingredient2.setRecettes(listRecettes1);
+	ingredient2=ingredientRepo.save(ingredient2);
+	Ingredient ingredient3=new Ingredient("miel",50);
+	ingredient3.setRecettes(listRecettes1);
+	ingredient3=ingredientRepo.save(ingredient3);
+	Ingredient ingredient4=new Ingredient("sachet sucre vanille",10);
+	ingredient4.setRecettes(listRecettes1);
+	ingredient4=ingredientRepo.save(ingredient4);
+	Ingredient ingredient5=new Ingredient("flocons d'avoine",80);
+	ingredient5.setRecettes(listRecettes1);
+	ingredient5=ingredientRepo.save(ingredient5);
+	Ingredient ingredient6=new Ingredient("amande",100);
+	ingredient6.setRecettes(listRecettes1);
+	ingredient6=ingredientRepo.save(ingredient6);
+	Ingredient ingredient7=new Ingredient("farine complete",150);
+	ingredient7.setRecettes(listRecettes1);
+	ingredient7=ingredientRepo.save(ingredient7);
+	Ingredient ingredient8=new Ingredient("oeuf",1);
+	ingredient8.setRecettes(listRecettes1);
+	ingredient8=ingredientRepo.save(ingredient8);
+	Ingredient ingredient9=new Ingredient("beurre",100);
+	ingredient9.setRecettes(listRecettes1);
+	ingredient9=ingredientRepo.save(ingredient9);
+	Ingredient ingredient10=new Ingredient("yaourt",100);
+	ingredient10.setRecettes(listRecettes1);
+	ingredient10=ingredientRepo.save(ingredient10);
+	Ingredient ingredient11=new Ingredient("vanille",20);
+	ingredient11.setRecettes(listRecettes1);
+	ingredient11=ingredientRepo.save(ingredient11);
+			
+	
+	List<Ingredient> ingredients1=new ArrayList<Ingredient>();
+	ingredients1.add(ingredient1);
+	
+	ingredients1.add(ingredient2);
+	ingredient2.setRecettes(listRecettes1);
+	ingredients1.add(ingredient3);
+	ingredient3.setRecettes(listRecettes1);
+	ingredients1.add(ingredient4);
+	ingredient4.setRecettes(listRecettes1);
+	ingredients1.add(ingredient5);
+	ingredient5.setRecettes(listRecettes1);
+	ingredients1.add(ingredient6);
+	ingredient6.setRecettes(listRecettes1);
+	ingredients1.add(ingredient7);
+	ingredient7.setRecettes(listRecettes1);
+	ingredients1.add(ingredient8);
+	ingredient8.setRecettes(listRecettes1);
+	ingredients1.add(ingredient9);
+	ingredient9.setRecettes(listRecettes1);
+	ingredients1.add(ingredient10);
+	ingredient10.setRecettes(listRecettes1);
+	ingredients1.add(ingredient11);
+	ingredient11.setRecettes(listRecettes1);
+	
+	recette1.setIngredients(ingredients1);
+	recette1=recetteRepo.save(recette1);
+	
+	Repas repas1=new Repas();
+	repas1.setTypeRepas(TypeRepas.PETIT_DEJ);
+	repas1=repasRepo.save(repas1);
+	
+	Plat plat1=new Plat();
+	plat1.setNombrePersonne(6);
+	plat1.setRecettes(listRecettes1);
+	plat1.setRepas(repas1);
+	plat1 = platRepo.save(plat1);
+	}
+	
+	/********************************************************************************************************************	
+	********************************************************************************************************************	
+	********************************************************************************************************************/
+	@Test
+	public void EnglishBreakfast(){
+	Recette recette1=new Recette();
+	recette1.setEtapes("Etapes\r\n"
+			+ "ÉTAPE 1\r\n"
+			+ "- Couper les champignons en tranches et les faire revenir dans une poêle avec un peu de beurre, à feu moyen. Saler, poivrer.\r\n"
+			+ "\r\n"
+			+ "ÉTAPE 2\r\n"
+			+ "- Pendant ce temps, faire cuire le bacon dans une grande poêle, et mettre le pain à toaster.\r\n"
+			+ "\r\n"
+			+ "ÉTAPE 3\r\n"
+			+ "- Rajouter dans la poêle les oeufs (au plat), saler, poivrer.\r\n"
+			+ "\r\n"
+			+ "ÉTAPE 4\r\n"
+			+ "Réchauffer les haricots au micro-ondes (2 min, en remuant à mi-temps) et beurrer les tranches de pain que l'on coupera en diagonale.\r\n"
+			+ "\r\n"
+			+ "ÉTAPE 5\r\n"
+			+ "- Disposer tous les ingrédients dans une grande assiette: c'est prêt!");
+	recette1.setNom("English Breakfast");
+	recette1.setNombrePers(2);
+	recette1.setNote(5F);
+//	List<TypeAlimentation> typesAlim=new ArrayList<TypeAlimentation>();
+//	typesAlim.add(TypeAlimentation.NONE);
+//	typesAlim.add(TypeAlimentation.VEGAN);
+//	typesAlim.add(TypeAlimentation.HALAL);
+//	typesAlim.add(TypeAlimentation.VEGETARIEN);
+//	recette1.setTypeAlimentation(typesAlim);
+	recette1.setTypeAlimentation(TypeAlimentation.NONE);
+	recette1=recetteRepo.save(recette1);
+	List<Recette> listRecettes1 = new ArrayList<Recette>();
+	listRecettes1.add(recette1);	
+	recette1.setPhoto("../../assets/images/english_breakfast.jpg");
+	recette1=recetteRepo.save(recette1);
+	
+	Ingredient ingredient1=new Ingredient("pain",120);//ingredient1 recette1
+	ingredient1.setRecettes(listRecettes1);
+	ingredient1=ingredientRepo.save(ingredient1);
+	Ingredient ingredient2=new Ingredient("champignons",300);//ingredient2 recette1
+	ingredient2.setRecettes(listRecettes1);
+	ingredient2=ingredientRepo.save(ingredient2);
+	Ingredient ingredient3=new Ingredient("bacon",100);
+	ingredient3.setRecettes(listRecettes1);
+	ingredient3=ingredientRepo.save(ingredient3);
+	Ingredient ingredient4=new Ingredient("oeuf",4);
+	ingredient4.setRecettes(listRecettes1);
+	ingredient4=ingredientRepo.save(ingredient4);
+	Ingredient ingredient5=new Ingredient("haricots",200);
+	ingredient5.setRecettes(listRecettes1);
+	ingredient5=ingredientRepo.save(ingredient5);
+	Ingredient ingredient6=new Ingredient("beurre",50);
+	ingredient6.setRecettes(listRecettes1);
+	ingredient6=ingredientRepo.save(ingredient6);
+		
+	
+	List<Ingredient> ingredients1=new ArrayList<Ingredient>();
+	ingredients1.add(ingredient1);
+	
+	ingredients1.add(ingredient2);
+	ingredient2.setRecettes(listRecettes1);
+	ingredients1.add(ingredient3);
+	ingredient3.setRecettes(listRecettes1);
+	ingredients1.add(ingredient4);
+	ingredient4.setRecettes(listRecettes1);
+	ingredients1.add(ingredient5);
+	ingredient5.setRecettes(listRecettes1);
+	ingredients1.add(ingredient6);
+	ingredient6.setRecettes(listRecettes1);
+	
+	recette1.setIngredients(ingredients1);
+	recette1=recetteRepo.save(recette1);
+	
+	Repas repas1=new Repas();
+	repas1.setTypeRepas(TypeRepas.PETIT_DEJ);
+	repas1=repasRepo.save(repas1);
+	
+	Plat plat1=new Plat();
+	plat1.setNombrePersonne(2);
+	plat1.setRecettes(listRecettes1);
+	plat1.setRepas(repas1);
+	plat1 = platRepo.save(plat1);
+	}
+	
+	/********************************************************************************************************************	
+	********************************************************************************************************************	
+	********************************************************************************************************************/
+	@Test
+	public void CrumbleFruitSec(){
+	Recette recette1=new Recette();
+	recette1.setEtapes("ÉTAPE 1\r\n"
+			+ "Préchauffez le four à 170°C (thermostat 5-6).\r\n"
+			+ "\r\n"
+			+ "ÉTAPE 2\r\n"
+			+ "Préparez le crumble en mélangeant l'oeuf, le sucre, la farine, le beurre mou et le sel. Le tout doit s'émietter.\r\n"
+			+ "\r\n"
+			+ "ÉTAPE 3\r\n"
+			+ "Etalez sur une plaque tapissée de papier sulfurisé par petites miettes ou amas plus ou moins gros (ajoutez un peu de farine si c'est trop pâteux).\r\n"
+			+ "\r\n"
+			+ "ÉTAPE 4\r\n"
+			+ "Enfournez pendant 13 minutes en surveillant la cuisson : le crumble doit être bien doré et croustillant sur le dessus.\r\n"
+			+ "\r\n"
+			+ "ÉTAPE 5\r\n"
+			+ "Mélangez tous les autres ingrédients et ajoutez le crumble cuit en miettes, une fois bien refroidi (pour que le chocolat ne fonde pas).\r\n"
+			+ "\r\n"
+			+ "ÉTAPE 6\r\n"
+			+ "A servir au petit-déjeuner avec du lait.");
+	recette1.setNom("Crumble fruit sec");
+	recette1.setNombrePers(6);
+	recette1.setNote(5F);
+//	List<TypeAlimentation> typesAlim=new ArrayList<TypeAlimentation>();
+//	typesAlim.add(TypeAlimentation.NONE);
+//	typesAlim.add(TypeAlimentation.VEGAN);
+//	typesAlim.add(TypeAlimentation.HALAL);
+//	typesAlim.add(TypeAlimentation.VEGETARIEN);
+//	recette1.setTypeAlimentation(typesAlim);
+	recette1.setTypeAlimentation(TypeAlimentation.NONE);
+	recette1=recetteRepo.save(recette1);
+	List<Recette> listRecettes1 = new ArrayList<Recette>();
+	listRecettes1.add(recette1);	
+	recette1.setPhoto("../../assets/images/crumble_fruit_sec.jpg");
+	recette1=recetteRepo.save(recette1);
+	
+	Ingredient ingredient1=new Ingredient("farine",200);//ingredient1 recette1
+	ingredient1.setRecettes(listRecettes1);
+	ingredient1=ingredientRepo.save(ingredient1);
+	Ingredient ingredient2=new Ingredient("sucre",100);//ingredient2 recette1
+	ingredient2.setRecettes(listRecettes1);
+	ingredient2=ingredientRepo.save(ingredient2);
+	Ingredient ingredient3=new Ingredient("chocolat",50);
+	ingredient3.setRecettes(listRecettes1);
+	ingredient3=ingredientRepo.save(ingredient3);
+	Ingredient ingredient4=new Ingredient("raisin sec",100);
+	ingredient4.setRecettes(listRecettes1);
+	ingredient4=ingredientRepo.save(ingredient4);
+	Ingredient ingredient5=new Ingredient("cannelle",10);
+	ingredient5.setRecettes(listRecettes1);
+	ingredient5=ingredientRepo.save(ingredient5);
+	Ingredient ingredient6=new Ingredient("beurre",75);
+	ingredient6.setRecettes(listRecettes1);
+	ingredient6=ingredientRepo.save(ingredient6);
+	Ingredient ingredient7=new Ingredient("sel",5);
+	ingredient7.setRecettes(listRecettes1);
+	ingredient7=ingredientRepo.save(ingredient7);
+	Ingredient ingredient8=new Ingredient("oeuf",1);
+	ingredient8.setRecettes(listRecettes1);
+	ingredient8=ingredientRepo.save(ingredient8);
+	Ingredient ingredient9=new Ingredient("avoine",60);
+	ingredient9.setRecettes(listRecettes1);
+	ingredient9=ingredientRepo.save(ingredient9);
+	Ingredient ingredient10=new Ingredient("cranberries",100);
+	ingredient10.setRecettes(listRecettes1);
+	ingredient10=ingredientRepo.save(ingredient10);
+		
+	
+	List<Ingredient> ingredients1=new ArrayList<Ingredient>();
+	ingredients1.add(ingredient1);
+	
+	ingredients1.add(ingredient2);
+	ingredient2.setRecettes(listRecettes1);
+	ingredients1.add(ingredient3);
+	ingredient3.setRecettes(listRecettes1);
+	ingredients1.add(ingredient4);
+	ingredient4.setRecettes(listRecettes1);
+	ingredients1.add(ingredient5);
+	ingredient5.setRecettes(listRecettes1);
+	ingredients1.add(ingredient6);
+	ingredient6.setRecettes(listRecettes1);
+	
+	recette1.setIngredients(ingredients1);
+	recette1=recetteRepo.save(recette1);
+	
+	Repas repas1=new Repas();
+	repas1.setTypeRepas(TypeRepas.PETIT_DEJ);
+	repas1=repasRepo.save(repas1);
+	
+	Plat plat1=new Plat();
+	plat1.setNombrePersonne(6);
+	plat1.setRecettes(listRecettes1);
+	plat1.setRepas(repas1);
+	plat1 = platRepo.save(plat1);
+	}
+	
+	/********************************************************************************************************************	
+	********************************************************************************************************************	
+	********************************************************************************************************************/
+	
+	@Test
+	public void Pancake(){
+	Recette recette1=new Recette();
+	recette1.setEtapes("ÉTAPE 1\r\n"
+			+ "Faire fondre le beurre, dans une casserole à feu doux ou dans un bol au micro-ondes.\r\n"
+			+ "\r\n"
+			+ "ÉTAPE 2\r\n"
+			+ "Mettre la farine, la levure et le sucre dans un saladier. Mélanger et creuser un puits.\r\n"
+			+ "\r\n"
+			+ "ÉTAPE 3\r\n"
+			+ "Ajouter ensuite les oeufs entiers et fouetter l'ensemble.\r\n"
+			+ "\r\n"
+			+ "ÉTAPE 4\r\n"
+			+ "Incorporer le beurre fondu, fouetter puis délayer progressivement le mélange avec le lait afin d'éviter les grumeaux.\r\n"
+			+ "\r\n"
+			+ "ÉTAPE 5\r\n"
+			+ "Laisser reposer la pâte au minimum 1 heure au réfrigérateur.\r\n"
+			+ "\r\n"
+			+ "ÉTAPE 6\r\n"
+			+ "Dans une poêle chaude et légèrement huilée, faire cuire comme des crêpes, mais en les faisant plus petites. Réserver au chaud et déguster.");
+	recette1.setNom("Pancake");
+	recette1.setNombrePers(4);
+	recette1.setNote(4.8F);
+//	List<TypeAlimentation> typesAlim=new ArrayList<TypeAlimentation>();
+//	typesAlim.add(TypeAlimentation.NONE);
+//	typesAlim.add(TypeAlimentation.VEGAN);
+//	typesAlim.add(TypeAlimentation.HALAL);
+//	typesAlim.add(TypeAlimentation.VEGETARIEN);
+//	recette1.setTypeAlimentation(typesAlim);
+	recette1.setTypeAlimentation(TypeAlimentation.NONE);
+	recette1=recetteRepo.save(recette1);
+	List<Recette> listRecettes1 = new ArrayList<Recette>();
+	listRecettes1.add(recette1);	
+	recette1.setPhoto("../../assets/images/crumble_fruit_sec.jpg");
+	recette1=recetteRepo.save(recette1);
+	
+	Ingredient ingredient1=new Ingredient("farine",200);//ingredient1 recette1
+	ingredient1.setRecettes(listRecettes1);
+	ingredient1=ingredientRepo.save(ingredient1);
+	Ingredient ingredient2=new Ingredient("sucre",100);//ingredient2 recette1
+	ingredient2.setRecettes(listRecettes1);
+	ingredient2=ingredientRepo.save(ingredient2);
+	Ingredient ingredient3=new Ingredient("chocolat",50);
+	ingredient3.setRecettes(listRecettes1);
+	ingredient3=ingredientRepo.save(ingredient3);
+	Ingredient ingredient4=new Ingredient("raisin sec",100);
+	ingredient4.setRecettes(listRecettes1);
+	ingredient4=ingredientRepo.save(ingredient4);
+	Ingredient ingredient5=new Ingredient("cannelle",10);
+	ingredient5.setRecettes(listRecettes1);
+	ingredient5=ingredientRepo.save(ingredient5);
+	Ingredient ingredient6=new Ingredient("beurre",75);
+	ingredient6.setRecettes(listRecettes1);
+	ingredient6=ingredientRepo.save(ingredient6);
+	Ingredient ingredient7=new Ingredient("sel",5);
+	ingredient7.setRecettes(listRecettes1);
+	ingredient7=ingredientRepo.save(ingredient7);
+	Ingredient ingredient8=new Ingredient("oeuf",1);
+	ingredient8.setRecettes(listRecettes1);
+	ingredient8=ingredientRepo.save(ingredient8);
+	Ingredient ingredient9=new Ingredient("avoine",60);
+	ingredient9.setRecettes(listRecettes1);
+	ingredient9=ingredientRepo.save(ingredient9);
+	Ingredient ingredient10=new Ingredient("cranberries",100);
+	ingredient10.setRecettes(listRecettes1);
+	ingredient10=ingredientRepo.save(ingredient10);
+		
+	
+	List<Ingredient> ingredients1=new ArrayList<Ingredient>();
+	ingredients1.add(ingredient1);
+	
+	ingredients1.add(ingredient2);
+	ingredient2.setRecettes(listRecettes1);
+	ingredients1.add(ingredient3);
+	ingredient3.setRecettes(listRecettes1);
+	ingredients1.add(ingredient4);
+	ingredient4.setRecettes(listRecettes1);
+	ingredients1.add(ingredient5);
+	ingredient5.setRecettes(listRecettes1);
+	ingredients1.add(ingredient6);
+	ingredient6.setRecettes(listRecettes1);
+	
+	recette1.setIngredients(ingredients1);
+	recette1=recetteRepo.save(recette1);
+	
+	Repas repas1=new Repas();
+	repas1.setTypeRepas(TypeRepas.PETIT_DEJ);
+	repas1=repasRepo.save(repas1);
+	
+	Plat plat1=new Plat();
+	plat1.setNombrePersonne(6);
+	plat1.setRecettes(listRecettes1);
+	plat1.setRepas(repas1);
+	plat1 = platRepo.save(plat1);
+	}
+	/********************************************************************************************************************	
+	********************************************************************************************************************	
+	********************************************************************************************************************/
+	@Test
+	public void Smoothie(){
+	Recette recette1=new Recette();
+	recette1.setEtapes("ÉTAPE 1\r\n"
+			+ "mettre dans un mixer les bananes coupées en morceaux et la chair des kiwis.\r\n"
+			+ "ÉTAPE 2\r\n"
+			+ "Presser les oranges et rajouter le jus dans le mixer.\r\n"
+			+ "ÉTAPE 3\r\n"
+			+ "Rajouter le lait de soja (il peut être nature ou vanillé).");
+	recette1.setNom("Smoothie");
+	recette1.setNombrePers(2);
+	recette1.setNote(4.7F);
+//	List<TypeAlimentation> typesAlim=new ArrayList<TypeAlimentation>();
+//	typesAlim.add(TypeAlimentation.NONE);
+//	typesAlim.add(TypeAlimentation.VEGAN);
+//	typesAlim.add(TypeAlimentation.HALAL);
+//	typesAlim.add(TypeAlimentation.VEGETARIEN);
+//	recette1.setTypeAlimentation(typesAlim);
+	recette1.setTypeAlimentation(TypeAlimentation.NONE);
+	recette1=recetteRepo.save(recette1);
+	List<Recette> listRecettes1 = new ArrayList<Recette>();
+	listRecettes1.add(recette1);	
+	recette1.setPhoto("../../assets/images/smoothie.jpg");
+	recette1=recetteRepo.save(recette1);
+	
+	Ingredient ingredient1=new Ingredient("lait de soja",200);//ingredient1 recette1
+	ingredient1.setRecettes(listRecettes1);
+	ingredient1=ingredientRepo.save(ingredient1);
+	Ingredient ingredient2=new Ingredient("banane",200);//ingredient2 recette1
+	ingredient2.setRecettes(listRecettes1);
+	ingredient2=ingredientRepo.save(ingredient2);
+	Ingredient ingredient3=new Ingredient("orange",200);
+	ingredient3.setRecettes(listRecettes1);
+	ingredient3=ingredientRepo.save(ingredient3);
+	Ingredient ingredient4=new Ingredient("kiwi",100);
+	ingredient4.setRecettes(listRecettes1);
+	ingredient4=ingredientRepo.save(ingredient4);
+	
+	
+	List<Ingredient> ingredients1=new ArrayList<Ingredient>();
+	ingredients1.add(ingredient1);
+	
+	ingredients1.add(ingredient2);
+	ingredient2.setRecettes(listRecettes1);
+	ingredients1.add(ingredient3);
+	ingredient3.setRecettes(listRecettes1);
+	ingredients1.add(ingredient4);
+	ingredient4.setRecettes(listRecettes1);
+	
+	recette1.setIngredients(ingredients1);
+	recette1=recetteRepo.save(recette1);
+	
+	Repas repas1=new Repas();
+	repas1.setTypeRepas(TypeRepas.PETIT_DEJ);
+	repas1=repasRepo.save(repas1);
+	
+	Plat plat1=new Plat();
+	plat1.setNombrePersonne(6);
+	plat1.setRecettes(listRecettes1);
+	plat1.setRepas(repas1);
+	plat1 = platRepo.save(plat1);
+	}
+	
+	/********************************************************************************************************************	
+	********************************************************************************************************************	
+	********************************************************************************************************************/
+	
+	
+	
+	
+	/********************************************************************************************************************	
+	*******************************************Dej**********************************************************************
+	********************************************************************************************************************/	
 	
 	//plat1 avec recettes1 et tous ses ingédients
 		@Test
@@ -222,6 +700,12 @@ public class BasedeDonnes {
 		plat1.setRepas(repas1);
 		plat1 = platRepo.save(plat1);
 		}
+		
+		
+		
+/********************************************************************************************************************		
+*****************************************DINER**********************************************************************
+********************************************************************************************************************/	
 		
 		@Test
 		public void PotAuFeu(){
@@ -341,6 +825,10 @@ public class BasedeDonnes {
 		plat1.setRepas(repas1);
 		plat1 = platRepo.save(plat1);
 		}
+		
+/********************************************************************************************************************	
+********************************************************************************************************************	
+********************************************************************************************************************/	
 		
 		
 		@Test
@@ -480,112 +968,5 @@ public class BasedeDonnes {
 		plat1 = platRepo.save(plat1);
 		}
 		
-		@Test
-		public void BiscuitCereal(){
-		Recette recette1=new Recette();
-		recette1.setEtapes("ÉTAPE 1\r\n"
-				+ "Dans une jatte, pétrissez tous les ingrédients ensemble jusqu'à obtenir une boule de pâte.\r\n"
-				+ "\r\n"
-				+ "ÉTAPE 2\r\n"
-				+ "Si vous souhaitez faire différents biscuits avec cette même pâte, ne mettez pas les ingrédients optionnels.\r\n"
-				+ "\r\n"
-				+ "ÉTAPE 3\r\n"
-				+ "Enveloppez la pâte dans du film transparent et mettre au frigo pour une dizaine de minutes au moins.\r\n"
-				+ "\r\n"
-				+ "ÉTAPE 4\r\n"
-				+ "Préchauffez votre four à 200°C et placez du papier sulfurisé sur une plaque de cuisson.\r\n"
-				+ "\r\n"
-				+ "ÉTAPE 5\r\n"
-				+ "Sortez la pâte du frigo et, si vous le souhaitez, séparez la pâte en plusieurs parts pour y ajouter les ingrédients optionnels.\r\n"
-				+ "\r\n"
-				+ "ÉTAPE 6\r\n"
-				+ "Formez de petites boules de pâtes que vous écraserez dans la paume avant de placer sur la plaque.\r\n"
-				+ "\r\n"
-				+ "ÉTAPE 7\r\n"
-				+ "Placez au four pour environ 10 minutes, selon votre four. Restez à proximité des biscuits. Ils doivent être à peine dorés pour restez moelleux ou bien dorés pour être un peu plus croquants.");
-		recette1.setNom("Biscuits aux céréales");
-		recette1.setNombrePers(6);
-		recette1.setNote(4.6F);
-
-		recette1.setTypeAlimentation(TypeAlimentation.NONE);
-		recette1=recetteRepo.save(recette1);
-		List<Recette> listRecettes1 = new ArrayList<Recette>();
-		listRecettes1.add(recette1);	
-		recette1.setPhoto("../../assets/images/biscuit_cereals.jpg");
-		recette1=recetteRepo.save(recette1);
 		
-		
-		
-		Ingredient ingredient1=new Ingredient("farine",150);//ingredient1 recette1
-		ingredient1.setRecettes(listRecettes1);
-		ingredient1=ingredientRepo.save(ingredient1);
-		Ingredient ingredient2=new Ingredient("sucre",50);//ingredient2 recette1
-		ingredient2.setRecettes(listRecettes1);
-		ingredient2=ingredientRepo.save(ingredient2);
-		Ingredient ingredient3=new Ingredient("miel",50);
-		ingredient3.setRecettes(listRecettes1);
-		ingredient3=ingredientRepo.save(ingredient3);
-		Ingredient ingredient4=new Ingredient("sachet sucre vanille",10);
-		ingredient4.setRecettes(listRecettes1);
-		ingredient4=ingredientRepo.save(ingredient4);
-		Ingredient ingredient5=new Ingredient("flocons d'avoine",80);
-		ingredient5.setRecettes(listRecettes1);
-		ingredient5=ingredientRepo.save(ingredient5);
-		Ingredient ingredient6=new Ingredient("amande",100);
-		ingredient6.setRecettes(listRecettes1);
-		ingredient6=ingredientRepo.save(ingredient6);
-		Ingredient ingredient7=new Ingredient("farine complete",150);
-		ingredient7.setRecettes(listRecettes1);
-		ingredient7=ingredientRepo.save(ingredient7);
-		Ingredient ingredient8=new Ingredient("oeuf",1);
-		ingredient8.setRecettes(listRecettes1);
-		ingredient8=ingredientRepo.save(ingredient8);
-		Ingredient ingredient9=new Ingredient("beurre",100);
-		ingredient9.setRecettes(listRecettes1);
-		ingredient9=ingredientRepo.save(ingredient9);
-		Ingredient ingredient10=new Ingredient("yaourt",100);
-		ingredient10.setRecettes(listRecettes1);
-		ingredient10=ingredientRepo.save(ingredient10);
-		Ingredient ingredient11=new Ingredient("vanille",20);
-		ingredient11.setRecettes(listRecettes1);
-		ingredient11=ingredientRepo.save(ingredient11);
-				
-		
-		List<Ingredient> ingredients1=new ArrayList<Ingredient>();
-		ingredients1.add(ingredient1);
-		
-		ingredients1.add(ingredient2);
-		ingredient2.setRecettes(listRecettes1);
-		ingredients1.add(ingredient3);
-		ingredient3.setRecettes(listRecettes1);
-		ingredients1.add(ingredient4);
-		ingredient4.setRecettes(listRecettes1);
-		ingredients1.add(ingredient5);
-		ingredient5.setRecettes(listRecettes1);
-		ingredients1.add(ingredient6);
-		ingredient6.setRecettes(listRecettes1);
-		ingredients1.add(ingredient7);
-		ingredient7.setRecettes(listRecettes1);
-		ingredients1.add(ingredient8);
-		ingredient8.setRecettes(listRecettes1);
-		ingredients1.add(ingredient9);
-		ingredient9.setRecettes(listRecettes1);
-		ingredients1.add(ingredient10);
-		ingredient10.setRecettes(listRecettes1);
-		ingredients1.add(ingredient11);
-		ingredient11.setRecettes(listRecettes1);
-		
-		recette1.setIngredients(ingredients1);
-		recette1=recetteRepo.save(recette1);
-		
-		Repas repas1=new Repas();
-		repas1.setTypeRepas(TypeRepas.PETIT_DEJ);
-		repas1=repasRepo.save(repas1);
-		
-		Plat plat1=new Plat();
-		plat1.setNombrePersonne(4);
-		plat1.setRecettes(listRecettes1);
-		plat1.setRepas(repas1);
-		plat1 = platRepo.save(plat1);
-		}
 }

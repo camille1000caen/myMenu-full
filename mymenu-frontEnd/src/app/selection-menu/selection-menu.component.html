@@ -19,13 +19,13 @@
           <h2 class="petitDejTitle">Petit déjeuner</h2>
           <div class="album py-3">
             <div class="card-deck"  >
-              <app-recette *ngFor="let recette of tabFirst4()" [idRecette]="recette.id" class="card"></app-recette>
+              <app-recette *ngFor="let recette of tabFirst4(this.tabpetitdej)" [idRecette]="recette.id" class="card"></app-recette>
             </div>
           </div>
           <!-- ---------------------------------------------------------------------------- BREAKFAST ROW 2 -->
           <div class="album py-3">
             <div class="card-deck" >
-              <app-recette  *ngFor="let recette of tabLast4()" [idRecette]="recette.id"  class="card"></app-recette>
+              <app-recette  *ngFor="let recette of tabLast4(this.tabpetitdej)" [idRecette]="recette.id"  class="card"></app-recette>
             </div>
           </div>
           <!-- ---------------------------------------------------------------------------- BREAKFAST END-->
@@ -36,13 +36,13 @@
           <h2 class="dejeunerTitle">Déjeuner</h2>
           <div class="album py-3">
             <div class="card-deck">
-              <app-card *ngFor="let index of nBMenuPerRow" class="card"></app-card>
+              <app-recette *ngFor="let recette of tabFirst4(this.tabdej)" [idRecette]="recette.id" class="card"></app-recette>
             </div>
           </div>
           <!-- ---------------------------------------------------------------------------- LUNCH ROW 2 -->
           <div class="album py-3">
             <div class="card-deck">
-              <app-card *ngFor="let index of nBMenuPerRow" class="card"></app-card>
+              <app-recette *ngFor="let recette of tabLast4(this.tabdej)" [idRecette]="recette.id" class="card"></app-recette>
             </div>
           </div>
           <!-- ---------------------------------------------------------------------------- LUNCH END-->
@@ -53,13 +53,13 @@
           <h2 class="dinnerTitle">Dîner</h2>
           <div class="album py-3">
             <div class="card-deck">
-              <app-card *ngFor="let index of nBMenuPerRow" class="card"></app-card>
+              <app-recette *ngFor="let recette of tabFirst4(this.tabdiner)" [idRecette]="recette.id" class="card"></app-recette>
             </div>
           </div>
           <!-- ---------------------------------------------------------------------------- LUNCH ROW 2 -->
           <div class="album py-3">
             <div class="card-deck">
-              <app-card *ngFor="let index of nBMenuPerRow" class="card"></app-card>
+              <app-recette *ngFor="let recette of tabLast4(this.tabdiner)" [idRecette]="recette.id" class="card"></app-recette>
             </div>
           </div>
           <!-- ---------------------------------------------------------------------------- DINNER END-->

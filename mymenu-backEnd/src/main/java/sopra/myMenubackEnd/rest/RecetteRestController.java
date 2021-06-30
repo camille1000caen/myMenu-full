@@ -23,6 +23,7 @@ import com.fasterxml.jackson.annotation.JsonView;
 import sopra.myMenubackEnd.model.Adresse;
 import sopra.myMenubackEnd.model.Ingredient;
 import sopra.myMenubackEnd.model.Recette;
+import sopra.myMenubackEnd.model.TypeRepas;
 import sopra.myMenubackEnd.model.Views;
 import sopra.myMenubackEnd.repository.IRecetteRepository;
 
@@ -72,6 +73,13 @@ public class RecetteRestController {
 	@JsonView(Views.ViewRecetteDetail.class)
 	public List<Recette> findByRisingNoteWithPlat() {
 		List<Recette> res=huitpremier(recetteRepo.findByRisingNoteWithPlat());
+		return res;
+	}
+	
+	@GetMapping("/detail/by-rising-note/by-type-repas/{typeRepas}")
+	@JsonView(Views.ViewRecetteDetail.class)
+	public List<Recette> findByRisingNoteWithPlatByTypeRepas(@PathVariable TypeRepas typeRepas) {
+		List<Recette> res=recetteRepo.findByRisingNoteWithPlatByTypeRepas(typeRepas);
 		return res;
 	}
 	
