@@ -32,6 +32,11 @@
   <h5 class="card-title">{{recette.nom}}</h5>
   <p class="card-text"> Pour à savourer entre petits et grands</p>
 </div>
+<tfoot>
+<tr>
+  <td colspan="5" class="text-center"><a class="btn btn-success" (click)="pdfDownload()"><i class="far fa-file-pdf"> Générer ma liste de recettes au format PDF</i></a></td>
+</tr>
+</tfoot>
 
 <!--<div class="card-footer">-->
 <!--  <div class="form-check btn-group float-right">-->
@@ -43,3 +48,4 @@
 <!--    </button>-->
 <!--  </div>-->
 <!--</div>-->
+
