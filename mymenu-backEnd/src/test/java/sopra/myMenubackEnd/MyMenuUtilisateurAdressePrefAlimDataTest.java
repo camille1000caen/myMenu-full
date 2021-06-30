@@ -47,7 +47,12 @@ public class MyMenuUtilisateurAdressePrefAlimDataTest {
 				tom.setPhysicalActivity(PhysicalActivity.PANTOUFLARD);
 				tom.setPoids(77.5F);
 				tom.setTaille(177.5F);
-		// CREATION UTILISATEUR
+				tom.setEmail("tom.favrot@soprasteria.com");
+				tom.setTelephone("0666736382");
+				tom.setPassword("Lesuperambassadeur");
+				tom.setEnable(true);
+				tom.setUsername("TompasThomas");
+				// CREATION UTILISATEUR
 				Utilisateur baptiste = new Utilisateur();
 				try {
 					baptiste.setDateNaissance(sdf.parse("1995-10-28"));
@@ -62,6 +67,11 @@ public class MyMenuUtilisateurAdressePrefAlimDataTest {
 				baptiste.setPhysicalActivity(PhysicalActivity.REGULIER);
 				baptiste.setPoids(81.5F);
 				baptiste.setTaille(175.0F);
+				baptiste.setEmail("baptiste.dessandier@soprasteria.com");
+				baptiste.setTelephone("0624472830");
+				baptiste.setPassword("Milou0203");
+				baptiste.setEnable(true);
+				baptiste.setUsername("THE FLASH");
 		// CREATION UTILISATEUR
 				Utilisateur Solenn = new Utilisateur();
 				try {
@@ -77,6 +87,11 @@ public class MyMenuUtilisateurAdressePrefAlimDataTest {
 				Solenn.setPhysicalActivity(PhysicalActivity.INTENSIF);
 				Solenn.setPoids(54.5F);
 				Solenn.setTaille(155.0F);
+				tom.setEmail(null);
+				tom.setTelephone(null);
+				tom.setPassword(null);
+				tom.setEnable(true);
+				tom.setUsername(null);
 		// CREATION UTILISATEUR
 				Utilisateur Camille = new Utilisateur();
 				try {
@@ -92,7 +107,11 @@ public class MyMenuUtilisateurAdressePrefAlimDataTest {
 				Camille.setPhysicalActivity(PhysicalActivity.OCCASIONNEL);
 				Camille.setPoids(51.5F);
 				Camille.setTaille(190.0F);
-				
+				tom.setEmail(null);
+				tom.setTelephone(null);
+				tom.setPassword(null);
+				tom.setEnable(true);
+				tom.setUsername(null);
 				
 		// CREATION UTILISATEUR
 				Utilisateur Geoffrey = new Utilisateur();
@@ -109,6 +128,11 @@ public class MyMenuUtilisateurAdressePrefAlimDataTest {
 				Geoffrey.setPhysicalActivity(PhysicalActivity.OCCASIONNEL);
 				Geoffrey.setPoids(74.5F);
 				Geoffrey.setTaille(185.5F);
+				tom.setEmail(null);
+				tom.setTelephone(null);
+				tom.setPassword(null);
+				tom.setEnable(true);
+				tom.setUsername(null);
 		// CREATION UTILISATEUR
 				Utilisateur Seif = new Utilisateur();
 				try {
@@ -124,6 +148,11 @@ public class MyMenuUtilisateurAdressePrefAlimDataTest {
 				Seif.setPhysicalActivity(PhysicalActivity.REGULIER);
 				Seif.setPoids(79.5F);
 				Seif.setTaille(182.0F);
+				tom.setEmail(null);
+				tom.setTelephone(null);
+				tom.setPassword(null);
+				tom.setEnable(true);
+				tom.setUsername(null);
 		// CREATION UTILISATEUR
 				Utilisateur Aubeline = new Utilisateur();
 				try {
@@ -139,6 +168,11 @@ public class MyMenuUtilisateurAdressePrefAlimDataTest {
 				Aubeline.setPhysicalActivity(PhysicalActivity.INTENSIF);
 				Aubeline.setPoids(54.5F);
 				Aubeline.setTaille(155.0F);
+				tom.setEmail(null);
+				tom.setTelephone(null);
+				tom.setPassword(null);
+				tom.setEnable(true);
+				tom.setUsername(null);
 		// CREATION UTILISATEUR
 				Utilisateur Lea = new Utilisateur();
 				try {
@@ -154,6 +188,31 @@ public class MyMenuUtilisateurAdressePrefAlimDataTest {
 				Lea.setPhysicalActivity(PhysicalActivity.PANTOUFLARD);
 				Lea.setPoids(46.5F);
 				Lea.setTaille(150.0F);
+				tom.setEmail(null);
+				tom.setTelephone(null);
+				tom.setPassword(null);
+				tom.setEnable(true);
+				tom.setUsername(null);
+				
+		// CREATION PREF ALIM
+				PreferenceAlimentaire prefAlimgeof = new PreferenceAlimentaire(TypeAlimentation.NONE, null);
+
+				prefAlimgeof.setUtilisateur(Geoffrey);
+				
+		// CREATION PREF ALIM
+				PreferenceAlimentaire prefAlimseif = new PreferenceAlimentaire(TypeAlimentation.FLEXITARIEN, null);
+
+				prefAlimseif.setUtilisateur(Seif);
+				
+		// CREATION PREF ALIM
+				PreferenceAlimentaire prefAlimaube = new PreferenceAlimentaire(TypeAlimentation.VEGAN, null);
+
+				prefAlimaube.setUtilisateur(Aubeline);
+				
+		// CREATION PREF ALIM
+				PreferenceAlimentaire prefAlimlea = new PreferenceAlimentaire(TypeAlimentation.HALAL, null);
+
+				prefAlimlea.setUtilisateur(Aubeline);
 				
 		// CREATION PREF ALIM
 				PreferenceAlimentaire prefAlimbat = new PreferenceAlimentaire(TypeAlimentation.NONE, null);
@@ -176,31 +235,60 @@ public class MyMenuUtilisateurAdressePrefAlimDataTest {
 				prefAlimcam.setUtilisateur(Camille);
 
 		// CREATION ADRESSE
-				Adresse adrgeoffrey = new Adresse("11 rue Electro Depot", "Chez TATAILLET", "11000", "Carcassonne", "France");
+				Adresse adrgeoffrey = new Adresse("11 rue Electro Depot", "11000", "Carcassonne", "France");
 				// adr.setUtilisateur(tom);
 				adrgeoffrey.setCoordonnees(new Coordonnees(4.2, 88.4));
 				adrgeoffrey.setUtilisateur(Geoffrey);
 				// tom.addAdresse(adr);
 				
 		// CREATION ADRESSE
-				Adresse adrseif = new Adresse("22 rue Brico Depot", "", "22000", "Culey", "France");
+				Adresse adrseif = new Adresse("22 rue Brico Depot", "22000", "Culey", "France");
 				// adr.setUtilisateur(tom);
 				adrseif.setCoordonnees(new Coordonnees(4.9, 87.6));
-				adrseif.setUtilisateur(Camille);
+				adrseif.setUtilisateur(Seif);
 				// tom.addAdresse(adr);
 				
 		// CREATION ADRESSE
-				Adresse adrsolenn = new Adresse("77 rue Monsieur Bricolage", "", "77000", "Melun", "France");
+				Adresse adraube = new Adresse("77 rue Monsieur Bricolage", "77000", "Melun", "France");
 				// adr.setUtilisateur(tom);
-				adrsolenn.setCoordonnees(new Coordonnees(4.7, 87.5));
-				adrsolenn.setUtilisateur(Solenn);
+				adraube.setCoordonnees(new Coordonnees(4.7, 87.5));
+				adraube.setUtilisateur(Aubeline);
 				// tom.addAdresse(adr);
 				
 		// CREATION ADRESSE
-				Adresse adrbat = new Adresse("99 rue Castorama", "Appartement 99", "99000", "Monaco", "France");
+				Adresse adrlea = new Adresse("99 rue Castorama", "99000", "Monaco", "France");
 				// adr.setUtilisateur(tom);
-				adrbat.setCoordonnees(new Coordonnees(4.5, 86.5));
+				adrlea.setCoordonnees(new Coordonnees(4.5, 86.5));
+				adrlea.setUtilisateur(Lea);
+				// tom.addAdresse(adr);
+				
+				
+		// CREATION ADRESSE
+				Adresse adrbat = new Adresse("11 rue Electro Depot", "11000", "Carcassonne", "France");
+				// adr.setUtilisateur(tom);
+				adrbat.setCoordonnees(new Coordonnees(4.2, 88.4));
 				adrbat.setUtilisateur(baptiste);
+				// tom.addAdresse(adr);
+				
+		// CREATION ADRESSE
+				Adresse adrtom = new Adresse("22 rue Brico Depot", "22000", "Culey", "France");
+				// adr.setUtilisateur(tom);
+				adrseif.setCoordonnees(new Coordonnees(4.9, 87.6));
+				adrseif.setUtilisateur(tom);
+				// tom.addAdresse(adr);
+				
+		// CREATION ADRESSE
+				Adresse adrsol = new Adresse("77 rue Monsieur Bricolage", "77000", "Melun", "France");
+				// adr.setUtilisateur(tom);
+				adrsol.setCoordonnees(new Coordonnees(4.7, 87.5));
+				adrsol.setUtilisateur(Solenn);
+				// tom.addAdresse(adr);
+				
+		// CREATION ADRESSE
+				Adresse adrcam = new Adresse("99 rue Castorama", "99000", "Monaco", "France");
+				// adr.setUtilisateur(tom);
+				adrcam.setCoordonnees(new Coordonnees(4.5, 86.5));
+				adrcam.setUtilisateur(Camille);
 				// tom.addAdresse(adr);
 				try {
 
@@ -210,12 +298,34 @@ public class MyMenuUtilisateurAdressePrefAlimDataTest {
 					
 					Solenn = utilisateurRepo.save(Solenn);
 					prefAlimsol = prefAlimRepo.save(prefAlimsol);
-					adrsolenn = adresseRepo.save(adrsolenn);
+					adrsol = adresseRepo.save(adrsol);
 					
 					Camille = utilisateurRepo.save(Camille);
 					prefAlimcam = prefAlimRepo.save(prefAlimcam);
-					adrcamille = adresseRepo.save(adrcamille);
-
+					adrcam = adresseRepo.save(adrcam);
+					
+					
+					baptiste = utilisateurRepo.save(baptiste);
+					prefAlimbat = prefAlimRepo.save(prefAlimtom);
+					adrbat = adresseRepo.save(adrtom);
+					
+					Geoffrey = utilisateurRepo.save(Geoffrey);
+					prefAlimgeof = prefAlimRepo.save(prefAlimgeof);
+					adrgeoffrey = adresseRepo.save(adrgeoffrey);
+					
+					Seif = utilisateurRepo.save(Seif);
+					prefAlimseif = prefAlimRepo.save(prefAlimseif);
+					adrseif = adresseRepo.save(adrseif);
+					
+					
+					Aubeline = utilisateurRepo.save(Aubeline);
+					prefAlimaube = prefAlimRepo.save(prefAlimaube);
+					adraube = adresseRepo.save(adraube);
+					
+					Lea = utilisateurRepo.save(Lea);
+					prefAlimlea = prefAlimRepo.save(prefAlimlea);
+					adrlea = adresseRepo.save(adrlea);
+					
 				} catch (PersistenceException e) {
 				}
 
