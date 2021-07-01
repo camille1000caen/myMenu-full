@@ -33,10 +33,11 @@ public class FormulaireDTO {
 	private PhysicalActivity physicalActivity;
 	private TypeAlimentation typeAlimentation;
 	private TypeObjectif typeObjectif;
+	private Integer NbRepasJour;
 	
 	public FormulaireDTO(String nom, String prenom, Date dateNaissance, String telephone, String email, String password,String username,
 			Float poids, Float taille, Float imc, PhysicalActivity physicalActivity, TypeAlimentation typeAlimentation,
-			TypeObjectif typeObjectif) {
+			TypeObjectif typeObjectif,Integer NbRepasJour) {
 		super();
 		this.nom = nom;
 		this.prenom = prenom;
@@ -51,6 +52,15 @@ public class FormulaireDTO {
 		this.typeAlimentation = typeAlimentation;
 		this.typeObjectif = typeObjectif;
 		this.username=username;
+		this.NbRepasJour=NbRepasJour;
+	}
+
+	public Integer getNbRepasJour() {
+		return NbRepasJour;
+	}
+
+	public void setNbRepasJour(Integer nbRepasJour) {
+		NbRepasJour = nbRepasJour;
 	}
 
 	public String getUsername() {
