@@ -19,7 +19,6 @@ export class RecetteComponent implements OnInit {
   recette: Recette = new Recette();
   recettes: Array<Recette> =  new Array<Recette>();
   tab: Array<Recette>;
-  recettes:Array<Recette>;
 
   menuChecked : Array<number> = new Array(); // recréé à chaque fois ?
   constructor(private recetteService: RecetteHttpService) {
