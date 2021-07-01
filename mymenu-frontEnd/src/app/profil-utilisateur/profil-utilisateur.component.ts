@@ -8,6 +8,8 @@ import {Planning} from "../model/planning";
 import {PlanningHttpService} from "../planning/planning-http.service";
 import {Objectif} from "../model/objectif";
 import {ObjectifHttpService} from "../objectif/objectif-http.service";
+import {ServiceDTO} from "../service-dto.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-profil-utilisateur',
@@ -21,7 +23,7 @@ export class ProfilUtilisateurComponent implements OnInit {
   prefalims:Array<PreferenceAlimentaire>;
   plannings:Array<Planning>;
   objectifs:Array<Objectif>;
-  constructor(private utilisateurService: UtilisateurHttpService,private prefalimService : PreferenceAlimentaireHttpService,private planningService:PlanningHttpService,private objectifService : ObjectifHttpService) { }
+  constructor(private router:Router,private formService:ServiceDTO,private utilisateurService: UtilisateurHttpService,private prefalimService : PreferenceAlimentaireHttpService,private planningService:PlanningHttpService,private objectifService : ObjectifHttpService) { }
 
   ngOnInit(): void {
     this.utilisateur=JSON.parse(sessionStorage.getItem("utilisateur"));
@@ -50,4 +52,9 @@ export class ProfilUtilisateurComponent implements OnInit {
     })
   }
 
+  editprofile() {
+    this.formService.findById(this.utilisateur.id).subscribe(resp=>
+      this.router.navigate(["/utilisateur/"+this.utilisateur.id]));
+    
+  }
 }
