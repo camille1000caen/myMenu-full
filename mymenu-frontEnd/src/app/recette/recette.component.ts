@@ -19,10 +19,16 @@ export class RecetteComponent implements OnInit {
   @Output()
   unCheckedRecette = new EventEmitter<number>();
 
+  @Output()
+  checkedRecetteName = new EventEmitter<string>();
+
+  @Output()
+  unCheckedRecetteName = new EventEmitter<string>();
+
   recette: Recette = new Recette();
   typeRecette: Array<String> = new Array<String>();
   tab: Array<Recette>;
-  recettes: Array<Recette>;
+  recettes: Array<Recette>= new Array<Recette>();
 
   constructor(private recetteService: RecetteHttpService) {
 
@@ -34,14 +40,17 @@ export class RecetteComponent implements OnInit {
     });
   }
 
-  getMenuId(event:any, id: number) {
+
+  getMenu(event:any, id: number, nom:string) {
     //console.log(event);
     if (event.target.checked) {
       console.log("ID Menu : " + id + " Checked!");
       this.checkedRecette.emit(id);
+      this.checkedRecetteName.emit(nom);
     } else {
       console.log("ID Menu : " + id + " UNchecked!");
       this.unCheckedRecette.emit(id);
+      this.unCheckedRecetteName.emit(nom);
     }
     //this.checkedRecette.emit(id);
   }
@@ -50,9 +59,15 @@ export class RecetteComponent implements OnInit {
     return this.recettes = this.recetteService.findAll();
   }
 
-
   listPlat(): Array<Recette> {
     return this.recetteService.findAll();
+  }
+
+  findOneRandomly(){
+    this.recetteService.findOneRandom().subscribe(resp => {
+      this.recette = resp;
+
+    }, err => console.log(err));
   }
 
 
@@ -85,13 +100,13 @@ export class RecetteComponent implements OnInit {
   }
 
 
-  /*pdfDownload() {
+  pdfDownload() {
     var doc = new jsPDF();
     var interligne = 40;
     var indentation=15;
     doc.setTextColor(23, 162, 184);
     doc.text("Mes menus de la semaine", 72, 20);
-
+    console.log("this.recettes"+this.recettes);
     for (let rct of  this.recettes) {
 
       interligne = interligne + 7;
@@ -108,8 +123,8 @@ export class RecetteComponent implements OnInit {
       doc.addPage();
       interligne=15;
     }
-
-  }*/
+    doc.save("Mes menus.pdf");
+  }
 
 }
 
