@@ -12,59 +12,50 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
-        <li class="nav-item"><a class="nav-link" href="#">Comment ça marche ?</a></li>
+
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link" [routerLink]="['/presentation']">Comment ça marche ?</a>
+        </li>
 
         <li class="nav-item dropdown"><a
           class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
           role="button" data-toggle="dropdown" aria-haspopup="true"
-          aria-expanded="false"> Nos Recettes </a>
+          aria-expanded="false"> Gestion admin</a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="#">Les mieux notées</a> <a
-              class="dropdown-item" href="#">New !</a> <a
-              class="dropdown-item" href="#">Healthy</a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="#">Végétariennes</a> <a
-              class="dropdown-item" href="#">Vegan</a> <a
-              class="dropdown-item" href="#">Halal</a>
+              <a class="dropdown-item nav-link" [routerLink]="['/preferencealimentaire']">Préférences Alimentaires</a>
+              <a class="dropdown-item nav-link" [routerLink]="['/objectif']">Objectifs</a>
+              <a class="dropdown-item nav-link" [routerLink]="['/planning']">Plannings</a>
+              <a class="dropdown-item nav-link" [routerLink]="['/adresse']">Adresses</a>
             </div>
         </li>
 
-        <li class="nav-item" routerLinkActive="active">
-          <a class="nav-link" [routerLink]="['/profil']">Profil</a>
-        </li>
-        <li class="nav-item" routerLinkActive="active">
-          <a class="nav-link" [routerLink]="['/selectionMenu']">Sélection des menus</a>
-        </li>
-        <li class="nav-item" routerLinkActive="active">
-          <a class="nav-link" [routerLink]="['/adresse']">Adresse</a>
-        </li>
-        <li class="nav-item" routerLinkActive="active">
-          <a class="nav-link" [routerLink]="['/utilisateur']">Utilisateur</a>
-        </li>
-        <li class="nav-item" routerLinkActive="active">
-          <a class="nav-link" [routerLink]="['/preferencealimentaire']">Preference Alimentaire</a>
-        </li>
-        <li class="nav-item" routerLinkActive="active">
-        <a class="nav-link" [routerLink]="['/objectif']">Objectif</a>
-      </li>
-        <li class="nav-item" routerLinkActive="active">
-          <a class="nav-link" [routerLink]="['/planning']">Planning</a>
-        </li>
-        <li class="nav-item" routerLinkActive="active">
-          <a class="nav-link" [routerLink]="['/repas']">Repas</a>
-        </li>
-        <li class="nav-item" routerLinkActive="active">
-          <a class="nav-link" [routerLink]="['/menu']">Menu</a>
-        </li>
-        <li class="nav-item" routerLinkActive="active">
-          <a class="nav-link" [routerLink]="['/recette']">Recettes</a>
-        </li>
-        <li class="nav-item" routerLinkActive="active">
-          <a class="nav-link" [routerLink]="['/ingredient']">Ingrédients</a>
-        </li>
-        <li class="nav-item" routerLinkActive="active">
-          <a class="nav-link" [routerLink]="['/listeCourse']">Liste de courses</a>
-        </li>
+<!--        <li class="nav-item" routerLinkActive="active">-->
+<!--          <a class="nav-link" [routerLink]="['/profil']">Profil</a>-->
+<!--        </li>-->
+<!--        <li class="nav-item" routerLinkActive="active">-->
+<!--          <a class="nav-link" [routerLink]="['/selectionMenu']">Sélection des menus</a>-->
+<!--        </li>-->
+<!--        <li class="nav-item" routerLinkActive="active">-->
+<!--          <a class="nav-link" [routerLink]="['/adresse']">Adresse</a>-->
+<!--        </li>-->
+<!--        <li class="nav-item" routerLinkActive="active">-->
+<!--          <a class="nav-link" [routerLink]="['/utilisateur']">Utilisateur</a>-->
+<!--        </li>-->
+<!--        <li class="nav-item" routerLinkActive="active">-->
+<!--          <a class="nav-link" [routerLink]="['/repas']">Repas</a>-->
+<!--        </li>-->
+<!--        <li class="nav-item" routerLinkActive="active">-->
+<!--          <a class="nav-link" [routerLink]="['/menu']">Menu</a>-->
+<!--        </li>-->
+<!--        <li class="nav-item" routerLinkActive="active">-->
+<!--          <a class="nav-link" [routerLink]="['/recette']">Recettes</a>-->
+<!--        </li>-->
+<!--        <li class="nav-item" routerLinkActive="active">-->
+<!--          <a class="nav-link" [routerLink]="['/ingredient']">Ingrédients</a>-->
+<!--        </li>-->
+<!--        <li class="nav-item" routerLinkActive="active">-->
+<!--          <a class="nav-link" [routerLink]="['/listeCourse']">Liste de courses</a>-->
+<!--        </li>-->
 
       </ul>
 

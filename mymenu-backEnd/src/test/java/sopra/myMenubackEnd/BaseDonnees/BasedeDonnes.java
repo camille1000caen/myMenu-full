@@ -746,7 +746,7 @@ public class BasedeDonnes {
 	}
 	
 	/********************************************************************************************************************	
-	*******************************************Dej **********************************************************************
+	*******************************************Dej ********************************************************************** 1
 	********************************************************************************************************************/	
 	
 	//plat1 avec recettes1 et tous ses ingédients
@@ -1027,6 +1027,39 @@ public class BasedeDonnes {
 		ingredient12.setRecettes(listRecettes1);
 		ingredient12=ingredientRepo.save(ingredient12);
 		
+		@Test
+		public void TomateFarcie(){
+		Recette recette1=new Recette();
+		recette1.setEtapes("ÉTAPE 1\r\n"
+				+ "Eplucher et hacher les oignons. Eplucher et hacher les gousses d'ail.\r\n"
+				+ "\r\n"
+				+ "ÉTAPE 2\r\n"
+				+ "Mettre la moitié des oignons dans la chair à saucisse. Ajouter l'ail,\rle sel, le poivre et un peu de persil.\r\n"
+				+ "\r\n"
+				+ "ÉTAPE 3\r\n"
+				+ "Couper le haut des tomates et les évider. Poivrer et saler l'intérieur.\rMettre la farce à l'intérieur et remettre les chapeaux.\r\n"
+				+ "\r\n"
+				+ "ÉTAPE 4\r\n"
+				+ "Mettre le reste des oignons dans un plat avec la chair des tomates.\r\n"
+				+ "\r\n"
+				+ "ÉTAPE 5\r\n"
+				+ "Mettre les tomates farcies dans le plat. Parsemez d'un peu de thym et\rmette une noisette de beurre sur chaque tomates. Faire cuire au four chaud à 180°C (thermostat 6) pendant 1 heure environ.\r\n"
+				+ "\r\n"
+				+ "ÉTAPE 6\r\n"
+				+ "Servir avec du riz.");
+		recette1.setNom("Tomates Farcies");
+		recette1.setNombrePers(4);
+		recette1.setNote(4.6F);
+//		List<TypeAlimentation> typesAlim=new ArrayList<TypeAlimentation>();
+//		typesAlim.add(TypeAlimentation.NONE);
+//		recette1.setTypeAlimentation(typesAlim);
+
+		recette1.setTypeAlimentation(TypeAlimentation.NONE);
+		recette1=recetteRepo.save(recette1);
+		List<Recette> listRecettes1 = new ArrayList<Recette>();
+		listRecettes1.add(recette1);
+		recette1.setPhoto("../../assets/images/tomatefarcie.jpg");
+		recette1=recetteRepo.save(recette1);
 		
 		
 		List<Ingredient> ingredients1=new ArrayList<Ingredient>();
@@ -1804,7 +1837,7 @@ public class BasedeDonnes {
 		}
 		
 /********************************************************************************************************************	
-********************************************************************************************************************	
+********************************************************************************************************************	2
 ********************************************************************************************************************/	
 		
 		

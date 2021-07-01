@@ -19,6 +19,12 @@ export class RecetteComponent implements OnInit {
   @Output()
   unCheckedRecette = new EventEmitter<number>();
 
+  @Output()
+  checkedRecetteName = new EventEmitter<string>();
+
+  @Output()
+  unCheckedRecetteName = new EventEmitter<string>();
+
   recette: Recette = new Recette();
   typeRecette: Array<String> = new Array<String>();
   tab: Array<Recette>;
@@ -34,14 +40,17 @@ export class RecetteComponent implements OnInit {
     });
   }
 
-  getMenuId(event:any, id: number) {
+
+  getMenu(event:any, id: number, nom:string) {
     //console.log(event);
     if (event.target.checked) {
       console.log("ID Menu : " + id + " Checked!");
       this.checkedRecette.emit(id);
+      this.checkedRecetteName.emit(nom);
     } else {
       console.log("ID Menu : " + id + " UNchecked!");
       this.unCheckedRecette.emit(id);
+      this.unCheckedRecetteName.emit(nom);
     }
     //this.checkedRecette.emit(id);
   }
@@ -50,9 +59,15 @@ export class RecetteComponent implements OnInit {
     return this.recettes = this.recetteService.findAll();
   }
 
-
   listPlat(): Array<Recette> {
     return this.recetteService.findAll();
+  }
+
+  findOneRandomly(){
+    this.recetteService.findOneRandom().subscribe(resp => {
+      this.recette = resp;
+
+    }, err => console.log(err));
   }
 
 
