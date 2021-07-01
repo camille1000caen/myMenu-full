@@ -42,7 +42,9 @@ public class FormulaireDTORestController {
 	@GetMapping("/{id}")
 	public FormulaireDTO find(@PathVariable Long id) {
 		Utilisateur user = utilrepo.findById(id).get();
-		
+		PreferenceAlimentaire prefAlim = prefAlimrepo.findAllByUtilisateur(id).get(0);
+		Planning plan = planningrepo.findAllPlanningsByUtilisateur(id).get(0);
+		Objectif obj= plan.getObjectif();
 		FormulaireDTO formDTO =new FormulaireDTO();
 		
 		formDTO.setDateNaissance(user.getDateNaissance());
@@ -57,6 +59,11 @@ public class FormulaireDTORestController {
 		formDTO.setTelephone(user.getTelephone());
 		formDTO.setPassword(user.getPassword());
 		formDTO.setUsername(user.getUsername());
+		
+		formDTO.setNbRepasJour(obj.getNombreRepasParJour());
+		formDTO.setTypeObjectif(obj.getTypeObjectif());
+		formDTO.setTypeAlimentation(prefAlim.getTypeAlimentation());
+		
 		
 		return formDTO;
 			
@@ -88,6 +95,7 @@ public class FormulaireDTORestController {
 		prefAlim.setUtilisateur(user);
 		
 		objectif.setTypeObjectif(formulaireDTO.getTypeObjectif());
+		objectif.setNombreRepasParJour(formulaireDTO.getNbRepasJour());
 		
 		planning.setObjectif(objectif);
 		
@@ -107,11 +115,7 @@ public class FormulaireDTORestController {
 		if (!utilrepo.existsById(id)) {
 			throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Unable to find resource");
 		}
-
-		Utilisateur user=new Utilisateur();
-		Objectif objectif=new Objectif();
-		Planning planning=new Planning();
-		PreferenceAlimentaire prefAlim=new PreferenceAlimentaire();
+		Utilisateur user =utilrepo.findById(id).get();
 		
 		user.setDateNaissance(formulaireDTO.getDateNaissance());
 		user.setGenre(formulaireDTO.getGenre());
@@ -127,19 +131,20 @@ public class FormulaireDTORestController {
 		user.setEnable(true);
 		user.setUsername(formulaireDTO.getUsername());
 		
+		PreferenceAlimentaire prefAlim = prefAlimrepo.findAllByUtilisateur(id).get(0);
 		prefAlim.setTypeAlimentation(formulaireDTO.getTypeAlimentation());
-		prefAlim.setUtilisateur(user);
+		
+		Planning plan=planningrepo.findAllPlanningsByUtilisateur(id).get(0);
+		
+		Objectif objectif=plan.getObjectif();
 		
 		objectif.setTypeObjectif(formulaireDTO.getTypeObjectif());
-		
-		planning.setObjectif(objectif);
-		
-		planning.setUtilisateur(user);
+		objectif.setNombreRepasParJour(formulaireDTO.getNbRepasJour());
 		
 		user=utilrepo.save(user);
 		prefAlim=prefAlimrepo.save(prefAlim);
 		objectif=objrepo.save(objectif);
-		planning=planningrepo.save(planning);
+		plan=planningrepo.save(plan);
 		return user;
 	}
 
