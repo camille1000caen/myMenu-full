@@ -116,7 +116,6 @@ export class SelectionMenuComponent implements OnInit {
           doc.addPage();
           interligne=15;
             }
-
     }
     doc.save("Mes menus.pdf");
   }

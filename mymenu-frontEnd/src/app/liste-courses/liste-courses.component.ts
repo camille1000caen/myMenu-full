@@ -124,6 +124,12 @@ export class ListeCoursesComponent implements OnInit {
         }
       }
     }
+    if(nbLignes>16){
+      doc.text("2021 Copyright - MyMenu",70,290);
+      doc.addPage();
+      interligne=40;
+    }
+
     doc.setTextColor(23,162,184);
     doc.text("Ma liste personnelle : ",80, interligne+37);
     doc.line(10,interligne+30,200,interligne+30);
@@ -133,15 +139,16 @@ export class ListeCoursesComponent implements OnInit {
     doc.setTextColor(0, 0, 0);
 
     var newInterligne=interligne+44;
-    for(var i=interligne+44; i<interligne+57;i++){
-      doc.circle(15, newInterligne-2,2,"S");
-      doc.line(20,newInterligne+1,72,newInterligne+1);
-      doc.circle(78, newInterligne-2,2,"S");
-      doc.line(81,newInterligne+1,133,newInterligne+1);
-      doc.circle(139, newInterligne-2,2,"S");
-      doc.line(142,newInterligne+1,194,newInterligne+1);
-      newInterligne+=7;
-    }
+    for(var i=interligne+44; i<interligne+57;i++) {
+      doc.circle(15, newInterligne - 2, 2, "S");
+      doc.line(20, newInterligne + 1, 72, newInterligne + 1);
+      doc.circle(78, newInterligne - 2, 2, "S");
+      doc.line(81, newInterligne + 1, 133, newInterligne + 1);
+      doc.circle(139, newInterligne - 2, 2, "S");
+      doc.line(142, newInterligne + 1, 194, newInterligne + 1);
+      newInterligne += 7;
+
+       }
     doc.text("2021 Copyright - MyMenu",70,290);
     doc.save("Ma liste de course.pdf");
   }
