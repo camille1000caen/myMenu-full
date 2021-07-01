@@ -19,9 +19,6 @@ export class ListeCoursesComponent implements OnInit {
 
   listeCourseForm: Ingredient = null;
   listeCourse: Array<Ingredient> = new Array<Ingredient>();
-  listeFinale: Array<Ingredient> = new Array<Ingredient>();
-  listeIdTest : Array<number>=new Array<number>();
-
 
   constructor(private listeService: ListeCoursesHttpService, private ingredientService : IngredientHttpService) {
    }
@@ -30,10 +27,6 @@ export class ListeCoursesComponent implements OnInit {
   }
 
   list(): Array<Ingredient> {
-    return this.listeService.findAll();
-  }
-  listRecette(id: number) : Array<Ingredient>{
-    // return this.ingredientService.findAllByRecette(id);
     return this.listeService.findAll();
   }
 

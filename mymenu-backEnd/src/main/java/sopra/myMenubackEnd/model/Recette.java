@@ -9,6 +9,7 @@ import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
@@ -34,12 +35,11 @@ public class Recette {
 	private String nom;
 	@Column(name = "etapes")
 	@JsonView(Views.ViewCommon.class)
+	@Lob
 	private String etapes;
 	@Column(name = "nombre_pers")
 	@JsonView(Views.ViewCommon.class)
 	private int nombrePers;
-	@Column(name = "total_calories")
-	private int totalCalories;
 	@Column(name = "note")
 	@JsonView(Views.ViewCommon.class)
 	private Float note;
@@ -64,7 +64,7 @@ public class Recette {
 		this.nom = nom;
 		this.etapes = etapes;
 		this.nombrePers = nombrePers;
-		this.totalCalories = totalCalories;
+		
 		this.note = note;
 		this.typeAlimentation = typeAlimentation;
 		this.photo=photo;
@@ -117,13 +117,7 @@ public class Recette {
 		this.nombrePers = nombrePers;
 	}
 
-	public int getTotalCalories() {
-		return totalCalories;
-	}
-
-	public void setTotalCalories(int totalCalories) {
-		this.totalCalories = totalCalories;
-	}	
+	
 
 	public TypeAlimentation getTypeRecette() {
 		return typeAlimentation;
