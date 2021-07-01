@@ -10,7 +10,7 @@
               <div class="col-sm-4 bg-c-lite-green user-profile">
                 <div class="card-block text-center text-white">
                   <div class="m-b-25"> <img src="https://img.icons8.com/bubbles/100/000000/user.png" class="img-radius" alt="User-Profile-Image"> </div>
-                  <h6 class="f-w-800">Baptiste Dessandier</h6>
+                  <h6 class="f-w-800">{{utilisateur.prenom}} {{utilisateur.nom}}</h6>
                   <p>Premium</p> <i class=" mdi mdi-square-edit-outline feather icon-edit m-t-10 f-16"></i>
                   <p class="lead">
                     <a [routerLink]="['/profil']" class="btn btn-lg bg-light"><i class="fas fa-user-edit"></i></a>
@@ -23,40 +23,40 @@
                   <div class="row">
                     <div class="col-sm-6">
                       <p class="m-b-10 f-w-600">Email</p>
-                      <h6 class="text-muted f-w-400">b.dessandier@gmail.com</h6>
+                      <h6 class="text-muted f-w-400">{{utilisateur.email}}</h6>
                       <p class="m-b-10 f-w-600">Date de Naissance</p>
-                      <h6 class="text-muted f-w-400">14 Juillet 1995</h6>
+                      <h6 class="text-muted f-w-400">{{utilisateur.dateNaissance| date:'dd/MM/yyyy'}}</h6>
                     </div>
                     <div class="col-sm-6">
                       <p class="m-b-10 f-w-600">Téléphone</p>
-                      <h6 class="text-muted f-w-400">+33 6 24 56 90 99</h6>
+                      <h6 class="text-muted f-w-400">{{utilisateur.telephone}}</h6>
                     </div>
                   </div>
                   <h6 class="m-b-20 m-t-40 p-b-5 b-b-default f-w-600">Détails</h6>
                   <div class="row">
                     <div class="col-sm-4">
                       <p class="m-b-10 f-w-600">Genre</p>
-                      <h6 class="text-muted f-w-400">Homme</h6>
+                      <h6 class="text-muted f-w-400">{{utilisateur.genre}}</h6>
                     </div>
                     <div class="col-sm-4">
                       <p class="m-b-10 f-w-600">Taille</p>
-                      <h6 class="text-muted f-w-400">176 cm</h6>
+                      <h6 class="text-muted f-w-400">{{utilisateur.taille}}</h6>
                     </div>
                     <div class="col-sm-4">
                       <p class="m-b-10 f-w-600">Poids</p>
-                      <h6 class="text-muted f-w-400">72 kg</h6>
+                      <h6 class="text-muted f-w-400">{{utilisateur.poids}}</h6>
                     </div>
                     <div class="col-sm-4">
                       <p class="m-b-10 f-w-600">IMC</p>
-                      <h6 class="text-muted f-w-400">25.5</h6>
+                      <h6 class="text-muted f-w-400">{{utilisateur.imc}}</h6>
                     </div>
                     <div class="col-sm-4">
                       <p class="m-b-10 f-w-600">Activité</p>
-                      <h6 class="text-muted f-w-400">"BIEN ETRE"</h6>
+                      <h6 class="text-muted f-w-400">{{utilisateur.physicalActivity}}</h6>
                     </div>
                     <div class="col-sm-4">
                       <p class="m-b-10 f-w-600">Régime</p>
-                      <h6 class="text-muted f-w-400">Aucun</h6>
+                      <h6 class="text-muted f-w-400"*ngFor="let elem of prefalims">{{elem.typeAlimentation}}</h6>
                     </div>
                   </div>
                 </div>
@@ -80,8 +80,8 @@
                   <h6 class="m-b-20 p-b-5 b-b-default f-w-600">Plannings</h6>
                   <div class="row">
                     <p>
-                      <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-                        Plannings
+                      <a *ngFor="let elem of plannings" class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                        Planning {{elem.periode}} Objectif {{elem.objectif.typeObjectif}}
                       </a>
                     </p>
                     <div class="collapse" id="collapseExample">
@@ -101,7 +101,7 @@
                       </div>
                     </div>
                   </div>
-                  <h6 class="m-b-20 m-t-40 p-b-5 b-b-default f-w-600">Détails des recettes</h6>
+                 <!-- <h6 class="m-b-20 m-t-40 p-b-5 b-b-default f-w-600">Détails des recettes</h6>
                   <div class="row">
                     <div class="col-sm-4">
                       <p class="m-b-10 f-w-600">Petit Déjeuner</p>
@@ -139,7 +139,7 @@
                         </div>
                       </div>
                     </div>
-                  </div>
+                  </div>-->
                 </div>
               </div>
             </div>

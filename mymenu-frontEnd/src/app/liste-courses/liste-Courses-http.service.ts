@@ -1,11 +1,8 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import {Observable} from "rxjs";
 import {AppConfigService} from "../app-config.service";
-import {ListeCourses} from "../model/listeCourses";
 import {Ingredient} from "../model/ingredient";
-import {newArray} from "@angular/compiler/src/util";
-import {Recette} from "../model/recette";
+import {SelectionMenuComponent} from "../selection-menu/selection-menu.component";
 
 
 @Injectable({
@@ -13,13 +10,18 @@ import {Recette} from "../model/recette";
 })
 export class ListeCoursesHttpService {
 
-  listeCourses: Array<Ingredient>=new Array<Ingredient>();
-  ingredients : Array<Ingredient>=new Array<Ingredient>();
-  listeIdTest : Array<number>=new Array<number>();
+  listeCourses: Array<Ingredient> = new Array<Ingredient>();
+  ingredients: Array<Ingredient> = new Array<Ingredient>();
+  listeIdTest: Array<number> = new Array<number>();
 
 
   constructor(private http: HttpClient, private appConfig: AppConfigService) {
-    this.listeIdTest = [1, 79];
+    this.reload();
+  }
+
+  reload() {
+    this.ingredients = new Array<Ingredient>();
+    this.listeIdTest = JSON.parse(sessionStorage.getItem("idRecette"));
 
     for (var i = 0; i < this.listeIdTest.length; i++) {
       this.findByRecette(this.listeIdTest[i]);
@@ -27,25 +29,18 @@ export class ListeCoursesHttpService {
   }
 
   findAll(): Array<Ingredient> {
-      return this.ingredients;
+    return this.ingredients;
   }
 
-  findAllByRecette(id: number): Array<Ingredient>{
-     this.findByRecette(id);
-    return this.findAll();
-  }
-
-
-  findByRecette(id:number){//}  : Array<Ingredient>{
-    this.http.get<Array<Ingredient>>(this.appConfig.backEndUrl +"ingredient/byrecette/"+id ).subscribe(resp => {
-      for(var i=0;i<resp.length;i++){
+  findByRecette(id: number) {
+    this.http.get<Array<Ingredient>>(this.appConfig.backEndUrl + "ingredient/byrecette/" + id).subscribe(resp => {
+      for (var i = 0; i < resp.length; i++) {
         this.ingredients.push(resp[i]);
       }
     }, error => console.log(error))
   }
 
   findById(id: number): Ingredient {
-    // return this.http.get<Ingredient>(this.appConfig.backEndUrl +"ingredient/" + id);
     for (let ingredient of this.ingredients) {
       if (ingredient.id == id) {
         return ingredient;
@@ -54,7 +49,7 @@ export class ListeCoursesHttpService {
     return null;
   }
 
-  modify(ingredient: Ingredient){
+  modify(ingredient: Ingredient) {
     let find: boolean = false;
     for (var indice = 0; indice < this.ingredients.length; indice++) {
       if (this.listeCourses[indice].id == ingredient.id) {
@@ -78,11 +73,5 @@ export class ListeCoursesHttpService {
     if (find) {
       this.ingredients.splice(indice, 1);
     }
-  }
-
-  load() {
-      this.http.get<Array<Ingredient>>(this.appConfig.backEndUrl +"ingredient").subscribe(resp => {
-      this.ingredients = resp;
-    }, error => console.log(error))
   }
 }

@@ -33,7 +33,7 @@ export class Utilisateur {
     this.physicalActivity=physicalActivity!;
     this.username = username!;
     this.password = password!;
-    this.enable=enable!;
+    this.enable=true;
   }
 
   public dtNaissanceToDate() : Date {

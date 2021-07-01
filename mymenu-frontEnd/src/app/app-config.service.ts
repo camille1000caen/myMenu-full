@@ -8,6 +8,7 @@ import {Observable} from "rxjs";
 export class AppConfigService {
 
   backEndUrl: string = "http://localhost:8080/";
+  frontEndUrl: string = "http://localhost:4200/";
   constructor(private http: HttpClient) {
 
   }
