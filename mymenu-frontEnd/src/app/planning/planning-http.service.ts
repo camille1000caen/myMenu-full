@@ -4,6 +4,7 @@ import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {Planning} from "../model/planning";
 import {AppConfigService} from "../app-config.service";
+import {PreferenceAlimentaire} from "../model/preferencealimentaire";
 
 @Injectable({
   providedIn: 'root'
@@ -46,6 +47,10 @@ export class PlanningHttpService {
     this.http.get<Array<Planning>>(this.appConfig.backEndUrl +"planning/detail").subscribe(resp => {
       this.plannings = resp;
     }, error => console.log(error))
+  }
+
+  findAllByUtilisateur(id: number) {
+    return this.http.get<Array<Planning>>(this.appConfig.backEndUrl + "planning/by-utilisateur/" + id);
   }
 }
 

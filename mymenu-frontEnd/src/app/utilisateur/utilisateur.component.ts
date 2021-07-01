@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {Utilisateur} from "../model/utilisateur";
 import {UtilisateurHttpService} from "./utilisateur-http.service";
+import {ConnexionDTO} from "../model/ConnexionDTO";
 
 @Component({
   selector: 'app-utilisateur',
@@ -15,6 +16,7 @@ export class UtilisateurComponent implements OnInit {
   }
 
   ngOnInit(): void {
+
   }
 
   list(): Array<Utilisateur> {
@@ -28,6 +30,8 @@ export class UtilisateurComponent implements OnInit {
   listPhysicalActivity(): Array<string> {
     return this.utilisateurService.physicalActivitys;
   }
+
+
 
 
   add() {
