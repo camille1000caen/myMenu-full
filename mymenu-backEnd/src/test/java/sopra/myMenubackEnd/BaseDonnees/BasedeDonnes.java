@@ -1026,11 +1026,53 @@ public class BasedeDonnes {
 		Ingredient ingredient12=new Ingredient("creme fraiche",75);
 		ingredient12.setRecettes(listRecettes1);
 		ingredient12=ingredientRepo.save(ingredient12);
+		
+		
+		List<Ingredient> ingredients1=new ArrayList<Ingredient>();
+		ingredients1.add(ingredient1);
+		
+		ingredients1.add(ingredient2);
+		ingredient2.setRecettes(listRecettes1);
+		ingredients1.add(ingredient3);
+		ingredient3.setRecettes(listRecettes1);
+		ingredients1.add(ingredient4);
+		ingredient4.setRecettes(listRecettes1);
+		ingredients1.add(ingredient5);
+		ingredient5.setRecettes(listRecettes1);
+		ingredients1.add(ingredient6);
+		ingredient6.setRecettes(listRecettes1);
+		ingredients1.add(ingredient7);
+		ingredient7.setRecettes(listRecettes1);
+		ingredients1.add(ingredient8);
+		ingredient8.setRecettes(listRecettes1);
+		ingredients1.add(ingredient9);
+		ingredient9.setRecettes(listRecettes1);
+		ingredients1.add(ingredient10);
+		ingredient10.setRecettes(listRecettes1);
+		ingredients1.add(ingredient11);
+		ingredient11.setRecettes(listRecettes1);
+		ingredients1.add(ingredient12);
+		ingredient12.setRecettes(listRecettes1);		
+		
+		recette1.setIngredients(ingredients1);
+		recette1=recetteRepo.save(recette1);
+		
+		Repas repas1=new Repas();
+		repas1.setTypeRepas(TypeRepas.DEJ);
+		repas1=repasRepo.save(repas1);
+		
+		Plat plat1=new Plat();
+		plat1.setNombrePersonne(8);
+		
+		plat1.setRepas(repas1);
+		plat1 = platRepo.save(plat1);
+		recette1.setPlat(plat1);
+		recette1 = recetteRepo.save(recette1);
 		}
 		
-		/**************	
-		**************	
-		**************/
+		/******	
+		******	
+		******/
 		
 		
 		@Test
