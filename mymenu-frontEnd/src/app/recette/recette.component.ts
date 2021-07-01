@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnInit, Output} from '@angular/core';
 import {RecetteHttpService} from "./recette-http.service";
 import {Recette} from "../model/recette";
 import {jsPDF} from "jspdf";
@@ -13,10 +13,15 @@ export class RecetteComponent implements OnInit {
   @Input()
   idRecette : number;
 
+  @Output()
+  nomRecette: string;
+
   recette: Recette = new Recette();
   typeRecette: Array<String> =  new Array<String>();
   tab: Array<Recette>;
   recettes:Array<Recette>;
+
+  menuChecked : Array<number> = new Array(); // recréé à chaque fois ?
   constructor(private recetteService: RecetteHttpService) {
 
   }
@@ -25,7 +30,21 @@ export class RecetteComponent implements OnInit {
     this.recetteService.findById(this.idRecette).subscribe(resp=> {
       this.recette = resp;
     });
+    this.nomRecette = this.recette.nom;
   }
+
+  getMenuId(event:any, id:number){
+    //console.log(event);
+    if(event.target.checked){
+      console.log("ID Menu : " + id + " Checked!");
+      this.menuChecked.push(id);
+    } else {
+      console.log("ID Menu : " + id + " UNchecked!");
+      this.menuChecked = this.menuChecked.filter((menuIdChecked) => menuIdChecked!=id);
+    }
+    console.log(this.menuChecked);
+  }
+
   list(): Array<Recette> {
     return this.recettes = this.recetteService.findAll();
   }
@@ -64,6 +83,8 @@ export class RecetteComponent implements OnInit {
   delete(id: number) {
     this.recetteService.deleteById(id);
   }
+
+
   /*pdfDownload() {
     var doc = new jsPDF();
     var interligne = 40;

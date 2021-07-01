@@ -1,7 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Recette} from "../model/recette";
 import {RecetteHttpService} from "../recette/recette-http.service";
-import {newArray} from "@angular/compiler/src/util";
+import {RecetteComponent} from "../recette/recette.component";
 
 @Component({
   selector: 'app-selection-menu',
@@ -10,6 +10,8 @@ import {newArray} from "@angular/compiler/src/util";
 })
 export class SelectionMenuComponent implements OnInit {
 
+  @Input()
+  nomRecette: string;
 
   recette: Recette = null;
   tab : Array<Recette>=new Array<Recette>();

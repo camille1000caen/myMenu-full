@@ -37,11 +37,14 @@
 <div class="card-footer">
   <div class="form-check btn-group float-right">
     <div class="input-group-text">
-      <input type="checkbox" class="checkbox-Custom" value="">
+      <input type="checkbox" name="checkbox" class="checkbox-Custom" value="{{recette.id}}" (change)="getMenuId($event, recette.id)">
     </div>
     <button type="submit" class="btn btn-info">
       <i class="fa fa-sync"></i>
     </button>
+  </div>
+  <div class="input-group-text float-left">
+    <i class="fas fa-star fa-lg">{{recette.note}}</i>
   </div>
 </div>
 
