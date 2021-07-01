@@ -20,8 +20,6 @@ import org.springframework.web.server.ResponseStatusException;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
-import sopra.myMenubackEnd.model.Adresse;
-import sopra.myMenubackEnd.model.Ingredient;
 import sopra.myMenubackEnd.model.Recette;
 import sopra.myMenubackEnd.model.TypeRepas;
 import sopra.myMenubackEnd.model.Views;
@@ -92,12 +90,6 @@ public class RecetteRestController {
 		return res;
 	}
 	
-	@GetMapping("/by-rising-calories")
-	@JsonView(Views.ViewRecette.class)
-	public List<Recette> findByRisingCalories() {
-
-		return recetteRepo.findByRisingCalories();
-	}
 	
 	@GetMapping("/{id}")
 	@JsonView(Views.ViewRecette.class)
