@@ -10,17 +10,26 @@ import {RecetteComponent} from "../recette/recette.component";
 })
 export class SelectionMenuComponent implements OnInit {
 
-  @Input()
-  nomRecette: string;
-
   recette: Recette = null;
   tab : Array<Recette>=new Array<Recette>();
   tabdej: Array<Recette>=new Array<Recette>();
   tabpetitdej: Array<Recette>=new Array<Recette>();
   tabdiner: Array<Recette>=new Array<Recette>();
-
+  menuChecked: Array<number> = new Array();
   constructor(private recetteService: RecetteHttpService) {
 
+  }
+
+  addRecette(id: number) {
+    console.log(id);
+    this.menuChecked.push(id);
+    console.log(this.menuChecked);
+  }
+
+  removeRecette(id: number) {
+    console.log(id);
+    this.menuChecked = this.menuChecked.filter((menuIdChecked) => menuIdChecked != id);
+    console.log(this.menuChecked);
   }
 
   ngOnInit(): void {
