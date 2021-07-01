@@ -41,7 +41,7 @@ export class SelectionMenuComponent implements OnInit {
       } else if (typeRepas === "DEJ"){
         this.dejDetail.push(nom);
         console.log("dejDetail = " + this.dejDetail);
-      } else if (typeRepas === "DINNER") {
+      } else if (typeRepas === "DINER") {
         this.dinerDetail.push(nom);
         console.log("dinerDetail = " + this.dinerDetail);
       }
@@ -67,7 +67,7 @@ export class SelectionMenuComponent implements OnInit {
       } else if (typeRepas === "DEJ"){
         this.dejDetail = this.dejDetail.filter((menuNameChecked) => menuNameChecked != nom);
         console.log("dejDetail = " + this.dejDetail);
-      } else if (typeRepas === "DINNER") {
+      } else if (typeRepas === "DINER") {
         this.dinerDetail = this.dinerDetail.filter((menuNameChecked) => menuNameChecked != nom);
         console.log("dinerDetail = " + this.dinerDetail);
       }
