@@ -1070,9 +1070,9 @@ public class BasedeDonnes {
 		recette1 = recetteRepo.save(recette1);
 		}
 		
-		/**************	
-		**************	
-		**************/
+		/******	
+		******	
+		******/
 		
 		
 		@Test

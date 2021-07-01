@@ -87,7 +87,7 @@ public class MyMenuUtilisateurAdressePrefAlimDataTest {
 				Solenn.setPhysicalActivity(PhysicalActivity.INTENSIF);
 				Solenn.setPoids(54.5F);
 				Solenn.setTaille(155.0F);
-				Solenn.setEmail("solenn.stefansk);
+				Solenn.setEmail("solenn.stefanski@gmail.com");
 				Solenn.setTelephone(null);
 				Solenn.setPassword(null);
 				Solenn.setEnable(true);
