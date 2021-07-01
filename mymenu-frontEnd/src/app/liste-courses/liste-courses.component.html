@@ -1,9 +1,10 @@
-<div class="wrapper ">
-  <div class="container py-4">
-    <div class="card w-20 ">
-      <div class="card-header bg-info text-white text-center">
-        <h2>Liste des ingredients</h2>
-      </div>
+<div class="wrapper-SelectionMenu">
+  <section class="listMenus">
+
+    <h1>Mes ingrédients </h1>
+    <h2>Je modifie ma liste de courses en fonction de ce que j'ai déjà dans mes placards !</h2>
+    <div class="container py-4">
+<!--      <div class="card w-20 ">-->
       <div class="card-body">
         <table class="table table-striped">
           <thead>
@@ -11,6 +12,7 @@
             <th>Ingrédient </th>
             <th></th>
             <th>Quantité (g)</th>
+            <th></th>
             <th></th>
           </thead>
           <tbody>
@@ -44,8 +46,13 @@
           </tfoot>
         </table>
       </div>
-    </div>
-  </div>
+      </div>
+<!--</div>-->
+  </section>
+
+</div>
+
+
   <div class="card fixed-bottom" *ngIf="listeCourseForm">
     <div class="card-header bg-info text-white">
       <h3>Edition de la quantité</h3>
@@ -67,4 +74,5 @@
       </div>
     </div>
   </div>
-</div>
+
+
