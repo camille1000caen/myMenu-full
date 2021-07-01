@@ -12,6 +12,7 @@ import {PlanningHttpService} from "../planning/planning-http.service";
 import {FormulaireDTO} from "../model/FormulaireDTO";
 import {ServiceDTO} from "../service-dto.service";
 import {ActivatedRoute, Router} from "@angular/router";
+import {SessionService} from "../session.service";
 
 @Component({
   selector: 'app-utilisateur',
@@ -22,7 +23,7 @@ export class UtilisateurComponent implements OnInit {
 
   formDTO: FormulaireDTO = new FormulaireDTO();
 
-  constructor(private route: ActivatedRoute, private router: Router, private utilisateurService: UtilisateurHttpService, private prefAlimService: PreferenceAlimentaireHttpService, private objectifService: ObjectifHttpService, private planningService: PlanningHttpService, private formulaireService: ServiceDTO) {
+  constructor(private route: ActivatedRoute, private router: Router, private utilisateurService: UtilisateurHttpService, private prefAlimService: PreferenceAlimentaireHttpService, private objectifService: ObjectifHttpService, private planningService: PlanningHttpService, private formulaireService: ServiceDTO,private sessionService : SessionService) {
     this.route.params.subscribe(params => {
       this.formulaireService.findById(params.id).subscribe(resp => {
         this.formDTO = resp;
@@ -81,7 +82,6 @@ export class UtilisateurComponent implements OnInit {
       this.formulaireService.modify(this.formDTO);
     }
     this.formDTO = null;
-    this.router.navigate(["/profil-utilisateur"]);
 
   }
 

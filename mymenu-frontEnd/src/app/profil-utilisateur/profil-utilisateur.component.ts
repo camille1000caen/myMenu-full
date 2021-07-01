@@ -55,6 +55,6 @@ export class ProfilUtilisateurComponent implements OnInit {
   editprofile() {
     this.formService.findById(this.utilisateur.id).subscribe(resp=>
       this.router.navigate(["/utilisateur/"+this.utilisateur.id]));
-    
+
   }
 }
