@@ -21,7 +21,7 @@ export class Recette {
     this.nombrePers = nombrePers!;
     this.typeRecette = typeRecette!;
     this.photo = photo!;
-    this.note = note;
+    this.note = note!;
   }
 }
 

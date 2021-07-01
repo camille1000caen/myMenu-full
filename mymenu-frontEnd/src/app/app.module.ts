@@ -26,6 +26,7 @@ import { SelectionMenuComponent } from './selection-menu/selection-menu.componen
 import { CardComponent } from './card/card.component';
 import { ConnexionDTOComponent } from './connexion-dto/connexion-dto.component';
 import { PresentationComponent } from './presentation/presentation.component';
+import { ProfilUtilisateurComponent } from './profil-utilisateur/profil-utilisateur.component';
 
 
 @NgModule({
@@ -52,6 +53,7 @@ import { PresentationComponent } from './presentation/presentation.component';
     CardComponent,
     ConnexionDTOComponent,
     PresentationComponent,
+    ProfilUtilisateurComponent,
   ],
 
   imports: [

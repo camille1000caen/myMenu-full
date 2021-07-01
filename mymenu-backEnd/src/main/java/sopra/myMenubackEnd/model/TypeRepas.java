@@ -2,7 +2,7 @@ package sopra.myMenubackEnd.model;
 
 public enum TypeRepas {
 	
-	PETIT_DEJ("PETIT_DEJ"), DEJ("DEJ"), DINNER("DINNER");
+	PETIT_DEJ("PETIT_DEJ"), DEJ("DEJ"), DINER("DINER");
 	
 	private final String label;
 

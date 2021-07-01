@@ -20,9 +20,8 @@ import org.springframework.web.server.ResponseStatusException;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
-import sopra.myMenubackEnd.model.Adresse;
-import sopra.myMenubackEnd.model.Ingredient;
 import sopra.myMenubackEnd.model.Recette;
+import sopra.myMenubackEnd.model.TypeRepas;
 import sopra.myMenubackEnd.model.Views;
 import sopra.myMenubackEnd.repository.IRecetteRepository;
 
@@ -75,6 +74,13 @@ public class RecetteRestController {
 		return res;
 	}
 	
+	@GetMapping("/detail/by-rising-note/by-type-repas/{typeRepas}")
+	@JsonView(Views.ViewRecetteDetail.class)
+	public List<Recette> findByRisingNoteWithPlatByTypeRepas(@PathVariable TypeRepas typeRepas) {
+		List<Recette> res=recetteRepo.findByRisingNoteWithPlatByTypeRepas(typeRepas);
+		return res;
+	}
+	
 	public List<Recette> huitpremier(List<Recette>list) {
 		List<Recette> res=new ArrayList<Recette>();
 		for (int i=0;i<8;i++) {
@@ -84,12 +90,6 @@ public class RecetteRestController {
 		return res;
 	}
 	
-	@GetMapping("/by-rising-calories")
-	@JsonView(Views.ViewRecette.class)
-	public List<Recette> findByRisingCalories() {
-
-		return recetteRepo.findByRisingCalories();
-	}
 	
 	@GetMapping("/{id}")
 	@JsonView(Views.ViewRecette.class)
