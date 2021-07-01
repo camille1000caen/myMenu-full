@@ -20,6 +20,10 @@ export class PreferenceAlimentaireHttpService {
     return this.preferenceAlimentaires;
   }
 
+  findAllByUtilisateur(id:number): Observable<Array<PreferenceAlimentaire>> {
+    return this.http.get<Array<PreferenceAlimentaire>>(this.appConfig.backEndUrl + "preferencealimentaire/by-utilisateur/" + id);
+  }
+
   findById(id: number): Observable<PreferenceAlimentaire> {
     return this.http.get<PreferenceAlimentaire>(this.appConfig.backEndUrl + "preferencealimentaire/" + id);
   }

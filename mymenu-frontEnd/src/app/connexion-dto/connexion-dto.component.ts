@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {ConnexionDTO} from "../model/ConnexionDTO";
 import {IngredientHttpService} from "../ingredient/ingredient-http.service";
 import {ConnexionDtoHttpService} from "./connexion-dto-http.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-connexion-dto',
@@ -11,7 +12,7 @@ import {ConnexionDtoHttpService} from "./connexion-dto-http.service";
 export class ConnexionDTOComponent implements OnInit {
   conn:ConnexionDTO=new ConnexionDTO('newUser','','');
 
-  constructor(private connexionService: ConnexionDtoHttpService) {
+  constructor(private router: Router, private connexionService: ConnexionDtoHttpService) {
 
   }
 
@@ -19,9 +20,11 @@ export class ConnexionDTOComponent implements OnInit {
     console.log(this.conn)
     this.connexionService.connexionAuth(this.conn).subscribe(resp=>{
       sessionStorage.setItem("utilisateur",JSON.stringify(resp));
+      this.router.navigate(["/profil-utilisateur"]);
+
     }, error => {
       console.log(error);
-
+      this.router.navigate(["/connexion"]);
     })
 
   }

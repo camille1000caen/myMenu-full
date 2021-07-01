@@ -3,6 +3,7 @@ import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {AppConfigService} from "../app-config.service";
 import {Utilisateur} from "../model/utilisateur";
+import {ConnexionDTO} from "../model/ConnexionDTO";
 
 @Injectable({
   providedIn: 'root'
@@ -51,5 +52,9 @@ export class UtilisateurHttpService {
     this.appConfig.findAllPhysicalActivity().subscribe(resp => {
       this.physicalActivitys = resp;
     }, error => console.log(error));
+  }
+
+  findByConnexion(conn: ConnexionDTO): Observable<Utilisateur> {
+    return this.http.post<Utilisateur>(this.appConfig.backEndUrl + "utilisateur/auth",conn);
   }
 }
