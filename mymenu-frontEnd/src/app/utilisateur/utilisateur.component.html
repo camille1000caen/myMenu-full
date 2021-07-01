@@ -8,13 +8,13 @@
           <div class="form-group">
             <div
               class="btn-group btn-group-lg d-flex justify-content-center px-5">
-              <button type="button" class="btn" id="btn-venus">
+              <button type="button" class="btn" id="btn-venus" (click)="this.formDTO.genre='FEMME'">
                 <i class="fas fa-venus fa-2x"></i>
               </button>
-              <button type="button" class="btn" id="btn-mars">
+              <button type="button" class="btn" id="btn-mars"(click)="this.formDTO.genre='HOMME'">
                 <i class="fas fa-mars fa-2x"></i>
               </button>
-              <button type="button" class="btn" id="btn-MarsVenus">
+              <button type="button" class="btn" id="btn-MarsVenus"(click)="this.formDTO.genre='NON_BINAIRE'">
                 <i class="fas fa-venus-mars fa-2x"></i>
               </button>
             </div>
@@ -22,68 +22,103 @@
 
           <div class="form-group">
             <label for="nom">Nom:</label>
-            <input type="text" class="form-control" id="nom" placeholder="Nom">
+            <input type="text" class="form-control" id="nom" placeholder="Nom" [(ngModel)]="formDTO.nom">
           </div>
 
           <div class="form-group">
             <label for="prenom">Prénom:</label>
-            <input type="text" class="form-control" id="prenom" placeholder="Prénom">
+            <input type="text" class="form-control" id="prenom" placeholder="Prénom" [(ngModel)]="formDTO.prenom">
           </div>
 
           <div class="form-group">
             <label for="dateDeNaissance">Date de naissance:</label>
             <input type="date" class="form-control" id="dateDeNaissance"
-            placeholder="Date de naissance">
+            placeholder="Date de naissance" [(ngModel)]="formDTO.dateNaissance">
+          </div>
+
+          <div class="form-group">
+          <label for="telephone">Telephone</label>
+          <input type="text" class="form-control" id="telephone"
+                 placeholder="Telephone" [(ngModel)]="formDTO.telephone">
+          </div>
+
+          <div class="form-group">
+          <label for="email">Email</label>
+          <input type="text" class="form-control" id="email"
+                 placeholder="Email" [(ngModel)]="formDTO.email">
+          </div>
+
+          <div class="form-group">
+          <label for="username">Pseudo</label>
+          <input type="text" class="form-control" id="username"
+                 placeholder="Pseudo" [(ngModel)]="formDTO.username">
+          </div>
+
+          <div class="form-group">
+          <label for="password">Mot de Passe</label>
+          <input type="text" class="form-control" id="password"
+                 placeholder="Mot de passe" [(ngModel)]="formDTO.password">
           </div>
 
           <div class="form-group">
             <label for="poids">Poids:</label>
-            <input type="number" class="form-control" id="poids" placeholder="Poids (en kg)">
+            <input type="number" class="form-control" id="poids" placeholder="Poids (en kg)"[(ngModel)]="formDTO.poids">
           </div>
 
           <div class="form-group">
             <label for="taille">Taille:</label>
-            <input type="number" class="form-control" id="taille" placeholder="Taille (en cm)">
+            <input type="number" class="form-control" id="taille" placeholder="Taille (en cm)"[(ngModel)]="formDTO.taille">
+          </div>
+
+          <div class="form-group">
+          <label for="taille">IMC:</label>
+          <input type="number" class="form-control" id="taille" placeholder="IMC"[(ngModel)]="formDTO.imc">
           </div>
 
           <div class="form-group">
             <label for="activite">Activité:</label> <select
-            class="custom-select my-1 mr-sm-2" id="activite">
+            class="custom-select my-1 mr-sm-2" id="activite" [(ngModel)]="formDTO.physicalActivity">
             <option selected>Choisir...</option>
-            <option value="1">Pantouflard</option>
-            <option value="2">Occasionnel</option>
-            <option value="3">Régulier</option>
-            <option value="3">Intensif</option>
-            <option value="3">Professionnel</option>
+            <option value="PANTOUFLARD">Pantouflard</option>
+            <option value="OCCASIONNEL">Occasionnel</option>
+            <option value="REGULIER">Régulier</option>
+            <option value="INTENSIF">Intensif</option>
+            <option value="PROFESSIONNEL">Professionnel</option>
           </select>
           </div>
 
           <div class="form-group">
             <label for="prefAlim">Préférences alimentaires:</label> <select
-            class="custom-select my-1 mr-sm-2" id="prefAlim">
+            class="custom-select my-1 mr-sm-2" id="prefAlim" [(ngModel)]="formDTO.typeAlimentation" >
             <option selected>Choisir...</option>
-            <option value="1">Aucune</option>
-            <option value="2">Vegan</option>
-            <option value="3">Halal</option>
-            <option value="3">Végétarien</option>
+            <option value="NONE">Aucune</option>
+            <option value="VEGAN">Vegan</option>
+            <option value="HALAL">Halal</option>
+            <option value="VEGETARIEN">Végétarien</option>
           </select>
 
           </div>
           <div class="form-group">
             <label for="objectif">Objectif:</label> <select
-            class="custom-select my-1 mr-sm-2" id="objectif">
+            class="custom-select my-1 mr-sm-2" id="objectif" [(ngModel)]="formDTO.typeObjectif" >
             <option selected>Choisir...</option>
-            <option value="1">Perte de poids</option>
-            <option value="2">Bien être</option>
-            <option value="3">Prise de masse</option>
+            <option value="PERTE_POIDS">Perte de poids</option>
+            <option value="BIEN_ETRE">Bien être</option>
+            <option value="PRISE_MASSE">Prise de masse</option>
           </select>
           </div>
+
+        <div class="form-group">
+          <label for="nombreRepasParJour">IMC:</label>
+          <input type="number" class="form-control" id="nombreRepasParJour" placeholder="Nombre de Repas Quotidien"[(ngModel)]="formDTO.nbRepasJour">
+        </div>
+
       </div>
 
       <div class="card-footer">
         <div class="btn-group btn-group-sm float-right">
-          <a class="btn btn-success"><i class="fa fa-check"></i></a>
-          <a class="btn btn-secondary"><i class="fa fa-undo"></i></a>
+          <a class="btn btn-success" [ngClass]="{'disabled': !formDTO.creation}"><i class="fa fa-check" (click)="save()"></i></a>
+          <a class="btn btn-secondary"><i class="fa fa-undo" (click)="cancel();"></i></a>
         </div>
       </div>
     </div>

@@ -54,15 +54,15 @@ public class PreferenceAlimentaireRestController {
 	
 	@GetMapping("/by-typealimentation/{typeAlimentation.label}")
 	@JsonView(Views.ViewPreferenceAlimentaire.class)
-	public List<PreferenceAlimentaire> findAllByTypeAlimentation(@Param("typeAlimentation") TypeAlimentation typeAlimentation) {
+	public List<PreferenceAlimentaire> findAllByTypeAlimentation(@PathVariable("typeAlimentation") TypeAlimentation typeAlimentation) {
 
 		return prefAlimRepo.findAllByTypeAlimentation(typeAlimentation);
 	}
 	
 	@GetMapping("/by-utilisateur/{idUtilisateur}")
-	@JsonView(Views.ViewPreferenceAlimentaire.class)
-	public List<PreferenceAlimentaire> findAllByUtilisateur(@Param("idUtilisateur") Long idUtilisateur) {
-
+	@JsonView(Views.ViewPreferenceAlimentaireWithUtilisateur.class)
+	public List<PreferenceAlimentaire> findAllByUtilisateur(@PathVariable("idUtilisateur") Long idUtilisateur) {
+		System.out.println("idUtilisateur="+idUtilisateur);
 		return prefAlimRepo.findAllByUtilisateur(idUtilisateur);
 	}
 

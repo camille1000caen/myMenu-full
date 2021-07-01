@@ -25,6 +25,7 @@ const routes: Routes = [
   {path: "ajustementQuantite", component: AjustementQuantiteComponent},
   {path: "listeCourse", component: ListeCoursesComponent},
   {path: "utilisateur", component: UtilisateurComponent},
+  {path: "utilisateur/:id", component: UtilisateurComponent},
   {path: "ingredient", component: IngredientComponent},
   {path:"recette", component: RecetteComponent},
   {path:"plat", component: PlatComponent},
