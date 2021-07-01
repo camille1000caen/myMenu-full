@@ -2009,9 +2009,12 @@ public class BasedeDonnes {
 		Ingredient ingredient5=new Ingredient("poivre",1);
 		ingredient5.setRecettes(listRecettes1);
 		ingredient5=ingredientRepo.save(ingredient5);
-		Ingredient ingredient6=new Ingredient("cc curry",1);
+		Ingredient ingredient6=new Ingredient("curry",1);
 		ingredient6.setRecettes(listRecettes1);
 		ingredient6=ingredientRepo.save(ingredient6);
+		Ingredient ingredient7=new Ingredient("poulet",1200);
+		ingredient7.setRecettes(listRecettes1);
+		ingredient7=ingredientRepo.save(ingredient7);
 				
 		
 		List<Ingredient> ingredients1=new ArrayList<Ingredient>();
@@ -2027,6 +2030,8 @@ public class BasedeDonnes {
 		ingredient5.setRecettes(listRecettes1);
 		ingredients1.add(ingredient6);
 		ingredient6.setRecettes(listRecettes1);
+		ingredients1.add(ingredient7);
+		ingredient7.setRecettes(listRecettes1);
 		
 		recette1=recetteRepo.save(recette1);
 		
