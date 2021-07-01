@@ -2016,8 +2016,8 @@ public class BasedeDonnes {
 				+ "Mixez tous les ingrédients sauf le jambon, le découper en morceaux et mélanger ensuite avec le reste.\r\n"
 				+ "\r\n"
 				+ "ÉTAPE 2\r\n"
-				+ "Placez dans un plat a tarte beurré et faites cuire une dmi-heure à 200°C.");
-		recette1.setNom("Poulet au curry");
+				+ "Placez dans un plat a tarte beurré et faites cuire une demi-heure à 200°C.");
+		recette1.setNom("Quiche");
 		recette1.setNombrePers(4);
 		recette1.setNote(4.7F);
 //		List<TypeAlimentation> typesAlim=new ArrayList<TypeAlimentation>();
