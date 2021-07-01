@@ -22,7 +22,7 @@ export class RecetteComponent implements OnInit {
   recette: Recette = new Recette();
   typeRecette: Array<String> = new Array<String>();
   tab: Array<Recette>;
-  recettes: Array<Recette>;
+  recettes: Array<Recette>= new Array<Recette>();
 
   constructor(private recetteService: RecetteHttpService) {
 
@@ -85,13 +85,13 @@ export class RecetteComponent implements OnInit {
   }
 
 
-  /*pdfDownload() {
+  pdfDownload() {
     var doc = new jsPDF();
     var interligne = 40;
     var indentation=15;
     doc.setTextColor(23, 162, 184);
     doc.text("Mes menus de la semaine", 72, 20);
-
+    console.log("this.recettes"+this.recettes);
     for (let rct of  this.recettes) {
 
       interligne = interligne + 7;
@@ -108,8 +108,8 @@ export class RecetteComponent implements OnInit {
       doc.addPage();
       interligne=15;
     }
-
-  }*/
+    doc.save("Mes menus.pdf");
+  }
 
 }
 
