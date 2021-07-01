@@ -137,14 +137,16 @@
             <i class="fas fa-trash-alt trashCan"></i>
           </button>
         </div>
+
         <div class="pt-2">
-          <a [routerLink]="['/recette']" class="btn btn-lg btn-info"><i class="far fa-file-pdf"></i> Mes recettes !</a>
+          <a class="btn btn-lg btn-info" (click)="pdfDownload()"><i class="far fa-file-pdf"></i> Mes recettes !</a>
         </div>
         <div class="pt-2">
-          <a [routerLink]="['/listeCourses']" class="btn btn-lg btn-success"><i class="far fa-file-pdf"></i> Ma liste de course !</a>
+          <a [routerLink]="['/listeCourses']" class="btn btn-lg btn-success" (click)="tableIdChecked()"> Ma liste de course !</a>
         </div>
       </li>
 
     </ul>
   </nav>
 </div>
+

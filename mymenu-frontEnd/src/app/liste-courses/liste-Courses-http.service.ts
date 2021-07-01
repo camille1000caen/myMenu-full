@@ -2,19 +2,26 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {AppConfigService} from "../app-config.service";
 import {Ingredient} from "../model/ingredient";
+import {SelectionMenuComponent} from "../selection-menu/selection-menu.component";
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class ListeCoursesHttpService {
 
-  listeCourses: Array<Ingredient>=new Array<Ingredient>();
-  ingredients : Array<Ingredient>=new Array<Ingredient>();
-  listeIdTest : Array<number>=new Array<number>();
+  listeCourses: Array<Ingredient> = new Array<Ingredient>();
+  ingredients: Array<Ingredient> = new Array<Ingredient>();
+  listeIdTest: Array<number> = new Array<number>();
 
 
   constructor(private http: HttpClient, private appConfig: AppConfigService) {
-    this.listeIdTest = [1,20,33,47,58,65,78,91,100];
+    this.reload();
+  }
+
+  reload() {
+    this.ingredients = new Array<Ingredient>();
+    this.listeIdTest = JSON.parse(sessionStorage.getItem("idRecette"));
 
     for (var i = 0; i < this.listeIdTest.length; i++) {
       this.findByRecette(this.listeIdTest[i]);
@@ -22,12 +29,12 @@ export class ListeCoursesHttpService {
   }
 
   findAll(): Array<Ingredient> {
-      return this.ingredients;
+    return this.ingredients;
   }
 
-  findByRecette(id:number){
-    this.http.get<Array<Ingredient>>(this.appConfig.backEndUrl +"ingredient/byrecette/"+id ).subscribe(resp => {
-      for(var i=0;i<resp.length;i++){
+  findByRecette(id: number) {
+    this.http.get<Array<Ingredient>>(this.appConfig.backEndUrl + "ingredient/byrecette/" + id).subscribe(resp => {
+      for (var i = 0; i < resp.length; i++) {
         this.ingredients.push(resp[i]);
       }
     }, error => console.log(error))
@@ -42,7 +49,7 @@ export class ListeCoursesHttpService {
     return null;
   }
 
-  modify(ingredient: Ingredient){
+  modify(ingredient: Ingredient) {
     let find: boolean = false;
     for (var indice = 0; indice < this.ingredients.length; indice++) {
       if (this.listeCourses[indice].id == ingredient.id) {

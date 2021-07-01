@@ -9,6 +9,8 @@ import {HttpClient} from "@angular/common/http";
 import {AppConfigService} from "../app-config.service";
 import {newArray} from "@angular/compiler/src/util";
 import {isEmpty} from "rxjs/operators";
+import {SelectionMenuComponent} from "../selection-menu/selection-menu.component";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-liste-courses',
@@ -20,8 +22,9 @@ export class ListeCoursesComponent implements OnInit {
   listeCourseForm: Ingredient = null;
   listeCourse: Array<Ingredient> = new Array<Ingredient>();
 
-  constructor(private listeService: ListeCoursesHttpService, private ingredientService : IngredientHttpService) {
-   }
+  constructor(private router : Router,private listeService: ListeCoursesHttpService, private ingredientService : IngredientHttpService) {
+    listeService.reload();
+  }
 
   ngOnInit(): void {
   }
