@@ -34,4 +34,6 @@ import sopra.myMenubackEnd.model.Planning;
 		
 		@Query("select distinct p from Planning p left join fetch p.utilisateur left join fetch p.objectif where p.id=:id")
 		Optional<Planning> findbyIdWithUtilisateurAndObjectif(@Param("id") Long id);
+		@Query("select distinct p from Planning p left join fetch p.objectif WHERE p.utilisateur.id =:idUtilisateur")
+		List<Planning> findAllWithObjectifByUtilisateur(Long idUtilisateur);
 }

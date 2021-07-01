@@ -45,5 +45,8 @@ public interface IRecetteRepository extends JpaRepository<Recette, Long>{
 	
 	@Query("select r from Recette r left join fetch r.plat p join p.repas re WHERE re.typeRepas=:typeRepas ORDER BY r.note DESC")
 	List<Recette> findByRisingNoteWithPlatByTypeRepas(@Param("typeRepas")TypeRepas typeRepas);
-
+	
+	@Query("select r from Recette r left join fetch r.plat pt left join fetch pt.repas rep where r.id=:id")
+	Optional<Recette> findByIdWithPlatAndRepas(@Param("id") Long id);
+	
 }

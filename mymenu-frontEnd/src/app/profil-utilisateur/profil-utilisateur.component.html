@@ -12,6 +12,9 @@
                   <div class="m-b-25"> <img src="https://img.icons8.com/bubbles/100/000000/user.png" class="img-radius" alt="User-Profile-Image"> </div>
                   <h6 class="f-w-800">{{utilisateur.prenom}} {{utilisateur.nom}}</h6>
                   <p>Premium</p> <i class=" mdi mdi-square-edit-outline feather icon-edit m-t-10 f-16"></i>
+                  <p class="lead">
+                    <a [routerLink]="['/profil']" class="btn btn-lg bg-light"><i class="fas fa-user-edit"></i></a>
+                  </p>
                 </div>
               </div>
               <div class="col-sm-8">
@@ -78,7 +81,7 @@
                   <div class="row">
                     <p>
                       <a *ngFor="let elem of plannings" class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-                        Plannings
+                        Planning {{elem.periode}} Objectif {{elem.objectif.typeObjectif}}
                       </a>
                     </p>
                     <div class="collapse" id="collapseExample">

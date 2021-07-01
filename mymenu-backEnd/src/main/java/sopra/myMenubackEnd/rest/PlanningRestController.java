@@ -126,6 +126,14 @@ public class PlanningRestController {
 
 		return plannings;
 	}
+	@GetMapping("with-objectif/by-utilisateur/{idUtilisateur}")
+	@JsonView(Views.ViewPlanningDetail.class)
+	public List<Planning> findAllWithObjectifByUtilisateur(@PathVariable Long idUtilisateur) {
+
+		List<Planning> plannings = planningRepo.findAllPlanningsByUtilisateur(idUtilisateur);
+
+		return plannings;
+	}
 	
 	@GetMapping("/with-utilisateur")
 	@JsonView(Views.ViewPlanningWithUtilisateur.class)
