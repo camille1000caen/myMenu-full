@@ -31,10 +31,6 @@ listeCourse: Array<Ingredient> = new Array<Ingredient>();
   list(): Array<Ingredient> {
     return this.ingredientService.findAll();
   }
-listRecette(id: number){
-
-    //return this.ingredientService.findAllByRecette(id);
-}
 
 
   pdfDownload() {

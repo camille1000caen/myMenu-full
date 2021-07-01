@@ -78,7 +78,7 @@ public class BasedeDonnes {
 	Ingredient ingredient4=new Ingredient("oeuf",70);
 	ingredient4.setRecettes(listRecettes1);
 	ingredient4=ingredientRepo.save(ingredient4);
-	Ingredient ingredient5=new Ingredient("glace caramel au beurre salé",100);
+	Ingredient ingredient5=new Ingredient("glace caramel",100);
 	ingredient5.setRecettes(listRecettes1);
 	ingredient5=ingredientRepo.save(ingredient5);
 	Ingredient ingredient6=new Ingredient("crème épaisse",190);
@@ -90,10 +90,6 @@ public class BasedeDonnes {
 	Ingredient ingredient8=new Ingredient("beurre",25);
 	ingredient8.setRecettes(listRecettes1);
 	ingredient8=ingredientRepo.save(ingredient8);
-	Ingredient ingredient9=new Ingredient("beurre",25);
-	ingredient9.setRecettes(listRecettes1);
-	ingredient9=ingredientRepo.save(ingredient9);
-	
 	
 	
 	List<Ingredient> ingredients1=new ArrayList<Ingredient>();
@@ -113,8 +109,6 @@ public class BasedeDonnes {
 	ingredient7.setRecettes(listRecettes1);
 	ingredients1.add(ingredient8);
 	ingredient8.setRecettes(listRecettes1);
-	ingredients1.add(ingredient9);
-	ingredient9.setRecettes(listRecettes1);
 	recette1.setIngredients(ingredients1);
 	recette1=recetteRepo.save(recette1);
 	
@@ -1004,7 +998,7 @@ public class BasedeDonnes {
 				+ "ÉTAPE 5\r\n"
 				+ "Portez à ébullition, baissez le feu et laissez mijoter 10 minutes.\rSaupoudrez de persil et mélangez.\r\n"
 				+ "ÉTAPE 6\r\n"
-				+ "Préparation des enchiladas\r\n"
+				+ "Préparation des iladas\r\n"
 				+ "Préchauffez le four à 200°C. \r\n"
 				+ "Garnissez chaque tortilla de la farce aux lardons.\r\n"
 				+ "ÉTAPE 7\r\n"
@@ -1029,7 +1023,7 @@ public class BasedeDonnes {
 		recette1=recetteRepo.save(recette1);
 		List<Recette> listRecettes1 = new ArrayList<Recette>();
 		listRecettes1.add(recette1);	
-		recette1.setPhoto("../../assets/images/enchiladasHalal.jpg");
+		recette1.setPhoto("../../assets/images/iladasHalal.jpg");
 		recette1=recetteRepo.save(recette1);
 		
 		Ingredient ingredient1=new Ingredient("lait",400);//ingredient1 recette1
@@ -1053,7 +1047,7 @@ public class BasedeDonnes {
 		Ingredient ingredient7=new Ingredient("tortillas",200);
 		ingredient7.setRecettes(listRecettes1);
 		ingredient7=ingredientRepo.save(ingredient7);
-		Ingredient ingredient8=new Ingredient("pulpe de tomates en conserve",150);
+		Ingredient ingredient8=new Ingredient("pulpe de tomates",150);
 		ingredient8.setRecettes(listRecettes1);
 		ingredient8=ingredientRepo.save(ingredient8);
 		Ingredient ingredient9=new Ingredient("harissa",2);
@@ -1077,6 +1071,9 @@ public class BasedeDonnes {
 		Ingredient ingredient15=new Ingredient("persil haché",20);
 		ingredient15.setRecettes(listRecettes1);
 		ingredient15=ingredientRepo.save(ingredient15);
+		Ingredient ingredient16=new Ingredient("lardons de poulet",200);
+		ingredient16.setRecettes(listRecettes1);
+		ingredient16=ingredientRepo.save(ingredient16);
 		
 		
 		
@@ -1111,6 +1108,8 @@ public class BasedeDonnes {
 		ingredient14.setRecettes(listRecettes1);
 		ingredients1.add(ingredient15);
 		ingredient15.setRecettes(listRecettes1);
+		ingredients1.add(ingredient16);
+		ingredient16.setRecettes(listRecettes1);
 		recette1.setIngredients(ingredients1);
 		recette1=recetteRepo.save(recette1);
 		
