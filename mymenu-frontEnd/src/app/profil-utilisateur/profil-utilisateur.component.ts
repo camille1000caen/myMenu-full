@@ -6,6 +6,8 @@ import {PreferenceAlimentaire} from "../model/preferencealimentaire";
 import {PreferenceAlimentaireHttpService} from "../preference-alimentaire/preference-alimentaire-http.service";
 import {Planning} from "../model/planning";
 import {PlanningHttpService} from "../planning/planning-http.service";
+import {Objectif} from "../model/objectif";
+import {ObjectifHttpService} from "../objectif/objectif-http.service";
 
 @Component({
   selector: 'app-profil-utilisateur',
@@ -18,12 +20,14 @@ export class ProfilUtilisateurComponent implements OnInit {
   utilisateur : Utilisateur;
   prefalims:Array<PreferenceAlimentaire>;
   plannings:Array<Planning>;
-  constructor(private utilisateurService: UtilisateurHttpService,private prefalimService : PreferenceAlimentaireHttpService,private planningService:PlanningHttpService) { }
+  objectifs:Array<Objectif>;
+  constructor(private utilisateurService: UtilisateurHttpService,private prefalimService : PreferenceAlimentaireHttpService,private planningService:PlanningHttpService,private objectifService : ObjectifHttpService) { }
 
   ngOnInit(): void {
     this.utilisateur=JSON.parse(sessionStorage.getItem("utilisateur"));
     this.setPrefAlims();
     this.setPlannings();
+
   }
 
   findByConn(conn:ConnexionDTO) {
@@ -45,4 +49,5 @@ export class ProfilUtilisateurComponent implements OnInit {
       console.log(this.plannings);
     })
   }
+
 }

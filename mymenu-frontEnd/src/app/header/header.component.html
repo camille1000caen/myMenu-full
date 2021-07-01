@@ -60,7 +60,9 @@
       </ul>
 
       <form class="form-inline my-2 my-lg-0">
-        <button class="btn btn-success my-2 my-sm-0" [routerLink]="['/connexion']">Connexion</button>
+        <button *ngIf="utilisateur()==null" class="btn btn-success my-2 my-sm-0" [routerLink]="['/connexion']">Connexion</button>
+        <button *ngIf="utilisateur()!=null" (click)="deconnexion()" class="btn btn-success my-2 my-sm-0">Deconnexion</button>
+        <button *ngIf="utilisateur()!=null"class="btn btn-success my-2 my-sm-0" [routerLink]="['/profil-utilisateur']">Mon Compte</button>
       </form>
 
     </div>

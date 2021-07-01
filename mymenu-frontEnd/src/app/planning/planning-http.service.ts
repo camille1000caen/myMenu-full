@@ -50,7 +50,7 @@ export class PlanningHttpService {
   }
 
   findAllByUtilisateur(id: number) {
-    return this.http.get<Array<Planning>>(this.appConfig.backEndUrl + "planning/by-utilisateur/" + id);
+    return this.http.get<Array<Planning>>(this.appConfig.backEndUrl + "planning/with-objectif/by-utilisateur/" + id);
   }
 }
 

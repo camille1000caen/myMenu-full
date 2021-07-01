@@ -81,7 +81,7 @@
                   <div class="row">
                     <p>
                       <a *ngFor="let elem of plannings" class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-                        Plannings
+                        Planning {{elem.periode}} Objectif {{elem.objectif.typeObjectif}}
                       </a>
                     </p>
                     <div class="collapse" id="collapseExample">
