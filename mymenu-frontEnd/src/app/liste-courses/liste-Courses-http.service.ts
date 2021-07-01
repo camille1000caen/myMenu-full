@@ -19,7 +19,7 @@ export class ListeCoursesHttpService {
 
 
   constructor(private http: HttpClient, private appConfig: AppConfigService) {
-    this.listeIdTest = [1, 79];
+    this.listeIdTest = [1,19,32,46,57,64,77,90,99];
 
     for (var i = 0; i < this.listeIdTest.length; i++) {
       this.findByRecette(this.listeIdTest[i]);

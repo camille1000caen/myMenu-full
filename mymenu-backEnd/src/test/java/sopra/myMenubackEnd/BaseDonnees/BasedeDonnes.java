@@ -43,13 +43,13 @@ public class BasedeDonnes {
 			+ "Faire fondre le beurre dans une poêle.\r\n"
 			+ "\r\n"
 			+ "ÉTAPE 2\r\n"
-			+ "Mélanger les oeufs, le lait et le sucre. Tremper la brioche dans ce mélange et les faire revenir dans le beurre.\r\n"
+			+ "Mélanger les oeufs, le lait et le sucre. Tremper la brioche dans ce mélange\ret les faire revenir dans le beurre.\r\n"
 			+ "\r\n"
 			+ "ÉTAPE 3\r\n"
 			+ "Faire chauffer doucement la crème et ajouter le caramel. Laisser épaissir.\r\n"
 			+ "\r\n"
 			+ "ÉTAPE 4\r\n"
-			+ "Dresser la tranche de brioche dans une assiette avec une boule de glace et la sauce au caramel.");
+			+ "Dresser la tranche de brioche dans une assiette avec une boule de glace\ret la sauce au caramel.");
 	recette1.setNom("Brioche perdue au caramel");
 	recette1.setNombrePers(4);
 	recette1.setNote(4.7F);
@@ -118,17 +118,18 @@ public class BasedeDonnes {
 	recette1.setIngredients(ingredients1);
 	recette1=recetteRepo.save(recette1);
 	
+	
+	
 	Repas repas1=new Repas();
 	repas1.setTypeRepas(TypeRepas.PETIT_DEJ);
 	repas1=repasRepo.save(repas1);
 	
 	Plat plat1=new Plat();
-	plat1.setNombrePersonne(6);
-	//plat1.setRecettes(listRecettes1);
-	recette1.setPlat(plat1);
+	plat1.setNombrePersonne(4);
 	plat1.setRepas(repas1);
 	plat1 = platRepo.save(plat1);
-	recette1=recetteRepo.save(recette1);
+	recette1.setPlat(plat1);
+	recette1 = recetteRepo.save(recette1);
 	}
 	
 	/********************************************************************************************************************	
@@ -139,25 +140,25 @@ public class BasedeDonnes {
 	public void BiscuitCereal(){
 	Recette recette1=new Recette();
 	recette1.setEtapes("ÉTAPE 1\r\n"
-			+ "Dans une jatte, pétrissez tous les ingrédients ensemble jusqu'à obtenir une boule de pâte.\r\n"
+			+ "Dans une jatte, pétrissez tous les ingrédients ensemble jusqu'à obtenir une\rboule de pâte.\r\n"
 			+ "\r\n"
 			+ "ÉTAPE 2\r\n"
-			+ "Si vous souhaitez faire différents biscuits avec cette même pâte, ne mettez pas les ingrédients optionnels.\r\n"
+			+ "Si vous souhaitez faire différents biscuits avec cette même pâte, ne mettez\rpas les ingrédients optionnels.\r\n"
 			+ "\r\n"
 			+ "ÉTAPE 3\r\n"
-			+ "Enveloppez la pâte dans du film transparent et mettre au frigo pour une dizaine de minutes au moins.\r\n"
+			+ "Enveloppez la pâte dans du film transparent et mettre au frigo pour une\rdizaine de minutes au moins.\r\n"
 			+ "\r\n"
 			+ "ÉTAPE 4\r\n"
-			+ "Préchauffez votre four à 200°C et placez du papier sulfurisé sur une plaque de cuisson.\r\n"
+			+ "Préchauffez votre four à 200°C et placez du papier sulfurisé sur une plaque\rde cuisson.\r\n"
 			+ "\r\n"
 			+ "ÉTAPE 5\r\n"
-			+ "Sortez la pâte du frigo et, si vous le souhaitez, séparez la pâte en plusieurs parts pour y ajouter les ingrédients optionnels.\r\n"
+			+ "Sortez la pâte du frigo et, si vous le souhaitez, séparez la pâte en plusieurs\rparts pour y ajouter les ingrédients optionnels.\r\n"
 			+ "\r\n"
 			+ "ÉTAPE 6\r\n"
-			+ "Formez de petites boules de pâtes que vous écraserez dans la paume avant de placer sur la plaque.\r\n"
+			+ "Formez de petites boules de pâtes que vous écraserez dans la paume avant de\rplacer sur la plaque.\r\n"
 			+ "\r\n"
 			+ "ÉTAPE 7\r\n"
-			+ "Placez au four pour environ 10 minutes, selon votre four. Restez à proximité des biscuits. Ils doivent être à peine dorés pour restez moelleux ou bien dorés pour être un peu plus croquants.");
+			+ "Placez au four pour environ 10 minutes, selon votre four. Restez à proximité\rdes biscuits. Ils doivent être à peine dorés pour restez moelleux ou bien dorés pour être un peu plus croquants.");
 	recette1.setNom("Biscuits aux céréales");
 	recette1.setNombrePers(6);
 	recette1.setNote(4.6F);
@@ -239,11 +240,11 @@ public class BasedeDonnes {
 	
 	Plat plat1=new Plat();
 	plat1.setNombrePersonne(6);
-	//plat1.setRecettes(listRecettes1);
-	recette1.setPlat(plat1);
+
 	plat1.setRepas(repas1);
 	plat1 = platRepo.save(plat1);
-	recette1=recetteRepo.save(recette1);
+	recette1.setPlat(plat1);
+	recette1 = recetteRepo.save(recette1);
 	}
 	
 	/********************************************************************************************************************	
@@ -254,16 +255,16 @@ public class BasedeDonnes {
 	Recette recette1=new Recette();
 	recette1.setEtapes("Etapes\r\n"
 			+ "ÉTAPE 1\r\n"
-			+ "- Couper les champignons en tranches et les faire revenir dans une poêle avec un peu de beurre, à feu moyen. Saler, poivrer.\r\n"
+			+ "- Couper les champignons en tranches et les faire revenir dans une poêle\ravec un peu de beurre, à feu moyen. Saler, poivrer.\r\n"
 			+ "\r\n"
 			+ "ÉTAPE 2\r\n"
-			+ "- Pendant ce temps, faire cuire le bacon dans une grande poêle, et mettre le pain à toaster.\r\n"
+			+ "- Pendant ce temps, faire cuire le bacon dans une grande poêle, et mettre\rle pain à toaster.\r\n"
 			+ "\r\n"
 			+ "ÉTAPE 3\r\n"
 			+ "- Rajouter dans la poêle les oeufs (au plat), saler, poivrer.\r\n"
 			+ "\r\n"
 			+ "ÉTAPE 4\r\n"
-			+ "Réchauffer les haricots au micro-ondes (2 min, en remuant à mi-temps) et beurrer les tranches de pain que l'on coupera en diagonale.\r\n"
+			+ "Réchauffer les haricots au micro-ondes (2 min, en remuant à mi-temps) et\rbeurrer les tranches de pain que l'on coupera en diagonale.\r\n"
 			+ "\r\n"
 			+ "ÉTAPE 5\r\n"
 			+ "- Disposer tous les ingrédients dans une grande assiette: c'est prêt!");
@@ -325,12 +326,12 @@ public class BasedeDonnes {
 	repas1=repasRepo.save(repas1);
 	
 	Plat plat1=new Plat();
-	plat1.setNombrePersonne(6);
-	//plat1.setRecettes(listRecettes1);
-	recette1.setPlat(plat1);
+	plat1.setNombrePersonne(2);
+	
 	plat1.setRepas(repas1);
 	plat1 = platRepo.save(plat1);
-	recette1=recetteRepo.save(recette1);
+	recette1.setPlat(plat1);
+	recette1 = recetteRepo.save(recette1);
 	}
 	
 	/********************************************************************************************************************	
@@ -346,13 +347,13 @@ public class BasedeDonnes {
 			+ "Préparez le crumble en mélangeant l'oeuf, le sucre, la farine, le beurre mou\r et le sel. Le tout doit s'émietter.\r\n"
 			+ "\r\n"
 			+ "ÉTAPE 3\r\n"
-			+ "Etalez sur une plaque tapissée de papier sulfurisé par petites miettes ou \r amas plus ou moins gros (ajoutez un peu de farine si c'est trop pâteux).\r\n"
+			+ "Etalez sur une plaque tapissée de papier sulfurisé par petites miettes ou\r amas plus ou moins gros (ajoutez un peu de farine si c'est trop pâteux).\r\n"
 			+ "\r\n"
 			+ "ÉTAPE 4\r\n"
-			+ "Enfournez pendant 13 minutes en surveillant la cuisson : le crumble doit \r être bien doré et croustillant sur le dessus.\r\n"
+			+ "Enfournez pendant 13 minutes en surveillant la cuisson : le crumble doit être\r bien doré et croustillant sur le dessus.\r\n"
 			+ "\r\n"
 			+ "ÉTAPE 5\r\n"
-			+ "Mélangez tous les autres ingrédients et ajoutez le crumble cuit en miettes, \r une fois bien refroidi (pour que le chocolat ne fonde pas).\r\n"
+			+ "Mélangez tous les autres ingrédients et ajoutez le crumble cuit en miettes,\r une fois bien refroidi (pour que le chocolat ne fonde pas).\r\n"
 			+ "\r\n"
 			+ "ÉTAPE 6\r\n"
 			+ "A servir au petit-déjeuner avec du lait.");
@@ -427,11 +428,11 @@ public class BasedeDonnes {
 	
 	Plat plat1=new Plat();
 	plat1.setNombrePersonne(6);
-	//plat1.setRecettes(listRecettes1);
-	recette1.setPlat(plat1);
+	
 	plat1.setRepas(repas1);
 	plat1 = platRepo.save(plat1);
-	recette1=recetteRepo.save(recette1);
+	recette1.setPlat(plat1);
+	recette1 = recetteRepo.save(recette1);
 	}
 	
 	/********************************************************************************************************************	
@@ -442,22 +443,22 @@ public class BasedeDonnes {
 	public void Pancake(){
 	Recette recette1=new Recette();
 	recette1.setEtapes("ÉTAPE 1\r\n"
-			+ "Faire fondre le beurre, dans une casserole à feu doux ou dans un bol au \r micro-ondes.\r\n"
+			+ "Faire fondre le beurre, dans une casserole à feu doux ou dans un bol au\rmicro-ondes.\r\n"
 			+ "\r\n"
 			+ "ÉTAPE 2\r\n"
-			+ "Mettre la farine, la levure et le sucre dans un saladier. Mélanger et \r creuser un puits.\r\n"
+			+ "Mettre la farine, la levure et le sucre dans un saladier. Mélanger et\rcreuser un puits.\r\n"
 			+ "\r\n"
 			+ "ÉTAPE 3\r\n"
 			+ "Ajouter ensuite les oeufs entiers et fouetter l'ensemble.\r\n"
 			+ "\r\n"
 			+ "ÉTAPE 4\r\n"
-			+ "Incorporer le beurre fondu, fouetter puis délayer progressivement le \r mélange avec le lait afin d'éviter les grumeaux.\r\n"
+			+ "Incorporer le beurre fondu, fouetter puis délayer progressivement le\rmélange avec le lait afin d'éviter les grumeaux.\r\n"
 			+ "\r\n"
 			+ "ÉTAPE 5\r\n"
 			+ "Laisser reposer la pâte au minimum 1 heure au réfrigérateur.\r\n"
 			+ "\r\n"
 			+ "ÉTAPE 6\r\n"
-			+ "Dans une poêle chaude et légèrement huilée, faire cuire comme des crêpes, mais en les faisant plus petites. Réserver au chaud et déguster.");
+			+ "Dans une poêle chaude et légèrement huilée, faire cuire comme des\rcrêpes, mais en les faisant plus petites. Réserver au chaud et déguster.");
 	recette1.setNom("Pancake");
 	recette1.setNombrePers(4);
 	recette1.setNote(4.8F);
@@ -529,11 +530,11 @@ public class BasedeDonnes {
 	
 	Plat plat1=new Plat();
 	plat1.setNombrePersonne(6);
-	//plat1.setRecettes(listRecettes1);
-	recette1.setPlat(plat1);
+
 	plat1.setRepas(repas1);
 	plat1 = platRepo.save(plat1);
-	recette1=recetteRepo.save(recette1);
+	recette1.setPlat(plat1);
+	recette1 = recetteRepo.save(recette1);
 	}
 	/********************************************************************************************************************	
 	********************************************************************************************************************	6
@@ -542,7 +543,7 @@ public class BasedeDonnes {
 	public void Smoothie(){
 	Recette recette1=new Recette();
 	recette1.setEtapes("ÉTAPE 1\r\n"
-			+ "mettre dans un mixer les bananes coupées en morceaux et la chair des kiwis.\r\n"
+			+ "mettre dans un mixer les bananes coupées en morceaux et la\rchair des kiwis.\r\n"
 			+ "ÉTAPE 2\r\n"
 			+ "Presser les oranges et rajouter le jus dans le mixer.\r\n"
 			+ "ÉTAPE 3\r\n"
@@ -596,11 +597,11 @@ public class BasedeDonnes {
 	
 	Plat plat1=new Plat();
 	plat1.setNombrePersonne(6);
-	//plat1.setRecettes(listRecettes1);
-	recette1.setPlat(plat1);
+	
 	plat1.setRepas(repas1);
 	plat1 = platRepo.save(plat1);
-	recette1=recetteRepo.save(recette1);
+	recette1.setPlat(plat1);
+	recette1 = recetteRepo.save(recette1);
 	}
 	
 	/********************************************************************************************************************	
@@ -759,25 +760,25 @@ public class BasedeDonnes {
 		public void Tartiflette(){
 		Recette recette1=new Recette();
 		recette1.setEtapes("ÉTAPE 1\r\n"
-				+ "Eplucher les pommes de terre, les couper en dés, bien les rincer et les essuyer dans un torchon propre.\r\n"
+				+ "Eplucher les pommes de terre, les couper en dés, bien les rincer\ret les essuyer dans un torchon propre.\r\n"
 				+ "\r\n"
 				+ "ÉTAPE 2\r\n"
 				+ "Faire chauffer l'huile dans une poêle, y faire fondre les oignons.\r\n"
 				+ "\r\n"
 				+ "ÉTAPE 3\r\n"
-				+ "Lorsque les oignons sont fondus, ajouter les pommes de terre et les faire dorer de tous les côtés.\r\n"
+				+ "Lorsque les oignons sont fondus, ajouter les pommes de terre et\rles faire dorer de tous les côtés.\r\n"
 				+ "\r\n"
 				+ "ÉTAPE 4\r\n"
 				+ "Lorsqu'elles sont dorées, ajouter les lardons et finir de cuire.\r\n"
 				+ "\r\n"
 				+ "ÉTAPE 5\r\n"
-				+ "D'autre part, gratter la croûte du reblochon et le couper en deux (ou en quatre).\r\n"
+				+ "D'autre part, gratter la croûte du reblochon et le couper en\rdeux (ou en quatre).\r\n"
 				+ "\r\n"
 				+ "ÉTAPE 6\r\n"
-				+ "Préchauffer le four à 200°C (thermostat 6-7) et préparer un plat à gratin en frottant le fond et les bords avec la gousse d'ail épluchée.\r\n"
+				+ "Préchauffer le four à 200°C (thermostat 6-7) et préparer un\rplat à gratin en frottant le fond et les bords avec la gousse d'ail épluchée.\r\n"
 				+ "\r\n"
 				+ "ÉTAPE 7\r\n"
-				+ "Dans le plat à gratin, étaler une couche de pommes de terre aux lardons, disposer dessus la moitié du reblochon, puis de nouveau des pommes de terre. Terminer avec le reste du reblochon (croûte vers les pommes de terre).\r\n"
+				+ "Dans le plat à gratin, étaler une couche de pommes de terre\raux lardons, disposer dessus la moitié du reblochon, puis de nouveau des pommes de terre. Terminer avec le reste du reblochon (croûte vers les pommes de terre).\r\n"
 				+ "\r\n"
 				+ "ÉTAPE 8\r\n"
 				+ "Enfourner pour environ 20 minutes de cuisson. ");
@@ -843,16 +844,16 @@ public class BasedeDonnes {
 		recette1=recetteRepo.save(recette1);
 		
 		Repas repas1=new Repas();
-		repas1.setTypeRepas(TypeRepas.DINNER);
+		repas1.setTypeRepas(TypeRepas.DEJ);
 		repas1=repasRepo.save(repas1);
 		
 		Plat plat1=new Plat();
-		plat1.setNombrePersonne(6);
-		//plat1.setRecettes(listRecettes1);
-		recette1.setPlat(plat1);
+		plat1.setNombrePersonne(4);
+		
 		plat1.setRepas(repas1);
 		plat1 = platRepo.save(plat1);
-		recette1=recetteRepo.save(recette1);
+		recette1.setPlat(plat1);
+		recette1 = recetteRepo.save(recette1);
 		}
 		
 		
@@ -865,34 +866,34 @@ public class BasedeDonnes {
 		public void PotAuFeu(){
 		Recette recette1=new Recette();
 		recette1.setEtapes("ÉTAPE 1\r\n"
-				+ "Ficelez les morceaux de viande pour qu'ils se maintiennent en forme pendant la cuisson et, s'il y en a, coupez la queue de boeuf en tronçons.\r\n"
+				+ "Ficelez les morceaux de viande pour qu'ils se maintiennent en\rforme pendant la cuisson et, s'il y en a, coupez la queue de boeuf en tronçons.\r\n"
 				+ "\r\n"
 				+ "ÉTAPE 2\r\n"
-				+ "Épluchez les carottes, les poireaux et la branche de céleri, puis lavez-les.\r\n"
+				+ "Épluchez les carottes, les poireaux et la branche de céleri,\rpuis lavez-les.\r\n"
 				+ "\r\n"
 				+ "ÉTAPE 3\r\n"
-				+ "Piquez un oignon avec les clous de girofle et faites dorer le second, à sec, au four : il colorera le bouillon (pour colorer le bouillon, ajouter 1/2 cuillerée à café d’arôme Patrelle).\r\n"
+				+ "Piquez un oignon avec les clous de girofle et faites dorer le\rsecond, à sec, au four : il colorera le bouillon (pour colorer le bouillon, ajouter 1/2 cuillerée à café d’arôme Patrelle).\r\n"
 				+ "\r\n"
 				+ "ÉTAPE 4\r\n"
-				+ "Mettez dans un faitout tous les morceaux de viande et l’os à moelle, préalablement enveloppé dans une mousseline pour éviter que la moelle ne se répande. Mouillez avec 5 litres d'eau froide.\r\n"
+				+ "Mettez dans un faitout tous les morceaux de viande et l’os à\rmoelle, préalablement enveloppé dans une mousseline pour éviter que la moelle ne se répande. Mouillez avec 5 litres d'eau froide.\r\n"
 				+ "\r\n"
 				+ "ÉTAPE 5\r\n"
-				+ "Salez au gros sel. Portez à ébullition et laissez bouillir, en ayant soin d'écumer souvent, jusqu'à ce qu'il ne se forme plus d'écume.\r\n"
+				+ "Salez au gros sel. Portez à ébullition et laissez bouillir,\ren ayant soin d'écumer souvent, jusqu'à ce qu'il ne se forme plus d'écume.\r\n"
 				+ "\r\n"
 				+ "ÉTAPE 6\r\n"
-				+ "Ajoutez-y les oignons, les carottes, les poireaux (liés en botte), le céleri branche, l’ail et le bouquet garni, préalablement ficelé. Ajoutez 12 grains de poivre.\r\n"
+				+ "Ajoutez-y les oignons, les carottes, les poireaux (liés en\rbotte), le céleri branche, l’ail et le bouquet garni, préalablement ficelé. Ajoutez 12 grains de poivre.\r\n"
 				+ "\r\n"
 				+ "ÉTAPE 7\r\n"
-				+ "Portez de nouveau à ébullition, puis laissez cuire, à couvert (la vapeur doit pouvoir s'échapper sur le côté), sur feu très doux, pendant au moins 4 heures.\r\n"
+				+ "Portez de nouveau à ébullition, puis laissez cuire, à couvert\r(la vapeur doit pouvoir s'échapper sur le côté), sur feu très doux, pendant au moins 4 heures.\r\n"
 				+ "\r\n"
 				+ "ÉTAPE 8\r\n"
 				+ "Dégraisser en cours de cuisson avec une petite louche.\r\n"
 				+ "\r\n"
 				+ "ÉTAPE 9\r\n"
-				+ "Le bouillon du pot-au-feu se consomme chaud ou tiède, en précédant les viandes et les légumes ou seul. Il peut aussi être la base de divers potages.\r\n"
+				+ "Le bouillon du pot-au-feu se consomme chaud ou tiède, en\rprécédant les viandes et les légumes ou seul. Il peut aussi être la base de divers potages.\r\n"
 				+ "\r\n"
 				+ "ÉTAPE 10\r\n"
-				+ "Quant aux morceaux de viande et aux légumes, retirez-les du bouillon et dressez-les dans un plat chaud. Servez-les aussitôt, avec des cornichons, du gros sel et de la moutarde forte.");
+				+ "Quant aux morceaux de viande et aux légumes, retirez-les du\rbouillon et dressez-les dans un plat chaud. Servez-les aussitôt, avec des cornichons, du gros sel et de la moutarde forte.");
 		recette1.setNom("Pot-au-feu");
 		recette1.setNombrePers(4);
 		recette1.setNote(4.7F);
@@ -970,16 +971,16 @@ public class BasedeDonnes {
 		recette1=recetteRepo.save(recette1);
 		
 		Repas repas1=new Repas();
-		repas1.setTypeRepas(TypeRepas.DEJ);
+		repas1.setTypeRepas(TypeRepas.DINER);
 		repas1=repasRepo.save(repas1);
 		
 		Plat plat1=new Plat();
-		plat1.setNombrePersonne(6);
-		//plat1.setRecettes(listRecettes1);
-		recette1.setPlat(plat1);
+		plat1.setNombrePersonne(4);
+		
 		plat1.setRepas(repas1);
 		plat1 = platRepo.save(plat1);
-		recette1=recetteRepo.save(recette1);
+		recette1.setPlat(plat1);
+		recette1 = recetteRepo.save(recette1);
 		}
 		
 /********************************************************************************************************************	
@@ -992,16 +993,16 @@ public class BasedeDonnes {
 		Recette recette1=new Recette();
 		recette1.setEtapes("Préparation de la sauce béchamel\r\n"
 				+ " ÉTAPE 1\r\n"
-				+ "Faites fondre le beurre, ajoutez la farine, mélangez avec un fouet, puis versez le lait en continuant à mélanger pour éviter la formation de grumeaux.\r\n"
+				+ "Faites fondre le beurre, ajoutez la farine, mélangez avec un\rfouet, puis versez le lait en continuant à mélanger pour éviter la formation de grumeaux.\r\n"
 				+ "ÉTAPE 2\r\n"
-				+ "Salez et poivrez, ajoutez une pincée de noix de muscade râpée, amenez le tout à ébullition et laissez cuire quelques minutes en mélangeant jusqu'à obtenir une sauce. Retirez du feu dès que ça commence à s'épaissir.\r\n"
+				+ "Salez et poivrez, ajoutez une pincée de noix de muscade râpée,\ramenez le tout à ébullition et laissez cuire quelques minutes en mélangeant jusqu'à obtenir une sauce. Retirez du feu dès que ça commence à s'épaissir.\r\n"
                 + "ÉTAPE 3\r\n"
 				+ "Préparation de la farce\r\n"
-				+ "Faites revenir l'oignon et l'ail dans une sauteuse avec l'huile. Quand l'oignon devient translucide, ajoutez les lardons de Poulet fumés Isla Délice.\r\n"
+				+ "Faites revenir l'oignon et l'ail dans une sauteuse avec l'huile.\rQuand l'oignon devient translucide, ajoutez les lardons de Poulet fumés Isla Délice.\r\n"
 				+ "ÉTAPE 4\r\n"
-				+ "Ajoutez le concentré de tomate, la purée de piment et la pulpe de tomate. Salez et poivrez.\r\n"
+				+ "Ajoutez le concentré de tomate, la purée de piment et la pulpe de\rtomate. Salez et poivrez.\r\n"
 				+ "ÉTAPE 5\r\n"
-				+ "Portez à ébullition, baissez le feu et laissez mijoter 10 minutes. Saupoudrez de persil et mélangez.\r\n"
+				+ "Portez à ébullition, baissez le feu et laissez mijoter 10 minutes.\rSaupoudrez de persil et mélangez.\r\n"
 				+ "ÉTAPE 6\r\n"
 				+ "Préparation des enchiladas\r\n"
 				+ "Préchauffez le four à 200°C. \r\n"
@@ -1016,7 +1017,7 @@ public class BasedeDonnes {
 				+ "Nappez le tout de sauce béchamel.\r\n"
 				+ "ÉTAPE 11\r\n"
 				+ "Saupoudrez du reste de fromage. \r\n"
-				+ "Faites cuire 15 minutes au four, jusqu'à faire dorer un peu le fromage. Servez chaud avec une salade verte.");
+				+ "Faites cuire 15 minutes au four, jusqu'à faire dorer un peu le\rfromage. Servez chaud avec une salade verte.");
 		recette1.setNom("Enchiladas aux lardons de poulet Halal");
 		recette1.setNombrePers(4);
 		recette1.setNote(5F);
@@ -1114,16 +1115,603 @@ public class BasedeDonnes {
 		recette1=recetteRepo.save(recette1);
 		
 		Repas repas1=new Repas();
-		repas1.setTypeRepas(TypeRepas.DEJ);
+		repas1.setTypeRepas(TypeRepas.DINER);
+		repas1=repasRepo.save(repas1);
+		
+		Plat plat1=new Plat();
+		plat1.setNombrePersonne(4);
+	
+		plat1.setRepas(repas1);
+		plat1 = platRepo.save(plat1);
+		recette1.setPlat(plat1);
+		recette1 = recetteRepo.save(recette1);
+		}
+		/********************************************************************************************************************	
+		********************************************************************************************************************	
+		********************************************************************************************************************/	
+		@Test
+		public void PouletCurry(){
+		Recette recette1=new Recette();
+		recette1.setEtapes("ÉTAPE 1\r\n"
+				+ "Pour la préparation de la purée:\r\n"
+				+ "\r\n"
+				+ "ÉTAPE 2\r\n"
+				+ "Faire cuire les carottes dans de l'eau en ébullition\rpendant 25 min (pour qu'elles soient bien tendres).\r\n"
+				+ "\r\n"
+				+ "ÉTAPE 3\r\n"
+				+ "Faire cuire à feu très doux courgette et poireaux\rpendant 25 min.\r\n"
+				+ "\r\n"
+				+ "ÉTAPE 4\r\n"
+				+ "Une fois le tout cuit, mixer poireaux, carottes et\rcourgette.\r\n"
+				+ "\r\n"
+				+ "ÉTAPE 5\r\n"
+				+ "Ajouter les épices.\r\n"
+				+ "\r\n"
+				+ "ÉTAPE 6\r\n"
+				+ "Pour le poulet:\r\n"
+				+ "\r\n"
+				+ "ÉTAPE 7\r\n"
+				+ "Dans une noisette de beurre, faire cuire le poulet\rcoupé en petits morceaux à feu moyen, pendant 20 min.\r\n"
+				+ "\r\n"
+				+ "ÉTAPE 8\r\n"
+				+ "A la fin de la cuisson, ajouter la crème fraiche,\rle curry et la Maïzena.");
+		recette1.setNom("Poulet au curry");
+		recette1.setNombrePers(2);
+		recette1.setNote(4F);
+//		List<TypeAlimentation> typesAlim=new ArrayList<TypeAlimentation>();
+//		typesAlim.add(TypeAlimentation.NONE);
+//		typesAlim.add(TypeAlimentation.HALAL);
+//		recette1.setTypeAlimentation(typesAlim);
+		recette1.setTypeAlimentation(TypeAlimentation.NONE);
+		recette1=recetteRepo.save(recette1);
+		List<Recette> listRecettes1 = new ArrayList<Recette>();
+		listRecettes1.add(recette1);	
+		recette1.setPhoto("../../assets/images/pouletcurry.jpg");
+		recette1=recetteRepo.save(recette1);
+		
+		Ingredient ingredient1=new Ingredient("poireau",400);//ingredient1 recette1
+		ingredient1.setRecettes(listRecettes1);
+		ingredient1=ingredientRepo.save(ingredient1);
+		Ingredient ingredient2=new Ingredient("carotte",300);//ingredient2 recette1
+		ingredient2.setRecettes(listRecettes1);
+		ingredient2=ingredientRepo.save(ingredient2);
+		Ingredient ingredient3=new Ingredient("courgette",350);
+		ingredient3.setRecettes(listRecettes1);
+		ingredient3=ingredientRepo.save(ingredient3);
+		Ingredient ingredient4=new Ingredient("sel",1);
+		ingredient4.setRecettes(listRecettes1);
+		ingredient4=ingredientRepo.save(ingredient4);
+		Ingredient ingredient5=new Ingredient("poivre",1);
+		ingredient5.setRecettes(listRecettes1);
+		ingredient5=ingredientRepo.save(ingredient5);
+		Ingredient ingredient6=new Ingredient("cc curry",1);
+		ingredient6.setRecettes(listRecettes1);
+		ingredient6=ingredientRepo.save(ingredient6);
+				
+		
+		List<Ingredient> ingredients1=new ArrayList<Ingredient>();
+		ingredients1.add(ingredient1);
+		
+		ingredients1.add(ingredient2);
+		ingredient2.setRecettes(listRecettes1);
+		ingredients1.add(ingredient3);
+		ingredient3.setRecettes(listRecettes1);
+		ingredients1.add(ingredient4);
+		ingredient4.setRecettes(listRecettes1);
+		ingredients1.add(ingredient5);
+		ingredient5.setRecettes(listRecettes1);
+		ingredients1.add(ingredient6);
+		ingredient6.setRecettes(listRecettes1);
+		
+		recette1=recetteRepo.save(recette1);
+		
+		Repas repas1=new Repas();
+		repas1.setTypeRepas(TypeRepas.DINER);
+		repas1=repasRepo.save(repas1);
+		
+		Plat plat1=new Plat();
+		plat1.setNombrePersonne(2);
+	
+		plat1.setRepas(repas1);
+		plat1 = platRepo.save(plat1);
+		recette1.setPlat(plat1);
+		recette1 = recetteRepo.save(recette1);
+		}
+		/********************************************************************************************************************	
+		********************************************************************************************************************	
+		********************************************************************************************************************/
+		@Test
+		public void Quiche(){
+		Recette recette1=new Recette();
+		recette1.setEtapes("ÉTAPE 1\r\n"
+				+ "Mixez tous les ingrédients sauf le jambon, le découper en morceaux et mélanger ensuite avec le reste.\r\n"
+				+ "\r\n"
+				+ "ÉTAPE 2\r\n"
+				+ "Placez dans un plat a tarte beurré et faites cuire une dmi-heure à 200°C.");
+		recette1.setNom("Poulet au curry");
+		recette1.setNombrePers(4);
+		recette1.setNote(4.7F);
+//		List<TypeAlimentation> typesAlim=new ArrayList<TypeAlimentation>();
+//		typesAlim.add(TypeAlimentation.NONE);
+//		typesAlim.add(TypeAlimentation.HALAL);
+//		recette1.setTypeAlimentation(typesAlim);
+		recette1.setTypeAlimentation(TypeAlimentation.NONE);
+		recette1=recetteRepo.save(recette1);
+		List<Recette> listRecettes1 = new ArrayList<Recette>();
+		listRecettes1.add(recette1);	
+		recette1.setPhoto("../../assets/images/quiche.jpg");
+		recette1=recetteRepo.save(recette1);
+		
+		Ingredient ingredient1=new Ingredient("sel",1);//ingredient1 recette1
+		ingredient1.setRecettes(listRecettes1);
+		ingredient1=ingredientRepo.save(ingredient1);
+		Ingredient ingredient2=new Ingredient("poivre",1);//ingredient2 recette1
+		ingredient2.setRecettes(listRecettes1);
+		ingredient2=ingredientRepo.save(ingredient2);
+		Ingredient ingredient3=new Ingredient("jambon",200);
+		ingredient3.setRecettes(listRecettes1);
+		ingredient3=ingredientRepo.save(ingredient3);
+		Ingredient ingredient4=new Ingredient("farine",50);
+		ingredient4.setRecettes(listRecettes1);
+		ingredient4=ingredientRepo.save(ingredient4);
+		Ingredient ingredient5=new Ingredient("lait",250);
+		ingredient5.setRecettes(listRecettes1);
+		ingredient5=ingredientRepo.save(ingredient5);
+		Ingredient ingredient6=new Ingredient("oeuf",3);
+		ingredient6.setRecettes(listRecettes1);
+		ingredient6=ingredientRepo.save(ingredient6);
+		Ingredient ingredient7=new Ingredient("creme fraiche",100);
+		ingredient7.setRecettes(listRecettes1);
+		ingredient7=ingredientRepo.save(ingredient7);
+		Ingredient ingredient8=new Ingredient("gruyere rape",100);
+		ingredient8.setRecettes(listRecettes1);
+		ingredient8=ingredientRepo.save(ingredient8);
+				
+		
+		List<Ingredient> ingredients1=new ArrayList<Ingredient>();
+		ingredients1.add(ingredient1);
+		
+		ingredients1.add(ingredient2);
+		ingredient2.setRecettes(listRecettes1);
+		ingredients1.add(ingredient3);
+		ingredient3.setRecettes(listRecettes1);
+		ingredients1.add(ingredient4);
+		ingredient4.setRecettes(listRecettes1);
+		ingredients1.add(ingredient5);
+		ingredient5.setRecettes(listRecettes1);
+		ingredients1.add(ingredient6);
+		ingredient6.setRecettes(listRecettes1);
+		ingredients1.add(ingredient7);
+		ingredient7.setRecettes(listRecettes1);
+		ingredients1.add(ingredient8);
+		ingredient8.setRecettes(listRecettes1);
+		
+		recette1=recetteRepo.save(recette1);
+		
+		Repas repas1=new Repas();
+		repas1.setTypeRepas(TypeRepas.DINER);
+		repas1=repasRepo.save(repas1);
+		
+		Plat plat1=new Plat();
+		plat1.setNombrePersonne(2);
+	
+		plat1.setRepas(repas1);
+		plat1 = platRepo.save(plat1);
+		recette1.setPlat(plat1);
+		recette1 = recetteRepo.save(recette1);
+		}
+		/********************************************************************************************************************	
+		********************************************************************************************************************	
+		********************************************************************************************************************/	
+		@Test
+		public void SaladeLentille(){
+		Recette recette1=new Recette();
+		recette1.setEtapes("ÉTAPE 1\r\n"
+				+ "Faire cuire les lentilles comme indiqué sur leur emballage (en générale 30 min dans l'eau froide à partir du bouillonnement de l'eau). Laissez les refroidir, pour aller plus vite, vous pouvez les passées sous l'eau froide.\r\n"
+				+ "\r\n"
+				+ "ÉTAPE 2\r\n"
+				+ "Préparez la vinaigrette.\r\n"
+				+ "\r\n"
+				+ "ÉTAPE 3\r\n"
+				+ "Faites revenir les allumettes de lardons.\r\n"
+				+ "\r\n"
+				+ "ÉTAPE 4\r\n"
+				+ "Coupez les tomates en quartier assez fin (plus agréable en bouche) ainsi que la feta en dès.\r\n"
+				+ "\r\n"
+				+ "ÉTAPE 5\r\n"
+				+ "Ajoutez les lentilles une fois froide ainsi que les lardons, la feta et les tomates dans votre vinaigrette.");
+		recette1.setNom("Salade aux lentilles");
+		recette1.setNombrePers(2);
+		recette1.setNote(4.9F);
+//		List<TypeAlimentation> typesAlim=new ArrayList<TypeAlimentation>();
+//		typesAlim.add(TypeAlimentation.NONE);
+//		typesAlim.add(TypeAlimentation.HALAL);
+//		recette1.setTypeAlimentation(typesAlim);
+		recette1.setTypeAlimentation(TypeAlimentation.NONE);
+		recette1=recetteRepo.save(recette1);
+		List<Recette> listRecettes1 = new ArrayList<Recette>();
+		listRecettes1.add(recette1);	
+		recette1.setPhoto("../../assets/images/saladelentille.jpg");
+		recette1=recetteRepo.save(recette1);
+		
+		Ingredient ingredient1=new Ingredient("sel",1);//ingredient1 recette1
+		ingredient1.setRecettes(listRecettes1);
+		ingredient1=ingredientRepo.save(ingredient1);
+		Ingredient ingredient2=new Ingredient("poivre",1);//ingredient2 recette1
+		ingredient2.setRecettes(listRecettes1);
+		ingredient2=ingredientRepo.save(ingredient2);
+		Ingredient ingredient3=new Ingredient("lardon",100);
+		ingredient3.setRecettes(listRecettes1);
+		ingredient3=ingredientRepo.save(ingredient3);
+		Ingredient ingredient4=new Ingredient("tomate",100);
+		ingredient4.setRecettes(listRecettes1);
+		ingredient4=ingredientRepo.save(ingredient4);
+		Ingredient ingredient5=new Ingredient("feta",125);
+		ingredient5.setRecettes(listRecettes1);
+		ingredient5=ingredientRepo.save(ingredient5);
+		Ingredient ingredient6=new Ingredient("lentille",120);
+		ingredient6.setRecettes(listRecettes1);
+		ingredient6=ingredientRepo.save(ingredient6);
+		Ingredient ingredient7=new Ingredient("curry",10);
+		ingredient7.setRecettes(listRecettes1);
+		ingredient7=ingredientRepo.save(ingredient7);
+		Ingredient ingredient8=new Ingredient("miel",10);
+		ingredient8.setRecettes(listRecettes1);
+		ingredient8=ingredientRepo.save(ingredient8);
+		Ingredient ingredient9=new Ingredient("huile de tournesol",20);
+		ingredient9.setRecettes(listRecettes1);
+		ingredient9=ingredientRepo.save(ingredient9);
+		Ingredient ingredient10=new Ingredient("vinaigre balsamique",15);
+		ingredient10.setRecettes(listRecettes1);
+		ingredient10=ingredientRepo.save(ingredient10);
+		Ingredient ingredient11=new Ingredient("huile de noisette",15);
+		ingredient11.setRecettes(listRecettes1);
+		ingredient11=ingredientRepo.save(ingredient11);
+		Ingredient ingredient12=new Ingredient("echalotte",1);
+		ingredient12.setRecettes(listRecettes1);
+		ingredient12=ingredientRepo.save(ingredient12);
+		
+				
+		
+		List<Ingredient> ingredients1=new ArrayList<Ingredient>();
+		ingredients1.add(ingredient1);
+		
+		ingredients1.add(ingredient2);
+		ingredient2.setRecettes(listRecettes1);
+		ingredients1.add(ingredient3);
+		ingredient3.setRecettes(listRecettes1);
+		ingredients1.add(ingredient4);
+		ingredient4.setRecettes(listRecettes1);
+		ingredients1.add(ingredient5);
+		ingredient5.setRecettes(listRecettes1);
+		ingredients1.add(ingredient6);
+		ingredient6.setRecettes(listRecettes1);
+		ingredients1.add(ingredient7);
+		ingredient7.setRecettes(listRecettes1);
+		ingredients1.add(ingredient8);
+		ingredient8.setRecettes(listRecettes1);
+		ingredients1.add(ingredient9);
+		ingredient9.setRecettes(listRecettes1);
+		ingredients1.add(ingredient10);
+		ingredient10.setRecettes(listRecettes1);
+		ingredients1.add(ingredient11);
+		ingredient11.setRecettes(listRecettes1);
+		ingredients1.add(ingredient12);
+		ingredient12.setRecettes(listRecettes1);
+		recette1=recetteRepo.save(recette1);
+		
+		Repas repas1=new Repas();
+		repas1.setTypeRepas(TypeRepas.DINER);
+		repas1=repasRepo.save(repas1);
+		
+		Plat plat1=new Plat();
+		plat1.setNombrePersonne(2);
+	
+		plat1.setRepas(repas1);
+		plat1 = platRepo.save(plat1);
+		recette1.setPlat(plat1);
+		recette1 = recetteRepo.save(recette1);
+		}
+		/********************************************************************************************************************	
+		********************************************************************************************************************	
+		********************************************************************************************************************/
+		@Test
+		public void PateCarbo(){
+		Recette recette1=new Recette();
+		recette1.setEtapes("ÉTAPE 1\r\n"
+				+ "Faire cuire les pâtes dans une grande casserole d'eau salée, le temps indiqué sur le paquet.\r\n"
+				+ "\r\n"
+				+ "ÉTAPE 2\r\n"
+				+ "Pendant ce temps, casser les oeufs dans un récipient, ajouter le parmesan râpé, et battre le tout; saler et poivrer.\r\n"
+				+ "\r\n"
+				+ "ÉTAPE 3\r\n"
+				+ "Faire cuire les lardons.\r\n"
+				+ "\r\n"
+				+ "ÉTAPE 4\r\n"
+				+ "Une fois les pâtes cuites, les égoutter, mais pas trop (toujours garder un peu d'eau pour les pâtes en sauce).\r\n"
+				+ "\r\n"
+				+ "ÉTAPE 5\r\n"
+				+ "Ajouter les lardons, avec leur jus de cuisson, porter à feu très doux et y ajouter la préparation (oeuf, parmesan) en remuant sans arrêt.\r\n"
+				+ "\r\n"
+				+ "ÉTAPE 6\r\n"
+				+ "Eteindre le feu avant que la préparation devienne trop sèche !\r\n"
+				+ "\r\n"
+				+ "ÉTAPE 7\r\n"
+				+ "Servir chaud, avec un peu de parmesan râpé en plus.");
+		recette1.setNom("Pâtes carbonara");
+		recette1.setNombrePers(6);
+		recette1.setNote(4.2F);
+//		List<TypeAlimentation> typesAlim=new ArrayList<TypeAlimentation>();
+//		typesAlim.add(TypeAlimentation.NONE);
+//		typesAlim.add(TypeAlimentation.HALAL);
+//		recette1.setTypeAlimentation(typesAlim);
+		recette1.setTypeAlimentation(TypeAlimentation.NONE);
+		recette1=recetteRepo.save(recette1);
+		List<Recette> listRecettes1 = new ArrayList<Recette>();
+		listRecettes1.add(recette1);	
+		recette1.setPhoto("../../assets/images/patecarbo.jpg");
+		recette1=recetteRepo.save(recette1);
+		
+		Ingredient ingredient1=new Ingredient("sel",1);//ingredient1 recette1
+		ingredient1.setRecettes(listRecettes1);
+		ingredient1=ingredientRepo.save(ingredient1);
+		Ingredient ingredient2=new Ingredient("poivre",1);//ingredient2 recette1
+		ingredient2.setRecettes(listRecettes1);
+		ingredient2=ingredientRepo.save(ingredient2);
+		Ingredient ingredient3=new Ingredient("lardon",250);
+		ingredient3.setRecettes(listRecettes1);
+		ingredient3=ingredientRepo.save(ingredient3);
+		Ingredient ingredient4=new Ingredient("parmesan",100);
+		ingredient4.setRecettes(listRecettes1);
+		ingredient4=ingredientRepo.save(ingredient4);
+		Ingredient ingredient5=new Ingredient("spaghetti",500);
+		ingredient5.setRecettes(listRecettes1);
+		ingredient5=ingredientRepo.save(ingredient5);
+		Ingredient ingredient6=new Ingredient("oeuf",6);
+		ingredient6.setRecettes(listRecettes1);
+		ingredient6=ingredientRepo.save(ingredient6);
+				
+		
+		List<Ingredient> ingredients1=new ArrayList<Ingredient>();
+		ingredients1.add(ingredient1);
+		
+		ingredients1.add(ingredient2);
+		ingredient2.setRecettes(listRecettes1);
+		ingredients1.add(ingredient3);
+		ingredient3.setRecettes(listRecettes1);
+		ingredients1.add(ingredient4);
+		ingredient4.setRecettes(listRecettes1);
+		ingredients1.add(ingredient5);
+		ingredient5.setRecettes(listRecettes1);
+		ingredients1.add(ingredient6);
+		ingredient6.setRecettes(listRecettes1);
+		
+		recette1=recetteRepo.save(recette1);
+		
+		Repas repas1=new Repas();
+		repas1.setTypeRepas(TypeRepas.DINER);
 		repas1=repasRepo.save(repas1);
 		
 		Plat plat1=new Plat();
 		plat1.setNombrePersonne(6);
-		//plat1.setRecettes(listRecettes1);
-		recette1.setPlat(plat1);
+	
 		plat1.setRepas(repas1);
 		plat1 = platRepo.save(plat1);
-		recette1=recetteRepo.save(recette1);
+		recette1.setPlat(plat1);
+		recette1 = recetteRepo.save(recette1);
 		}
+		
+		/********************************************************************************************************************	
+		********************************************************************************************************************	
+		********************************************************************************************************************/
+		@Test
+		public void CroqueMonsieur(){
+		Recette recette1=new Recette();
+		recette1.setEtapes("ÉTAPE 1\r\n"
+				+ "\r\n"
+				+ "\r\n"
+				+ "\r\n"
+				+ "Beurrez les 8 tranches de pain de mie sur une seule face. Posez 1 tranche de fromage sur chaque tranche de pain de mie. Posez 1 tranche de jambon plié en deux sur 4 tranches de pain de mie. Recouvrez avec les autres tartines (face non beurrée au dessus).\r\n"
+				+ "\r\n"
+				+ "ÉTAPE 2\r\n"
+				+ "\r\n"
+				+ "\r\n"
+				+ "\r\n"
+				+ "\r\n"
+				+ "\r\n"
+				+ "Dans un bol mélanger le fromage râpé avec le lait, le sel, le poivre et la muscade.\r\n"
+				+ "\r\n"
+				+ "ÉTAPE 3\r\n"
+				+ "Répartissez le mélange sur les croque-monsieur.\r\n"
+				+ "\r\n"
+				+ "ÉTAPE 4\r\n"
+				+ "Placez sur une plaque au four sous le grill pendant 10 mn.");
+		recette1.setNom("Croque Monsieur");
+		recette1.setNombrePers(4);
+		recette1.setNote(4.5F);
+//		List<TypeAlimentation> typesAlim=new ArrayList<TypeAlimentation>();
+//		typesAlim.add(TypeAlimentation.NONE);
+//		typesAlim.add(TypeAlimentation.HALAL);
+//		recette1.setTypeAlimentation(typesAlim);
+		recette1.setTypeAlimentation(TypeAlimentation.NONE);
+		recette1=recetteRepo.save(recette1);
+		List<Recette> listRecettes1 = new ArrayList<Recette>();
+		listRecettes1.add(recette1);	
+		recette1.setPhoto("../../assets/images/croquemonsieur.jpg");
+		recette1=recetteRepo.save(recette1);
+		
+		Ingredient ingredient1=new Ingredient("sel",1);//ingredient1 recette1
+		ingredient1.setRecettes(listRecettes1);
+		ingredient1=ingredientRepo.save(ingredient1);
+		Ingredient ingredient2=new Ingredient("poivre",1);//ingredient2 recette1
+		ingredient2.setRecettes(listRecettes1);
+		ingredient2=ingredientRepo.save(ingredient2);
+		Ingredient ingredient3=new Ingredient("jambon",250);
+		ingredient3.setRecettes(listRecettes1);
+		ingredient3=ingredientRepo.save(ingredient3);
+		Ingredient ingredient4=new Ingredient("tranche de pain",350);
+		ingredient4.setRecettes(listRecettes1);
+		ingredient4=ingredientRepo.save(ingredient4);
+		Ingredient ingredient5=new Ingredient("lait",50);
+		ingredient5.setRecettes(listRecettes1);
+		ingredient5=ingredientRepo.save(ingredient5);
+		Ingredient ingredient6=new Ingredient("beurre",50);
+		ingredient6.setRecettes(listRecettes1);
+		ingredient6=ingredientRepo.save(ingredient6);
+		Ingredient ingredient7=new Ingredient("noix de muscade",10);
+		ingredient7.setRecettes(listRecettes1);
+		ingredient7=ingredientRepo.save(ingredient7);
+		Ingredient ingredient8=new Ingredient("fromage",150);
+		ingredient8.setRecettes(listRecettes1);
+		ingredient8=ingredientRepo.save(ingredient8);
+		Ingredient ingredient9=new Ingredient("gruyere rape",100);
+		ingredient9.setRecettes(listRecettes1);
+		ingredient9=ingredientRepo.save(ingredient9);
 				
+		
+		List<Ingredient> ingredients1=new ArrayList<Ingredient>();
+		ingredients1.add(ingredient1);
+		
+		ingredients1.add(ingredient2);
+		ingredient2.setRecettes(listRecettes1);
+		ingredients1.add(ingredient3);
+		ingredient3.setRecettes(listRecettes1);
+		ingredients1.add(ingredient4);
+		ingredient4.setRecettes(listRecettes1);
+		ingredients1.add(ingredient5);
+		ingredient5.setRecettes(listRecettes1);
+		ingredients1.add(ingredient6);
+		ingredient6.setRecettes(listRecettes1);
+		ingredients1.add(ingredient7);
+		ingredient7.setRecettes(listRecettes1);
+		ingredients1.add(ingredient8);
+		ingredient8.setRecettes(listRecettes1);
+		ingredients1.add(ingredient9);
+		ingredient9.setRecettes(listRecettes1);
+		
+		recette1=recetteRepo.save(recette1);
+		
+		Repas repas1=new Repas();
+		repas1.setTypeRepas(TypeRepas.DINER);
+		repas1=repasRepo.save(repas1);
+		
+		Plat plat1=new Plat();
+		plat1.setNombrePersonne(4);
+	
+		plat1.setRepas(repas1);
+		plat1 = platRepo.save(plat1);
+		recette1.setPlat(plat1);
+		recette1 = recetteRepo.save(recette1);
+		}
+		
+		/********************************************************************************************************************	
+		********************************************************************************************************************	
+		********************************************************************************************************************/
+		@Test
+		public void SaladeCesar(){
+		Recette recette1=new Recette();
+		recette1.setEtapes("ÉTAPE 1\r\n"
+				+ "Faites dorer le pain, coupé en cubes, 3 min dans un peu d'huile.\r\n"
+				+ "\r\n"
+				+ "ÉTAPE 2\r\n"
+				+ "Déchirez les feuilles de romaine dans un saladier, et ajoutez les croûtons préalablement épongés dans du papier absorbant.\r\n"
+				+ "\r\n"
+				+ "ÉTAPE 3\r\n"
+				+ "Préparez la sauce : Faites cuire l'oeuf 1 min 30 dans l'eau bouillante, et rafraîchissez-le.\r\n"
+				+ "\r\n"
+				+ "ÉTAPE 4\r\n"
+				+ "Cassez-le dans le bol d'un mixeur et mixez, avec tous les autres ingrédients; rectifiez l'assaissonnement et incorporez à la salade.\r\n"
+				+ "\r\n"
+				+ "ÉTAPE 5\r\n"
+				+ "Décorez de copeaux de parmesan, et servez.");
+		recette1.setNom("Salade Cesar");
+		recette1.setNombrePers(4);
+		recette1.setNote(4.6F);
+//		List<TypeAlimentation> typesAlim=new ArrayList<TypeAlimentation>();
+//		typesAlim.add(TypeAlimentation.NONE);
+//		typesAlim.add(TypeAlimentation.HALAL);
+//		recette1.setTypeAlimentation(typesAlim);
+		recette1.setTypeAlimentation(TypeAlimentation.NONE);
+		recette1=recetteRepo.save(recette1);
+		List<Recette> listRecettes1 = new ArrayList<Recette>();
+		listRecettes1.add(recette1);	
+		recette1.setPhoto("../../assets/images/salsadecesar.jpg");
+		recette1=recetteRepo.save(recette1);
+		
+		Ingredient ingredient1=new Ingredient("sel",1);//ingredient1 recette1
+		ingredient1.setRecettes(listRecettes1);
+		ingredient1=ingredientRepo.save(ingredient1);
+		Ingredient ingredient2=new Ingredient("poivre",1);//ingredient2 recette1
+		ingredient2.setRecettes(listRecettes1);
+		ingredient2=ingredientRepo.save(ingredient2);
+		Ingredient ingredient3=new Ingredient("parmesan",25);
+		ingredient3.setRecettes(listRecettes1);
+		ingredient3=ingredientRepo.save(ingredient3);
+		Ingredient ingredient4=new Ingredient("câpres",15);
+		ingredient4.setRecettes(listRecettes1);
+		ingredient4=ingredientRepo.save(ingredient4);
+		Ingredient ingredient5=new Ingredient("moutarde",20);
+		ingredient5.setRecettes(listRecettes1);
+		ingredient5=ingredientRepo.save(ingredient5);
+		Ingredient ingredient6=new Ingredient("tabasco",5);
+		ingredient6.setRecettes(listRecettes1);
+		ingredient6=ingredientRepo.save(ingredient6);
+		Ingredient ingredient7=new Ingredient("citron",10);
+		ingredient7.setRecettes(listRecettes1);
+		ingredient7=ingredientRepo.save(ingredient7);
+		Ingredient ingredient8=new Ingredient("ail",15);
+		ingredient8.setRecettes(listRecettes1);
+		ingredient8=ingredientRepo.save(ingredient8);
+		Ingredient ingredient9=new Ingredient("huile",15);
+		ingredient9.setRecettes(listRecettes1);
+		ingredient9=ingredientRepo.save(ingredient9);
+		Ingredient ingredient10=new Ingredient("oeuf",15);
+		ingredient10.setRecettes(listRecettes1);
+		ingredient10=ingredientRepo.save(ingredient10);
+		Ingredient ingredient11=new Ingredient("laitue",200);
+		ingredient11.setRecettes(listRecettes1);
+		ingredient11=ingredientRepo.save(ingredient11);	
+		Ingredient ingredient12=new Ingredient("pain",200);
+		ingredient12.setRecettes(listRecettes1);
+		ingredient12=ingredientRepo.save(ingredient12);
+		
+		List<Ingredient> ingredients1=new ArrayList<Ingredient>();
+		ingredients1.add(ingredient1);
+		
+		ingredients1.add(ingredient2);
+		ingredient2.setRecettes(listRecettes1);
+		ingredients1.add(ingredient3);
+		ingredient3.setRecettes(listRecettes1);
+		ingredients1.add(ingredient4);
+		ingredient4.setRecettes(listRecettes1);
+		ingredients1.add(ingredient5);
+		ingredient5.setRecettes(listRecettes1);
+		ingredients1.add(ingredient6);
+		ingredient6.setRecettes(listRecettes1);
+		ingredients1.add(ingredient7);
+		ingredient7.setRecettes(listRecettes1);
+		ingredients1.add(ingredient8);
+		ingredient8.setRecettes(listRecettes1);
+		ingredients1.add(ingredient9);
+		ingredient9.setRecettes(listRecettes1);
+		ingredients1.add(ingredient10);
+		ingredient10.setRecettes(listRecettes1);
+		ingredients1.add(ingredient11);
+		ingredient11.setRecettes(listRecettes1);
+		ingredients1.add(ingredient12);
+		ingredient12.setRecettes(listRecettes1);
+		recette1=recetteRepo.save(recette1);
+		
+		Repas repas1=new Repas();
+		repas1.setTypeRepas(TypeRepas.DINER);
+		repas1=repasRepo.save(repas1);
+		
+		Plat plat1=new Plat();
+		plat1.setNombrePersonne(4);
+	
+		plat1.setRepas(repas1);
+		plat1 = platRepo.save(plat1);
+		recette1.setPlat(plat1);
+		recette1 = recetteRepo.save(recette1);
+		}
 }

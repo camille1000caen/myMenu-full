@@ -33,7 +33,7 @@ listeCourse: Array<Ingredient> = new Array<Ingredient>();
   }
 listRecette(id: number){
 
-    return this.ingredientService.findAllByRecette(id);
+    //return this.ingredientService.findAllByRecette(id);
 }
 
 

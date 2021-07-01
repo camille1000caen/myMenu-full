@@ -1,31 +1,31 @@
-<!--<div class="wrapper ">-->
-<!--  &lt;!&ndash;  <div class="">&ndash;&gt;-->
-<!--  <div class="container py-4">-->
-<!--    <div class="card w-20 ">-->
-<!--      <div class="card-header bg-info text-white text-center">-->
-<!--        <h2>Liste des ingredients</h2>-->
-<!--      </div>-->
-<!--      <div class="card-body">-->
-<!--        <table class="table table-striped">-->
-<!--          <thead>-->
-<!--          <tr>-->
-<!--            <th>Nom </th>-->
-<!--            <th>Note </th>-->
-<!--          </thead>-->
-<!--          <tbody>-->
-<!--          <tr *ngFor ="let recette of list()">-->
-<!--            <td>{{recette.nom}}</td>-->
-<!--            <td>{{recette.note}}</td>-->
-<!--          </tr>-->
-<!--          </tbody>-->
-<!--          <tfoot>-->
+<div class="wrapper ">
+  <!--  <div class="">-->
+  <div class="container py-4">
+    <div class="card w-20 ">
+      <div class="card-header bg-info text-white text-center">
+        <h2>Liste des ingredients</h2>
+      </div>
+      <div class="card-body">
+        <table class="table table-striped">
+          <thead>
+          <tr>
+            <th>Nom </th>
+            <th>Note </th>
+          </thead>
+          <tbody>
+          <tr *ngFor ="let recette of list()">
+            <td>{{recette.nom}}</td>
+            <td>{{recette.note}}</td>
+          </tr>
+          </tbody>
+          <tfoot>
 
-<!--          </tfoot>-->
-<!--        </table>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--  </div>-->
-<!--</div>-->
+          </tfoot>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
 
 <img class="card-img-top" src="{{recette.photo}}" alt="Card image cap"/>
 <div class="card-body">
