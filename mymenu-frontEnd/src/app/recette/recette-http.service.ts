@@ -3,6 +3,7 @@ import {Injectable} from "@angular/core";
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {AppConfigService} from "../app-config.service";
+import {findAll} from "@angular/compiler-cli/ngcc/src/utils";
 
 @Injectable({
   providedIn: 'root'
@@ -19,6 +20,10 @@ export class RecetteHttpService {
     return this.recettes;
   }
 
+  findOneRandom(): Observable<Recette>{
+    return this.http.get<Recette>(this.appConfig.backEndUrl +"recette/random");
+  }
+
   findAllByRisingNote(): Observable<Array<Recette>>{
     return this.http.get<Array<Recette>>(this.appConfig.backEndUrl + "recette/detail/by-rising-note");
   }
@@ -29,6 +34,10 @@ export class RecetteHttpService {
 
   findById(id: number): Observable<Recette> {
     return this.http.get<Recette>(this.appConfig.backEndUrl +"recette/" + id);
+  }
+
+  findByIdWithPlatAndRepas(id: number): Observable<Recette> {
+    return this.http.get<Recette>(this.appConfig.backEndUrl +"recette/with-plat-repas/" + id);
   }
 
   create(recette: Recette) {

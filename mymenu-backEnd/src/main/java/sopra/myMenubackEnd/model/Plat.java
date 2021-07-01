@@ -16,10 +16,12 @@ import org.springframework.data.annotation.Version;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
+import sopra.myMenubackEnd.model.Views.ViewRecetteDetail;
+
 @Entity
 @Table(name = "plat")
 public class Plat {
-	
+
 	@Id
 	@GeneratedValue
 	@JsonView(Views.ViewCommon.class)
@@ -32,11 +34,10 @@ public class Plat {
 	private int nombrePersonne;
 	@ManyToOne
 	@JoinColumn(name = "repas_id")
+	@JsonView(ViewRecetteDetail.class)
 	private Repas repas;
 	@OneToMany(mappedBy = "plat")
-	private List<Recette> recettes= new ArrayList<Recette>();
-	
-	
+	private List<Recette> recettes = new ArrayList<Recette>();
 
 	public List<Recette> getRecettes() {
 		return recettes;
@@ -49,7 +50,7 @@ public class Plat {
 	public Plat() {
 		super();
 	}
-	
+
 	public Plat(Long id, int version, int nombrePersonne) {
 		super();
 		this.id = id;
@@ -62,51 +63,36 @@ public class Plat {
 		this.nombrePersonne = nombrePersonne;
 	}
 
-
 	public Long getId() {
 		return id;
 	}
-
 
 	public void setId(Long id) {
 		this.id = id;
 	}
 
-
 	public int getNombrePersonne() {
 		return nombrePersonne;
 	}
-
 
 	public void setNombrePersonne(int nombrePersonne) {
 		this.nombrePersonne = nombrePersonne;
 	}
 
-
 	public Repas getRepas() {
 		return repas;
 	}
-
 
 	public void setRepas(Repas repas) {
 		this.repas = repas;
 	}
 
-
 	public int getVersion() {
 		return version;
 	}
-
 
 	public void setVersion(int version) {
 		this.version = version;
 	}
 
-
-
-
-
-	
-	
-	
 }

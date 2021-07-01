@@ -16,20 +16,60 @@ export class SelectionMenuComponent implements OnInit {
   tabpetitdej: Array<Recette>=new Array<Recette>();
   tabdiner: Array<Recette>=new Array<Recette>();
   menuChecked: Array<number> = new Array();
+
+  petitDejDetail: Array<string> = new Array();
+  dejDetail: Array<string> = new Array();
+  dinerDetail: Array<string> = new Array();
+
   constructor(private recetteService: RecetteHttpService) {
 
   }
 
-  addRecette(id: number) {
-    console.log(id);
+  addRecette(id: number, nom:string) {
     this.menuChecked.push(id);
+    let typeRepas :string;
+
+    this.recetteService.findByIdWithPlatAndRepas(id).subscribe(resp=>{
+      typeRepas=resp.plat.repas.typeRepas;
+      console.log(typeRepas);
+      if(typeRepas === "PETIT_DEJ"){
+        this.petitDejDetail.push(nom);
+        console.log("petitDejDetail = " + this.petitDejDetail);
+      } else if (typeRepas === "DEJ"){
+        this.dejDetail.push(nom);
+        console.log("dejDetail = " + this.dejDetail);
+      } else if (typeRepas === "DINNER") {
+        this.dinerDetail.push(nom);
+        console.log("dinerDetail = " + this.dinerDetail);
+      }
+    });
+
     console.log(this.menuChecked);
+
   }
 
-  removeRecette(id: number) {
+  removeRecette(id: number, nom:string) {
     console.log(id);
     this.menuChecked = this.menuChecked.filter((menuIdChecked) => menuIdChecked != id);
     console.log(this.menuChecked);
+
+    let typeRepas: string;
+
+    this.recetteService.findByIdWithPlatAndRepas(id).subscribe(resp=>{
+      typeRepas=resp.plat.repas.typeRepas;
+      console.log(typeRepas);
+      if(typeRepas === "PETIT_DEJ"){
+        this.petitDejDetail = this.petitDejDetail.filter((menuNameChecked) => menuNameChecked != nom);
+        console.log("petitDejDetail = " + this.petitDejDetail);
+      } else if (typeRepas === "DEJ"){
+        this.dejDetail = this.dejDetail.filter((menuNameChecked) => menuNameChecked != nom);
+        console.log("dejDetail = " + this.dejDetail);
+      } else if (typeRepas === "DINNER") {
+        this.dinerDetail = this.dinerDetail.filter((menuNameChecked) => menuNameChecked != nom);
+        console.log("dinerDetail = " + this.dinerDetail);
+      }
+    });
+
   }
 
   ngOnInit(): void {

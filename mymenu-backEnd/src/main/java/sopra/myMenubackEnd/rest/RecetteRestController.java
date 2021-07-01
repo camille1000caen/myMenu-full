@@ -67,6 +67,19 @@ public class RecetteRestController {
 		return recetteRepo.findByRisingNote();
 	}
 	
+	@GetMapping("/with-plat-repas/{id}")
+	@JsonView(Views.ViewRecetteDetail.class)
+	public Recette findByIdWithPlatAndRepas(@PathVariable Long id) {
+
+		Optional<Recette> optRecette = recetteRepo.findByIdWithPlatAndRepas(id);
+		
+		if(optRecette.isPresent()) {
+			return optRecette.get();
+		}else {
+			throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Unable to find resource");
+		}	
+	}
+		
 	@GetMapping("/detail/by-rising-note")
 	@JsonView(Views.ViewRecetteDetail.class)
 	public List<Recette> findByRisingNoteWithPlat() {
@@ -89,6 +102,19 @@ public class RecetteRestController {
 		}
 		return res;
 	}
+	
+	@GetMapping("/random")
+	@JsonView(Views.ViewRecette.class)
+	public Recette findRandomRecette(){
+		return oneRandomRecette(recetteRepo.findAll());
+	}
+	
+	public Recette oneRandomRecette(List<Recette>list) {
+		
+		Recette recetteResult;
+		return recetteResult = (list.get((int) Math.floor(Math.random()*list.size())));
+	}
+	
 	
 	
 	@GetMapping("/{id}")

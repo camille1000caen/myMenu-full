@@ -17,6 +17,7 @@ import {RepasComponent} from "./repas/repas.component";
 import {MenuComponent} from "./menu/menu.component";
 import {ConnexionDTOComponent} from "./connexion-dto/connexion-dto.component";
 import {ProfilUtilisateurComponent} from "./profil-utilisateur/profil-utilisateur.component";
+import {PresentationComponent} from "./presentation/presentation.component";
 
 
 const routes: Routes = [
@@ -38,7 +39,8 @@ const routes: Routes = [
   {path: "menu", component: MenuComponent},
   {path: "listeCourses", component: ListeCoursesComponent},
   {path: "connexion", component: ConnexionDTOComponent},
-  {path: "profil-utilisateur", component: ProfilUtilisateurComponent}
+  {path: "profil-utilisateur", component: ProfilUtilisateurComponent},
+  {path: "presentation", component: PresentationComponent}
 ];
 
 @NgModule({

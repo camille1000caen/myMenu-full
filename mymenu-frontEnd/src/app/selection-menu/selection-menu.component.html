@@ -19,13 +19,13 @@
           <h2 class="petitDejTitle">Petit déjeuner</h2>
           <div class="album py-3">
             <div class="card-deck"  >
-              <app-recette *ngFor="let recette of tabFirst4(this.tabpetitdej)" [idRecette]="recette.id" class="card" (checkedRecette)="addRecette($event)" (unCheckedRecette)="removeRecette($event)"></app-recette>
+              <app-recette *ngFor="let recette of tabFirst4(this.tabpetitdej)" [idRecette]="recette.id" class="card" (checkedRecette)="addRecette($event, recette.nom)" (unCheckedRecette)="removeRecette($event, recette.nom)"></app-recette>
             </div>
           </div>
           <!-- ---------------------------------------------------------------------------- BREAKFAST ROW 2 -->
           <div class="album py-3">
             <div class="card-deck" >
-              <app-recette  *ngFor="let recette of tabLast4(this.tabpetitdej)" [idRecette]="recette.id"  class="card"  (checkedRecette)="addRecette($event)" (unCheckedRecette)="removeRecette($event)"></app-recette>
+              <app-recette  *ngFor="let recette of tabLast4(this.tabpetitdej)" [idRecette]="recette.id"  class="card"  (checkedRecette)="addRecette($event, recette.nom)" (unCheckedRecette)="removeRecette($event, recette.nom)"></app-recette>
             </div>
           </div>
           <!-- ---------------------------------------------------------------------------- BREAKFAST END-->
@@ -36,13 +36,13 @@
           <h2 class="dejeunerTitle">Déjeuner</h2>
           <div class="album py-3">
             <div class="card-deck">
-              <app-recette *ngFor="let recette of tabFirst4(this.tabdej)" [idRecette]="recette.id" class="card" (checkedRecette)="addRecette($event)" (unCheckedRecette)="removeRecette($event)"></app-recette>
+              <app-recette *ngFor="let recette of tabFirst4(this.tabdej)" [idRecette]="recette.id" class="card" (checkedRecette)="addRecette($event, recette.nom)" (unCheckedRecette)="removeRecette($event, recette.nom)"></app-recette>
             </div>
           </div>
           <!-- ---------------------------------------------------------------------------- LUNCH ROW 2 -->
           <div class="album py-3">
             <div class="card-deck">
-              <app-recette *ngFor="let recette of tabLast4(this.tabdej)" [idRecette]="recette.id" class="card" (checkedRecette)="addRecette($event)" (unCheckedRecette)="removeRecette($event)"></app-recette>
+              <app-recette *ngFor="let recette of tabLast4(this.tabdej)" [idRecette]="recette.id" class="card" (checkedRecette)="addRecette($event, recette.nom)" (unCheckedRecette)="removeRecette($event, recette.nom)"></app-recette>
             </div>
           </div>
           <!-- ---------------------------------------------------------------------------- LUNCH END-->
@@ -53,13 +53,13 @@
           <h2 class="dinnerTitle">Dîner</h2>
           <div class="album py-3">
             <div class="card-deck">
-              <app-recette *ngFor="let recette of tabFirst4(this.tabdiner)" [idRecette]="recette.id" class="card" (checkedRecette)="addRecette($event)" (unCheckedRecette)="removeRecette($event)"></app-recette>
+              <app-recette *ngFor="let recette of tabFirst4(this.tabdiner)" [idRecette]="recette.id" class="card" (checkedRecette)="addRecette($event, recette.nom)" (unCheckedRecette)="removeRecette($event, recette.nom)"></app-recette>
             </div>
           </div>
           <!-- ---------------------------------------------------------------------------- LUNCH ROW 2 -->
           <div class="album py-3">
             <div class="card-deck">
-              <app-recette *ngFor="let recette of tabLast4(this.tabdiner)" [idRecette]="recette.id" class="card" (checkedRecette)="addRecette($event)" (unCheckedRecette)="removeRecette($event)"></app-recette>
+              <app-recette *ngFor="let recette of tabLast4(this.tabdiner)" [idRecette]="recette.id" class="card" (checkedRecette)="addRecette($event, recette.nom)" (unCheckedRecette)="removeRecette($event, recette.nom)"></app-recette>
             </div>
           </div>
           <!-- ---------------------------------------------------------------------------- DINNER END-->
@@ -80,20 +80,15 @@
   </section>
   <nav class="listDetail">
     <div class="Cart">
-      <h1><i class="fas fa-cart-arrow-down"></i><span class="breakfast-MenuDetail-Qt" id="totalMenu"> 0 / 21 </span></h1>
+      <h1><i class="fas fa-cart-arrow-down"></i><span class="breakfast-MenuDetail-Qt" id="totalMenu"> {{petitDejDetail.length + dejDetail.length + dinerDetail.length}} / 24 </span></h1>
     </div>
 
     <ul class="list-group list-group-flush ">
       <li class="list-group-item">
         <div class="breakfast-MenuDetail">
-          <h2>Petit déjeuner : <span class="breakfast-MenuDetail-Qt" id="totalBreakfast">0 / 7 </span></h2>
+          <h2>Petit déjeuner : <span class="breakfast-MenuDetail-Qt" id="totalBreakfast">{{petitDejDetail.length}} / 8</span></h2>
           <ul class="list-group ">
-            <li class="list-group-item d-flex justify-content-between align-items-center">
-              <span class="badge badge-primary badge-pill">4</span>
-            </li>
-            <li class="list-group-item d-flex justify-content-between align-items-center">item 2
-              <span class="badge badge-primary badge-pill">2</span>
-            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center" *ngFor="let nom of petitDejDetail">{{nom}}</li>
           </ul>
           <button class="trashCan" type="submit" name="trashCan" value="">
             <i class="fas fa-trash-alt trashCan"></i>
@@ -103,16 +98,9 @@
 
       <li class="list-group-item">
         <div class="lunch-MenuDetail">
-          <h2>Déjeuner : <span class="lunch-MenuDetail-Qt">0 / 7 </span></h2>
+          <h2>Déjeuner : <span class="lunch-MenuDetail-Qt">{{dejDetail.length}} / 8</span></h2>
           <ul class="list-group">
-            <li class="list-group-item d-flex justify-content-between align-items-center">
-              item 1
-              <span class="badge badge-primary badge-pill">4</span>
-            </li>
-            <li class="list-group-item d-flex justify-content-between align-items-center">
-              item 2
-              <span class="badge badge-primary badge-pill">2</span>
-            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center" *ngFor="let nom of dejDetail">{{nom}}</li>
           </ul>
           <button class="trashCan" type="submit" name="trashCan" value="">
             <i class="fas fa-trash-alt trashCan"></i>
@@ -122,16 +110,9 @@
 
       <li class="list-group-item">
         <div class="diner-MenuDetail">
-          <h2>Dîner : <span class="dinner-MenuDetail-Qt">0 / 7 </span></h2>
+          <h2>Dîner : <span class="dinner-MenuDetail-Qt">{{dinerDetail.length}} / 8</span></h2>
           <ul class="list-group">
-            <li class="list-group-item d-flex justify-content-between align-items-center">
-              item 1
-              <span class="badge badge-primary badge-pill">4</span>
-            </li>
-            <li class="list-group-item d-flex justify-content-between align-items-center">
-              item 2
-              <span class="badge badge-primary badge-pill">2</span>
-            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center" *ngFor="let nom of dinerDetail">{{nom}}</li>
           </ul>
           <button class="trashCan" type="submit" name="trashCan" value="">
             <i class="fas fa-trash-alt trashCan"></i>

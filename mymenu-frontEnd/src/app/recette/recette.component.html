@@ -37,9 +37,9 @@
 <div class="card-footer">
   <div class="form-check btn-group float-right">
     <div class="input-group-text">
-      <input type="checkbox" name="checkbox" class="checkbox-Custom" value="{{recette.id}}" (change)="getMenuId($event, recette.id)">
+      <input type="checkbox" name="checkbox" class="checkbox-Custom" value="{{recette.id}}" (change)="getMenu($event, recette.id, recette.nom)">
     </div>
-    <button type="submit" class="btn btn-info">
+    <button type="submit" class="btn btn-info" (click)="findOneRandomly()">
       <i class="fa fa-sync"></i>
     </button>
   </div>
